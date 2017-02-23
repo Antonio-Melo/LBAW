@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>.bat</title>
-    <link rel="stylesheet" href="../style/header.css">
-    <link rel="stylesheet" href="../style/footer.css">
-    <link rel="stylesheet" href="<?=$cssPath?>">
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="<?=$cssPath?>">
+    <link rel="stylesheet" href="../style/footer.css">
 	<script src="../lib/jquery/jquery.min.js"></script>
 	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">

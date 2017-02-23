@@ -1,3 +1,4 @@
-body{
-    background-color: #98878F;
+.thumbnail{
+    border: 3px solid #ddd;
+    background-color: #d3d3d3;
 }
