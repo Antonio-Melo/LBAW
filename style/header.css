@@ -3,14 +3,36 @@ html {
 	height: 100%;
 }
 
+/* Buttons and inputs */
 input:focus, button:focus {
 	outline-style: none !important;
 	box-shadow: none !important;
 	border-color: transparent !important;
 }
 
+button {
+	background: #c49f66 !important;
+	color: white !important;
+	outline-style: none !important;
+	box-shadow: none !important;
+	border-color: transparent !important;
+	border-radius: 0px !important;
+}
 
+button:hover {
+	background: #b98d49 !important;
+}
 
+/* ===================================================== */
+/* Main nav */
+#main-nav {
+	margin-bottom: 0px;
+	background: #373d5b;
+	border-radius: 0px;
+	border-width: 0 0 0 0;
+}
+
+/* Search */
 #search-div, #search-div *{
 	vertical-align: middle;
 	padding-top: 0px;
@@ -23,16 +45,51 @@ input:focus, button:focus {
 #search-bttn {
 	padding-top: 18px;
 	padding-bottom: 18px;
+	width: 50px;
 }
 
-.nav-content {
-	background-color: blue;
+/* Logo/Menu */
+#menu, #logo {
+	height: 50px;
+	padding: 0 0 0 0;
 }
 
-#menu {
-	padding: 8px 8px 8px 0px;
+#logo > a {
+	color: white;
+	margin-left: 8px;
 }
 
-#logo {
-	padding-left: 8px;
+#menu > div {
+	margin-top: 8px;
+	margin-right: 8px;
 }
+
+#menu > ul {
+	margin-right: 8px;
+}
+
+#menu span {
+	color: white;
+}
+
+
+/* ===================================================== */
+/* Secondary nav */
+
+#secondary-nav {
+	text-align: center;
+	margin-bottom: 0px;
+	background: #494e6b;
+	border-radius: 0px;
+	border-width: 0 0 0 0;
+}
+
+#secondary-nav ul {
+	display: inline-block;
+	float: none;
+}
+
+#secondary-nav a {
+	color: white;
+}
+
