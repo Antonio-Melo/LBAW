@@ -60,6 +60,10 @@ button:hover {
 	padding: 4px 0 0 0;
 }
 
+#logo img {
+	height: 42px;
+}
+
 #menu > div {
 	margin-top: 8px;
 	margin-right: 16px;
@@ -69,10 +73,10 @@ button:hover {
 	margin-right: 16px;
 }
 
-#menu > ul span {
+#menu .glyphicon {
+    font-size: 18px;
 	color: white;
 }
-
 
 /* ===================================================== */
 /* Secondary nav */
@@ -91,6 +95,15 @@ button:hover {
 }
 
 #secondary-nav a {
+	padding: 9px 15px 9px 15px;
 	color: white;
 }
 
+#secondary-nav li {
+	border-top: 3px solid #494e6b;
+	border-bottom: 3px solid #494e6b;
+}
+
+#secondary-nav li:hover {
+	border-bottom: 3px solid #c49f66;
+}
