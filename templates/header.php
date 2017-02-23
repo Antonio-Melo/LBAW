@@ -10,13 +10,17 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-default">
+<header>
+    <!--Main nav-->
+    <nav class="navbar navbar-default" id="main-nav">
         <div class="container-fluid">
             <div class="row">
+                <!--Logo-->
                 <div class="nav-content col-xs-3 col-sm-3 col-md-3 col-lg-3 navbar-header" id="logo">
                     <a class="navbar-brand" href="#">.bat</a>
                 </div>
+
+                <!--Search bar-->
                 <div class="nav-content col-xs-6 col-sm-6 col-md-6 col-lg-6" id="search-div">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search">
@@ -27,6 +31,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!--Menu-->
                 <div class="nav-content col-xs-3 col-sm-3 col-md-3 col-lg-3" id="menu" align="right">
                     <div class="dropdown visible-xs-inline-block visible-sm-inline-block">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger"></button>
@@ -56,4 +62,17 @@
             </div>
         </div>
     </nav>
-</header>
+
+    <!--Categories-->
+    <nav class="navbar navbar-default hidden-xs" id="secondary-nav">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Smartphones</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Peripherals</a></li>
+            <li><a href="#">Computers</a></li>
+            <li><a href="#">Gaming</a></li>
+            <li><a href="#">Cameras</a></li>
+            <li><a href="#">Accessories</a></li>
+        </ul>
+    </nav>
+<header>
