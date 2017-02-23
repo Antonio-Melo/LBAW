@@ -3,6 +3,7 @@
 <head>
     <title>.bat</title>
     <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
