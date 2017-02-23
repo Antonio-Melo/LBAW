@@ -3,15 +3,14 @@
 <head>
     <title>.bat</title>
     <link rel="stylesheet" href="../style/header.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 </head>
+
 <body>
-<header>
-    <nav class="navbar navbar-default">
+    <header>
+        <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="row">
                 <div class="nav-content col-xs-3 col-sm-3 col-md-3 col-lg-3 navbar-header" id="logo">
