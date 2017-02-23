@@ -1,6 +1,6 @@
 <?php
   //$cssPath = '../style/home.css';
-  include('../templates/header.html');
-  include('../templates/home.html');
-  include('../templates/footer.html');
+  include('../templates/header.php');
+  include('../templates/home.php');
+  include('../templates/footer.php');
 ?>
