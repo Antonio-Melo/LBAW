@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="<?=$cssPath?>">
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.css">
-	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../lib/jquery/jquery.min.js"></script>
+	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 </head>
@@ -21,8 +21,8 @@
 					<!--Logo-->
 					<div class="nav-content col-xs-3 col-sm-3 col-md-3 col-lg-3 navbar-header" id="logo">
 						<a class="navbar-brand" href="#">
-							<img src="../resources/logo/logo.png" height="42px" class="hidden-xs hidden-sm">
-							<img src="../resources/logo/logo-mobile.png" height="42px" class="visible-xs-inline-block visible-sm-inline-block">
+							<img src="../resources/logo/logo.png" class="hidden-xs hidden-sm">
+							<img src="../resources/logo/logo-mobile.png" class="visible-xs-inline-block visible-sm-inline-block">
 						</a>
 					</div>
 					
@@ -63,7 +63,7 @@
 		</nav>
 		
 		<!--Categories-->
-		<nav class="navbar navbar-default hidden-xs" id="secondary-nav">
+		<nav class="navbar navbar-default" id="secondary-nav">
 			<ul class="nav navbar-nav">
 				<li><a href="#">Smartphones</a></li>
 				<li><a href="#">Tablets</a></li>
