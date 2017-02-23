@@ -64,7 +64,7 @@
 		
 		<!--Categories-->
 		<nav class="navbar navbar-default" id="secondary-nav">
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav hidden-xs">
 				<li><a href="#">Smartphones</a></li>
 				<li><a href="#">Tablets</a></li>
 				<li><a href="#">Peripherals</a></li>
@@ -72,6 +72,10 @@
 				<li><a href="#">Gaming</a></li>
 				<li><a href="#">Cameras</a></li>
 				<li><a href="#">Accessories</a></li>
+			</ul>
+			
+			<ul class="nav navbar-nav visible-xs-inline-block">
+				<li><a href="#">Check out these deals!</a></li>
 			</ul>
 		</nav>
 	</header>
