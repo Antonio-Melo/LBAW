@@ -3,6 +3,29 @@ html {
 	height: 100%;
 }
 
+/* Navs */
+nav, nav div, nav li, nav ul {
+	margin-bottom: 0px !important;
+	border-radius: 0px !important;
+	border-width: 0 0 0 0 !important;
+}
+
+/* Search areas */
+.search, .search *{
+	vertical-align: middle;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border-width: 0 0 0 0;
+	height: 50px;
+	border-radius: 0px;
+}
+
+.search button {
+	padding-top: 18px;
+	padding-bottom: 18px;
+	width: 50px;
+}
+
 /* Buttons and inputs */
 input:focus, button:focus {
 	outline-style: none !important;
@@ -23,54 +46,39 @@ button:hover {
 	background: #b98d49 !important;
 }
 
+a, a:hover, a:active, a:visited {
+    text-decoration:none !important;
+}
+
 /* ===================================================== */
 /* Main nav */
 #main-nav {
-	margin-bottom: 0px;
 	background: #373d5b;
-	border-radius: 0px;
-	border-width: 0 0 0 0;
-}
-
-/* Search */
-#search-div, #search-div *{
-	vertical-align: middle;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	border-width: 0 0 0 0;
-	height: 50px;
-	border-radius: 0px;
-}
-
-#search-bttn {
-	padding-top: 18px;
-	padding-bottom: 18px;
-	width: 50px;
 }
 
 /* Logo/Menu */
-#menu, #logo {
+#logo {
 	height: 50px;
-	padding: 0 0 0 0;
-}
-
-#logo > a {
-	color: white;
-	margin-left: 16px;
-	padding: 4px 0 0 0;
+	margin: 0 0 0 0;
+	padding-top: 4px;
 }
 
 #logo img {
 	height: 42px;
 }
 
-#menu > div {
-	margin-top: 8px;
-	margin-right: 16px;
+#logo > a {
+	color: white;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 
-#menu > ul {
-	margin-right: 16px;
+#menu {
+	height: 50px;
+}
+
+#menu > ul li {
+	display: inline-block;
 }
 
 #menu .glyphicon {
@@ -78,15 +86,17 @@ button:hover {
 	color: white;
 }
 
+
 /* ===================================================== */
 /* Secondary nav */
 
-#secondary-nav {
+#secondary-nav, #secondary-nav div {
 	text-align: center;
-	margin-bottom: 0px;
 	background: #494e6b;
-	border-radius: 0px;
-	border-width: 0 0 0 0;
+}
+
+#secondary-nav > div ul {
+	padding: 0 0 5px 0;
 }
 
 #secondary-nav ul {
@@ -100,10 +110,19 @@ button:hover {
 }
 
 #secondary-nav li {
+	background: #494e6b;
+}
+
+#secondary-nav li a {
 	border-top: 3px solid #494e6b;
 	border-bottom: 3px solid #494e6b;
 }
 
-#secondary-nav li:hover {
+#secondary-nav li a:hover {
 	border-bottom: 3px solid #c49f66;
 }
+
+.panel-heading {
+	padding: 15px 15px 15px 15px !important;
+}
+

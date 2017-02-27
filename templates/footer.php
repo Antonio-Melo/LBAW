@@ -62,8 +62,6 @@
                     </div>
                 </div>
             </div>
-            <script src="http://code.jquery.com/jquery.js"></script>
-            <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
         </footer>
     </body>
 </html>
