@@ -63,6 +63,7 @@
 		
 		<!-- Secondary nav -->
 		<nav class="navbar navbar-default" id="secondary-nav">
+			<!-- Catergory list -->
 			<ul class="nav navbar-nav hidden-xs">
 				<li><a href="#">Smartphones</a></li>
 				<li><a href="#">Tablets</a></li>
@@ -73,6 +74,7 @@
 				<li><a href="#">Accessories</a></li>
 			</ul>
 			
+			<!-- Dropdown for small devices -->
 			<div class="container-fluid hidden-sm hidden-md hidden-lg">
 				<div class="panel-group">
 					<div class="panel panel-default">

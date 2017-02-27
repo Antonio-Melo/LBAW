@@ -1,66 +1,46 @@
         <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>CONNECT</h4>
-                        <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-envelope"></span> Sign up for newsletter</button>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>Follow us</h4>
-                        <div class="row">
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                <a class="btn btn-social-icon btn-instagram">
-                                    <span class="fa fa-instagram"></span>
-                                </a>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                <a class="btn btn-social-icon btn-facebook">
-                                    <span class="fa fa-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                <a class="btn btn-social-icon btn-twitter">
-                                    <span class="fa fa-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                <a class="btn btn-social-icon btn-youtube-play">
-                                    <span class="fa fa-youtube-play"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>Costumer Service</h4>
-                        <div class="row">
-                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                            <a href="#">Terms & Conditions</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                            <a href="#">Contact Us</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                            <a href="#">FAQ's</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>About .bat</h4>
-                        <div class="row">
-                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                            <a href="#">About us</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-1 col-md-1 sol-sm-1 col-xs-1"></div>
-                            <a href="#">Careers</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-1 col-md-1 sol-sm-1 col-xs-1"></div>
-                            <a href="#">Sitemap</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="container-fluid">
+				<!-- Connect -->
+				<div id="footer-connect" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<h4>Connect</h4>
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-default" id="search-bttn" type="submit">
+								<span class="glyphicon glyphicon-envelope"></span>
+							</button>
+						</div>
+						<input type="text" class="form-control" placeholder="Sign up for newsletter">
+					</div>
+				</div>
+				
+				<!-- Social -->
+				<div id="footer-social" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<h4>Follow us</h4>
+					<a class="btn btn-social-icon btn-instagram"><span class="fa fa-instagram"></span></a>
+					<a class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span></a>
+					<a class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
+					<a class="btn btn-social-icon btn-youtube-play"><span class="fa fa-youtube-play"></span></a>
+				</div>
+				
+				<!-- Customer Service -->
+				<div id="footer-service" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<h4>Costumer Service</h4>
+					<ul>
+						<li><a href="#">Terms & Conditions</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">FAQ's</a></li>
+					</ul>
+				</div>
+				
+				<!-- About -->
+				<div id="footer-about" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<h4>About .bat</h4>
+					<ul>
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Careers</a></li>
+						<li><a href="#">Sitemap</a></li>
+					</ul>
+				</div>
             </div>
         </footer>
     </body>
