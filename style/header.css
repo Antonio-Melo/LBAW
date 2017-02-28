@@ -114,8 +114,8 @@ a, a:hover, a:active, a:visited {
 }
 
 #secondary-nav li a {
-	border-top: 3px solid #494e6b;
-	border-bottom: 3px solid #494e6b;
+	border-top: 3px solid transparent;
+	border-bottom: 3px solid transparent;
 }
 
 #secondary-nav li a:hover {

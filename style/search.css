@@ -1,0 +1,25 @@
+#search-body {
+	padding: 0 0 0 0;	
+}
+
+/* Filters */
+#search-filters {
+	width: 250px;
+	padding: 0 0 0 0;	
+}
+
+/* Checkboxs */
+.checkbox {
+	margin: 0 0 0 0;
+}
+
+.checkbox label {
+	padding: 0 0 0 0;
+	width: 200px;
+}
+
+.checkbox input {
+	margin-left: 0px !important;
+	position: static !important;
+	float: right;
+}
