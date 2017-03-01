@@ -1,82 +1,118 @@
-<div class="panel-body">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">Xiaomi Mi5</p>
-                </div>
-                <img src="../resources/products_img/xiaomi_mi5.png" alt="xiaomi_mi5" style="width:50%">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">Xiaomi Mi5</p>
-                </div>
-                <img src="../resources/products_img/xiaomi_mi5.png" alt="xiaomi_mi5" style="width:50%">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">Xiaomi Mi5</p>
-                </div>
-                <img src="../resources/products_img/xiaomi_mi5.png" alt="xiaomi_mi5" style="width:50%">
-            </div>
-        </div>
-    </div>
+<div class="panel-body items-display">
+	<div class="col-md-4">
+		<div class="product-image-container">
+			<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>Xiaomi MI5</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-4">
+		<div class="product-image-container">
+			<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>Xiaomi MI5</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-4">
+		<div class="product-image-container">
+			<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>Xiaomi MI5</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">i Drone i8H RC Quadcopter-COLORMIX </p>
-                </div>
-                <img src="../resources/products_img/drone_i8H_RC_Quadcopter.png" alt="drone_i8H_RC_Quadcopter" style="width:50%">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">i Drone i8H RC Quadcopter-COLORMIX </p>
-                </div>
-                <img src="../resources/products_img/drone_i8H_RC_Quadcopter.png" alt="drone_i8H_RC_Quadcopter" style="width:50%">
-            </div>
-        </div>
-    </div>
+	<div class="col-md-6">
+		<div class="product-image-container">
+			<img src="../resources/products/drone_i8H_RC_Quadcopter.png" alt="drone_i8H_RC_Quadcopter">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>i Drone i8H RC Quadcopter-COLORMIX</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-6">
+		<div class="product-image-container">
+			<img src="../resources/products/drone_i8H_RC_Quadcopter.png" alt="drone_i8H_RC_Quadcopter">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>i Drone i8H RC Quadcopter-COLORMIX</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
 
-    <div class="row">
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">Xiaomi Mi5</p>
-                </div>
-                <img src="../resources/products_img/xiaomi_mi5.png" alt="xiaomi_mi5" style="width:50%">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">Xiaomi Mi5</p>
-                </div>
-                <img src="../resources/products_img/xiaomi_mi5.png" alt="xiaomi_mi5" style="width:50%">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">Xiaomi Mi5</p>
-                </div>
-                <img src="../resources/products_img/xiaomi_mi5.png" alt="xiaomi_mi5" style="width:50%">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p class="text-center">Xiaomi Mi5</p>
-                </div>
-                <img src="../resources/products_img/xiaomi_mi5.png" alt="xiaomi_mi5" style="width:50%">
-            </div>
-        </div>
-    </div>
+	<div class="col-md-3">
+		<div class="product-image-container">
+			<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>Xiaomi MI5</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3">
+		<div class="product-image-container">
+			<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>Xiaomi MI5</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3">
+		<div class="product-image-container">
+			<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>Xiaomi MI5</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3">
+		<div class="product-image-container">
+			<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+		</div>
+		<div class="product-info-container">
+			<div class="center-block">
+				<span class="name"><a>Xiaomi MI5</a></span>
+				<span class="price">300,00€</span>
+				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+			</div>
+		</div>
+	</div>
 </div>

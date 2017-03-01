@@ -97,7 +97,6 @@
 			<span class="glyphicon glyphicon-th-large"></span>
 		</button>
 		
-		
 		<!-- Order by -->
 		<div class="dropdown" id="search-order">
 			<button class="btn btn-default dropdown-toggle" id="search-order-bttn" data-toggle="dropdown">
@@ -118,8 +117,32 @@
 
 	<!------------------------------------------------------------------------------------------------------------------------->
 	<!-- Center -->
-	<div id="search-results">
-		<!-- Results -->
+	<div class="items-display" id="search-results">
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+			<div class="product-image-container">
+				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+			</div>
+			<div class="product-info-container">
+				<div class="center-block">
+					<span class="name"><a>Xiaomi MI5</a></span>
+					<span class="price">300,00€</span>
+					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+			<div class="product-image-container">
+				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+			</div>
+			<div class="product-info-container">
+				<div class="center-block">
+					<span class="name"><a>Xiaomi MI5</a></span>
+					<span class="price">300,00€</span>
+					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </div>

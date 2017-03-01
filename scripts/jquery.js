@@ -1,4 +1,12 @@
 $(document).ready(function() {
+	
+	$("#search-bttn").click(function() {
+		window.location.href = "search.php";
+    });
+	
+	/* ============================================================================================= */
+	/* Search filters */
+	
 	/* Search filter slider */	
     $("#filter-price-slider").slider({
 		range: true,
@@ -61,8 +69,29 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#search-display-bttn span").click(function() {
-		$(this).toggleClass("glyphicon-th-large");
-		$(this).toggleClass("glyphicon-align-justify");
+	
+	/* ============================================================================================= */
+	/* Search display */
+	
+	$("#search-display-bttn").click(function() {
+		$(this).children("span").toggleClass("glyphicon-th-large");
+		$(this).children("span").toggleClass("glyphicon-th-list");
 	});
+	
+	$("#search-order a").click(function() {
+		$("#search-order-bttn").html($(this).text() + " &nbsp;&nbsp;<span class='caret'></span>");
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 });

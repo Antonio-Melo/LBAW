@@ -50,6 +50,11 @@ a, a:hover, a:active, a:visited {
     text-decoration:none !important;
 }
 
+.glyphicon {
+	font-size: 12px;
+}
+
+
 /* ===================================================== */
 /* Main nav */
 #main-nav {

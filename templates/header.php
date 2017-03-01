@@ -23,7 +23,7 @@
 			<div class="container-fluid">
 				<!--Logo-->
 				<div class="nav-content col-xs-3 col-sm-3 col-md-3 col-lg-3 navbar-header" id="logo">
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="home.php">
 						<img src="../resources/logo/logo.png" class="hidden-xs">
 						<img src="../resources/logo/logo-mobile.png" class="hidden-sm hidden-md hidden-lg">
 					</a>
