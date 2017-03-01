@@ -76,13 +76,14 @@ $(document).ready(function() {
 	$("#search-display-bttn").click(function() {
 		$(this).children("span").toggleClass("glyphicon-th-large");
 		$(this).children("span").toggleClass("glyphicon-th-list");
+		
+		$("#search-results > div").toggleClass("product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6");
+		$("#search-results > div").toggleClass("product-list");
 	});
 	
 	$("#search-order a").click(function() {
 		$("#search-order-bttn").html($(this).text() + " &nbsp;&nbsp;<span class='caret'></span>");
 	});
-	
-	
 	
 	
 	
