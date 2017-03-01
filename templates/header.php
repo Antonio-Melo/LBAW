@@ -14,6 +14,7 @@
 	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../lib/jquery/jquery-ui.js"></script>
 	<script src="../scripts/jquery.js"></script>
+	<script src="../scripts/scripts.js"></script>
 </head>
 <body>
 	<header>

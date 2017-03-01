@@ -1,8 +1,18 @@
 <div class="container-fluid" id="search-body">
 
 	<!-- Side -->
-	<!-- make this a side menu for mobile -->
-	<nav class="panel-group hidden-xs" id="search-filters">
+	
+	<!-- Mobile extras -->
+	<button onclick="openNav()" class="btn btn-default hidden-sm hidden-md hidden-lg" id="side-nav-bttn" type="submit">
+		<span class="glyphicon glyphicon-menu-hamburger"></span>
+	</button>
+	
+	<div id="search-mobile-background-filter" class="hidden-xs hidden-sm hidden-md hidden-lg mobile-background-filter"></div>
+	
+	<!-- Filters nav -->
+	<nav class="panel-group sidenav hidden-xs visible-sm-block visible-md-block visible-lg-block" id="search-filters">
+		<a href="javascript:void(0)" class="closebtn hidden-sm hidden-md hidden-lg" onclick="closeNav()">&times;</a>
+	
 		<!-- Category -->
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -10,9 +20,9 @@
 			</div>
 			<div id="filter-categories" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><div class="checkbox"><label>Smartphones<input type="checkbox" value=""></label></div></li>
-					<li class="list-group-item"><div class="checkbox"><label>Tablets<input type="checkbox" value=""></label></div></li>
-					<li class="list-group-item"><div class="checkbox"><label>Laptop<input type="checkbox" value=""></label></div></li>
+					<li class="list-group-item"><label for="cb1">Smartphones</label><div class="custom-checkbox"><input id="cb1" type="checkbox" value=""><label for="cb1"></label></div></li>
+					<li class="list-group-item"><label for="cb2">Tablets</label><div class="custom-checkbox"><input id="cb2" type="checkbox" value=""><label for="cb2"></label></div></li>
+					<li class="list-group-item"><label for="cb3">Laptop</label><div class="custom-checkbox"><input id="cb3" type="checkbox" value=""><label for="cb3"></label></div></li>
 				</ul>
 			</div>
 		</div>
@@ -23,8 +33,9 @@
 				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-price">Price</a></h4>
 			</div>
 			<div id="filter-price" class="panel-collapse collapse in">
-				<!-- http://jqueryui.com/slider/#range -->
-				<div id="price-slider"></div>
+				<label for="filter-price-amount">Range:</label>
+				<input type="text" id="filter-price-amount" readonly>
+				<div id="filter-price-slider"></div>
 			</div>
 		</div>
 		
@@ -35,9 +46,9 @@
 			</div>
 			<div id="filter-brands" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><div class="checkbox"><label>Samsung<input type="checkbox" value=""></label></div></li>
-					<li class="list-group-item"><div class="checkbox"><label>Apple<input type="checkbox" value=""></label></div></li>
-					<li class="list-group-item"><div class="checkbox"><label>Nokia<input type="checkbox" value=""></label></div></li>
+					<li class="list-group-item"><label for="cb4">Samsung</label><div class="custom-checkbox"><input id="cb4" type="checkbox" value=""><label for="cb4"></label></div></li>
+					<li class="list-group-item"><label for="cb5">Apple</label><div class="custom-checkbox"><input id="cb5" type="checkbox" value=""><label for="cb5"></label></div></li>
+					<li class="list-group-item"><label for="cb6">Nokia</label><div class="custom-checkbox"><input id="cb6" type="checkbox" value=""><label for="cb6"></label></div></li>
 				</ul>
 			</div>
 		</div>
@@ -49,7 +60,7 @@
 			</div>
 			<div id="filter-onsale" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><div class="checkbox"><label>On sale<input type="checkbox" value=""></label></div></li>
+					<li class="list-group-item"><label for="cb7">On sale</label><div class="custom-checkbox"><input id="cb7" type="checkbox" value=""><label for="cb7"></label></div></li>
 				</ul>
 			</div>
 		</div>
@@ -60,14 +71,20 @@
 				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-rating">Rating</a></h4>
 			</div>
 			<div id="filter-rating" class="panel-collapse collapse in">
-				<ul class="list-group">
+				<div class="rating">
 					<!-- stars -->
-					<input type="radio" name="rating-input" value="1">
-					<input type="radio" name="rating-input" value="2">
-					<input type="radio" name="rating-input" value="3">
-					<input type="radio" name="rating-input" value="4">
-					<input type="radio" name="rating-input" value="5">
-				</ul>
+					<input id="rating-input-1" type="radio" value="1" name="rating-input"/>
+					<label class="rating-star" for="rating-input-1"></label>
+					<input id="rating-input-2" type="radio" value="2" name="rating-input"/>
+					<label class="rating-star" for="rating-input-2"></label>
+					<input id="rating-input-3" type="radio" value="3" name="rating-input"/>
+					<label class="rating-star" for="rating-input-3"></label>
+					<input id="rating-input-4" type="radio" value="4" name="rating-input"/>
+					<label class="rating-star" for="rating-input-4"></label>
+					<input id="rating-input-5" type="radio" value="5" name="rating-input"/>
+					<label class="rating-star" for="rating-input-5"></label>
+					<span>&nbsp & up</span>
+				</div>
 			</div>
 		</div>
 	</nav>
