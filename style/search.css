@@ -2,8 +2,9 @@
 	padding: 0 0 0 0;	
 }
 
-/*=================================================*/
+/*===============================================================================*/
 /* Custom Checkbox */
+
 .custom-checkbox {
 	display: inline-block;
 	width: 17px;
@@ -46,18 +47,25 @@
 	opacity: 1;
 }
 
-
-/*=================================================*/
+/*===============================================================================*/
 /* Filters */
+
 #side-nav-bttn {
 	height: 50px;
 	width: 50px;
+	float: left;
 }
 
 #search-filters {
 	width: 250px;
-	padding: 0 0 0 0;
+	padding: 5px;
 	background: #fff;
+	float: left;
+}
+
+#search-filters div, #search-filters li, #search-filters ul {
+	border-color: transparent;
+	box-shadow: none;
 }
 
 #filter-rating, #filter-price {
@@ -66,7 +74,7 @@
 
 #search-filters label {
 	padding: 0 0 0 0;
-	width: 200px;
+	width: 175px;
 	font-weight: normal !important;
 	cursor: pointer;
 	display: inline-block;
@@ -151,6 +159,10 @@
 }
 
 @media (max-width: 767px) {
+	#search-filters {
+		padding: 0;
+	}
+
 	.mobile-background-filter {
 		height: 100%;
 		width: 100%;
@@ -178,6 +190,57 @@
 		margin-left: 50px;
 	}
 }
+
+/*===============================================================================*/
+/* Display settings */
+
+#search-display {
+	height: 60px;
+	padding: 5px;
+}
+
+@media (max-width: 767px) {
+	#search-display {
+		padding: 0;
+	}
+}
+
+#search-display-bttn {
+	height: 50px;
+	width: 50px;
+	float: right;
+}
+
+#search-order {
+	float: right;
+}
+
+#search-order-bttn {
+	height: 50px;
+	width: 150px;
+	margin-right: 5px;
+}
+
+
+#search-order .dropdown-menu {
+	width: 150px;
+	margin: 0;
+	box-shadow: none;
+	min-width: 150px;
+}
+
+/*===============================================================================*/
+/* Search results */
+
+
+
+
+
+
+
+
+
+
 
 
 

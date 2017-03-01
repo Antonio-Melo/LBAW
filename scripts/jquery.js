@@ -60,6 +60,9 @@ $(document).ready(function() {
 			rating_loop(this_val, 0, 1);
 		}
 	});
-	
-	
+
+	$("#search-display-bttn span").click(function() {
+		$(this).toggleClass("glyphicon-th-large");
+		$(this).toggleClass("glyphicon-align-justify");
+	});
 });

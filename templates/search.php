@@ -1,7 +1,7 @@
 <div class="container-fluid" id="search-body">
 
+	<!-------------------------------------------------------------------------------------------------------------------------->
 	<!-- Side -->
-	
 	<!-- Mobile extras -->
 	<button onclick="openNav()" class="btn btn-default hidden-sm hidden-md hidden-lg" id="side-nav-bttn" type="submit">
 		<span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -89,12 +89,34 @@
 		</div>
 	</nav>
 
+	<!-------------------------------------------------------------------------------------------------------------------------->
 	<!-- Top -->
 	<nav id="search-display">
 		<!-- Square/List -->
+		<button class="btn btn-default" id="search-display-bttn">
+			<span class="glyphicon glyphicon-th-large"></span>
+		</button>
+		
+		
 		<!-- Order by -->
+		<div class="dropdown" id="search-order">
+			<button class="btn btn-default dropdown-toggle" id="search-order-bttn" data-toggle="dropdown">
+				Sort by: &nbsp;&nbsp;<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">Relevant</a></li>
+				<li><a href="#">Higher price</a></li>
+				<li><a href="#">Lower price</a></li>
+				<li><a href="#">Most sold</a></li>
+				<li><a href="#">Best rating</a></li>
+				<li><a href="#">Date released</a></li>
+				<li><a href="#">Name: A -> Z</a></li>
+				<li><a href="#">Name: Z -> A</a></li>
+			</ul>
+		</div>
 	</nav>
 
+	<!------------------------------------------------------------------------------------------------------------------------->
 	<!-- Center -->
 	<div id="search-results">
 		<!-- Results -->
