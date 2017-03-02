@@ -84,15 +84,4 @@ $(document).ready(function() {
 	$("#search-order a").click(function() {
 		$("#search-order-bttn").html($(this).text() + " &nbsp;&nbsp;<span class='caret'></span>");
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 });
