@@ -67,3 +67,7 @@
 #add-to-cart{
     background: red !important;
 }
+.item-verifications img{
+    height: 100px;
+    width: 150px;
+}

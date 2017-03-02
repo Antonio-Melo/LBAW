@@ -52,6 +52,46 @@
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 Add to Cart
             </button>
+            <button type="button" class="btn btn-primary" id="add-to-fav">
+                <span class="glyphicon glyphicon-heart""></span>
+                Add to Favorites
+            </button>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="item-verifications">
+                        <img src="../resources/product%20verifications/paypal-verified.png" alt="paypal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-info-container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+            <li><a data-toggle="tab" href="#menu1">Product FAQ</a></li>
+            <li><a data-toggle="tab" href="#menu2">Customer Reviews</a></li>
+            <li><a data-toggle="tab" href="#menu3">Shipping Payment</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <h3>HOME</h3>
+                <p>Some content.</p>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <h3>Menu 1</h3>
+                <p>Some content in menu 1.</p>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <h3>Menu 2</h3>
+                <p>Some content in menu 2.</p>
+            </div>
+            <div id="menu3" class="tab-pane fade">
+                <h3>Menu 2</h3>
+                <p>Some content in menu 2.</p>
+            </div>
         </div>
     </div>
 </div>
