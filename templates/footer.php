@@ -1,4 +1,5 @@
-        <footer>
+        </main>
+		<footer>
             <div class="container-fluid">
 				<!-- Connect -->
 				<div id="footer-connect" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
