@@ -17,7 +17,7 @@
                 <span class="sub-description">
                     MIUI 8 4GB RAM Snapdragon 820 64bit Quad Core 2.15GHz 16.0MP + 4.0MP Cameras Type-C Quick Charge 3.0 NFC Front Fingerprint Sensor 3D Ceramic Body
                 </span> <hr>
-                <span>
+                <span class ="price">
                     Flash Sale Price €375.42
                 </span>
             </div>
@@ -27,6 +27,31 @@
                     60 pieces left
                 </div>
             </div>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </span>
+                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="60">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div>
+            <div class="product-color">
+                <br><span>Color</span>
+                <button type="button" class="btn btn-primary">Black</button>
+                <button type="button" class="btn btn-primary">White</button>
+            </div>
+            <div class="product-shipping">
+                <br><span>Shipping Cost: FREE SHIPPING to Portugal Via Unregistered Air Mail</span>
+            </div>
+            <button type="button" class="btn btn-primary" id="add-to-cart">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                Add to Cart
+            </button>
         </div>
     </div>
 </div>
