@@ -20,9 +20,15 @@
 			</div>
 			<div id="filter-categories" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><label for="cb1">Smartphones</label><div class="custom-checkbox"><input id="cb1" type="checkbox" value=""><label for="cb1"></label></div></li>
-					<li class="list-group-item"><label for="cb2">Tablets</label><div class="custom-checkbox"><input id="cb2" type="checkbox" value=""><label for="cb2"></label></div></li>
-					<li class="list-group-item"><label for="cb3">Laptop</label><div class="custom-checkbox"><input id="cb3" type="checkbox" value=""><label for="cb3"></label></div></li>
+					<?php
+						$categories = array("Smartphones", "Tablets", "Laptop");				
+
+						for ($i = 0; $i < sizeof($categories); $i++) {
+							echo "<li class='list-group-item'><label for='ccb$i'>",
+								$categories[$i],
+								"</label><div class='custom-checkbox'><input id='ccb$i' type='checkbox' value=''><label for='ccb$i'></label></div></li>";
+						}
+					?>
 				</ul>
 			</div>
 		</div>
@@ -46,9 +52,15 @@
 			</div>
 			<div id="filter-brands" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><label for="cb4">Samsung</label><div class="custom-checkbox"><input id="cb4" type="checkbox" value=""><label for="cb4"></label></div></li>
-					<li class="list-group-item"><label for="cb5">Apple</label><div class="custom-checkbox"><input id="cb5" type="checkbox" value=""><label for="cb5"></label></div></li>
-					<li class="list-group-item"><label for="cb6">Nokia</label><div class="custom-checkbox"><input id="cb6" type="checkbox" value=""><label for="cb6"></label></div></li>
+					<?php
+						$brands = array("Samsung", "Apple", "Nokia");				
+
+						for ($i = 0; $i < sizeof($brands); $i++) {
+							echo "<li class='list-group-item'><label for='bcb$i'>",
+								$brands[$i],
+								"</label><div class='custom-checkbox'><input id='bcb$i' type='checkbox' value=''><label for='bcb$i'></label></div></li>";
+						}
+					?>
 				</ul>
 			</div>
 		</div>
@@ -60,7 +72,7 @@
 			</div>
 			<div id="filter-onsale" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><label for="cb7">On sale</label><div class="custom-checkbox"><input id="cb7" type="checkbox" value=""><label for="cb7"></label></div></li>
+					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""><label for="scb"></label></div></li>
 				</ul>
 			</div>
 		</div>
@@ -117,111 +129,42 @@
 
 	<!------------------------------------------------------------------------------------------------------------------------->
 	<!-- Center -->
-	<div class="items-display" id="search-results">
-	
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+	<div class="items-display" id="search-results">		
+		<?php
+			$n_products = 10;				
+
+			for ($i = 0; $i < $n_products; $i++) {
+		?>
+				<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<div class="product-image-container">
+						<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+					</div>
+					<div class="product-info-container">
+						<div class="center-block">
+							<div class="list-left-container">
+								<div class="name"><a>Xiaomi MI5</a></div>
+								<div class="type-brand"><a>Smartphone</a> - <a>Xiaomi</a></div>
+						
+							</div>
+							<div class="list-middle-container">
+								<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>
+								<div class="rating1"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></div>					
+							</div>
+							<div class="list-right-container">			
+								<div class="price">300,00€</div>
+								<button class="btn btn-default" id="product-fav-bttn">
+									<span class="glyphicon glyphicon-heart"></span>
+								</button>
+								<button class="btn btn-default" id="product-cart-bttn">
+									<span class="glyphicon glyphicon-shopping-cart"></span>
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
-			<div class="product-image-container">
-				<img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-					<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-				</div>
-			</div>
-		</div>
+		<?php
+			}
+		?>
 	</div>
 
 </div>

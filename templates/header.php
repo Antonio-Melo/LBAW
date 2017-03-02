@@ -13,8 +13,8 @@
 	<script src="../lib/jquery/jquery.min.js"></script>
 	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../lib/jquery/jquery-ui.js"></script>
-	<script src="<?=$jqueryPath?>"></script>
-	<script src="../scripts/scripts.js"></script>
+	<script src="../scripts/header.js"></script>
+	<script src="<?=$jsPath?>"></script>
 </head>
 <body>
 	<header>

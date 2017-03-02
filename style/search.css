@@ -247,6 +247,18 @@
 	margin: 0 5px 0 260px;
 }
 
+.product-info-container .name a{
+	font-size: 16px;
+}
+
+.product-info-container a, .product-info-container .price {
+	color: #333;
+}
+
+.price {
+	font-weight: bold;
+}
+
 @media (max-width: 767px) {
 	.items-display {
 		margin: 0 5px 0 5px;
@@ -282,11 +294,6 @@
 	display: block;
 }
 
-.product-mosaic .product-info-container .name a{
-	color: #333;
-	font-size: 16px;
-}
-
 .product-mosaic .product-info-container .price {
 	color: #333;
 	font-size: 20px;
@@ -301,6 +308,10 @@
 	vertical-align: middle;
 }
 
+.product-mosaic .product-info-container .type-brand, .product-mosaic button, .product-mosaic .rating1{
+	display: none;
+}
+
 /* Product List */
 .items-display > .product-list {
 	height: 200px;
@@ -308,13 +319,25 @@
 	border-right: 0;
 	border-top: 0;
 	background: #f5f5f5;
-	text-align: center;
 	padding: 15px 20px 0 20px;
 }
 
-.product-list .product-image-container {
+.product-list .product-image-container, .product-list .product-info-container {
 	height: 155px;
-	float: left;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.product-list .center-block {
+	display: table;
+}
+
+.product-list .product-info-container, .product-list .center-block {
+	width: 100%;
+}
+
+.product-list .product-image-container {
+	width: 155px;
 }
 
 .product-list .product-image-container img {
@@ -322,16 +345,60 @@
 }
 
 .product-list .product-info-container .price{
-	color: #333;
-	font-size: 26px;
-	float: right;
-	margin-right: 2%;
-	margin-top: 20px;
+	font-size: 23px;
 }
 
 .product-list .product-info-container img{
 	height: 16px;
 }
+
+.product-list .list-left-container, .product-list .list-right-container {
+	display: table-cell;
+	vertical-align: middle;
+	width: 50%;
+	padding: 10px;
+}
+
+.product-list .list-right-container {
+	text-align: center;
+}
+
+.product-list .list-right-container button {
+	margin: 3px;
+}
+
+.list-middle-container {
+	display: none;
+}
+
+.available {
+	color: green;
+}
+
+.unavailable {
+	color: red;
+}
+
+.stock {
+	margin-top: 6px;
+}
+
+/* For large devices show stock */
+@media (min-width: 992px) {
+	.product-list .list-left-container, .product-list .list-right-container, .product-list .list-middle-container {
+		width: 33%;
+	}
+
+	.product-list .list-middle-container {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+}
+
+
+
+
 
 
 

@@ -1,9 +1,5 @@
 $(document).ready(function() {
 	
-	$("#search-bttn").click(function() {
-		window.location.href = "search.php";
-    });
-	
 	/* ============================================================================================= */
 	/* Search filters */
 	
@@ -85,3 +81,14 @@ $(document).ready(function() {
 		$("#search-order-bttn").html($(this).text() + " &nbsp;&nbsp;<span class='caret'></span>");
 	});
 });
+
+/* For search side nav */
+function openNav() {
+	document.getElementById("search-filters").style.setProperty("display", "block", "important");
+	document.getElementById("search-mobile-background-filter").style.setProperty("display", "block", "important");
+}
+
+function closeNav() {
+	document.getElementById("search-filters").style.setProperty("display", "none");
+	document.getElementById("search-mobile-background-filter").style.setProperty("display", "none");
+}
