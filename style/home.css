@@ -38,6 +38,7 @@
 
 .product-info-container .price {
 	color: #333;
+	font-weight: bold;
 	font-size: 20px;
 }
 

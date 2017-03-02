@@ -7,7 +7,6 @@
 			<div class="center-block">
 				<span class="name"><a>Xiaomi MI5</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -20,7 +19,6 @@
 			<div class="center-block">
 				<span class="name"><a>Xiaomi MI5</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -33,7 +31,6 @@
 			<div class="center-block">
 				<span class="name"><a>Xiaomi MI5</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -46,7 +43,6 @@
 			<div class="center-block">
 				<span class="name"><a>i Drone i8H RC Quadcopter-COLORMIX</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -59,7 +55,6 @@
 			<div class="center-block">
 				<span class="name"><a>i Drone i8H RC Quadcopter-COLORMIX</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -72,7 +67,6 @@
 			<div class="center-block">
 				<span class="name"><a>Xiaomi MI5</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -85,7 +79,6 @@
 			<div class="center-block">
 				<span class="name"><a>Xiaomi MI5</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -98,7 +91,6 @@
 			<div class="center-block">
 				<span class="name"><a>Xiaomi MI5</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
@@ -111,7 +103,6 @@
 			<div class="center-block">
 				<span class="name"><a>Xiaomi MI5</a></span>
 				<span class="price">300,00€</span>
-				<span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
 			</div>
 		</div>
 	</div>
