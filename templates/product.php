@@ -1,5 +1,5 @@
 <div class="panel-body items-display">
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-4">
         <div class="product-image-container">
             <img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
         </div>
@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-lg-8 col-md-8">
         <div class="product-information-container">
             <div class="full-description">
                 <span class="full-name"> <a>XiaoMi Mi5 4G Smartphone  -  BLACK </a></span><br>
@@ -68,82 +68,117 @@
     </div>
 
     <div class="full-info-container">
-        <div class="col-md-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+                <li class="active"><a data-toggle="tab" href="#description"> <span class="glyphicon glyphicon-info-sign"></span> Description</a></li>
                 <li><a data-toggle="tab" href="#menu1">Product FAQ</a></li>
                 <li><a data-toggle="tab" href="#menu2">Customer Reviews</a></li>
-                <li><a data-toggle="tab" href="#menu3">Shipping Payment</a></li>
+                <li><a data-toggle="tab" href="#menu3">Shipping & Payment</a></li>
             </ul>
 
             <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
+                <div id="description" class="tab-pane fade in active">
                     <table class="table">
                         <tbody>
                         <tr>
-                            <td>Brand: Xiaomi <br>
-                                Type: 4G Smartphone<br>
-                                OS: MIUI 8<br>
-                                Service Provide: Unlocked<br>
-                                Language: As the screenshots<br>
-                                SIM Card Slot: Dual SIM,Dual Standby<br>
-                                SIM Card Type: Dual Nano SIM<br></td>
-                            <td>CPU: Qualcomm Snapdragon 820<br>
-                                Cores: 2.15GHz,Quad Core<br>
-                                GPU: Adreno 530<br>
-                                RAM: 4GB RAM<br>
-                                ROM: 128GB<br>
-                                External Memory: Not Supported<br></td>
-                        </tr>
-                        <tr>
-                            <td>Wireless Connectivity: 3G,4G,A-GPS,Bluetooth,GPS,GSM,WiFi<br>
-                                WIFI: 802.11a/b/g/n/ac wireless internet<br>
-                                Network type: FDD-LTE+WCDMA+GSM<br>
-                                2G: GSM 850/900/1800/1900MHz<br>
-                                3G: WCDMA 850/900/1900/2100MHz<br>
-                                4G: FDD-LTE 1800/2100/2600MHz<br></td>
-                            <td>Screen type: Capacitive (5-Points)<br>
-                                Screen size: 5.15 inch<br>
-                                Screen resolution: 1920 x 1080 (FHD)<br>
-                                Pixels Per Inch (PPI): 428<br></td>
-                        </tr>
-                        <tr>
-                            <td>Camera type: Dual cameras (one front one back)<br>
-                                Back-camera: 16.0MP 4-axis OIS<br>
-                                Front camera: 4.0MP<br>
-                                Video recording: 4K Video,Support 1080P Video Recording,Support 720P Video Recording,Yes<br>
-                                Aperture: f/2.0<br>
-                                Auto Focus: Yes<br>
-                                Flashlight: Yes<br>
-                                Camera Functions: Anti Shake,Face Beauty,Face Detection<br></td>
-                            <td>Picture format: BMP,GIF,JPEG,PNG<br>
-                                Music format: AAC,AMR,MP3,WAV<br>
-                                Video format: ASF,MKV,MP4<br>
-                                MS Office format: Excel,PPT,Word<br>
-                                E-book format: PDF,TXT<br></td>
-                        </tr>
-                        <tr>
-                            <td>I/O Interface: 2 x Nano SIM Slot,3.5mm Audio Out Port,Type-C<br>
-                                Bluetooth Version: Bluetooth V4.2<br>
-                                Sensor: Accelerometer,Ambient Light Sensor,E-Compass,Gravity Sensor,Gyroscope,Hall Sensor,Proximity Sensor<br>
-                                Sound Recorder: Yes<br>
-                                Additional Features: 3G,4G,Alarm,Bluetooth,Browser,Calculator,Calendar,E-book,Fingerprint recognition,Fingerprint Unlocking,GPS,MP3,MP4,Sound Recorder,Video Call,Wi-Fi<br>
+                            <td> <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/basic_information.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Brand: Xiaomi <br>
+                                    Type: 4G Smartphone<br>
+                                    OS: MIUI 8<br>
+                                    Service Provide: Unlocked<br>
+                                    Language: As the screenshots<br>
+                                    SIM Card Slot: Dual SIM,Dual Standby<br>
+                                    SIM Card Type: Dual Nano SIM<br>
+                                </div>
                             </td>
-                            <td>
-                                Battery Capacity (mAh): 3000mAh<br>
-                                Battery Type: Lithium-ion Polymer Battery,Non-removable<br>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/hardware.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    CPU: Qualcomm Snapdragon 820<br>
+                                    Cores: 2.15GHz,Quad Core<br>
+                                    GPU: Adreno 530<br>
+                                    RAM: 4GB RAM<br>
+                                    ROM: 128GB<br>
+                                    External Memory: Not Supported<br>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Cell Phone: 1<br>
-                                Power Adapter: 1<br>
-                                USB Cable: 1<br>
-                                SIM Needle: 1<br>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/network.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Wireless Connectivity: 3G,4G,A-GPS,Bluetooth,GPS,GSM,WiFi<br>
+                                    WIFI: 802.11a/b/g/n/ac wireless internet<br>
+                                    Network type: FDD-LTE+WCDMA+GSM<br>
+                                    2G: GSM 850/900/1800/1900MHz<br>
+                                    3G: WCDMA 850/900/1900/2100MHz<br>
+                                    4G: FDD-LTE 1800/2100/2600MHz<br>
+                                </div>
                             </td>
-                            <td>Product size: 14.46 x 6.92 x 0.73 cm / 5.69 x 2.72 x 0.29 inches<br>
-                                Package size: 18.00 x 12.00 x 6.00 cm / 7.09 x 4.72 x 2.36 inches<br>
-                                Product weight: 0.139 kg<br>
-                                Package weight: 0.500 kg<br>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/display.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Screen type: Capacitive (5-Points)<br>
+                                    Screen size: 5.15 inch<br>
+                                    Screen resolution: 1920 x 1080 (FHD)<br>
+                                    Pixels Per Inch (PPI): 428<br>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/camera.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Camera type: Dual cameras (one front one back)<br>
+                                    Back-camera: 16.0MP 4-axis OIS<br>
+                                    Front camera: 4.0MP<br>
+                                    Video recording: 4K Video,Support 1080P Video Recording,Support 720P Video Recording,Yes<br>
+                                    Aperture: f/2.0<br>
+                                    Auto Focus: Yes<br>
+                                    Flashlight: Yes<br>
+                                    Camera Functions: Anti Shake,Face Beauty,Face Detection<br>
+                                </div>
+                            </td>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/media_formats.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Picture format: BMP,GIF,JPEG,PNG<br>
+                                    Music format: AAC,AMR,MP3,WAV<br>
+                                    Video format: ASF,MKV,MP4<br>
+                                    MS Office format: Excel,PPT,Word<br>
+                                    E-book format: PDF,TXT<br>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/other_features.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    I/O Interface: 2 x Nano SIM Slot,3.5mm Audio Out Port,Type-C<br>
+                                    Bluetooth Version: Bluetooth V4.2<br>
+                                    Sensor: Accelerometer,Ambient Light Sensor,E-Compass,Gravity Sensor,Gyroscope,Hall Sensor,Proximity Sensor<br>
+                                    Sound Recorder: Yes<br>
+                                    Additional Features: 3G,4G,Alarm,Bluetooth,Browser,Calculator,Calendar,E-book,Fingerprint recognition,Fingerprint Unlocking,GPS,MP3,MP4,Sound Recorder,Video Call,Wi-Fi<br>
+                                </div>
+                            </td>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/battery.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Battery Capacity (mAh): 3000mAh<br>
+                                    Battery Type: Lithium-ion Polymer Battery,Non-removable<br>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/package_contents.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Cell Phone: 1<br>
+                                    Power Adapter: 1<br>
+                                    USB Cable: 1<br>
+                                    SIM Needle: 1<br>
+                                </div>
+                            </td>
+                            <td><div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"><img src="../resources/product%20verifications/dimensions_and_weight.gif"></div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    Product size: 14.46 x 6.92 x 0.73 cm / 5.69 x 2.72 x 0.29 inches<br>
+                                    Package size: 18.00 x 12.00 x 6.00 cm / 7.09 x 4.72 x 2.36 inches<br>
+                                    Product weight: 0.139 kg<br>
+                                    Package weight: 0.500 kg<br>
+                                </div>
                             </td>
                         </tr>
 
