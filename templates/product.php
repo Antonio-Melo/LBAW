@@ -1,24 +1,24 @@
 <div class="panel-body items-display">
-    <div class="col-lg-4 col-md-4">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
             <img src="../resources/products/xiaomi_mi5.png" alt="xiaomi_mi5">
         </div>
         <div class="product-info-container">
             <div class="center-block">
-                <span class="name"><a>Xiaomi MI5</a></span>
+                <span class="name"><h1>Xiaomi MI5</h1></span>
                 <span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
             </div>
         </div>
     </div>
-    <div class="col-lg-8 col-md-8">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div class="product-information-container">
             <div class="full-description">
-                <span class="full-name"> <a>XiaoMi Mi5 4G Smartphone  -  BLACK </a></span><br>
+                <span class="full-name"> <h3>XiaoMi Mi5 4G Smartphone  -  BLACK </h3></span><br>
                 <span class="sub-description">
                     MIUI 8 4GB RAM Snapdragon 820 64bit Quad Core 2.15GHz 16.0MP + 4.0MP Cameras Type-C Quick Charge 3.0 NFC Front Fingerprint Sensor 3D Ceramic Body
                 </span> <hr>
                 <span class ="price">
-                    Flash Sale Price €375.42
+                    <h4>Flash Sale Price:</h4> <h2>€375.42</h2>
                 </span>
             </div>
             <div class="progress">
@@ -27,7 +27,7 @@
                     60 pieces left
                 </div>
             </div>
-            <div class="input-group">
+            <div class="input-group number">
                 <span class="input-group-btn">
                     <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
                         <span class="glyphicon glyphicon-minus"></span>
@@ -40,15 +40,14 @@
                     </button>
                 </span>
             </div>
-            <div class="product-color">
-                <br><span>Color</span>
+            <div class="product-color"><br>
                 <button type="button" class="btn btn-primary">Black</button>
                 <button type="button" class="btn btn-primary">White</button>
             </div>
             <div class="product-shipping">
                 <br><span>Shipping Cost: FREE SHIPPING to Portugal Via Unregistered Air Mail</span>
-            </div>
-            <button type="button" class="btn btn-primary" id="add-to-cart">
+            </div><br>
+            <button type="button" class="btn-lg btn-primary" id="add-to-cart">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 Add to Cart
             </button>
@@ -56,12 +55,12 @@
                 <span class="glyphicon glyphicon-heart""></span>
                 Add to Favorites
             </button>
-
+            <br><br>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="item-verifications">
                         <img src="../resources/product%20verifications/paypal-verified.png" alt="paypal">
-                    </div>
+                        <img src="../resources/product%20verifications/money.png" alt="money">                    </div>
                 </div>
             </div>
         </div>
@@ -72,8 +71,8 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#description"> <span class="glyphicon glyphicon-info-sign"></span> Description</a></li>
                 <li><a data-toggle="tab" href="#faq">Product FAQ</a></li>
-                <li><a data-toggle="tab" href="#menu2">Customer Reviews</a></li>
-                <li><a data-toggle="tab" href="#menu3">Shipping & Payment</a></li>
+                <li><a data-toggle="tab" href="#customer-rv">Customer Reviews</a></li>
+                <li><a data-toggle="tab" href="#sp">Shipping & Payment</a></li>
             </ul>
 
             <div class="tab-content">
@@ -225,27 +224,34 @@
                 </div>
 
 
-                <div id="faq" class="tab-pane fade">
+                <div id="faq" class="tab-pane fade"><br>
                     <span class="glyphicon glyphicon-question-sign"></span>
-                    Can this item be shipped to my country?<br>
+                    <b>Can this item be shipped to my country?</b><br>
                     <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    We can deliver orders to most countries. For a detailed explanation about each shipping method, destination and approximate delivery time, please check our website: http://www.gearbest.com/about/shipping-methods.html<br>
+                    We can deliver orders to most countries. For a detailed explanation about each shipping method, destination and approximate delivery time, please check our website<br><br>
 
                     <span class="glyphicon glyphicon-question-sign"></span>
-                    Why can’t I hear any sound when making or receiving a call ?<br>
+                    <b>Why can’t I hear any sound when making or receiving a call ?</b><br>
                     <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    1. Make sure the protective film has been removed completely; 2. Try to turn up the volume of the handset; 3. Try to change mobile signal in your area might be poor; 4. If you cannot hear the voice of the receiver, it might be the problem of the receiver’s phone or signal.<br>
+                    1. Make sure the protective film has been removed completely; 2. Try to turn up the volume of the handset; 3. Try to change mobile signal in your area might be poor; 4. If you cannot hear the voice of the receiver, it might be the problem of the receiver’s phone or signal.<br><br>
 
                     <span class="glyphicon glyphicon-question-sign"></span>
-                    What is the IMEI number of this device?<br>
+                    <b>What is the IMEI number of this device?</b><br>
                     <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    We cannot provide IMEI (international mobile equipment identity) numbers because each cellphone will be given a unique set of numbers after its assembly, We can’t open the packaging.<br>
+                    We cannot provide IMEI (international mobile equipment identity) numbers because each cellphone will be given a unique set of numbers after its assembly, We can’t open the packaging.<br><br>
                 </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Some content in menu 2.</p>
+                <div id="customer-rv" class="tab-pane fade">
+                    <p>António Melo</p>
+                    <span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+                    <p>Fantastic product !!</p><br>
+                    <p>Bruno Santos</p>
+                    <span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+                    <p>Top !!</p><br>
+                    <p>Tiago Grosso</p>
+                    <span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
+                    <p>Fantastic product !!</p>
                 </div>
-                <div id="menu3" class="tab-pane fade">
+                <div id="sp" class="tab-pane fade">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -256,17 +262,69 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td rowspan="4">Flat Rate Shipping</td>
-                                <tr colspan="3">
+                                <td rowspan="10">Flat Rate Shipping</td>
+                                <tr>
                                     <td>United States</td>
+                                    <td>10-30 Business Days</td>
                                 </tr>
                                 <tr>
                                     <td>Russia,Kraine</td>
+                                    <td>10-40 Business Days</td>
                                 </tr>
                                     <td>United Kindom, Ireland, Germany, France, Italy, Netherlands, Belgium, Austria,Switzerland, Spain, Portugal</td>
+                                    <td>10-30 Business Days</td>
                                 </tr>
-                            </tr>
+                                <tr>
+                                    <td>Canada,Australia,New Zealand</td>
+                                    <td>15-30 Business Days</td>
+                                </tr>
+                                <tr>
+                                    <td>Belarus,Estonia,Latavia,Moldova</td>
+                                    <td>15-35 Business Days</td>
+                                </tr>
+                                <tr>
+                                    <td>Japan,Korea</td>
+                                    <td>15-30 Business Days</td>
+                                </tr>
+                                <tr>
+                                    <td>Brazil, Argentina, Uruguay, Peru </td>
+                                    <td>15-40 Business Days</td>
+                                </tr>
+                                <tr>
+                                    <td>Norway, Sweden, Finland, Iceland, Denmark</td>
+                                    <td>15-30 Business Days</td>
+                                </tr>
+                                <tr>
+                                    <td>Egypt, Iran, Iraq, Israel, Jordan, Kuwait, Suaudi Arabia, United Arab Emirates, Yemen</td>
+                                    <td>15-40 Business Days</td>
+                                </tr>
+                                <td rowspan="5">Priority Direct Mail</td>
+                                <tr>
+                                    <td>Russia </td>
+                                    <td>10-25 Days</td>
+                                </tr>
+                                <tr>
+                                    <td>United States, United Kingdom, Germany, France, Italy, Spain, Portugal </td>
+                                    <td>7-15 Days</td>
+                                </tr>
+                                <tr>
+                                    <td>Canada, Australia </td>
+                                    <td>7-15 Days</td>
+                                </tr>
+                                <tr>
+                                    <td>Korea</td>
+                                    <td>5-10 Days</td>
+                                </tr>
+                                <td rowspan="2">Standard Shipping</td>
+                                <tr>
+                                    <td>Worldwide</td>
+                                    <td>6-10 Business Days</td>
+                                </tr>
+                                <td rowspan="2">Expedited Shipping</td>
+                                <tr>
+                                    <td>Worldwide</td>
+                                    <td>3-7 Days</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
