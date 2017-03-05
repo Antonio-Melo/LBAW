@@ -80,3 +80,11 @@ hr{
 td{
     width: 50%;
 }
+
+.table{
+    text-align: left;
+}
+
+#faq{
+    text-align: left;
+}

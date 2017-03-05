@@ -71,13 +71,13 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#description"> <span class="glyphicon glyphicon-info-sign"></span> Description</a></li>
-                <li><a data-toggle="tab" href="#menu1">Product FAQ</a></li>
+                <li><a data-toggle="tab" href="#faq">Product FAQ</a></li>
                 <li><a data-toggle="tab" href="#menu2">Customer Reviews</a></li>
                 <li><a data-toggle="tab" href="#menu3">Shipping & Payment</a></li>
             </ul>
 
             <div class="tab-content">
-                <div id="description" class="tab-pane fade in active">
+                <div id="description" class="tab-pane fade in active"><br>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
@@ -179,7 +179,7 @@
                                 Bluetooth Version: Bluetooth V4.2<br>
                                 Sensor: Accelerometer,Ambient Light Sensor,E-Compass,Gravity Sensor,Gyroscope,Hall Sensor,Proximity Sensor<br>
                                 Sound Recorder: Yes<br>
-                                Additional Features: 3G,4G,Alarm,Bluetooth,Browser,Calculator,Calendar,E-book,Fingerprint recognition,Fingerprint Unlocking,GPS,MP3,MP4,Sound Recorder,Video Call,Wi-Fi<br>
+                                Additional Features: 3G,4G,Alarm,Bluetooth,Browser,Calculator<br>,Calendar,E-book,Fingerprint recognition<br>,Fingerprint Unlocking,GPS,MP3,MP4,Sound Recorder,Video Call,Wi-Fi<br>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -225,17 +225,51 @@
                 </div>
 
 
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Some content in menu 1.</p>
+                <div id="faq" class="tab-pane fade">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    Can this item be shipped to my country?<br>
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                    We can deliver orders to most countries. For a detailed explanation about each shipping method, destination and approximate delivery time, please check our website: http://www.gearbest.com/about/shipping-methods.html<br>
+
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    Why can’t I hear any sound when making or receiving a call ?<br>
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                    1. Make sure the protective film has been removed completely; 2. Try to turn up the volume of the handset; 3. Try to change mobile signal in your area might be poor; 4. If you cannot hear the voice of the receiver, it might be the problem of the receiver’s phone or signal.<br>
+
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    What is the IMEI number of this device?<br>
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                    We cannot provide IMEI (international mobile equipment identity) numbers because each cellphone will be given a unique set of numbers after its assembly, We can’t open the packaging.<br>
                 </div>
                 <div id="menu2" class="tab-pane fade">
                     <h3>Menu 2</h3>
                     <p>Some content in menu 2.</p>
                 </div>
                 <div id="menu3" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Some content in menu 2.</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Shipping Type</th>
+                                <th>Country or Region</th>
+                                <th>Estimated Shipping Time</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td rowspan="4">Flat Rate Shipping</td>
+                                <tr colspan="3">
+                                    <td>United States</td>
+                                </tr>
+                                <tr>
+                                    <td>Russia,Kraine</td>
+                                </tr>
+                                    <td>United Kindom, Ireland, Germany, France, Italy, Netherlands, Belgium, Austria,Switzerland, Spain, Portugal</td>
+                                </tr>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
