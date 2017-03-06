@@ -69,13 +69,13 @@
 		<nav class="navbar navbar-default" id="secondary-nav">
 			<!-- Catergory list -->
 			<ul class="nav navbar-nav hidden-xs">
-				<li><a href="#">Smartphones</a></li>
-				<li><a href="#">Tablets</a></li>
-				<li><a href="#">Peripherals</a></li>
-				<li><a href="#">Computers</a></li>
-				<li><a href="#">Gaming</a></li>
-				<li><a href="#">Cameras</a></li>
-				<li><a href="#">Accessories</a></li>
+				<li><a href="category.php">Smartphones</a></li>
+				<li><a href="category.php">Tablets</a></li>
+				<li><a href="category.php">Peripherals</a></li>
+				<li><a href="category.php">Computers</a></li>
+				<li><a href="category.php">Gaming</a></li>
+				<li><a href="category.php">Cameras</a></li>
+				<li><a href="category.php">Accessories</a></li>
 			</ul>
 			
 			<!-- Dropdown for small devices -->
