@@ -123,16 +123,27 @@
 					<div class="modal-body">
 						<div class="tab-content">
 							<div id="login-tab" class="tab-pane active">
-								<input type="text" name="username" placeholder="Email/Username" required>
-								<input type="password" name="password" placeholder="Password" required>
+								<div class="authentication-input">
+									<label for="login-username">Username/Email</label>
+									<input type="text" name="username" id="login-username" required>
+									<label for="login-password">Password</label>
+									<input type="password" name="password" id="login-password" required>
+								</div>
 								<button>Log in</button>								
 							</div>
 							<div id="register-tab" class="tab-pane">
-								<input type="text" name="username" placeholder="Username" required>
-								<input type="text" name="name" placeholder="Name" required>
-								<input type="text" name="email" placeholder="Email" required>
-								<input type="password" name="password" placeholder="Password" required>
-								<input type="password" name="password" placeholder="Confirm password" required>
+								<div class="authentication-input">
+									<label for="register-username">Username</label>
+									<input type="text" name="username" id="register-username" required>
+									<label for="register-name">Name</label>
+									<input type="text" name="name" id="register-name" required>
+									<label for="register-email">Email</label>
+									<input type="text" name="email" id="register-email" required>
+									<label for="register-password">Password</label>
+									<input type="password" name="password" id="register-password" required>
+									<label for="register-confirm-password">Confirm password</label>
+									<input type="password" name="password" id="register-confirm-password" required>
+								</div>
 								<button>Register</button>
 							</div>
 						</div>
