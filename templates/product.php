@@ -57,7 +57,7 @@
             </button>
             <br><br>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="item-verifications">
                         <img src="../resources/product%20verifications/paypal-verified.png" alt="paypal">
                         <img src="../resources/product%20verifications/money.png" alt="money">                    </div>
@@ -241,15 +241,40 @@
                     We cannot provide IMEI (international mobile equipment identity) numbers because each cellphone will be given a unique set of numbers after its assembly, We can’t open the packaging.<br><br>
                 </div>
                 <div id="customer-rv" class="tab-pane fade">
-                    <p>António Melo</p>
-                    <span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-                    <p>Fantastic product !!</p><br>
-                    <p>Bruno Santos</p>
-                    <span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-                    <p>Top !!</p><br>
-                    <p>Tiago Grosso</p>
-                    <span><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></span>
-                    <p>Fantastic product !!</p>
+                    <br>
+                    <!-- Left-aligned media object -->
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="../resources/avatar.png" class="media-object">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">António Melo</h4>
+                            <span><img class="star" src="../resources/star.png"><img class="star" src="../resources/star.png"><img class="star" src="../resources/star.png"><img class="star" src="../resources/star.png"></span>
+                            <p>Fantastic product !!</p>
+
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="../resources/avatar3.png" class="media-object">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">BATeam</h4>
+                                    <p>Or neglected agreeable of discovery concluded oh it sportsman. Week to time in john. Son elegance use weddings separate. Ask too matter formed county wicket oppose talent. He immediate sometimes or to dependent in. Everything few frequently discretion surrounded did simplicity decisively. Less he year do with no sure loud.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="../resources/avatar2.png" class="media-object">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Bruno Santos</h4>
+                            <span><img class="star" src="../resources/star.png"><img class="star" src="../resources/star.png"><img class="star" src="../resources/star.png"><img class="star" src="../resources/star.png"></span>
+                            <p>Top !!</p>
+                        </div>
+                    </div>
+                    <hr>
                 </div>
                 <div id="sp" class="tab-pane fade">
                     <div class="table-responsive">

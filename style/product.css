@@ -101,12 +101,17 @@ td{
     width: 50%;
 }
 
+.media-object{
+    width: 100px;
+    height: 100px;
+}
+.star{
+    height: 14px;
+}
+
 #faq{
     text-align: left;
 }
 #customer-rv{
     text-align: left;
-}
-#customer-rv img{
-    height: 14px;
 }
