@@ -8,6 +8,7 @@ faq a {
 	color: #373d5b;
 }
 
+
 faq .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
 	color: white;
 	background-color: #c49f66;
@@ -30,3 +31,6 @@ a.list-group-item:hover, button.list-group-item:hover, a.list-group-item:focus, 
 	background-color: #373d5b;
 }
 
+.answer p{
+	padding-left: 1em;
+}
