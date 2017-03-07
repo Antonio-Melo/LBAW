@@ -94,6 +94,7 @@ a, a:hover, a:active, a:visited {
 
 #menu > ul li {
 	display: inline-block;
+	cursor: pointer;
 }
 
 #menu .glyphicon {
@@ -140,4 +141,120 @@ a, a:hover, a:active, a:visited {
 .panel-heading {
 	padding: 15px 15px 15px 15px !important;
 }
+
+
+/* ===================================================== */
+/* Authentication modal */
+
+#authentication-modal .closebtn {
+	float: right;
+	color: white ;
+	font-size: 36px;
+	cursor: pointer;	
+}
+
+#authentication-modal .closebtn:hover {
+	color: #white;
+}
+
+.modal-content {
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.modal-header {
+	border: 0;
+	height: 47px;
+	padding: 0 12px 0 0;
+	background: #373d5b;
+}
+
+.modal-header a:hover {
+	cursor: pointer;
+}
+
+.modal-header .nav, .modal-header .nav li, .modal-header .nav li a {
+	height: 100%;
+	border: 0;
+	margin: 0;
+}
+
+.modal-header .nav li a {
+	width: 100px;
+	text-align: center;
+}
+
+.modal-backdrop {
+	opacity:0.8 !important;
+}
+
+#authentication-modal .modal-header .nav a {
+	color: white;
+	border-radius: 0;
+	border: 0;
+}
+
+#authentication-modal .modal-header .nav a:hover {
+	background: #494e6b;
+	border: 0;
+}
+
+#authentication-modal .modal-header .nav li.active > a {
+	color: white;
+	background: #494e6b;
+}
+
+.modal-body {
+	background: #494e6b;
+}
+
+.modal-body  ul{
+	border: 0;
+}
+
+#authentication-modal button, #authentication-modal input, #authentication-modal label {
+	height: 50px;
+	padding-right: 12px;
+	display: block;
+	border: 0;
+}
+
+#authentication-modal input, #authentication-modal label {
+	margin: 0px auto 0 auto;
+	width: 60%;
+}
+
+#authentication-modal button, #authentication-modal input {
+	padding-left: 12px;
+}
+
+#authentication-modal label {
+	color: white;
+	padding-top: 22px;
+	font-weight: normal;
+}
+	
+#authentication-modal button, #authentication-modal .authentication-input {
+	margin: 15px auto 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
