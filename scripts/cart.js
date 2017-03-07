@@ -5,9 +5,10 @@ $(document).ready(function(){
 		var subtotal = 0;
 		
 		$('.price-value').each(function() {
-			subtotal += parseInt($(this).text());
+			value = parseInt($(this).text());
+			quantity = parseInt($(this).closest(".product-info-container").find("input").val());
+			subtotal += value * quantity;
 		});
-		
 		
 		$('.checkout-subtotal-value').text(subtotal + "€");
 	}
@@ -17,6 +18,7 @@ $(document).ready(function(){
         if(quantity < 60) {
             $(this).siblings('input').val(quantity + 1);
         }
+		calculateSubtotal();
     });
 
     $('.quantity-left-minus').click(function(){
@@ -24,6 +26,7 @@ $(document).ready(function(){
         if(quantity > 1){
             $(this).siblings('input').val(quantity - 1);
         }
+		calculateSubtotal();
     });
 	
 	$('.remove-cart-item').click(function() {
