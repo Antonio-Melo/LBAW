@@ -7,7 +7,7 @@
 		<span class="glyphicon glyphicon-menu-hamburger"></span>
 	</button>
 	
-	<div id="search-mobile-background-filter" class="hidden-xs hidden-sm hidden-md hidden-lg mobile-background-filter"></div>
+	<div id="search-mobile-background-filter" class="hidden-xs hidden-sm hidden-md hidden-lg mobile-background-filter" onclick="closeNav()"></div>
 	
 	<!-- Filters nav -->
 	<nav class="panel-group sidenav hidden-xs visible-sm-block visible-md-block visible-lg-block" id="search-filters">

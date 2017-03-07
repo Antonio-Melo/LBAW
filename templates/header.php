@@ -34,9 +34,11 @@
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search">
 						<div class="input-group-btn">
-							<button class="btn btn-default" id="search-bttn" type="submit">
-								<span class="glyphicon glyphicon-search"></span>
-							</button>
+							<a href="search.php">
+								<button class="btn btn-default" id="search-bttn" type="submit">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -45,7 +47,7 @@
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<!-- Logged in user -->
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+						<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
 						<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
 						<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
 					</ul>
@@ -58,9 +60,11 @@
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="Search">
 				<div class="input-group-btn">
-					<button class="btn btn-default" id="search-bttn" type="submit">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
+					<a href="search.php">
+						<button class="btn btn-default" id="search-bttn" type="submit">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</a>
 				</div>
 			</div>
 		</nav>
@@ -102,5 +106,41 @@
 				</div>
 			</div>
 		</nav>
+		
+		<!-- Authentication modal -->
+		<div class="modal" id="authentication-modal">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<a type="button" class="closebtn" data-dismiss="modal">&times;</a>
+						
+						<ul class="nav nav-tabs">
+							<li class="active"><a data-toggle="tab" href="#login-tab">Login</a></li>
+							<li><a data-toggle="tab" href="#register-tab">Register</a></li>
+						</ul>
+					</div>
+				
+					<div class="modal-body">
+						<div class="tab-content">
+							<div id="login-tab" class="tab-pane active">
+								<input type="text" name="username" placeholder="Email/Username" required>
+								<input type="password" name="password" placeholder="Password" required>
+								<button>Log in</button>								
+							</div>
+							<div id="register-tab" class="tab-pane">
+								<input type="text" name="username" placeholder="Username" required>
+								<input type="text" name="name" placeholder="Name" required>
+								<input type="text" name="email" placeholder="Email" required>
+								<input type="password" name="password" placeholder="Password" required>
+								<input type="password" name="password" placeholder="Confirm password" required>
+								<button>Register</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
 	</header>
 	<main>
