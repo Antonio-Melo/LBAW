@@ -43,7 +43,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<?php if($admin == false){?>
 				<!--Menu-->
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<!-- Logged in user -->
@@ -53,6 +53,7 @@
 						<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
 					</ul>
 				</div>
+                <?php }?>
 			</div>
 		</nav>
 		
