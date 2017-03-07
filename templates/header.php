@@ -13,6 +13,7 @@
 	<script src="../lib/jquery/jquery.min.js"></script>
 	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../lib/jquery/jquery-ui.js"></script>
+    <script src="../lib/canvasjs/canvasjs.min.js"></script>
 	<script src="../scripts/header.js"></script>
 	<script src="<?=$jsPath?>"></script>
 </head>
