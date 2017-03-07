@@ -46,13 +46,33 @@
 
 				<!--Menu-->
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
-					<!-- Logged in user -->
 					<ul class="nav navbar-nav navbar-right">
-						<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-                        <?php if($admin == false){?>
-						    <li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
-						    <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                        <?php }?>
+						<?php
+							$user_type = 3;
+							if ($user_type == 1) {
+						?>
+								<!-- Logged in user -->
+								<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+								<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
+								<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+						<?php
+							}
+							else if ($user_type == 2) {
+						?>
+								<!-- Visitor -->
+								<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+						<?php
+							}
+							else if ($user_type == 3) {
+						?>
+								<!-- Admin -->
+								<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
+						<?php
+							}
+						?>
 					</ul>
 				</div>
 			</div>
