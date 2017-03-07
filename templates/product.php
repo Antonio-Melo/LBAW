@@ -261,7 +261,7 @@
 
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="../resources/avatar3.png" class="media-object answer">
+                                    <img src="../resources/avatar3.png" class="media-object answer-pic">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">BATeam</h4>
