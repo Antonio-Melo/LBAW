@@ -1,0 +1,90 @@
+profile .username {
+    padding: 15px;
+}
+
+profile .profileBox {
+    background-color: #f0f0f0;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+
+
+/* Profile Navigator */
+
+#profileNav p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#profileNav a p{
+    margin: 0px;
+}
+
+#profileNav li {
+    margin: 0px;
+}
+
+#profileNav li.active {
+    border-left: 5px solid #c49f66;
+}
+
+#profileNav li.active a:hover{
+    border-left: none;
+}
+
+#profileNav li a {
+    padding: 5px;
+    color: #373d5b;
+    background-color: #f0f0f0;
+    border-radius: 0%;
+}
+
+#profileNav li a:hover {
+    border-left: 5px solid #c49f66;
+}
+
+/*Address card*/
+div.adressCard {
+    padding: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #c49f66;
+}
+
+div.addAddress a{
+
+}
+
+button.profileButton {
+    width: auto;
+}
+
+ul.editable {
+    background: #373d5b;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+ul.editable li a {
+    color: white;
+}
+
+ul.editable li a:hover {
+    color: #c49f66;
+}
+
+.editable .list-group-item {
+    float: right;
+    background: inherit;
+    border: none;
+    padding: 0px;
+    padding-right: 5px;
+}
