@@ -52,7 +52,7 @@
                 Add to Cart
             </button>
             <button type="button" class="btn btn-primary" id="add-to-fav">
-                <span class="glyphicon glyphicon-heart""></span>
+                <span class="glyphicon glyphicon-heart"></span>
                 Add to Favorites
             </button>
             <br><br>
@@ -60,7 +60,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="item-verifications">
                         <img src="../resources/product%20verifications/paypal-verified.png" alt="paypal">
-                        <img src="../resources/product%20verifications/money.png" alt="money">                    </div>
+                        <img src="../resources/product%20verifications/money.png" alt="money">
+					</div>
                 </div>
             </div>
         </div>
