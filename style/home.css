@@ -5,10 +5,6 @@ h1 {
 	margin-left: 4px;
 }
 
-.items-display {
-	margin: 0 5px 0 5px;
-}
-
 .items-display > div {
 	margin-bottom: 30px;
 	overflow: hidden;
