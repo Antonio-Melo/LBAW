@@ -1,0 +1,9 @@
+#add-product {
+    padding: 28px 38px;
+    font-size: 30px;
+    line-height: normal;
+    background: green !important;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
