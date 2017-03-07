@@ -69,10 +69,10 @@
     <div class="full-info-container">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#description"> <span class="glyphicon glyphicon-info-sign"></span> Description</a></li>
-                <li><a data-toggle="tab" href="#faq">Product FAQ</a></li>
-                <li><a data-toggle="tab" href="#customer-rv">Customer Reviews</a></li>
-                <li><a data-toggle="tab" href="#sp">Shipping & Payment</a></li>
+                <li class="active"><a data-toggle="tab" href="#description"> <i class="fa fa-info-circle"></i> Description</a></li>
+                <li><a data-toggle="tab" href="#faq"> <i class="fa fa-question-circle"></i> FAQ</a></li>
+                <li><a data-toggle="tab" href="#customer-rv"><i class="fa fa-comment" style="font-size:20px"></i> Customer Reviews</a></li>
+                <li><a data-toggle="tab" href="#sp"><i class="fa fa-plane" style="font-size:20px"></i> Shipping & Payment</a></li>
             </ul>
 
             <div class="tab-content">
@@ -225,21 +225,28 @@
 
 
                 <div id="faq" class="tab-pane fade"><br>
-                    <span class="glyphicon glyphicon-question-sign"></span>
-                    <b>Can this item be shipped to my country?</b><br>
-                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    We can deliver orders to most countries. For a detailed explanation about each shipping method, destination and approximate delivery time, please check our website<br><br>
 
-                    <span class="glyphicon glyphicon-question-sign"></span>
-                    <b>Why can’t I hear any sound when making or receiving a call ?</b><br>
-                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    1. Make sure the protective film has been removed completely; 2. Try to turn up the volume of the handset; 3. Try to change mobile signal in your area might be poor; 4. If you cannot hear the voice of the receiver, it might be the problem of the receiver’s phone or signal.<br><br>
+                    <div class="list-group panel">
+                        <!--PERGUNTA-->
+                        <a href="#question1" class="list-group-item" data-toggle="collapse"><b>Can this item be shipped to my country?</b></a>
+                        <div class="collapse answer" id="question1">
+                            <br><p>We can deliver orders to most countries. For a detailed explanation about each shipping method, destination and approximate delivery time, please check our website<br></p>
+                        </div>
 
-                    <span class="glyphicon glyphicon-question-sign"></span>
-                    <b>What is the IMEI number of this device?</b><br>
-                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    We cannot provide IMEI (international mobile equipment identity) numbers because each cellphone will be given a unique set of numbers after its assembly, We can’t open the packaging.<br><br>
+                        <!--PERGUNTA-->
+                        <a href="#question2" class="list-group-item" data-toggle="collapse"><b>Why can’t I hear any sound when making or receiving a call ?</b></a>
+                        <div class="collapse answer" id="question2">
+                            <br><p>1. Make sure the protective film has been removed completely; 2. Try to turn up the volume of the handset; 3. Try to change mobile signal in your area might be poor; 4. If you cannot hear the voice of the receiver, it might be the problem of the receiver’s phone or signal.<br></p>
+                        </div>
+
+                        <!--PERGUNTA-->
+                        <a href="#question3" class="list-group-item" data-toggle="collapse"><b>What is the IMEI number of this device?</b></a>
+                        <div class="collapse answer" id="question3">
+                            <p>We cannot provide IMEI (international mobile equipment identity) numbers because each cellphone will be given a unique set of numbers after its assembly, We can’t open the packaging.<br></p>
+                        </div>
+                    </div>
                 </div>
+
                 <div id="customer-rv" class="tab-pane fade">
                     <br>
                     <!-- Left-aligned media object -->
@@ -254,7 +261,7 @@
 
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="../resources/avatar3.png" class="media-object">
+                                    <img src="../resources/avatar3.png" class="media-object answer">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">BATeam</h4>
