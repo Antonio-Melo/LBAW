@@ -29,7 +29,7 @@
                     <th><input type="checkbox" id="checkall" /></th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Bio</th>
+                    <th>Report</th>
                     <th>Ban</th>
                     </thead>
                     <tbody>
@@ -121,7 +121,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                <h4 class="modal-title custom_align" id="Heading">Bio</h4>
+                <h4 class="modal-title custom_align" id="Heading">Description</h4>
             </div>
             <div class="modal-body">
                 Curabitur aliquet felis rutrum ex aliquam laoreet. Pellentesque porttitor, tortor convallis varius sagittis, felis turpis commodo lacus, feugiat auctor est massa at erat.

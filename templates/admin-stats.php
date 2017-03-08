@@ -1,21 +1,4 @@
 <div class="panel-body items-display">
-    <div class="admin-profile">
-
-    </div>
-    <div class="admin-actions">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <button type="button" class="btn btn-success btn-xlarge" id="add-product">Add Product</button>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <button type="button" class="btn btn-success btn-xlarge" id="ban-user">Ban user</button>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <button type="button" class="btn btn-success btn-xlarge" id="change-product">Change product</button>
-            </div>
-        </div>
-    </div>
-
     <div class="charts-container">
         <div id="chartContainer-visitors" style="height: 300px; width: 100%;"></div>
         <div id="chartContainer-mostbuy" style="height: 300px; width: 100%;"></div>

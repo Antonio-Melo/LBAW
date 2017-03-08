@@ -67,9 +67,9 @@
 						?>
 								<!-- Admin -->
 								<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
+								<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
+								<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
+								<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
 						<?php
 							}
 						?>

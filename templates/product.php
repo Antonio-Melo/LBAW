@@ -13,7 +13,7 @@
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div class="product-information-container">
             <div class="full-description">
-                <span class="full-name"> <h3>XiaoMi Mi5 4G Smartphone  -  BLACK </h3></span><br>
+                <span class="full-name"> <h3>XiaoMi Mi5 4G Smartphone</h3></span><br>
                 <span class="sub-description">
                     MIUI 8 4GB RAM Snapdragon 820 64bit Quad Core 2.15GHz 16.0MP + 4.0MP Cameras Type-C Quick Charge 3.0 NFC Front Fingerprint Sensor 3D Ceramic Body
                 </span> <hr>
