@@ -16,7 +16,7 @@ h2 {
 	padding: 15px;
 }
 
-.contact, a:hover  {
+.contact, .contact-us-content a:hover  {
 	text-decoration: underline !important;
 	color: #333;
 }
