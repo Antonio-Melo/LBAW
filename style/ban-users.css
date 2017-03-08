@@ -90,3 +90,17 @@
 .custom-checkbox input[type=checkbox]:checked + label:after {
 	opacity: 1;
 }
+
+/* Pagination */
+
+.pagination a {
+	border-radius: 0 !important;
+	color: #222 !important;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	color: white !important;
+	background: #c49f66;
+	border-color: #c49f66;
+}
+
