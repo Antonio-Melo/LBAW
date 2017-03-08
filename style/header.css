@@ -183,39 +183,39 @@ a, a:hover, a:active, a:visited {
 	color: #b98d49;
 }
 
-.modal-content {
+#authentication-modal .modal-content {
 	border-radius: 0;
 	box-shadow: none;
 }
 
-.modal-header {
+#authentication-modal .modal-header {
 	border: 0;
 	height: 50px;
 	padding: 12px 12px 0 12px;
 	background: white;
 }
 
-.modal-header a:hover {
+#authentication-modal .modal-header a:hover {
 	cursor: pointer;
 }
 
-.modal-header .nav, .modal-header .nav li, .modal-header .nav li a {
+#authentication-modal .modal-header .nav, .modal-header .nav li, .modal-header .nav li a {
 	height: 100%;
 	border: 0;
 	margin: 0;
 }
 
-.modal-header .nav li a {
+#authentication-modal .modal-header .nav li a {
 	width: 100px;
 	text-align: center;
 }
 
-.modal-header .closebtn {
+#authentication-modal .modal-header .closebtn {
 	line-height: 21px;
 	width: 21px;
 }
 
-.modal-backdrop {
+#authentication-modal .modal-backdrop {
 	opacity:0.8 !important;
 }
 
@@ -236,11 +236,11 @@ a, a:hover, a:active, a:visited {
 	background: #c49f66;
 }
 
-.modal-body {
+#authentication-modal .modal-body {
 	background: white;
 }
 
-.modal-body  ul{
+#authentication-modal .modal-body  ul{
 	border: 0;
 }
 
