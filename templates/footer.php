@@ -37,7 +37,7 @@
 				<div id="footer-about" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<h4>About .bat</h4>
 					<ul>
-						<li><a href="#">About us</a></li>
+						<li><a href="about-us.php">About us</a></li>
 						<li><a href="#">Sitemap</a></li>
 					</ul>
 				</div>
