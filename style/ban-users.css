@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 #ban-users-container .btn-danger{
     background: #e53935 !important;
-=======
-.btn-danger{
-    background: #d9534f!important;
->>>>>>> origin/bootstrap
 }
 
 #ban-users-container .btn-danger:hover{
