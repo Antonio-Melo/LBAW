@@ -4,7 +4,7 @@
 	
 	<div class="checkout-cart">
 		<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-		<button type="button" class="btn checkout-button ">Checkout</button>
+		<button type="button" class="btn checkout-button ">Order</button>
 	</div>
 	
 	<div class="items-display" id="cart-results">		
@@ -51,7 +51,7 @@
 	
 	<div class="checkout-cart">
 		<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-		<button type="button" class="btn checkout-button ">Checkout</button>
+		<button type="button" class="btn checkout-button ">Order</button>
 	</div>
 	
 </div>
