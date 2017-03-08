@@ -33,5 +33,13 @@ $(document).ready(function(){
 		$(this).parent().remove();
 		calculateSubtotal();
 	});
+	
+	$('.product-image-container').click(function() {
+		window.location.href = "product.php";
+	});
+	
+	$('.product-info-container .name').click(function() {
+		window.location.href = "product.php";
+	});
 
 });

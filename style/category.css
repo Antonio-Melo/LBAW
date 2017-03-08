@@ -81,3 +81,11 @@ h2 {
 .product-info-container .type-brand, .product-mosaic button, .product-mosaic .rating1{
 	display: none;
 }
+
+.product-image-container {
+	cursor: pointer;
+}
+
+.product-info-container .name {
+	cursor: pointer;
+}

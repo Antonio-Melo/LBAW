@@ -108,3 +108,11 @@
 		margin-left: 38px;
 	}
 }
+
+.product-image-container {
+	cursor: pointer;
+}
+
+.product-info-container .name {
+	cursor: pointer;
+}

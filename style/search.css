@@ -395,7 +395,13 @@
 	}
 }
 
+.product-image-container {
+	cursor: pointer;
+}
 
+.product-info-container .name {
+	cursor: pointer;
+}
 
 
 
