@@ -58,14 +58,14 @@
         </div>
         <div class="row">
             <div class="name col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3  col-sm-12 col-xs-12">
-                <span class="input-group-addon"><i class="fa fa-coins"> Quantity</i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-tags"> Quantity</i></span>
                 <input type="number" class="form-control" id="qty">
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3  col-sm-6 col-12">
-                <span class="input-group-addon"><i class="fa fa-equalizer"> Images</i></span>
-                <label class="btn btn-primary">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-list"> Images</i></span>
+                <label class="btn btn-block btn-primary">
                     Browse&hellip; <input type="file" style="display: none;">
                 </label>
             </div>
@@ -75,7 +75,7 @@
             <div class="small-description col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3  col-sm-12 col-xs-12">
                 <div class="form-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-tags"> Full description</i></span>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <textarea class="form-control" rows="10" maxlength="5" id="comment"></textarea>
                 </div>
             </div>
         </div>

@@ -14,3 +14,6 @@
     color: white;
     background: #494e6b;
 }
+textarea {
+    resize: none;
+}
