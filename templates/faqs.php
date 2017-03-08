@@ -24,13 +24,6 @@
 					<h2> <i class="fa fa-certificate" ></i>&nbsp; Warranty & Return</h2>
 				</a>
 			</li>
-			<!--
-			<li>
-				<a data-toggle="pill" href="#orderStatus">
-					<h2> <i class="fa fa-truck" ></i>&nbsp; Order Status</h2>
-				</a>
-			</li>
-			-->
 		</ul>
 
 		<div class="tab-content">

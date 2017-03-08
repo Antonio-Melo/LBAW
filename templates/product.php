@@ -23,22 +23,9 @@
             </div>
             <div class="progress">
                 <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60"
-                     aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                     aria-valuemin="0" aria-valuemax="100" style="width:80%">
                     60 pieces left
                 </div>
-            </div>
-            <div class="input-group number">
-                <span class="input-group-btn">
-                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                        <span class="glyphicon glyphicon-minus"></span>
-                    </button>
-                </span>
-                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="60">
-                <span class="input-group-btn">
-                    <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </button>
-                </span>
             </div>
             <div class="product-color"><br>
                 <button type="button" class="btn btn-primary">Black</button>
@@ -47,23 +34,23 @@
             <div class="product-shipping">
                 <br><span>Shipping Cost: FREE SHIPPING to Portugal Via Unregistered Air Mail</span>
             </div><br>
-            <button type="button" class="btn-lg btn-primary" id="add-to-cart">
-                <span class="glyphicon glyphicon-shopping-cart"></span>
-                Add to Cart
-            </button>
-            <button type="button" class="btn btn-primary" id="add-to-fav">
-                <span class="glyphicon glyphicon-heart"></span>
-                Add to Favorites
-            </button>
-            <br><br>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="item-verifications">
-                        <img src="../resources/product%20verifications/paypal-verified.png" alt="paypal">
-                        <img src="../resources/product%20verifications/money.png" alt="money">
-					</div>
-                </div>
-            </div>
+			<div class="product-buttons">
+				<div class="product-buttons-buttons">
+					<button type="button" class="btn btn-primary" id="add-to-cart">
+						<span class="glyphicon glyphicon-shopping-cart"></span>
+						Add to Cart
+					</button>
+					<button type="button" class="btn btn-primary" id="add-to-fav">
+						<span class="glyphicon glyphicon-heart"></span>
+						Add to Favorites
+					</button>
+				</div>
+			</div>
+			
+			<div class="item-verifications">
+				<img src="../resources/product%20verifications/paypal-verified.png" alt="paypal">
+				<img src="../resources/product%20verifications/money.png" alt="money">
+			</div>
         </div>
     </div>
 
@@ -229,19 +216,19 @@
 
                     <div class="list-group panel">
                         <!--PERGUNTA-->
-                        <a href="#question1" class="list-group-item" data-toggle="collapse"><b>Can this item be shipped to my country?</b></a>
+                        <a href="#question1" class="list-group-item" data-toggle="collapse">Can this item be shipped to my country?</a>
                         <div class="collapse answer" id="question1">
                             <br><p>We can deliver orders to most countries. For a detailed explanation about each shipping method, destination and approximate delivery time, please check our website<br></p>
                         </div>
 
                         <!--PERGUNTA-->
-                        <a href="#question2" class="list-group-item" data-toggle="collapse"><b>Why can’t I hear any sound when making or receiving a call ?</b></a>
+                        <a href="#question2" class="list-group-item" data-toggle="collapse">Why can’t I hear any sound when making or receiving a call ?</a>
                         <div class="collapse answer" id="question2">
                             <br><p>1. Make sure the protective film has been removed completely; 2. Try to turn up the volume of the handset; 3. Try to change mobile signal in your area might be poor; 4. If you cannot hear the voice of the receiver, it might be the problem of the receiver’s phone or signal.<br></p>
                         </div>
 
                         <!--PERGUNTA-->
-                        <a href="#question3" class="list-group-item" data-toggle="collapse"><b>What is the IMEI number of this device?</b></a>
+                        <a href="#question3" class="list-group-item" data-toggle="collapse">What is the IMEI number of this device?</a>
                         <div class="collapse answer" id="question3">
                             <p>We cannot provide IMEI (international mobile equipment identity) numbers because each cellphone will be given a unique set of numbers after its assembly, We can’t open the packaging.<br></p>
                         </div>
