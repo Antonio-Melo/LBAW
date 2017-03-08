@@ -358,7 +358,7 @@
 	padding: 10px;
 }
 
-.product-list .list-right-container {
+.product-list .list-left-container , .product-list .list-right-container {
 	text-align: center;
 }
 
@@ -371,11 +371,11 @@
 }
 
 .available {
-	color: green;
+	color: #43a047;
 }
 
 .unavailable {
-	color: red;
+	color: #e53935;
 }
 
 .stock {
