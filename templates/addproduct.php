@@ -79,5 +79,11 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5  col-sm-12 col-xs-12">
+                <button type="button" class="btn btn-primary btn-block profileButton">Add</button>
+            </div>
+        </div>
     </div>
 </div>
