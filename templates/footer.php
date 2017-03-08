@@ -27,7 +27,7 @@
 				<div id="footer-service" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<h4>Costumer Service</h4>
 					<ul>
-						<li><a href="#">Terms & Conditions</a></li>
+						<li><a href="terms-conditions.php">Terms & Conditions</a></li>
 						<li><a href="#">Contact Us</a></li>
 						<li><a href="faqs.php">FAQs</a></li>
 					</ul>
