@@ -48,7 +48,7 @@
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<ul class="nav navbar-nav navbar-right">
 						<?php
-							$user_type = 1;
+							$user_type = 3;
 							if ($user_type == 1) {
 						?>
 								<!-- Logged in user -->
