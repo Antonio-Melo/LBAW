@@ -48,7 +48,7 @@
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<ul class="nav navbar-nav navbar-right">
 						<?php
-							$user_type = 3;
+							$user_type = 1;
 							if ($user_type == 1) {
 						?>
 								<!-- Logged in user -->
@@ -79,15 +79,17 @@
 		</nav>
 		
 		<!-- Search nav for small screens -->
-		<nav class="search navbar navbar-default hidden-md hidden-lg">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Search">
-				<div class="input-group-btn">
-					<a href="search.php">
-						<button class="btn btn-default" id="search-bttn" type="submit">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</a>
+		<nav class="navbar navbar-default hidden-md hidden-lg" id="search-nav">
+			<div class="container-fluid search">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search">
+					<div class="input-group-btn">
+						<a href="search.php">
+							<button class="btn btn-default" id="search-bttn" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</a>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -138,7 +140,7 @@
 						<a type="button" class="closebtn" data-dismiss="modal">&times;</a>
 						
 						<ul class="nav nav-tabs">
-							<li class="active"><a data-toggle="tab" href="#login-tab">Login</a></li>
+							<li class="active"><a data-toggle="tab" href="#login-tab">Log in</a></li>
 							<li><a data-toggle="tab" href="#register-tab">Register</a></li>
 						</ul>
 					</div>

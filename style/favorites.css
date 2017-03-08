@@ -82,11 +82,11 @@
 }
 
 .available {
-	color: green;
+	color: #43a047;
 }
 
 .unavailable {
-	color: red;
+	color: #e53935;
 }
 
 .stock {
