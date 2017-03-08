@@ -20,7 +20,7 @@
                     <?php
                     if ($user_type == 3) {?>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <button type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
+                            <button id="editproduct" type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
                         </div><?php } ?>
                 </div>
                 <span class="sub-description">

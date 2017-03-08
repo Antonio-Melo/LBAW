@@ -26,4 +26,8 @@ $(document).ready(function(){
         }
     });
 
+    $('#editproduct').click(function() {
+        window.location.href = "../pages/editproduct.php";
+    });
+
 });

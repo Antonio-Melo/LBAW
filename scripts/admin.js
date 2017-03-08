@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#ban-user').click(function() {
-        window.location.replace("../pages/ban-users.php");
+    $('#editproduct').click(function() {
+        window.location.replace("../pages/editproduct.php");
     });
 });
