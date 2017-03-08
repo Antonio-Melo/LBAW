@@ -28,7 +28,7 @@
 					<h4>Costumer Service</h4>
 					<ul>
 						<li><a href="terms-conditions.php">Terms & Conditions</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<li><a href="contact-us.php">Contact Us</a></li>
 						<li><a href="faqs.php">FAQs</a></li>
 					</ul>
 				</div>

@@ -1,0 +1,22 @@
+#contact-us-body {
+	padding: 0 15px 0 15px;
+}
+
+h1, .contact-us-content {
+	margin-left: 10px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+.contact-us-content > div{
+	background: #f5f5f5;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+
+.contact, a:hover  {
+	text-decoration: underline !important;
+	color: #333;
+}
