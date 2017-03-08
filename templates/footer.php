@@ -38,7 +38,7 @@
 					<h4>About .bat</h4>
 					<ul>
 						<li><a href="about-us.php">About us</a></li>
-						<li><a href="#">Sitemap</a></li>
+						<li><a href="sitemap.php">Sitemap</a></li>
 					</ul>
 				</div>
             </div>
