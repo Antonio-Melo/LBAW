@@ -358,7 +358,7 @@
 	padding: 10px;
 }
 
-.product-list .list-right-container {
+.product-list .list-left-container , .product-list .list-right-container {
 	text-align: center;
 }
 

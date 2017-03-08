@@ -122,19 +122,6 @@ a, a:hover, a:active, a:visited {
 	padding-top: 3px;
 }
 
-#secondary-nav .hidden-lg ul {
-	padding: 0 0 5px 0;
-	width: 100%;
-}
-
-#secondary-nav .hidden-lg li {
-	z-index: 2;
-}
-
-#secondary-nav .hidden-lg li:last-child {
-	padding-bottom: 20px !important;
-}
-
 #secondary-nav ul {
 	display: inline-block;
 	float: none;
@@ -158,7 +145,26 @@ a, a:hover, a:active, a:visited {
 	border-bottom: 3px solid #c49f66;
 }
 
-.panel-heading {
+#secondary-nav .secondary-nav-dropdown{
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#secondary-nav .secondary-nav-dropdown ul {
+	padding: 0 0 5px 0;
+	width: 100%;
+}
+
+#secondary-nav .secondary-nav-dropdown li {
+	z-index: 2;
+}
+
+#secondary-nav .secondary-nav-dropdown li:last-child {
+	padding-bottom: 20px !important;
+}
+
+#secondary-nav .secondary-nav-dropdown .panel-heading {
 	padding: 15px 15px 15px 15px !important;
 }
 

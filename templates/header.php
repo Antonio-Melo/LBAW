@@ -108,7 +108,7 @@
 			</ul>
 			
 			<!-- Dropdown for small devices -->
-			<div class="container-fluid hidden-sm hidden-md hidden-lg">
+			<div class="secondary-nav-dropdown container-fluid hidden-sm hidden-md hidden-lg">
 				<div class="panel-group">
 					<div class="panel panel-default">
 						<div class="panel-heading">
