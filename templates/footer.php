@@ -29,7 +29,7 @@
 					<ul>
 						<li><a href="#">Terms & Conditions</a></li>
 						<li><a href="#">Contact Us</a></li>
-						<li><a href="faq.php">FAQ's</a></li>
+						<li><a href="faqs.php">FAQs</a></li>
 					</ul>
 				</div>
 				
@@ -38,7 +38,6 @@
 					<h4>About .bat</h4>
 					<ul>
 						<li><a href="#">About us</a></li>
-						<li><a href="#">Careers</a></li>
 						<li><a href="#">Sitemap</a></li>
 					</ul>
 				</div>

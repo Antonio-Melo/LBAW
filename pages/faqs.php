@@ -1,7 +1,7 @@
 <?php
-  $cssPath = '../style/faq.css';
+  $cssPath = '../style/faqs.css';
   $admin = false;
   include('../templates/header.php');
-  include('../templates/faq.php');
+  include('../templates/faqs.php');
   include('../templates/footer.php');
 ?>
