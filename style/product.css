@@ -12,6 +12,10 @@
     padding: 20px 0 0 0;
 }
 
+#product-image, #product-info {
+	min-height: 600px;
+}
+
 .product-image-container {
     height: 385px;
 }
@@ -24,6 +28,13 @@
     height: 180px;
     width: 100%;
     display: table;
+}
+
+#editproduct {
+	width: 150px;
+	height: 50px;
+	float: right;
+	margin-right: 20px;
 }
 
 .product-info-container span{
@@ -90,11 +101,6 @@
 
 .product-buttons {
 	margin-top: 30px;
-}
-
-.product-buttons button {
-	width: 150px;
-	height: 50px;
 }
 
 .product-buttons #add-to-cart {
