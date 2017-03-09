@@ -29,14 +29,24 @@
 		<div class="tab-content">
 			<!-- Account Info -->
 			<div id="accountInfo" class="tab-pane in active">
-				<div class="row">
-					<div class="col-sm-2">
-						<b>First Name:</b>
-					</div>
-					<div class="col-sm-8">
-						<p>Augustus</p>
-					</div>
-				</div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <b>Avatar:</b>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="avatar-image-container">
+                            <img src="../resources/avatar.png" class="media-object">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <b>First Name:</b>
+                    </div>
+                    <div class="col-sm-8">
+                        <p>Augustus</p>
+                    </div>
+                </div>
 				<div class="row">
 					<div class="col-sm-2">
 						<b>Last Name:</b>
@@ -192,13 +202,14 @@
 						<div class="shippingInfo">
 							<div class="row">
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<p>Shipping Method</p>
+									<p><i>Shipping Method:</i></p>
 									<p>Standard</p>
-									<p>Payment Method</p>
+                                    <p><i>Payment Method:</i></p>
 									<p>Paypal</p>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 									<div>
+                                        <p><i>Billing Address:</i></p>
 										<p>Augustus Caesar</p>
 										<p>Street 1, Door 1</p>
 										<p>Roma 1000</p>
@@ -209,6 +220,7 @@
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 									<div>
+                                        <p><i>Shipping Address:</i></p>
 										<p>Augustus Caesar</p>
 										<p>Street 1, Door 1</p>
 										<p>Roma 1000</p>
@@ -322,13 +334,14 @@
 						<div class="shippingInfo">
 							<div class="row">
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<p>Shipping Method</p>
-									<p>Standard</p>
-									<p>Payment Method</p>
-									<p>Paypal</p>
+                                    <p><i>Shipping Method:</i></p>
+                                    <p>Standard</p>
+                                    <p><i>Payment Method:</i></p>
+                                    <p>Paypal</p>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 									<div>
+                                        <p><i>Billing Address:</i></p>
 										<p>Augustus Caesar</p>
 										<p>Street 1, Door 1</p>
 										<p>Roma 1000</p>
@@ -339,12 +352,13 @@
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 									<div>
-										<p>Augustus Caesar</p>
-										<p>Street 1, Door 1</p>
-										<p>Roma 1000</p>
-										<p>Roma</p>
-										<p>Roman Empire</p>
-										<p>Tel:+39 06 6485 0987</p>
+                                        <p><i>Shipping Address:</i></p>
+                                        <p>Cleopatra</p>
+                                        <p>Street 1, Door 1</p>
+                                        <p>Cairo 1000</p>
+                                        <p>Cairo</p>
+                                        <p>Egyptian Empire</p>
+                                        <p>Tel:+20 101 701 7003</p>
 									</div>
 								</div>
 							</div>

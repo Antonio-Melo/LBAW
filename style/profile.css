@@ -45,6 +45,13 @@ h2 {
 	border-bottom-color: #222 !important;
 }
 
+#accountInfo .avatar-image-container .media-object{
+    height: 150px;
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
 #myAddresses button {
 	display: inline-block;
 	margin-bottom: 15px;
@@ -163,14 +170,6 @@ div.shippingPrice{
 
 .product-list .list-right-container button {
     margin: 3px;
-}
-
-.available {
-    color: green;
-}
-
-.unavailable {
-    color: red;
 }
 
 .stock {
