@@ -108,14 +108,24 @@ a, a:hover, a:active, a:visited {
 	color: white;
 }
 
+/* Main nav small mobile fix */
+@media (max-width: 350px) {
+	#logo {
+		padding-left: 0;
+	}
+	
+	#menu a {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+}
 
 /* ===================================================== */
 /* Secondary nav */
 
 #secondary-nav, #secondary-nav div {
 	text-align: center;
-	background: #494e6b;
-	height: 47px;
+	background: #494e6b;	
 }
 
 #secondary-nav .hidden-xs {
@@ -154,10 +164,6 @@ a, a:hover, a:active, a:visited {
 #secondary-nav .secondary-nav-dropdown ul {
 	padding: 0 0 5px 0;
 	width: 100%;
-}
-
-#secondary-nav .secondary-nav-dropdown li {
-	z-index: 2;
 }
 
 #secondary-nav .secondary-nav-dropdown li:last-child {
