@@ -307,13 +307,13 @@
 	vertical-align: middle;
 }
 
-.product-mosaic .product-info-container .type-brand, .product-mosaic button, .product-mosaic .rating1{
+.product-mosaic button, .product-mosaic .rating, .list-middle-container{
 	display: none;
 }
 
 /* Product List */
 .items-display > .product-list {
-	height: 200px;
+	min-height: 200px;
 	border: 10px solid white;
 	border-right: 0;
 	border-top: 0;
@@ -366,10 +366,6 @@
 	margin: 3px;
 }
 
-.list-middle-container {
-	display: none;
-}
-
 .available {
 	color: #43a047;
 }
@@ -381,6 +377,16 @@
 .stock {
 	margin-top: 6px;
 }
+
+/* For really small devices */
+@media (max-width: 420px) {
+	.product-list .product-image-container, .product-list .product-info-container, .product-list .list-left-container, .product-list .list-right-container {
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+}
+
 
 /* For large devices show stock */
 @media (min-width: 992px) {

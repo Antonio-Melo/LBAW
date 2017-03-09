@@ -149,7 +149,7 @@
 							</div>
 							<div class="list-middle-container">
 								<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>
-								<div class="rating1"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></div>					
+								<div class="rating"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"><img src="../resources/star.png"></div>					
 							</div>
 							<div class="list-right-container">			
 								<div class="price">300,00€</div>
