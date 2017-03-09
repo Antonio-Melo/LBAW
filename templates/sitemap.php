@@ -14,6 +14,7 @@
 		<p><a href="cart.php"><span class="glyphicon glyphicon-chevron-right"></span> Cart</a></p>
 		<h2>Admin</h2>
 		<p><a href="addproduct.php"><span class="glyphicon glyphicon-chevron-right"></span> Add Product</a></p>
+		<p><a href="editproduct.php"><span class="glyphicon glyphicon-chevron-right"></span> Edit Product</a></p>
 		<p><a href="admin-stats.php"><span class="glyphicon glyphicon-chevron-right"></span> Admin Stats</a></p>
 		<p><a href="ban-users.php"><span class="glyphicon glyphicon-chevron-right"></span> Ban Users</a></p>
 		<h2>Customer service</h2>
