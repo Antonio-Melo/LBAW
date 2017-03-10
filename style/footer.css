@@ -46,3 +46,8 @@ footer ul {
     text-decoration: underline !important;
 	color: white;
 }
+
+#footer-connect input:focus {
+	border: 2px solid #c49f66 !important;
+	border-left: 0px !important;
+}

@@ -41,8 +41,7 @@ h2 {
 }
 
 #profile-body input:focus {
-	border: 1px solid #ddd !important;
-	border-bottom-color: #222 !important;
+	border: 2px solid #c49f66 !important;
 }
 
 #accountInfo .avatar-image-container .media-object{

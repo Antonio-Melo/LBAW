@@ -1,6 +1,6 @@
 <?php
     $cssPath = '../style/editproduct.css';
-    //$jsPath = '../scripts/admin.js';
+    $jsPath = '../scripts/addproduct.js';
     $admin = false;
     include('../templates/header.php');
     include('../templates/editproduct.php');
