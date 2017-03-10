@@ -1,7 +1,7 @@
 <div id="ban-users-container">
 	<div class="container">
 		<div class="row" style="margin-top: 2%;">
-			<div class="col-xs-12 col-sm-6 col-sm-push-6">
+			<div class="col-xs-8 col-sm-8" id="search-users">
 				<form>
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search">
@@ -13,8 +13,8 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-sm-pull-6">
-				<button type="button" class="btn btn-block btn-danger">Reports</button>
+			<div class="col-xs-4 col-sm-4" id="reports-button-container">
+				<button id="reports-button" type="button" class="btn btn-block btn-danger">Reports</button>
 			</div>
 		</div>
 
@@ -22,8 +22,7 @@
 			<div class="col-xs-12">
 				<div class="table-responsive">
 
-
-					<table id="mytable" class="table table-striped table-hover">
+					<table id="mytable" class="table table-hover">
 
 						<thead>
 

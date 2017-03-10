@@ -104,3 +104,35 @@
 	border-color: #c49f66;
 }
 
+.pagination li:first-child a, .pagination li:last-child a {
+	color: #888 !important;
+}
+
+#ban-users-container .btn-xs {
+	height: 26px;
+	width: 26px;
+}
+
+#ban-users-container input[type=text] {
+	box-shadow: none;
+}
+
+#ban-users-container input[type=text]:focus {
+	border: 1px solid #555 !important;
+}
+
+#reports-button {
+	width: 150px;
+	float: right;
+}
+
+@media (max-width: 520px) {
+	#reports-button {
+		float: none;
+		margin: 5px auto 0px auto;
+	}
+	
+	#search-users, #reports-button-container {
+		width: 100%;
+	}
+}
