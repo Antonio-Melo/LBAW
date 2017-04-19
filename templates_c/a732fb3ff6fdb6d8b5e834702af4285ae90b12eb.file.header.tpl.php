@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 14:53:34
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 18:12:12
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:47773503658f740d86bb6d3-31529912%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1492610010,
+      1 => 1492621927,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'BASE_URL' => 0,
     'css_file' => 0,
     'js_file' => 0,
-    'user_type' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -89,20 +88,22 @@ scripts/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 				<!--Menu-->
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<ul class="nav navbar-nav navbar-right">
-						<?php if ($_smarty_tpl->tpl_vars['user_type']->value==1) {?>
-							<!-- Logged in user -->
-							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
-							<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-						<?php } elseif ($_smarty_tpl->tpl_vars['user_type']->value==2) {?>
-							<!-- Visitor -->
-							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-						<?php } elseif ($_smarty_tpl->tpl_vars['user_type']->value==3) {?>
+						<?php if (isset($_SESSION['username'])&&isset($_SESSION['admin'])) {?>
 							<!-- Admin -->
-							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
 							<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
 							<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
+							<li><a href="../actions/logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
+						<?php } elseif (isset($_SESSION['username'])) {?>
+							<!-- Logged in user -->
+							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
+							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
+							<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+							<li><a href="../actions/logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
+						<?php } else { ?>
+							<!-- Visitor -->
+							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
 						<?php }?>
 					</ul>
 				</div>

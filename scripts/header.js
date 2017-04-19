@@ -39,6 +39,7 @@ $(document).ready(function(){
                                 if (json.status == "true") {
                                         document.getElementById("login").reset();
                                         $("#authentication-modal").modal("hide");
+					location.reload();
                                 }
                                 else {
                                         $('#login-password').after('<p style="color:#e53935;text-align:center;margin-top:5px;">Could not login</p>');
