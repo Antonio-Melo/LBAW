@@ -4,18 +4,18 @@
     <title>.bat</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" href="../lib/jquery/jquery-ui.css">
-    <link rel="stylesheet" href="../style/header.css">
-    <link rel="stylesheet" href="<?=$cssPath?>">
+	<link rel="stylesheet" href="{$BASE_URL}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{$BASE_URL}/lib/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="{$BASE_URL}/lib/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="{$BASE_URL}/style/header.css">
+    <link rel="stylesheet" href="{$BASE_URL}/style/{$css_file}">
     <link rel="stylesheet" href="../style/footer.css">
-	<script src="../lib/jquery/jquery.min.js"></script>
-	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-	<script src="../lib/jquery/jquery-ui.js"></script>
-    <script src="../lib/canvasjs/canvasjs.min.js"></script>
-	<script src="../scripts/header.js"></script>
-	<script src="<?=$jsPath?>"></script>
+	<script src="{$BASE_URL}/lib/jquery/jquery.min.js"></script>
+	<script src="{$BASE_URL}/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{$BASE_URL}/lib/jquery/jquery-ui.js"></script>
+    <script src="{$BASE_URL}/lib/canvasjs/canvasjs.min.js"></script>
+	<script src="{$BASE_URL}/scripts/header.js"></script>
+	<script src="{$BASE_URL}/style/{$js_file}"></script>
 </head>
 <body>
 	<header>
@@ -47,32 +47,21 @@
 				<!--Menu-->
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<ul class="nav navbar-nav navbar-right">
-						<?php
-							$user_type = 3;
-							if ($user_type == 1) {
-						?>
-								<!-- Logged in user -->
-								<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-								<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
-								<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-						<?php
-							}
-							else if ($user_type == 2) {
-						?>
-								<!-- Visitor -->
-								<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-						<?php
-							}
-							else if ($user_type == 3) {
-						?>
-								<!-- Admin -->
-								<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-								<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
-								<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
-								<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
-						<?php
-							}
-						?>
+						{if $user_type == 1}
+							<!-- Logged in user -->
+							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
+							<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+						{elseif $user_type == 2}
+							<!-- Visitor -->
+							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+						{elseif $user_type == 3}
+							<!-- Admin -->
+							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+							<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
+							<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
+							<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
+						{/if}
 					</ul>
 				</div>
 			</div>
@@ -148,16 +137,16 @@
 					<div class="modal-body">
 						<div class="tab-content">
 							<div id="login-tab" class="tab-pane active">
-								<div class="authentication-input">
+								<form class="authentication-input">
 									<label for="login-username">Username/Email</label>
 									<input type="text" name="username" id="login-username" required>
 									<label for="login-password">Password</label>
 									<input type="password" name="password" id="login-password" required>
-								</div>
-								<button>Log in</button>								
+									<button type="submit">Log in</button>
+								</form>				
 							</div>
 							<div id="register-tab" class="tab-pane">
-								<div class="authentication-input">
+								<form class="authentication-input" action="{$BASE_URL}actions/users/register.php" method="post">
 									<label for="register-username">Username</label>
 									<input type="text" name="username" id="register-username" required>
 									<label for="register-name">Name</label>
@@ -168,8 +157,8 @@
 									<input type="password" name="password" id="register-password" required>
 									<label for="register-confirm-password">Confirm password</label>
 									<input type="password" name="password" id="register-confirm-password" required>
-								</div>
-								<button>Register</button>
+									<button type="submit">Register</button>
+								</form>
 							</div>
 						</div>
 					</div>

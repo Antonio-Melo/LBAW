@@ -1,3 +1,5 @@
+{include file='header.tpl'}
+
 <div class="panel-body items-display">
 	<h1>Smartphones</h1>
 	<hr>
@@ -119,3 +121,5 @@
 		</div>
 	</div>
 </div>
+
+{include file='footer.tpl'}
