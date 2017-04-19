@@ -26,5 +26,30 @@ $(document).ready(function(){
 	});
 	
 	
-	
+	$("#login").submit(function(e) {
+		var url = "/~lbaw1663/LBAW/actions/login.php";
+
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: $("#login").serialize(),
+			success: function(response) {
+                                console.log(response);
+                                var json = $.parseJSON(response);
+                                if (json.status == "true") {
+                                        document.getElementById("login").reset();
+                                        $("#authentication-modal").modal("hide");
+                                }
+                                else {
+                                        $('#login-password').after('<p style="color:#e53935;text-align:center;margin-top:5px;">Could not login</p>');
+                                }
+                        },
+                        error: function(response) {
+                                $('#login-password').after('<p style="color:#e53935;text-align:center;margin-top:5px;">Could not login</p>');
+                        }
+
+		});
+		
+		e.preventDefault();
+	});	
 });
