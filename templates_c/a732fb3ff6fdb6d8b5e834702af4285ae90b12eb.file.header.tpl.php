@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 14:10:55
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 14:53:34
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:47773503658f740d86bb6d3-31529912%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1492607305,
+      1 => 1492610010,
       2 => 'file',
     ),
   ),
@@ -33,29 +33,30 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/lib/font-awesome/css/font-awesome.css">
+lib/bootstrap/css/bootstrap.css">
+    	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/lib/jquery/jquery-ui.css">
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/style/header.css">
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/style/<?php echo $_smarty_tpl->tpl_vars['css_file']->value;?>
+lib/jquery/jquery-ui.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+style/header.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+style/<?php echo $_smarty_tpl->tpl_vars['css_file']->value;?>
 ">
-    <link rel="stylesheet" href="../style/footer.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+style/footer.css">
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/lib/jquery/jquery.min.js"></script>
+lib/jquery/jquery.min.js"></script>
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/lib/bootstrap/js/bootstrap.min.js"></script>
+lib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/lib/jquery/jquery-ui.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/lib/canvasjs/canvasjs.min.js"></script>
+lib/jquery/jquery-ui.js"></script>
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/scripts/header.js"></script>
+lib/canvasjs/canvasjs.min.js"></script>
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/style/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
+scripts/header.js"></script>
+	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+scripts/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 "></script>
 </head>
 <body>

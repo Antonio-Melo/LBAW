@@ -8,8 +8,7 @@
   $email = $_POST['email'];
   $password = $_POST['password'];
 */
-
-  $response["status"] = "true";
+  $response = array("status" => "true");
 
   echo json_encode($response);
   

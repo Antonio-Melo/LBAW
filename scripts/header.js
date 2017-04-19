@@ -1,15 +1,16 @@
 $(document).ready(function(){
 	$("#register").submit(function(e) {
-		var url = "{$BASE_URL}actions/register.php";
+		var url = "/~lbaw1663/LBAW/actions/register.php";
 		
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: $("#register").serialize(),
 			success: function(response) {
-				if (response.status == "true") {
-					$('#login-tab').toggleClass('active');
-					$('#register-tab').toggleClass('active');
+				var json = $.parseJSON(response);
+				if (json.status == "true") {
+					document.getElementById("register").reset();
+					$('a[href="#login-tab"]').tab("show");				
 				}
 				else {
 					$('#register-confirm-password').after('<p style="color:#e53935;text-align:center;margin-top:5px;">Could not register</p>');

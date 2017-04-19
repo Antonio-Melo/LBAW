@@ -4,18 +4,18 @@
     <title>.bat</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-	<link rel="stylesheet" href="{$BASE_URL}/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="{$BASE_URL}/lib/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" href="{$BASE_URL}/lib/jquery/jquery-ui.css">
-    <link rel="stylesheet" href="{$BASE_URL}/style/header.css">
-    <link rel="stylesheet" href="{$BASE_URL}/style/{$css_file}">
-    <link rel="stylesheet" href="../style/footer.css">
-	<script src="{$BASE_URL}/lib/jquery/jquery.min.js"></script>
-	<script src="{$BASE_URL}/lib/bootstrap/js/bootstrap.min.js"></script>
-	<script src="{$BASE_URL}/lib/jquery/jquery-ui.js"></script>
-    <script src="{$BASE_URL}/lib/canvasjs/canvasjs.min.js"></script>
-	<script src="{$BASE_URL}/scripts/header.js"></script>
-	<script src="{$BASE_URL}/style/{$js_file}"></script>
+	<link rel="stylesheet" href="{$BASE_URL}lib/bootstrap/css/bootstrap.css">
+    	<link rel="stylesheet" href="{$BASE_URL}lib/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="{$BASE_URL}lib/jquery/jquery-ui.css">
+	<link rel="stylesheet" href="{$BASE_URL}style/header.css">
+	<link rel="stylesheet" href="{$BASE_URL}style/{$css_file}">
+	<link rel="stylesheet" href="{$BASE_URL}style/footer.css">
+	<script src="{$BASE_URL}lib/jquery/jquery.min.js"></script>
+	<script src="{$BASE_URL}lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{$BASE_URL}lib/jquery/jquery-ui.js"></script>
+	<script src="{$BASE_URL}lib/canvasjs/canvasjs.min.js"></script>
+	<script src="{$BASE_URL}scripts/header.js"></script>
+	<script src="{$BASE_URL}scripts/{$js_file}"></script>
 </head>
 <body>
 	<header>
