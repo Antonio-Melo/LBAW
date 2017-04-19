@@ -47,20 +47,20 @@
 				<!--Menu-->
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<ul class="nav navbar-nav navbar-right">
-						{if $user_type == 1}
-							<!-- Logged in user -->
-							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
-							<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-						{elseif $user_type == 2}
-							<!-- Visitor -->
-							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-						{elseif $user_type == 3}
+						{if isset($smarty.session.username) && isset($smarty.session.admin)}
 							<!-- Admin -->
 							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
 							<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
 							<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
+						{elseif isset($smarty.session.username)}
+							<!-- Logged in user -->
+							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
+							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
+							<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+						{else}
+							<!-- Visitor -->
+							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
 						{/if}
 					</ul>
 				</div>
