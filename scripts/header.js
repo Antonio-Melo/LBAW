@@ -1,12 +1,13 @@
 $(document).ready(function(){
 	$("#register").submit(function(e) {
 		var url = "/~lbaw1663/LBAW/actions/register.php";
-		
+						
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: $("#register").serialize(),
 			success: function(response) {
+				console.log(response);
 				var json = $.parseJSON(response);
 				if (json.status == "true") {
 					document.getElementById("register").reset();
