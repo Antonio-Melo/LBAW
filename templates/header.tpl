@@ -137,7 +137,7 @@
 					<div class="modal-body">
 						<div class="tab-content">
 							<div id="login-tab" class="tab-pane active">
-								<form class="authentication-input">
+								<form id="login" class="authentication-input" action="{$BASE_URL}actions/users/login.php" method="post">
 									<label for="login-username">Username/Email</label>
 									<input type="text" name="username" id="login-username" required>
 									<label for="login-password">Password</label>
@@ -146,7 +146,7 @@
 								</form>				
 							</div>
 							<div id="register-tab" class="tab-pane">
-								<form class="authentication-input" action="{$BASE_URL}actions/users/register.php" method="post">
+								<form id="register" class="authentication-input">
 									<label for="register-username">Username</label>
 									<input type="text" name="username" id="register-username" required>
 									<label for="register-name">Name</label>
