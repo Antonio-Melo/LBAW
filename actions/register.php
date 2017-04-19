@@ -2,12 +2,16 @@
   include_once('../config/init.php');
   //include_once($BASE_DIR .'database/users.php');  
 
-  $username = strip_tags($_POST['username']);
-  $name = strip_tags($_POST['name']);
-  $email = strip_tags($_POST['email']);
-  $password = strip_tags($_POST['password']);
-  
-  return true;
+/*
+  $username = $_POST['username'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+*/
+
+  $response["status"] = "true";
+
+  echo json_encode($response);
   
   /*
   try {

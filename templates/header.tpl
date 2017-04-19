@@ -156,7 +156,7 @@
 									<label for="register-password">Password</label>
 									<input type="password" name="password" id="register-password" required>
 									<label for="register-confirm-password">Confirm password</label>
-									<input type="password" name="password" id="register-confirm-password" required>
+									<input type="password" name="confirm-password" id="register-confirm-password" required>
 									<button type="submit">Register</button>
 								</form>
 							</div>

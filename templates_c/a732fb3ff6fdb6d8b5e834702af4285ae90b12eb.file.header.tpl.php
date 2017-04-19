@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 11:50:00
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 14:10:55
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:47773503658f740d86bb6d3-31529912%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1492598834,
+      1 => 1492607305,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58f740d874fcf1_76437935',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'user_type' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f740d874fcf1_76437935',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58f740d874fcf1_76437935')) {function content_58f740d874fcf1_76437935($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -178,7 +178,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="modal-body">
 						<div class="tab-content">
 							<div id="login-tab" class="tab-pane active">
-								<form class="authentication-input">
+								<form id="login" class="authentication-input" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/login.php" method="post">
 									<label for="login-username">Username/Email</label>
 									<input type="text" name="username" id="login-username" required>
 									<label for="login-password">Password</label>
@@ -187,8 +188,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								</form>				
 							</div>
 							<div id="register-tab" class="tab-pane">
-								<form class="authentication-input" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/register.php" method="post">
+								<form id="register" class="authentication-input">
 									<label for="register-username">Username</label>
 									<input type="text" name="username" id="register-username" required>
 									<label for="register-name">Name</label>
@@ -198,7 +198,7 @@ actions/users/register.php" method="post">
 									<label for="register-password">Password</label>
 									<input type="password" name="password" id="register-password" required>
 									<label for="register-confirm-password">Confirm password</label>
-									<input type="password" name="password" id="register-confirm-password" required>
+									<input type="password" name="confirm-password" id="register-confirm-password" required>
 									<button type="submit">Register</button>
 								</form>
 							</div>
@@ -210,4 +210,5 @@ actions/users/register.php" method="post">
 		
 		
 	</header>
-	<main><?php }} ?>
+	<main>
+<?php }} ?>
