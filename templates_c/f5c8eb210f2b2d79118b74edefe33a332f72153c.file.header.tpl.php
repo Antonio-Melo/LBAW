@@ -1,21 +1,66 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-20 19:21:55
+         compiled from "/opt/lbaw/lbaw1663/public_html/product/templates/header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:173557349558f86349bdf179-70047227%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'f5c8eb210f2b2d79118b74edefe33a332f72153c' => 
+    array (
+      0 => '/opt/lbaw/lbaw1663/public_html/product/templates/header.tpl',
+      1 => 1492712513,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '173557349558f86349bdf179-70047227',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58f86349c64395_34106698',
+  'variables' => 
+  array (
+    'BASE_URL' => 0,
+    'css_file' => 0,
+    'js_file' => 0,
+    'keywords' => 0,
+    'keyword' => 0,
+    'countries' => 0,
+    'country' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_58f86349c64395_34106698')) {function content_58f86349c64395_34106698($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
     <title>.bat</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-	<link rel="stylesheet" href="{$BASE_URL}lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="{$BASE_URL}lib/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" href="{$BASE_URL}lib/jquery/jquery-ui.css">
-	<link rel="stylesheet" href="{$BASE_URL}css/header.css">
-	<link rel="stylesheet" href="{$BASE_URL}css/{$css_file}">
-	<link rel="stylesheet" href="{$BASE_URL}css/footer.css">
-	<script src="{$BASE_URL}lib/jquery/jquery.min.js"></script>
-	<script src="{$BASE_URL}lib/bootstrap/js/bootstrap.min.js"></script>
-	<script src="{$BASE_URL}lib/jquery/jquery-ui.js"></script>
-	<script src="{$BASE_URL}lib/canvasjs/canvasjs.min.js"></script>
-	<script src="{$BASE_URL}javascript/header.js"></script>
-	<script src="{$BASE_URL}javascript/{$js_file}"></script>
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/jquery/jquery-ui.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/header.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/<?php echo $_smarty_tpl->tpl_vars['css_file']->value;?>
+">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/footer.css">
+	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/jquery/jquery.min.js"></script>
+	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/jquery/jquery-ui.js"></script>
+	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/canvasjs/canvasjs.min.js"></script>
+	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+javascript/header.js"></script>
+	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
+"></script>
 </head>
 <body>
 	<header>
@@ -47,23 +92,23 @@
 				<!--Menu-->
 				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
 					<ul class="nav navbar-nav navbar-right">
-						{if isset($smarty.session.username) && isset($smarty.session.admin)}
+						<?php if (isset($_SESSION['username'])&&isset($_SESSION['admin'])) {?>
 							<!-- Admin -->
 							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
 							<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
 							<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
 							<li><a href="../actions/logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
-						{elseif isset($smarty.session.username)}
+						<?php } elseif (isset($_SESSION['username'])) {?>
 							<!-- Logged in user -->
 							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
 							<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
 							<li><a href="../actions/logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
-						{else}
+						<?php } else { ?>
 							<!-- Visitor -->
 							<li><a data-toggle="modal" data-target="#authentication-modal"><span class="glyphicon glyphicon-user"></span></a></li>
-						{/if}
+						<?php }?>
 					</ul>
 				</div>
 			</div>
@@ -89,9 +134,14 @@
 		<nav class="navbar navbar-default" id="secondary-nav">
 			<!-- Catergory list -->
 			<ul class="nav navbar-nav hidden-xs">
-				{foreach from=$keywords item=keyword}
-					<li><a href="category.php">{$keyword.name}</a></li>
-				{/foreach}
+				<?php  $_smarty_tpl->tpl_vars['keyword'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['keyword']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['keywords']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->key => $_smarty_tpl->tpl_vars['keyword']->value) {
+$_smarty_tpl->tpl_vars['keyword']->_loop = true;
+?>
+					<li><a href="category.php"><?php echo $_smarty_tpl->tpl_vars['keyword']->value['name'];?>
+</a></li>
+				<?php } ?>
 			</ul>
 			
 			<!-- Dropdown for small devices -->
@@ -105,9 +155,14 @@
 						</div>
 						<div id="collapse-categories" class="panel-collapse collapse">
 							<ul class="list-group">
-								{foreach from=$keywords item=keyword}
-									<li class="list-group-item"><a href="#">{$keyword.name}</a></li>
-								{/foreach}
+								<?php  $_smarty_tpl->tpl_vars['keyword'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['keyword']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['keywords']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->key => $_smarty_tpl->tpl_vars['keyword']->value) {
+$_smarty_tpl->tpl_vars['keyword']->_loop = true;
+?>
+									<li class="list-group-item"><a href="#"><?php echo $_smarty_tpl->tpl_vars['keyword']->value['name'];?>
+</a></li>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>
@@ -131,7 +186,8 @@
 					<div class="modal-body">
 						<div class="tab-content">
 							<div id="login-tab" class="tab-pane active">
-								<form id="login" class="authentication-input" action="{$BASE_URL}actions/users/login.php" method="post">
+								<form id="login" class="authentication-input" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/login.php" method="post">
 									<label for="login-username">Username/Email</label>
 									<input type="text" name="username" id="login-username" required>
 									<label for="login-password">Password</label>
@@ -157,9 +213,15 @@
 									<label for="register-country">Country</label>
 									<select name="country" id="register-country" required>
 										<option value="" selected>Select your country</option>
-										{foreach from=$countries item=country}
-											<option value="{$country.id}">{$country.name}</option>
-										{/foreach}
+										<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countries']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['country']->key => $_smarty_tpl->tpl_vars['country']->value) {
+$_smarty_tpl->tpl_vars['country']->_loop = true;
+?>
+											<option value="<?php echo $_smarty_tpl->tpl_vars['country']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['country']->value['name'];?>
+</option>
+										<?php } ?>
 									</select>
 									
 									<p class="authentication-error" id="register-error"></p>
@@ -176,3 +238,4 @@
 		
 	</header>
 	<main>
+<?php }} ?>
