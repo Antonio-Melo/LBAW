@@ -7,7 +7,7 @@
 	{foreach $onsale as $product}
 		<div class="col-md-4 col-sm-6">
 			<div class="product-image-container">
-				<a href="product.php">
+				<a href={"product.php?id="|cat:$product.product_id}>
 					{if $product.url != null}
 						<img src={"../images/products/"|cat:$product.url}>
 					{else}
@@ -17,7 +17,7 @@
 			</div>
 			<div class="product-info-container">
 				<div class="center-block">
-					<span class="name"><a href="product.php">{$product.name}</a></span>
+					<span class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.name}</a></span>
 					{if $product.sale_price != null}
 						<span class="price">{$product.sale_price|number_format:2}€</span>
 						<span class="old-price">{$product.price|number_format:2}€</span>
@@ -35,7 +35,7 @@
 	{foreach $mostpopular as $product}
 		<div class="col-md-4 col-sm-6">
 			<div class="product-image-container">
-				<a href="product.php">
+				<a href={"product.php?id="|cat:$product.product_id}>
 					{if $product.url != null}
 						<img src={"../images/products/"|cat:$product.url}>
 					{else}
@@ -45,7 +45,7 @@
 			</div>
 			<div class="product-info-container">
 				<div class="center-block">
-					<span class="name"><a href="product.php">{$product.name}</a></span>
+					<span class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.name}</a></span>
 					{if $product.sale_price != null}
 						<span class="price">{$product.sale_price|number_format:2}€</span>
 						<span class="old-price">{$product.price|number_format:2}€</span>

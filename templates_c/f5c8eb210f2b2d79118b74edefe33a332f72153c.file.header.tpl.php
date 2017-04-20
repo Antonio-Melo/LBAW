@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-20 21:55:12
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-20 22:10:24
          compiled from "/opt/lbaw/lbaw1663/public_html/product/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:173557349558f86349bdf179-70047227%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f5c8eb210f2b2d79118b74edefe33a332f72153c' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/product/templates/header.tpl',
-      1 => 1492721694,
+      1 => 1492722621,
       2 => 'file',
     ),
   ),
@@ -139,7 +139,8 @@ javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->key => $_smarty_tpl->tpl_vars['keyword']->value) {
 $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 ?>
-					<li><a href="category.php"><?php echo $_smarty_tpl->tpl_vars['keyword']->value['name'];?>
+					<li><a href=<?php echo ("category.php?id=").($_smarty_tpl->tpl_vars['keyword']->value['id']);?>
+><?php echo $_smarty_tpl->tpl_vars['keyword']->value['name'];?>
 </a></li>
 				<?php } ?>
 			</ul>
@@ -160,7 +161,8 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->key => $_smarty_tpl->tpl_vars['keyword']->value) {
 $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 ?>
-									<li class="list-group-item"><a href="category.php"><?php echo $_smarty_tpl->tpl_vars['keyword']->value['name'];?>
+									<li class="list-group-item"><a href=<?php echo ("category.php?id=").($_smarty_tpl->tpl_vars['keyword']->value['id']);?>
+><?php echo $_smarty_tpl->tpl_vars['keyword']->value['name'];?>
 </a></li>
 								<?php } ?>
 							</ul>

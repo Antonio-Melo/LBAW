@@ -90,7 +90,7 @@
 			<!-- Catergory list -->
 			<ul class="nav navbar-nav hidden-xs">
 				{foreach from=$keywords item=keyword}
-					<li><a href="category.php">{$keyword.name}</a></li>
+					<li><a href={"category.php?id="|cat:$keyword.id}>{$keyword.name}</a></li>
 				{/foreach}
 			</ul>
 			
@@ -106,7 +106,7 @@
 						<div id="collapse-categories" class="panel-collapse collapse">
 							<ul class="list-group">
 								{foreach from=$keywords item=keyword}
-									<li class="list-group-item"><a href="category.php">{$keyword.name}</a></li>
+									<li class="list-group-item"><a href={"category.php?id="|cat:$keyword.id}>{$keyword.name}</a></li>
 								{/foreach}
 							</ul>
 						</div>

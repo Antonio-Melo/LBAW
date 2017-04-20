@@ -5,7 +5,7 @@ function getProductsOnSale() {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT DISTINCT ON (product.id) *
+	SELECT DISTINCT ON (product.id) *, product.id AS product_id
 	FROM product
 	JOIN onsale ON product.id=onsale.id
 	LEFT JOIN image ON product.id=image.product
@@ -22,7 +22,7 @@ function getProductsMostPopular() {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT DISTINCT ON (product.id) *
+	SELECT DISTINCT ON (product.id) *, product.id AS product_id
 	FROM product
 	LEFT JOIN onsale ON product.id=onsale.id
 	LEFT JOIN image ON product.id=image.product
