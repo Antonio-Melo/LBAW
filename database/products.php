@@ -72,6 +72,35 @@ function getProductsMostPopularCat($id) {
 	return $stmt->fetchAll();
 }
 
+function getProductById($id) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *, product.name AS product_name, product.id AS product_id
+	FROM product
+	JOIN keyword ON product.keyword=keyword.id
+	LEFT JOIN onsale ON product.id=onsale.id
+	LEFT JOIN image ON product.id=image.product
+	WHERE product.id=?
+	');
+	$stmt->execute(array($id));
 
+	return $stmt->fetchAll();
+}
+
+function getFaqsByProductId($id) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *, faq.id AS faq_id
+	FROM product
+	JOIN faq ON product.id=faq.product
+	WHERE product.id=?
+	');
+
+	$stmt->execute(array($id));
+
+	return $stmt->fetchAll();
+}
 
 ?>

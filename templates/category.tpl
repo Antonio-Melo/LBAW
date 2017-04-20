@@ -12,7 +12,7 @@
 						{if $product.url != null}
 							<img src={"../images/products/"|cat:$product.url}>
 						{else}
-							<img src="../images/products/default.png">
+							<img src="../images/products/common/default.png">
 						{/if}
 					</a>
 				</div>
@@ -40,7 +40,7 @@
 						{if $product.url != null}
 							<img src={"../images/products/"|cat:$product.url}>
 						{else}
-							<img src="../images/products/default.png">
+							<img src="../images/products/common/default.png">
 						{/if}
 					</a>
 				</div>
