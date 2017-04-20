@@ -8,4 +8,12 @@ function getAllKeywords() {
 	return $stmt->fetchAll();
 }
 
+function getKeywordById($id) {
+	global $conn;
+	$stmt = $conn->prepare('SELECT * FROM keyword WHERE id=?');
+	$stmt->execute(array($id));
+	
+	return $stmt->fetchAll();
+}
+
 ?>

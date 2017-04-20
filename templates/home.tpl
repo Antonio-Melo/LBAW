@@ -19,10 +19,10 @@
 				<div class="center-block">
 					<span class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.name}</a></span>
 					{if $product.sale_price != null}
-						<span class="price">{$product.sale_price|number_format:2}€</span>
-						<span class="old-price">{$product.price|number_format:2}€</span>
+						<span class="price">{$product.sale_price|number_format:2}&euro;</span>
+						<span class="old-price">{$product.price|number_format:2}&euro;</span>
 					{else}
-						<span class="price">{$product.price|number_format:2}€</span>
+						<span class="price">{$product.price|number_format:2}&euro;</span>
 					{/if}
 				</div>
 			</div>
@@ -47,10 +47,10 @@
 				<div class="center-block">
 					<span class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.name}</a></span>
 					{if $product.sale_price != null}
-						<span class="price">{$product.sale_price|number_format:2}€</span>
-						<span class="old-price">{$product.price|number_format:2}€</span>
+						<span class="price">{$product.sale_price|number_format:2}&euro;</span>
+						<span class="old-price">{$product.price|number_format:2}&euro;</span>
 					{else}
-						<span class="price">{$product.price|number_format:2}€</span>
+						<span class="price">{$product.price|number_format:2}&euro;</span>
 					{/if}
 				</div>
 			</div>
