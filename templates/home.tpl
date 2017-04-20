@@ -1,124 +1,61 @@
 {include file='header.tpl'}
 
 <div class="panel-body items-display">
-	<h1>Smartphones</h1>
+	<h1>On Sale <a href="../pages/search.php"><span class="view-more">&gt;&gt;</span></a></h1>
 	<hr>
 	<div>
-		<div class="col-md-4">
+	{foreach $onsale as $product}
+		<div class="col-md-4 col-sm-6">
 			<div class="product-image-container">
-				<img src="../images/products/xiaomi_mi5.png" alt="xiaomi_mi5">
+				<a href="../pages/product.php">
+					{if $product.url != null}
+						<img src={"../images/products/"|cat:$product.url}>
+					{else}
+						<img src="../images/products/default.png">
+					{/if}
+				</a>
 			</div>
 			<div class="product-info-container">
 				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
+					<span class="name"><a href="../pages/product.php">{$product.name}</a></span>
+					{if $product.sale_price != null}
+						<span class="price">{$product.sale_price|number_format:2}€</span>
+						<span class="old-price">{$product.price|number_format:2}€</span>
+					{else}
+						<span class="price">{$product.price|number_format:2}€</span>
+					{/if}
 				</div>
 			</div>
 		</div>
-		
-		<div class="col-md-4">
-			<div class="product-image-container">
-				<img src="../images/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-md-4">
-			<div class="product-image-container">
-				<img src="../images/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-				</div>
-			</div>
-		</div>
+	{/foreach}
 	</div>
-	
-	<h1>Drones</h1>
+	<h1>Most Popular <a href="../pages/search.php"><span class="view-more">&gt;&gt;</span></a></h1>
 	<hr>
 	<div>
-		<div class="col-md-6">
+	{foreach $mostpopular as $product}
+		<div class="col-md-4 col-sm-6">
 			<div class="product-image-container">
-				<img src="../images/products/drone_i8H_RC_Quadcopter.png" alt="drone_i8H_RC_Quadcopter">
+				<a href="../pages/product.php">
+					{if $product.url != null}
+						<img src={"../images/products/"|cat:$product.url}>
+					{else}
+						<img src="../images/products/default.png">
+					{/if}
+				</a>
 			</div>
 			<div class="product-info-container">
 				<div class="center-block">
-					<span class="name"><a>i Drone i8H RC Quadcopter-COLORMIX</a></span>
-					<span class="price">300,00€</span>
+					<span class="name"><a href="../pages/product.php">{$product.name}</a></span>
+					{if $product.sale_price != null}
+						<span class="price">{$product.sale_price|number_format:2}€</span>
+						<span class="old-price">{$product.price|number_format:2}€</span>
+					{else}
+						<span class="price">{$product.price|number_format:2}€</span>
+					{/if}
 				</div>
 			</div>
 		</div>
-		
-		<div class="col-md-6">
-			<div class="product-image-container">
-				<img src="../images/products/drone_i8H_RC_Quadcopter.png" alt="drone_i8H_RC_Quadcopter">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>i Drone i8H RC Quadcopter-COLORMIX</a></span>
-					<span class="price">300,00€</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<h1>Tablets</h1>
-	<hr>
-	<div>
-		<div class="col-md-3">
-			<div class="product-image-container">
-				<img src="../images/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-md-3">
-			<div class="product-image-container">
-				<img src="../images/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-md-3">
-			<div class="product-image-container">
-				<img src="../images/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-md-3">
-			<div class="product-image-container">
-				<img src="../images/products/xiaomi_mi5.png" alt="xiaomi_mi5">
-			</div>
-			<div class="product-info-container">
-				<div class="center-block">
-					<span class="name"><a>Xiaomi MI5</a></span>
-					<span class="price">300,00€</span>
-				</div>
-			</div>
-		</div>
+	{/foreach}
 	</div>
 </div>
 
