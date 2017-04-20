@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-20 08:29:13
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-20 21:41:01
          compiled from "/opt/lbaw/lbaw1663/public_html/product/templates/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:173411660958f86349c68f69-18380186%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e1960788ec3f16dba82526cd1334a16eaee25352' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/product/templates/footer.tpl',
-      1 => 1492673215,
+      1 => 1492720858,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_58f86349c6cc60_03469851',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58f86349c6cc60_03469851')) {function content_58f86349c6cc60_03469851($_smarty_tpl) {?>        </main>
 		<footer>
@@ -38,19 +38,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<!-- Social -->
 				<div id="footer-social" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<h4>Follow us</h4>
-					<a class="btn btn-social-icon btn-instagram"><span class="fa fa-instagram"></span></a>
-					<a class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span></a>
-					<a class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
-					<a class="btn btn-social-icon btn-youtube-play"><span class="fa fa-youtube-play"></span></a>
+					<a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
+					<a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/"><span class="fa fa-facebook"></span></a>
+					<a class="btn btn-social-icon btn-twitter" href="https://twitter.com/"><span class="fa fa-twitter"></span></a>
+					<a class="btn btn-social-icon btn-youtube-play" href="https://www.youtube.com/"><span class="fa fa-youtube-play"></span></a>
 				</div>
 				
 				<!-- Customer Service -->
 				<div id="footer-service" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<h4>Costumer Service</h4>
 					<ul>
-						<li><a href="terms-conditions.php">Terms & Conditions</a></li>
-						<li><a href="contact-us.php">Contact Us</a></li>
-						<li><a href="faqs.php">FAQs</a></li>
+						<li><a href="../pages/terms-conditions.php">Terms & Conditions</a></li>
+						<li><a href="../pages/contact-us.php">Contact Us</a></li>
+						<li><a href="../pages/faqs.php">FAQs</a></li>
 					</ul>
 				</div>
 				
@@ -58,8 +58,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div id="footer-about" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<h4>About .bat</h4>
 					<ul>
-						<li><a href="about-us.php">About us</a></li>
-						<li><a href="sitemap.php">Sitemap</a></li>
+						<li><a href="../pages/about-us.php">About us</a></li>
+						<li><a href="../pages/sitemap.php">Sitemap</a></li>
 					</ul>
 				</div>
             </div>

@@ -106,7 +106,7 @@
 						<div id="collapse-categories" class="panel-collapse collapse">
 							<ul class="list-group">
 								{foreach from=$keywords item=keyword}
-									<li class="list-group-item"><a href="#">{$keyword.name}</a></li>
+									<li class="list-group-item"><a href="category.php">{$keyword.name}</a></li>
 								{/foreach}
 							</ul>
 						</div>
