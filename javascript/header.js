@@ -11,7 +11,6 @@ $(document).ready(function(){
 			url: url,
 			data: $("#login").serialize(),
 			success: function(response) {
-				console.log(response);
 		        var json = $.parseJSON(response);
 		        if (json.status == "true") {
 		                document.getElementById("login").reset();
@@ -178,7 +177,6 @@ function checkValidName(name) {
 function checkValidPassword(password, c_password) {
 	return (password==c_password && password.length>=6 && password.length<=128);
 }
-
 
 
 

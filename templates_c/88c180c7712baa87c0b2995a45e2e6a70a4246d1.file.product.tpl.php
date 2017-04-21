@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 21:13:36
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 23:25:26
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1492805614,
+      1 => 1492813524,
       2 => 'file',
     ),
   ),
@@ -75,6 +75,11 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 
 			</span>
 			<hr>
+			<?php if ($_smarty_tpl->tpl_vars['product']->value['stock']>0) {?>
+				<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>
+			<?php } else { ?>
+				<div class="unavailable"><span class="glyphicon glyphicon-remove"></span>&nbsp; Unavailable</div>
+			<?php }?>
 		</div>
 		
 		<div class="product-pricing">

@@ -37,6 +37,11 @@
 				{$product.small_description}
 			</span>
 			<hr>
+			{if $product.stock>0}
+				<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>
+			{else}
+				<div class="unavailable"><span class="glyphicon glyphicon-remove"></span>&nbsp; Unavailable</div>
+			{/if}
 		</div>
 		
 		<div class="product-pricing">

@@ -59,6 +59,14 @@
 	padding: 10px 30px 10px 30px;
 }
 
+.available {
+	color: #43a047;
+}
+
+.unavailable {
+	color: #e53935;
+}
+
 #product-info .price {
 	color: #333;
 	font-size: 30px;

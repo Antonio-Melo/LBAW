@@ -1,6 +1,6 @@
 <?php
 	/*==================================================*/
-	/* Same for every page */
+	/* Same for every page */	
 	include_once('../config/init.php');
 	include_once('../database/countries.php');
 	include_once('../database/keywords.php');

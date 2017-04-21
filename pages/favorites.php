@@ -2,6 +2,13 @@
 	/*==================================================*/
 	/* Same for every page */	
 	include_once('../config/init.php');
+	
+	/* Redirect to previous page if not logged in or is admin */
+	if (!$_SESSION['username'] || $_SESSION['admin']) {
+		header("location:javascript://history.go(-1)");
+		exit;
+	}
+	
 	include_once('../database/countries.php');
 	include_once('../database/keywords.php');
 	
@@ -13,10 +20,16 @@
 	
 	/*==================================================*/
 	/* Change to files of each pages */
-	$smarty->assign('css_file', 'about-us.css');  
-	$smarty->assign('js_file', 'common.js');
+	$smarty->assign('css_file', 'favorites.css');  
+	$smarty->assign('js_file', 'favorites.js');
 	
 	/*==================================================*/
 
-	$smarty->display('about-us.tpl');
+	include_once('../database/users.php');
+	
+	$products = getUserFavorites($_SESSION['username']);
+	
+	$smarty->assign('products', $products);
+	
+	$smarty->display('favorites.tpl');
 ?>
