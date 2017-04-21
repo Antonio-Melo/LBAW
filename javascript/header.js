@@ -1,4 +1,4 @@
-var base_url = "/~lbaw1663/product/";
+var base_url = "/~lbaw1663/LBAW/";
 
 $(document).ready(function(){
 		
