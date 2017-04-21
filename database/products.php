@@ -103,4 +103,38 @@ function getFaqsByProductId($id) {
 	return $stmt->fetchAll();
 }
 
+function getReviewsByProductId($id) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *, review.id AS review_id
+	FROM review
+	JOIN users ON review.client=users.id
+	LEFT JOIN image ON users.image=image.id
+	WHERE review.product=?
+	');
+	
+	$stmt->execute(array($id));
+	
+	return $stmt->fetchAll();
+}
+
+function getRepliesByReviewId($id) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *
+	FROM reply
+	JOIN users ON reply.user=users.id
+	JOIN review ON reply.review=review.id
+	LEFT JOIN image ON users.image=image.id
+	WHERE review.id=?	
+	');
+	
+	$stmt->execute(array($id));
+	
+	return $stmt->fetchAll();
+}
+
+
 ?>

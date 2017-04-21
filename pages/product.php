@@ -29,9 +29,16 @@
 	$id = $_GET["id"];
 	$product = getProductById($id);
 	$faqs = getFaqsByProductId($id);
+	$reviews = getReviewsByProductId($id);
+	
+	foreach ($reviews as $key => $review) {
+		unset($replies);
+		$reviews[$key]['replies'] = getRepliesByReviewId($review['review_id']);	
+	}
 	
 	$smarty->assign('product', $product[0]);
 	$smarty->assign('faqs', $faqs);
+	$smarty->assign('reviews', $reviews);
 
 	$smarty->display('product.tpl');
 ?>

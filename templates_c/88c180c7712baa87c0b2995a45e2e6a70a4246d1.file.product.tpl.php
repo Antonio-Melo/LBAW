@@ -1,65 +1,107 @@
-{include file='header.tpl'}
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 19:30:38
+         compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
+    array (
+      0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
+      1 => 1492799435,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '6288832958fa43e2cfb9a8-89651167',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58fa43e303fa87_56323364',
+  'variables' => 
+  array (
+    'product' => 0,
+    'faqs' => 0,
+    'faq' => 0,
+    'reviews' => 0,
+    'review' => 0,
+    'reply' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_58fa43e303fa87_56323364')) {function content_58fa43e303fa87_56323364($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 
 <div class="panel-body items-display">
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
-            {if $product.url != null}
-				<img src={"../images/products/"|cat:$product.url}>
-			{else}
+            <?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
+				<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+>
+			<?php } else { ?>
 				<img src="../images/products/common/default.png">
-			{/if}
+			<?php }?>
         </div>
         <div class="product-info-container">
             <div class="center-block">
-                <span class="name"><h1>{$product.product_name}</h1></span>
+                <span class="name"><h1><?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+</h1></span>
 				<span>
-					{if $product.nr_ratings != 0}
-						{for $i=1 to $product.rating/$product.nr_ratings}
+					<?php if ($_smarty_tpl->tpl_vars['product']->value['nr_ratings']!=0) {?>
+						<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings']+1 - (1) : 1-($_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'])+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
 							<img src="../images/products/common/star.png">
-						{/for}
-					{/if}
+						<?php }} ?>
+					<?php }?>
 				</span>
             </div>
         </div>
     </div>
     <div id="product-info" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-		{if isset($smarty.session.username) && isset($smarty.session.admin)}
+		<?php if (isset($_SESSION['username'])&&isset($_SESSION['admin'])) {?>
 			<button id="editproduct" type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
-		{/if}
+		<?php }?>
 		
         <div class="product-information-container">
             <div class="full-description">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                        <span class="full-name"> <h3>{$product.full_name}</h3></span><br>
+                        <span class="full-name"> <h3><?php echo $_smarty_tpl->tpl_vars['product']->value['full_name'];?>
+</h3></span><br>
                     </div>
                 </div>
                 <span class="sub-description">
-                    {$product.small_description}
+                    <?php echo $_smarty_tpl->tpl_vars['product']->value['small_description'];?>
+
                 </span>
 				<hr>
-				{if $product.sale_price != null}
+				<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
 					<h4>Flash sale price:</h4>
-					<span class="price">{$product.sale_price|number_format:2}&euro;</span>
-					<span class="old-price">{$product.price|number_format:2}&euro;</span>
-				{else}
+					<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['sale_price'],2);?>
+&euro;</span>
+					<span class="old-price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
+&euro;</span>
+				<?php } else { ?>
 					<h4>Price:</h4>
-					<span class="price">{$product.price|number_format:2}&euro;</span>
-				{/if}
+					<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
+&euro;</span>
+				<?php }?>
             </div>
-			{if $product.sale_price != null}
+			<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
 				<div class="progress">
 					<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="50"
 						 aria-valuemin="0" aria-valuemax="100" style="width:50%">
-						{$product.stock} pieces left
+						<?php echo $_smarty_tpl->tpl_vars['product']->value['stock'];?>
+ pieces left
 					</div>
 				</div>
-			{/if}
+			<?php }?>
             <div class="product-shipping">
                 <br><span>Shipping Cost: FREE SHIPPING to Portugal Via Unregistered Air Mail</span>
             </div><br>
 			
-			{if isset($smarty.session.username) && !isset($smarty.session.admin)}
+			<?php if (isset($_SESSION['username'])&&!isset($_SESSION['admin'])) {?>
 				<div class="product-buttons">
 					<div class="product-buttons-buttons">
 						<button type="button" class="btn btn-primary" id="add-to-cart">
@@ -72,7 +114,7 @@
 						</button>
 					</div>
 				</div>
-			{/if}
+			<?php }?>
 			
 			<div class="item-verifications">
 				<img src="../images/products/common/paypal-verified.png" alt="paypal">
@@ -92,62 +134,88 @@
 
             <div class="tab-content">
                 <div id="description" class="tab-pane fade in active"><br>
-                    {$product.description}
+                    <?php echo $_smarty_tpl->tpl_vars['product']->value['description'];?>
+
                 </div>
 
 				
                 <div id="faq" class="tab-pane fade"><br>
                     <div class="list-group panel">
-						{foreach $faqs as $faq}
-							<a href={"#"|cat:$faq.faq_id} class="list-group-item" data-toggle="collapse">{$faq.question}</a>
-							<div class="collapse answer" id={$faq.faq_id}>
-								<br><p>{$faq.answer}</p>
+						<?php  $_smarty_tpl->tpl_vars['faq'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['faq']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['faqs']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['faq']->key => $_smarty_tpl->tpl_vars['faq']->value) {
+$_smarty_tpl->tpl_vars['faq']->_loop = true;
+?>
+							<a href=<?php echo ("#").($_smarty_tpl->tpl_vars['faq']->value['faq_id']);?>
+ class="list-group-item" data-toggle="collapse"><?php echo $_smarty_tpl->tpl_vars['faq']->value['question'];?>
+</a>
+							<div class="collapse answer" id=<?php echo $_smarty_tpl->tpl_vars['faq']->value['faq_id'];?>
+>
+								<br><p><?php echo $_smarty_tpl->tpl_vars['faq']->value['answer'];?>
+</p>
 							</div>
-						{/foreach}
+						<?php } ?>
                     </div>
                 </div>
                 <div id="customer-rv" class="tab-pane fade">
                     <br>
-					{foreach $reviews as $review}
+					<?php  $_smarty_tpl->tpl_vars['review'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['review']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['reviews']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['review']->key => $_smarty_tpl->tpl_vars['review']->value) {
+$_smarty_tpl->tpl_vars['review']->_loop = true;
+?>
 						<div class="media">
 							<div class="media-left">
-								{if $review.url != null}
-									<img class="media-object" src={"../images/users/"|cat:$review.url}>
-								{else}
+								<?php if ($_smarty_tpl->tpl_vars['review']->value['url']!=null) {?>
+									<img class="media-object" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['review']->value['url']);?>
+>
+								<?php } else { ?>
 									<img class="media-object" src="../images/users/common/default_client.png">
-								{/if}
+								<?php }?>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">{$review.name}</h4>
+								<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['review']->value['name'];?>
+</h4>
 								<span>
-									{for $i=1 to $review.rating}
+									<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['review']->value['rating']+1 - (1) : 1-($_smarty_tpl->tpl_vars['review']->value['rating'])+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
 										<img class="star" src="../images/products/common/star.png">
-									{/for}
+									<?php }} ?>
 								</span>
-								{if $review.comment != null}
-									<p>{$review.comment}</p>
-								{/if}
+								<?php if ($_smarty_tpl->tpl_vars['review']->value['comment']!=null) {?>
+									<p><?php echo $_smarty_tpl->tpl_vars['review']->value['comment'];?>
+</p>
+								<?php }?>
 								
 								<!-- REPLIES -->
-								{foreach $review.replies as $reply}
+								<?php  $_smarty_tpl->tpl_vars['reply'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['reply']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['review']->value['replies']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['reply']->key => $_smarty_tpl->tpl_vars['reply']->value) {
+$_smarty_tpl->tpl_vars['reply']->_loop = true;
+?>
 									<div class="media">
 										<div class="media-left">
-											{if $reply.url != null}
-												<img class="media-object answer-pic" src={"../images/users/"|cat:$reply.url}>
-											{else}
+											<?php if ($_smarty_tpl->tpl_vars['reply']->value['url']!=null) {?>
+												<img class="media-object answer-pic" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['reply']->value['url']);?>
+>
+											<?php } else { ?>
 												<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
-											{/if}
+											<?php }?>
 										</div>
 										<div class="media-body">
-											<h4 class="media-heading">{$reply.name}</h4>
-											<p>{$reply.message}</p>
+											<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['reply']->value['name'];?>
+</h4>
+											<p><?php echo $_smarty_tpl->tpl_vars['reply']->value['message'];?>
+</p>
 										</div>
 									</div>
-								{/foreach}
+								<?php } ?>
 							</div>
 						</div>
 						<hr>
-					{/foreach}
+					<?php } ?>
                 </div>
                 <div id="sp" class="tab-pane fade">
                     <div class="table-responsive">
@@ -232,4 +300,5 @@
     </div>
 </div>
 
-{include file='footer.tpl'}
+<?php echo $_smarty_tpl->getSubTemplate ('footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+<?php }} ?>
