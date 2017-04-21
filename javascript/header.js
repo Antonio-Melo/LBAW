@@ -172,8 +172,7 @@ function checkValidEmail(email) {
 }
 
 function checkValidName(name) {
-	var regex = /^([a-z]+[,.]?[ ]?|[a-z]+['-]?)+$/;
-	return (regex.test(name) && name.length>=1 && name.length<=50);
+	return (name.length>=1 && name.length<=50);
 }
 
 function checkValidPassword(password, c_password) {
