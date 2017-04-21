@@ -33,13 +33,6 @@
     display: table;
 }
 
-#editproduct {
-	width: 150px;
-	height: 50px;
-	float: right;
-	margin-right: 20px;
-}
-
 .product-info-container span{
     display: block;
 }
@@ -47,19 +40,6 @@
 .product-info-container .name a{
     color: #333;
     font-size: 16px;
-}
-
-.product-information-container .price {
-	color: #333;
-	font-size: 30px;
-	display: block;
-}
-
-.product-information-container .old-price {
-	color: #e53935;
-	font-size: 20px;
-	text-decoration: line-through;
-	display: block;
 }
 
 .product-info-container img{
@@ -71,22 +51,49 @@
     vertical-align: middle;
 }
 
-.product-information-container{
-    margin-left: 20px;
-	margin-right: 20px;
-    height: 560px;
+#product-info {
     text-align: left;
-	margin-top: -15px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 10px 30px 10px 30px;
 }
 
-@media (max-width: 767px) {
-	.product-information-container {
-		height: auto;
-	}
+#product-info .price {
+	color: #333;
+	font-size: 30px;
+	display: block;
+}
+
+#product-info .old-price {
+	color: #e53935;
+	font-size: 20px;
+	text-decoration: line-through;
+	display: block;
+}
+
+#product-info .product-shipping {
+	font-size: 12px;
+}
+
+#product-info .full-description {
+	align-self: flex-start;
+}
+
+#product-info .product-add {
+	align-self: stretch;
+}
+
+#product-info #editproduct {
+	width: 150px;
+	height: 50px;
+	align-self: flex-end;
+	margin-right: -20px;
+	
 }
 
 .progress{
-    width: 60%;
+    max-width: 575px;
 	height: 30px;
     background-color: #bebebe;
     box-shadow: none;
@@ -94,9 +101,11 @@
 	margin-top: 30px;
 }
 .progress-bar{
-    background-color: #c49f66;
+	background-color: #e53935;
 	box-shadow: none;
 	line-height: 30px;
+	font-size: 13px;
+	font-weight: bold;
 }
 
 .number{
@@ -112,6 +121,13 @@
 
 .product-buttons {
 	margin-top: 30px;
+}
+
+.product-buttons button {
+	font-size: 15px;
+	width: 165px;
+	height: 40px;
+	margin-top: 3px;
 }
 
 .product-buttons #add-to-cart {
@@ -168,6 +184,7 @@
 .full-info-container .tab-content {
 	margin-top: 10px;
 	margin-bottom: 20px;
+	min-height: 700px;
 }
 
 .full-info-container .tab-content #description img {

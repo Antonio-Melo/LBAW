@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 19:30:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 21:13:36
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1492799435,
+      1 => 1492805614,
       2 => 'file',
     ),
   ),
@@ -62,45 +62,48 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 		<?php if (isset($_SESSION['username'])&&isset($_SESSION['admin'])) {?>
 			<button id="editproduct" type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
 		<?php }?>
-		
-        <div class="product-information-container">
-            <div class="full-description">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                        <span class="full-name"> <h3><?php echo $_smarty_tpl->tpl_vars['product']->value['full_name'];?>
+        
+		<div class="full-description">
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+					<span class="full-name"> <h3><?php echo $_smarty_tpl->tpl_vars['product']->value['full_name'];?>
 </h3></span><br>
-                    </div>
-                </div>
-                <span class="sub-description">
-                    <?php echo $_smarty_tpl->tpl_vars['product']->value['small_description'];?>
+				</div>
+			</div>
+			<span class="sub-description">
+				<?php echo $_smarty_tpl->tpl_vars['product']->value['small_description'];?>
 
-                </span>
-				<hr>
-				<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
-					<h4>Flash sale price:</h4>
-					<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['sale_price'],2);?>
+			</span>
+			<hr>
+		</div>
+		
+		<div class="product-pricing">
+			<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
+				<h4>Flash sale price:</h4>
+				<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['sale_price'],2);?>
 &euro;</span>
-					<span class="old-price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
+				<span class="old-price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
 &euro;</span>
-				<?php } else { ?>
-					<h4>Price:</h4>
-					<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
+			<?php } else { ?>
+				<h4>Price:</h4>
+				<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
 &euro;</span>
-				<?php }?>
-            </div>
+			<?php }?>
 			<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
 				<div class="progress">
 					<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="50"
 						 aria-valuemin="0" aria-valuemax="100" style="width:50%">
 						<?php echo $_smarty_tpl->tpl_vars['product']->value['stock'];?>
- pieces left
+ left
 					</div>
 				</div>
 			<?php }?>
-            <div class="product-shipping">
-                <br><span>Shipping Cost: FREE SHIPPING to Portugal Via Unregistered Air Mail</span>
-            </div><br>
-			
+			<div class="product-shipping">
+				<br><span>Shipping Cost: FREE SHIPPING Via Unregistered Air Mail</span>
+			</div>
+		</div>
+		
+		<div class="product-add">
 			<?php if (isset($_SESSION['username'])&&!isset($_SESSION['admin'])) {?>
 				<div class="product-buttons">
 					<div class="product-buttons-buttons">
@@ -120,7 +123,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 				<img src="../images/products/common/paypal-verified.png" alt="paypal">
 				<img src="../images/products/common/money.png" alt="money">
 			</div>
-        </div>
+		</div>
     </div>
 
     <div class="full-info-container">

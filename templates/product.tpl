@@ -26,39 +26,42 @@
 		{if isset($smarty.session.username) && isset($smarty.session.admin)}
 			<button id="editproduct" type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
 		{/if}
+        
+		<div class="full-description">
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+					<span class="full-name"> <h3>{$product.full_name}</h3></span><br>
+				</div>
+			</div>
+			<span class="sub-description">
+				{$product.small_description}
+			</span>
+			<hr>
+		</div>
 		
-        <div class="product-information-container">
-            <div class="full-description">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                        <span class="full-name"> <h3>{$product.full_name}</h3></span><br>
-                    </div>
-                </div>
-                <span class="sub-description">
-                    {$product.small_description}
-                </span>
-				<hr>
-				{if $product.sale_price != null}
-					<h4>Flash sale price:</h4>
-					<span class="price">{$product.sale_price|number_format:2}&euro;</span>
-					<span class="old-price">{$product.price|number_format:2}&euro;</span>
-				{else}
-					<h4>Price:</h4>
-					<span class="price">{$product.price|number_format:2}&euro;</span>
-				{/if}
-            </div>
+		<div class="product-pricing">
+			{if $product.sale_price != null}
+				<h4>Flash sale price:</h4>
+				<span class="price">{$product.sale_price|number_format:2}&euro;</span>
+				<span class="old-price">{$product.price|number_format:2}&euro;</span>
+			{else}
+				<h4>Price:</h4>
+				<span class="price">{$product.price|number_format:2}&euro;</span>
+			{/if}
 			{if $product.sale_price != null}
 				<div class="progress">
 					<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="50"
 						 aria-valuemin="0" aria-valuemax="100" style="width:50%">
-						{$product.stock} pieces left
+						{$product.stock} left
 					</div>
 				</div>
 			{/if}
-            <div class="product-shipping">
-                <br><span>Shipping Cost: FREE SHIPPING to Portugal Via Unregistered Air Mail</span>
-            </div><br>
-			
+			<div class="product-shipping">
+				<br><span>Shipping Cost: FREE SHIPPING Via Unregistered Air Mail</span>
+			</div>
+		</div>
+		
+		<div class="product-add">
 			{if isset($smarty.session.username) && !isset($smarty.session.admin)}
 				<div class="product-buttons">
 					<div class="product-buttons-buttons">
@@ -78,7 +81,7 @@
 				<img src="../images/products/common/paypal-verified.png" alt="paypal">
 				<img src="../images/products/common/money.png" alt="money">
 			</div>
-        </div>
+		</div>
     </div>
 
     <div class="full-info-container">
