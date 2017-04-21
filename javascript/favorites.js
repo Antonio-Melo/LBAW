@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('.remove-favorites-item').click(function() {
+	$('.remove-favorites-item').click(function(e) {
 		var url = base_url + "api/removefavorite.php";
 		var element = this;
 		var product = $(this).attr('id');

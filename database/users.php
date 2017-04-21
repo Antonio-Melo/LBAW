@@ -100,7 +100,37 @@ function removeFavorite($username, $product) {
 	WHERE client=(SELECT id FROM users WHERE username=?) AND product=?
 	');
 
-	return $stmt->execute(array($username, $product));;
+	return $stmt->execute(array($username, $product));
+}
+
+function getUserCart($username) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
+	FROM cartproducts
+	JOIN users ON cartproducts.client=users.id
+	JOIN product ON cartproducts.product=product.id
+	LEFT JOIN onsale ON product.id=onsale.id
+	LEFT JOIN image ON product.id=image.product
+	JOIN keyword ON product.keyword=keyword.id
+	JOIN brand ON product.brand=brand.id
+	WHERE users.username=?
+	');
+	$stmt->execute(array($username));
+	
+	return $stmt->fetchAll();
+}
+
+function removeCartProduct($username, $product) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	DELETE FROM cartproducts
+	WHERE client=(SELECT id FROM users WHERE username=?) AND product=?
+	');
+
+	return $stmt->execute(array($username, $product));
 }
 
 ?>
