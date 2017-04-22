@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-22 00:49:04
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-22 13:10:31
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/favorites.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:134423211058fa79efda5532-85933901%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '602e7b7d6e0c368ee9e8b2608dbb2f7b799a067f' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/favorites.tpl',
-      1 => 1492818541,
+      1 => 1492863029,
       2 => 'file',
     ),
   ),
@@ -37,9 +37,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
 $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?>
-			<div class="product-list">
-				<button type="button" class="btn remove-favorites-item" id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
+			<div class="product-list" id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
 >
+				<button type="button" class="btn remove-favorites-item">
 					<span class="glyphicon glyphicon-remove"></span>
 				</button>
 			
@@ -92,7 +92,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 								<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
 &euro;</span>
 							<?php }?>
-							<button class="btn btn-default" class="product-cart-bttn">
+							<button class="btn btn-default product-cart-bttn">
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 						</div>

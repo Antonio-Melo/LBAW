@@ -12,14 +12,10 @@ $username = $_SESSION['username'];
 $product = $_POST['product'];
 
 try {
-	if (removeFavorite($username, $product)) {
-		$response["status"] = "true";
-		echo json_encode($response);
-		exit;
-	}
-	else {
-		die(header("HTTP/1.0 400 Bad Request"));
-	}
+	addFavoriteCart($username, $product);
+	$response["status"] = "true";
+	echo json_encode($response);
+	exit;
 } catch (PDOException $e) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }

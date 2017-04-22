@@ -28,8 +28,10 @@
 	display: block;
 }
 
-.product-cart-bttn {
+#cart-results .product-cart-bttn {
 	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .remove-favorites-item {

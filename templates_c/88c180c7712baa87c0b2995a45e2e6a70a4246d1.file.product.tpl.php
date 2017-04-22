@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 23:25:26
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-22 15:10:49
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1492813524,
+      1 => 1492870247,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_58fa43e303fa87_56323364')) {function content_58fa43e303fa87_56323364($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 
-<div class="panel-body items-display">
+<div class="panel-body items-display" id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
+>
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
             <?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>

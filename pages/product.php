@@ -32,7 +32,6 @@
 	$reviews = getReviewsByProductId($id);
 	
 	foreach ($reviews as $key => $review) {
-		unset($replies);
 		$reviews[$key]['replies'] = getRepliesByReviewId($review['review_id']);	
 	}
 	

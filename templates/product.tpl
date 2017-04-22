@@ -1,6 +1,6 @@
 {include file='header.tpl'}
 
-<div class="panel-body items-display">
+<div class="panel-body items-display" id={$product.product_id}>
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
             {if $product.url != null}

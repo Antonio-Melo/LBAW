@@ -6,8 +6,8 @@
 	
 	<div class="items-display" id="cart-results">
 		{foreach $products as $product}
-			<div class="product-list">
-				<button type="button" class="btn remove-favorites-item" id={$product.product_id}>
+			<div class="product-list" id={$product.product_id}>
+				<button type="button" class="btn remove-favorites-item">
 					<span class="glyphicon glyphicon-remove"></span>
 				</button>
 			
@@ -48,7 +48,7 @@
 							{else}
 								<span class="price">{$product.price|number_format:2}&euro;</span>
 							{/if}
-							<button class="btn btn-default" class="product-cart-bttn">
+							<button class="btn btn-default product-cart-bttn">
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 						</div>

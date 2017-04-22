@@ -4,7 +4,7 @@ include_once('../database/users.php');
 
 $response = array();
 
-if (!$_SESSION['username'] || !$_POST['product']) {
+if (!$_SESSION['username'] || !$_POST['product'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
