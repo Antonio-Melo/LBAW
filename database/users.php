@@ -11,6 +11,19 @@ function createUser($username, $name, $email, $password, $country) {
 	$stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT), $email, $name, $country, "false"));
 }
 
+function editUser($original_username, $username, $name, $email, $country) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	UPDATE users
+	SET username=?, email=?, name=?, country=?
+	WHERE username=?
+	');
+
+	$stmt->execute(array($username, $email, $name, $country, $original_username));
+}
+
+
 function loginCorrect($username, $password) {
 	global $conn;
 	$stmt = $conn->prepare

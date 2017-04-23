@@ -56,7 +56,7 @@
                         <b>Username:</b>
                     </div>
                     <div class="param-content">
-                        <p>{$user.username}</p>
+                        <p id="info-username">{$user.username}</p>
 						<input type="text" id="edit-username" class="hide" name="edit-username" value={$user.username} required></input>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <b>Name:</b>
                     </div>
                     <div class="param-content">
-                        <p>{$user.users_name}</p>
+                        <p id="info-name">{$user.users_name}</p>
 						<input type="text" id="edit-name" class="hide" name="edit-name" value={$user.users_name} required></input>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
 						<b>E-mail address:</b>
 					</div>
 					<div class="param-content">
-						<p>{$user.email}</p>
+						<p id="info-email">{$user.email}</p>
 						<input type="text" id="edit-email" class="hide" name="edit-email" value={$user.email} required></input>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
 						<b>Country:</b>
 					</div>
 					<div class="param-content">
-						<p>{$user.country_name}</p>
+						<p id="info-country">{$user.country_name}</p>
 						<select name="edit-country" id="edit-country" class="hide country-select" required>
 							{foreach from=$countries item=country}
 								<option value="{$country.id}"
@@ -95,9 +95,11 @@
 						</select>
 					</div>
 				</div>
+				
 				<div class="param">
                     <div class="param-name"></div>
 					<div class="param-content">
+						<span class="authentication-error hide" id="edit-error"></span>
 						<button id="edit-info" type="button" class="btn btn-primary btn-block profileButton">Edit</button>
 						<button id="save-info" type="button" class="btn btn-primary btn-block profileButton hide">Save</button>
 						<button id="cancel-info" type="button" class="btn btn-primary btn-block profileButton hide">Cancel</button>

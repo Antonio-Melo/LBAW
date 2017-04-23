@@ -355,7 +355,7 @@ a, a:hover, a:active, a:visited {
 	border: 2px solid #c49f66 !important;
 }
 
-#authentication-modal .authentication-error {
+.authentication-error {
 	color: #e53935;
 	text-align: center;
 	margin-top: 10px;

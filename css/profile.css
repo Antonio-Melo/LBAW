@@ -163,6 +163,12 @@ h2 {
 	height: 40px;
 }
 
+#edit-error {
+	display: block;
+	text-align: left;
+	margin-top: 0;
+}
+
 /* ====================================================================*/
 /* Security */
 #security .param-name {

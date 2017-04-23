@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 02:42:07
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 19:01:43
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1492911677,
+      1 => 1492970500,
       2 => 'file',
     ),
   ),
@@ -91,7 +91,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <b>Username:</b>
                     </div>
                     <div class="param-content">
-                        <p><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+                        <p id="info-username"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 </p>
 						<input type="text" id="edit-username" class="hide" name="edit-username" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
  required></input>
@@ -102,7 +102,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <b>Name:</b>
                     </div>
                     <div class="param-content">
-                        <p><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
+                        <p id="info-name"><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
 </p>
 						<input type="text" id="edit-name" class="hide" name="edit-name" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
  required></input>
@@ -113,7 +113,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<b>E-mail address:</b>
 					</div>
 					<div class="param-content">
-						<p><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+						<p id="info-email"><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
 </p>
 						<input type="text" id="edit-email" class="hide" name="edit-email" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
  required></input>
@@ -124,7 +124,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<b>Country:</b>
 					</div>
 					<div class="param-content">
-						<p><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
+						<p id="info-country"><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
 </p>
 						<select name="edit-country" id="edit-country" class="hide country-select" required>
 							<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
@@ -143,9 +143,11 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 						</select>
 					</div>
 				</div>
+				
 				<div class="param">
                     <div class="param-name"></div>
 					<div class="param-content">
+						<span class="authentication-error hide" id="edit-error"></span>
 						<button id="edit-info" type="button" class="btn btn-primary btn-block profileButton">Edit</button>
 						<button id="save-info" type="button" class="btn btn-primary btn-block profileButton hide">Save</button>
 						<button id="cancel-info" type="button" class="btn btn-primary btn-block profileButton hide">Cancel</button>
