@@ -195,7 +195,7 @@ function getAddressesByUserId($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT *, country.name AS country_name
+	SELECT *, country.name AS country_name, address.id AS address_id
 	FROM address
 	JOIN country ON address.country=country.id
 	WHERE address.user=?;
@@ -347,11 +347,17 @@ function changePassword($username, $old_password, $new_password) {
 	}
 }
 
+function removeAddress($address) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	UPDATE address
+	SET "user"=null
+	WHERE id=?;
+	');
 
-
-
-
-
+	return $stmt->execute(array($address));
+}
 
 
 

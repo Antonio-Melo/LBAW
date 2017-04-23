@@ -191,9 +191,13 @@ h2 {
 	margin-bottom: 15px;
 }
 
-#myAddresses button:not(:first-of-type) {
+#myAddresses .adressCard button {
 	width: 40px;
 	height: 40px;
+}
+
+#myAddresses .adressCard .delete-address {
+	/*background: #e53935 !important;*/
 }
 
 

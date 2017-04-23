@@ -100,8 +100,6 @@ $(document).ready(function(){
 		var old_password = $('#oldpwd').val();
 		var new_password = $('#pwd').val();
 		
-		console.log(old_password, new_password)
-		
 		if (valid_edit_password) {
 			$.ajax({
 				type: "POST",
@@ -135,6 +133,29 @@ $(document).ready(function(){
 	
 	$('#pwd, #newpwd').blur(function(e) {
 		checkValidPassword('#pwd', '#newpwd', 'edit');
+		e.preventDefault();
+	});
+	
+	/* ========================================================================*/
+	/* My addresses */
+	$(".delete-address").click(function(e) {
+		var id = $(this).parents('.adressCard').attr('id');
+		console.log(id);
+		var url = base_url + "api/removeaddress.php";
+		var element = this;
+		
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {address: id},
+			success: function(response) {
+				var json = $.parseJSON(response);
+				if (json.status == "true") {
+					$(element).parents('li').remove();
+				}
+			}
+		});
+		
 		e.preventDefault();
 	});
 	

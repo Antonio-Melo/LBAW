@@ -150,7 +150,7 @@
 					<ul class="row list-unstyled">
 						{foreach $addresses as $address}
 							<li class="col-sm-6 col-md-6">
-								<div class="adressCard">
+								<div class="adressCard" id={$address.address_id}>
 									<p>{$address.street}, {$address.door_number}<br>
 									{$address.postal_zip} {$address.city}<br>
 									{$address.region}<br>
