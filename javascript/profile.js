@@ -1,4 +1,4 @@
-var valid_edit_username = true, valid_edit_name = true, valid_edit_email = true, valid_edit_password;
+var valid_edit_username = true, valid_edit_name = true, valid_edit_email = true, valid_edit_password = false;
 
 $(document).ready(function(){
 	var initial_username = $('#info-username').text();
@@ -95,10 +95,49 @@ $(document).ready(function(){
 	
 	/* ========================================================================*/
 	/* Change password */
+	$('#edit-password').click(function(e) {
+		var url = base_url + "api/editpassword.php";
+		var old_password = $('#oldpwd').val();
+		var new_password = $('#pwd').val();
+		
+		console.log(old_password, new_password)
+		
+		if (valid_edit_password) {
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: {
+					old_password: old_password,
+					new_password: new_password
+				},
+				success: function(response) {
+					console.log(response);
+					
+					var json = $.parseJSON(response);
+					if (json.status == "true") {
+						$('#edit-password-error').css('color', '#43a047');
+						$('#edit-password-error').text('Password changed');	
+					}
+				},
+				error: function(response) {
+					$('#edit-password-error').css('color', '#e53935');
+					$('#edit-password-error').text('Wrong password');
+				}
+			});
+		}
+		else {
+			$('#edit-password-error').css('color', '#e53935');
+			$('#edit-password-error').text("Passwords don't match");
+		}
+		
+		e.preventDefault();
+	});
+	
 	$('#pwd, #newpwd').blur(function(e) {
 		checkValidPassword('#pwd', '#newpwd', 'edit');
 		e.preventDefault();
 	});
+	
 });
 
 function toggleAccountInfo() {

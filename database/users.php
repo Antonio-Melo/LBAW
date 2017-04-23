@@ -317,4 +317,59 @@ function addUserImage($username, $url) {
 	return $delete_image;
 }
 
+function changePassword($username, $old_password, $new_password) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT password
+	FROM users
+	WHERE username=?;
+	');
+	$stmt->execute(array($username));
+	$user = $stmt->fetchAll();
+	
+	if(empty($user)) {
+		return false;
+	}
+	
+	if (password_verify($old_password, $user[0]['password'])) {
+		$stmt = $conn->prepare
+		('
+		UPDATE users
+		SET password=?
+		WHERE username=?;
+		');
+		$stmt->execute(array(password_hash($new_password, PASSWORD_DEFAULT), $username));
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

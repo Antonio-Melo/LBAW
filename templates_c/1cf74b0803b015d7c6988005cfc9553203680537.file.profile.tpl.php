@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 19:32:56
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 21:30:56
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1492972373,
+      1 => 1492979286,
       2 => 'file',
     ),
   ),
@@ -186,7 +186,8 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 				<div class="param">
 					<div class="param-name"></div>
 					<div class="param-content">
-						<button type="button" class="btn btn-primary btn-block profileButton">Save</button>
+						<span class="authentication-error" id="edit-password-error"></span>
+						<button id="edit-password" type="button" class="btn btn-primary btn-block profileButton">Save</button>
 					</div>
 				</div>
 			</div>

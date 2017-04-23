@@ -138,7 +138,8 @@
 				<div class="param">
 					<div class="param-name"></div>
 					<div class="param-content">
-						<button type="button" class="btn btn-primary btn-block profileButton">Save</button>
+						<span class="authentication-error" id="edit-password-error"></span>
+						<button id="edit-password" type="button" class="btn btn-primary btn-block profileButton">Save</button>
 					</div>
 				</div>
 			</div>
