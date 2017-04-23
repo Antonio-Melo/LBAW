@@ -11,19 +11,6 @@ function createUser($username, $name, $email, $password, $country) {
 	$stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT), $email, $name, $country, "false"));
 }
 
-function editUser($original_username, $username, $name, $email, $country) {
-	global $conn;
-	$stmt = $conn->prepare
-	('
-	UPDATE users
-	SET username=?, email=?, name=?, country=?
-	WHERE username=?
-	');
-
-	$stmt->execute(array($username, $email, $name, $country, $original_username));
-}
-
-
 function loginCorrect($username, $password) {
 	global $conn;
 	$stmt = $conn->prepare
@@ -146,9 +133,10 @@ function removeCartProduct($username, $product) {
 	return $stmt->execute(array($username, $product));
 }
 
+// Transaction1 - add favorite product to cart (delete from favorites; insert into cart)
 function addFavoriteCart($username, $product) {
 	global $conn;
-	$conn->exec('BEGIN');
+	$conn->exec('BEGIN;');
 	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
 	$stmt = $conn->prepare
 	('
@@ -163,7 +151,7 @@ function addFavoriteCart($username, $product) {
 	VALUES ((SELECT id FROM users WHERE username=?), ?);
 	');
 	$stmt->execute(array($username, $product));
-	$conn->exec('COMMIT');
+	$conn->exec('COMMIT;');
 }
 
 function addCart($username, $product) {
@@ -255,5 +243,78 @@ function getProductsByOrderId($id) {
 	return $stmt->fetchAll();
 }
 
+function editUser($original_username, $username, $name, $email, $country) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	UPDATE users
+	SET username=?, email=?, name=?, country=?
+	WHERE username=?
+	');
+
+	$stmt->execute(array($username, $email, $name, $country, $original_username));
+}
+
+// Transaction2 - replace user avatar (insert new image; update user; delete current image;)
+function addUserImage($username, $url) {	
+	global $conn;
+	$conn->exec('BEGIN;');
+	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
+	$stmt = $conn->prepare
+	('
+	INSERT INTO image(url)
+	VALUES (?);
+	');
+	$stmt->execute(array($url));
+	
+	$stmt = $conn->prepare
+	('
+	SELECT id
+	FROM image
+	WHERE url=?;	
+	');
+	$stmt->execute(array($url));
+	$new_image_id = $stmt->fetchAll();
+	
+	$stmt = $conn->prepare
+	('
+	SELECT image
+	FROM users
+	WHERE username=?;	
+	');
+	$stmt->execute(array($username));
+	$old_image_id = $stmt->fetchAll();
+	
+	$stmt = $conn->prepare
+	('
+	UPDATE users
+	SET image=?
+	WHERE username=?
+	');
+	$stmt->execute(array($new_image_id[0]['id'], $username));
+	
+	$delete_image = "";
+	if (!empty($old_image_id)) {
+		$stmt = $conn->prepare
+		('
+		SELECT url
+		FROM image
+		WHERE id=?
+		');
+		$stmt->execute(array($old_image_id[0]['image']));
+		$old_url = $stmt->fetchAll();
+		$delete_image = $old_url[0]['url'];
+		
+		$stmt = $conn->prepare
+		('
+		DELETE FROM image
+		WHERE id=?;
+		');
+		$stmt->execute(array($old_image_id[0]['image']));
+	}
+	
+	$conn->exec('COMMIT;');
+	return $delete_image;
+}
 
 ?>

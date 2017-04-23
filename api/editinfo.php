@@ -1,6 +1,7 @@
 <?php
 include_once('../config/init.php');
 include_once('../database/users.php');
+include_once('common.php');
 
 $response = array();
 
@@ -17,7 +18,20 @@ $email = strip_tags($_POST['email']);
 $country = strip_tags($_POST['country']);
 
 try {
-	editUser($original_username, $username, $name, $email, $country);	
+	editUser($original_username, $username, $name, $email, $country);
+	if ($_FILES['avatar']) {
+		$url = uploadImage('avatar');
+		if ($url) {
+			$old_url = addUserImage($username, $url);
+			if ($old_url != "") {
+				removeImage('avatar', $old_url);
+			}
+			$response["avatar"] = "true";
+		}
+		else {
+			$response["avatar"] = "false";
+		}
+	}
 	$_SESSION['username'] = $username;
 	$response["status"] = "true";
 	echo json_encode($response);

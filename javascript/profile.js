@@ -16,24 +16,32 @@ $(document).ready(function(){
 	
 	$('#save-info').click(function(e) {
 		var url = base_url + "api/editinfo.php";
+		var avatar = document.getElementById('edit-avatar');
+		var file = avatar.files[0];
 		var username = $('#edit-username').val();
 		var name = $('#edit-name').val();
 		var email = $('#edit-email').val();
 		var country = $('#edit-country').val();
 		
+		var form_data = new FormData();
+		form_data.append('avatar', file);
+		form_data.append('username', username);
+		form_data.append('name', name);
+		form_data.append('email', email);
+		form_data.append('country', country);
+		
+		
 		if (!valid_edit_username || !valid_edit_name || !valid_edit_email) {
 			$('#edit-error').text('Invalid credentials');
 		}
 		else {
+			// Change user info
 			$.ajax({
 				type: "POST",
 				url: url,
-				data: {
-					username: username,
-					name: name,
-					email: email,
-					country: country
-				},
+				data: form_data,
+				processData: false,
+				contentType: false,
 				success: function(response) {
 					var json = $.parseJSON(response);
 					if (json.status == "true") {
