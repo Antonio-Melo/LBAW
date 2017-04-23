@@ -45,24 +45,6 @@ h2 {
 	border: 2px solid #c49f66 !important;
 }
 
-#accountInfo .avatar-image-container .media-object{
-    height: 150px;
-    display: table-cell;
-    vertical-align: middle;
-    margin-bottom: 10px;
-}
-
-#myAddresses button {
-	display: inline-block;
-	margin-bottom: 15px;
-}
-
-
-#myAddresses button:not(:first-of-type) {
-	width: 40px;
-	height: 40px;
-}
-
 .profile-content .nav-pills {
 	margin-bottom: 10px;
 	display: inline-block;
@@ -96,8 +78,46 @@ h2 {
 	}
 }
 
+/* ====================================================================*/
+/* Account info */
+
+.avatar-image-container {
+	position: relative;
+	float: left;
+}
+
+.avatar-image-container .media-object{
+    height: 150px;
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.avatar-image-container label {
+	position: absolute;
+	margin: auto;
+	top: 0; left: 0; bottom: 0; right: 0;
+	font-weight: normal;
+	width: 80px;
+    height: 40px;
+	background: #c49f66;
+	color: white;
+	outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    border-radius: 0px;
+	padding-top: 8px;
+}
+
+.avatar-image-container label:hover {
+	cursor: pointer;
+	color: white;
+	background: #b98d49;
+}
+
 .param {
 	overflow: hidden;
+	margin-bottom: 10px;
 }
 
 .param-name{
@@ -109,12 +129,42 @@ h2 {
 	float: left;
 }
 
-@media (max-width: 420px) {
-	.param-name, .param-content {
+@media (max-width: 512px) {
+	.param-name, .param-content, .avatar-image-container {
 		clear: both;
 	}
 }
 
+#accountInfo .hide {
+	display: none;
+}
+
+#accountInfo .transparent {
+	opacity: 0.5;
+}
+
+#save-info, #cancel-info {
+	display: inline-block;
+}
+
+.param-content {
+	width: 100%;
+	max-width: 250px;
+}
+
+.param-content input[type="text"] {
+	padding-left: 12px;
+	padding-right: 12px;
+	width: 100%;
+}
+
+.param-content .country-select {
+	width: 100%;
+	height: 40px;
+}
+
+/* ====================================================================*/
+/* Security */
 #security .param-name {
 	margin-bottom: 10px;
 }
@@ -124,7 +174,24 @@ h2 {
 	width: 100%;
 }
 
+#security .param-content .form-group {
+	margin-bottom: 0;
+}
 
+/* ====================================================================*/
+/* Addresses */
+#myAddresses button {
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+#myAddresses button:not(:first-of-type) {
+	width: 40px;
+	height: 40px;
+}
+
+
+/* ====================================================================*/
 /* Orders */
 #myOrders .list-group-item {
 	border: 0;
@@ -148,7 +215,6 @@ h2 {
 }
 
 /* Product List */
-
 .product-list {
 	margin: 10px 0 10px 0;
 	padding-left: 15px;

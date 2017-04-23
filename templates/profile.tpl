@@ -38,16 +38,26 @@
                     <div class="param-name">
                         <b>Avatar:</b>
                     </div>
+					<div class="avatar-image-container">
+						{if $user.url != null}
+							<img class="media-object" src={"../images/users/"|cat:$user.url}>
+						{elseif !isset($smarty.session.admin)}
+							<img class="media-object" src="../images/users/common/default_client.png">
+						{else}
+							<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
+						{/if}
+						
+						<label id="edit-avatar-label" for="edit-avatar" class="btn hide">Upload</label>
+						<input type="file" id="edit-avatar" class="hide" name="edit-avatar" accept="image/*">
+					</div>
+                </div>
+				<div class="param">
+                    <div class="param-name">
+                        <b>Username:</b>
+                    </div>
                     <div class="param-content">
-                        <div class="avatar-image-container">
-							{if $user.url != null}
-								<img class="media-object" src={"../images/users/"|cat:$user.url}>
-							{elseif !isset($smarty.session.admin)}
-								<img class="media-object" src="../images/users/common/default_client.png">
-							{else}
-								<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
-							{/if}
-                        </div>
+                        <p>{$user.username}</p>
+						<input type="text" id="edit-username" class="hide" name="edit-username" value={$user.username} required></input>
                     </div>
                 </div>
                 <div class="param">
@@ -56,6 +66,7 @@
                     </div>
                     <div class="param-content">
                         <p>{$user.users_name}</p>
+						<input type="text" id="edit-name" class="hide" name="edit-name" value={$user.users_name} required></input>
                     </div>
                 </div>
 				<div class="param">
@@ -64,6 +75,7 @@
 					</div>
 					<div class="param-content">
 						<p>{$user.email}</p>
+						<input type="text" id="edit-email" class="hide" name="edit-email" value={$user.email} required></input>
 					</div>
 				</div>
 				<div class="param">
@@ -72,12 +84,23 @@
 					</div>
 					<div class="param-content">
 						<p>{$user.country_name}</p>
+						<select name="edit-country" id="edit-country" class="hide country-select" required>
+							{foreach from=$countries item=country}
+								<option value="{$country.id}"
+								{if $country.name == $user.country_name}
+									selected
+								{/if}
+								>{$country.name}</option>
+							{/foreach}
+						</select>
 					</div>
 				</div>
 				<div class="param">
                     <div class="param-name"></div>
 					<div class="param-content">
-						<button type="button" class="btn btn-primary btn-block profileButton">Edit</button>
+						<button id="edit-info" type="button" class="btn btn-primary btn-block profileButton">Edit</button>
+						<button id="save-info" type="button" class="btn btn-primary btn-block profileButton hide">Save</button>
+						<button id="cancel-info" type="button" class="btn btn-primary btn-block profileButton hide">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -106,7 +129,7 @@
 					<div class="param-name"></div>
 					<div class="param-content">
 						<div class="form-group">
-							<input type="password" class="form-control" id="newpwd" placeholder="Confirm">
+							<input type="password" class="form-control" id="newpwd" placeholder="Confirm New Password">
 						</div>
 					</div>
 				</div>

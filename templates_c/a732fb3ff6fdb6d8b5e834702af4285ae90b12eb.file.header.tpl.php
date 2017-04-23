@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 18:39:45
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 02:01:38
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1492792419,
+      1 => 1492909296,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58fa43e164cbf7_16831549',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -26,8 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'country' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58fa43e164cbf7_16831549',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58fa43e164cbf7_16831549')) {function content_58fa43e164cbf7_16831549($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -213,7 +213,7 @@ actions/users/login.php" method="post">
 									<label for="register-confirm-password">Confirm password</label>
 									<input type="password" name="confirm-password" id="register-confirm-password" required>
 									<label for="register-country">Country</label>
-									<select name="country" id="register-country" required>
+									<select name="country" id="register-country" class="country-select" required>
 										<option value="" selected>Select your country</option>
 										<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['countries']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

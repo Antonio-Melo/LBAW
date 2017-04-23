@@ -155,7 +155,7 @@
 									<label for="register-confirm-password">Confirm password</label>
 									<input type="password" name="confirm-password" id="register-confirm-password" required>
 									<label for="register-country">Country</label>
-									<select name="country" id="register-country" required>
+									<select name="country" id="register-country" class="country-select" required>
 										<option value="" selected>Select your country</option>
 										{foreach from=$countries item=country}
 											<option value="{$country.id}">{$country.name}</option>

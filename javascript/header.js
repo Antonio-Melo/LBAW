@@ -64,117 +64,129 @@ $(document).ready(function(){
 	
 	// Check register fields
 	$("#register-username").blur(function(e) {
-		var url = base_url + "api/check_register.php";
-		var username = $(this).val();
-		
-		valid_username = checkValidUsername(username);
-	
-		if (valid_username) {			
-			$.ajax({
-				type: "POST",
-				url: url,
-				data: {
-					username: username
-				},
-				success: function(response) {
-					var json = $.parseJSON(response);
-					if (json.status == "true") {
-						$("#register-username").removeClass("authentication-input-error");
-					}
-					else {
-						// if already in db heighlight
-						$("#register-username").addClass("authentication-input-error");
-					}
-				}
-			});
-		}
-		else if (username != "") {
-			$("#register-username").addClass("authentication-input-error");
-		}
-	
+		checkValidUsername(this);
 		e.preventDefault();
 	});
 	
 	$("#register-email").blur(function(e) {
-		var url = base_url + "api/check_register.php";
-		var email = $(this).val();
-		
-		valid_email = checkValidEmail(email);
-		
-		if (valid_email) {		
-			$.ajax({
-				type: "POST",
-				url: url,
-				data: {
-					email: email
-				},
-				success: function(response) {
-					var json = $.parseJSON(response);
-					if (json.status == "true") {
-						$("#register-email").removeClass("authentication-input-error");
-					}
-					else {
-						// if already in db heighlight
-						$("#register-email").addClass("authentication-input-error");
-					}
-				}
-			});
-		}
-		else if (email != "") {
-			$("#register-email").addClass("authentication-input-error");
-		}
-	
+		checkValidEmail(this);
 		e.preventDefault();
 	});
 	
 	$("#register-name").blur(function(e) {
-		var name = $(this).val();
-		valid_name = checkValidName(name);
-		
-		if (valid_name) {		
-			$(this).removeClass("authentication-input-error");
-		}
-		else if (name != ""){
-			$(this).addClass("authentication-input-error");
-		}
-	
+		checkValidName(this);
 		e.preventDefault();
 	});
 	
 	$("#register-password, #register-confirm-password").blur(function(e) {
-		var password = $("#register-password").val();
-		var c_password = $("#register-confirm-password").val();
-		valid_password = checkValidPassword(password, c_password);
-		
-		if (valid_password) {		
-			$("#register-password").removeClass("authentication-input-error");
-			$("#register-confirm-password").removeClass("authentication-input-error");
-		}
-		else if (password != "" && c_password != "") {
-			$("#register-password").addClass("authentication-input-error");
-			$("#register-confirm-password").addClass("authentication-input-error");
-		}
-	
+		checkValidPassword('#register-password', '#register-confirm-password');
 		e.preventDefault();
 	});	
 });
 
-function checkValidUsername(username) {
+function checkValidUsername(element) {
+	var url = base_url + "api/check_register.php";
+	var username = $(element).val();
+	
+	valid_username = usernameRestrictions(username);
+
+	if (valid_username) {			
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {
+				username: username
+			},
+			success: function(response) {
+				var json = $.parseJSON(response);
+				if (json.status == "true") {
+					$(element).removeClass("authentication-input-error");
+				}
+				else {
+					// if already in db heighlight
+					$(element).addClass("authentication-input-error");
+				}
+			}
+		});
+	}
+	else if (username != "") {
+		$(element).addClass("authentication-input-error");
+	}
+}
+
+function checkValidName(element) {
+	var name = $(element).val();
+	valid_name = nameRestrictions(name);
+	
+	if (valid_name) {		
+		$(element).removeClass("authentication-input-error");
+	}
+	else if (name != ""){
+		$(element).addClass("authentication-input-error");
+	}
+}
+
+function checkValidEmail(element) {
+	var url = base_url + "api/check_register.php";
+	var email = $(element).val();
+	
+	valid_email = emailRestrictions(email);
+	
+	if (valid_email) {		
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {
+				email: email
+			},
+			success: function(response) {
+				var json = $.parseJSON(response);
+				if (json.status == "true") {
+					$(element).removeClass("authentication-input-error");
+				}
+				else {
+					// if already in db heighlight
+					$(element).addClass("authentication-input-error");
+				}
+			}
+		});
+	}
+	else if (email != "") {
+		$(element).addClass("authentication-input-error");
+	}
+}
+
+function checkValidPassword(selector1, selector2) {
+	var password = $(selector1).val();
+	var c_password = $(selector2).val();
+	valid_password = passwordRestrictions(password, c_password);
+	
+	if (valid_password) {		
+		$(selector1).removeClass("authentication-input-error");
+		$(selector2).removeClass("authentication-input-error");
+	}
+	else if (password != "" && c_password != "") {
+		$(selector1).addClass("authentication-input-error");
+		$(selector2).addClass("authentication-input-error");
+	}
+}
+	
+function usernameRestrictions(username) {
 	var regex = /^[a-zA-Z0-9]+$/;
 	return (regex.test(username) && username.length>=4 && username.length<=24);
 }
 
-function checkValidEmail(email) {
+function emailRestrictions(email) {
 	// from http://emailregex.com/
 	var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return (regex.test(email) && email.length<=50);
 }
 
-function checkValidName(name) {
+function nameRestrictions(name) {
 	return (name.length>=1 && name.length<=50);
 }
 
-function checkValidPassword(password, c_password) {
+function passwordRestrictions(password, c_password) {
 	return (password==c_password && password.length>=6 && password.length<=128);
 }
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-22 22:11:45
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 02:42:07
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1492895499,
+      1 => 1492911677,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'user' => 0,
+    'countries' => 0,
+    'country' => 0,
     'addresses' => 0,
     'address' => 0,
     'orders' => 0,
@@ -70,17 +72,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="param-name">
                         <b>Avatar:</b>
                     </div>
-                    <div class="param-content">
-                        <div class="avatar-image-container">
-							<?php if ($_smarty_tpl->tpl_vars['user']->value['url']!=null) {?>
-								<img class="media-object" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['user']->value['url']);?>
+					<div class="avatar-image-container">
+						<?php if ($_smarty_tpl->tpl_vars['user']->value['url']!=null) {?>
+							<img class="media-object" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['user']->value['url']);?>
 >
-							<?php } elseif (!isset($_SESSION['admin'])) {?>
-								<img class="media-object" src="../images/users/common/default_client.png">
-							<?php } else { ?>
-								<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
-							<?php }?>
-                        </div>
+						<?php } elseif (!isset($_SESSION['admin'])) {?>
+							<img class="media-object" src="../images/users/common/default_client.png">
+						<?php } else { ?>
+							<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
+						<?php }?>
+						
+						<label id="edit-avatar-label" for="edit-avatar" class="btn hide">Upload</label>
+						<input type="file" id="edit-avatar" class="hide" name="edit-avatar" accept="image/*">
+					</div>
+                </div>
+				<div class="param">
+                    <div class="param-name">
+                        <b>Username:</b>
+                    </div>
+                    <div class="param-content">
+                        <p><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+</p>
+						<input type="text" id="edit-username" class="hide" name="edit-username" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+ required></input>
                     </div>
                 </div>
                 <div class="param">
@@ -90,6 +104,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="param-content">
                         <p><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
 </p>
+						<input type="text" id="edit-name" class="hide" name="edit-name" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
+ required></input>
                     </div>
                 </div>
 				<div class="param">
@@ -99,6 +115,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="param-content">
 						<p><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
 </p>
+						<input type="text" id="edit-email" class="hide" name="edit-email" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+ required></input>
 					</div>
 				</div>
 				<div class="param">
@@ -108,12 +126,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="param-content">
 						<p><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
 </p>
+						<select name="edit-country" id="edit-country" class="hide country-select" required>
+							<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countries']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['country']->key => $_smarty_tpl->tpl_vars['country']->value) {
+$_smarty_tpl->tpl_vars['country']->_loop = true;
+?>
+								<option value="<?php echo $_smarty_tpl->tpl_vars['country']->value['id'];?>
+"
+								<?php if ($_smarty_tpl->tpl_vars['country']->value['name']==$_smarty_tpl->tpl_vars['user']->value['country_name']) {?>
+									selected
+								<?php }?>
+								><?php echo $_smarty_tpl->tpl_vars['country']->value['name'];?>
+</option>
+							<?php } ?>
+						</select>
 					</div>
 				</div>
 				<div class="param">
                     <div class="param-name"></div>
 					<div class="param-content">
-						<button type="button" class="btn btn-primary btn-block profileButton">Edit</button>
+						<button id="edit-info" type="button" class="btn btn-primary btn-block profileButton">Edit</button>
+						<button id="save-info" type="button" class="btn btn-primary btn-block profileButton hide">Save</button>
+						<button id="cancel-info" type="button" class="btn btn-primary btn-block profileButton hide">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -142,7 +177,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="param-name"></div>
 					<div class="param-content">
 						<div class="form-group">
-							<input type="password" class="form-control" id="newpwd" placeholder="Confirm">
+							<input type="password" class="form-control" id="newpwd" placeholder="Confirm New Password">
 						</div>
 					</div>
 				</div>

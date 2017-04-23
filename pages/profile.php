@@ -21,7 +21,7 @@
 	/*==================================================*/
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'profile.css');  
-	$smarty->assign('js_file', 'common.js');
+	$smarty->assign('js_file', 'profile.js');
 	
 	/*==================================================*/
 
