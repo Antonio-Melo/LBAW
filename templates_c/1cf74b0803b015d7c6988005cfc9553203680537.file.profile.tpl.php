@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 22:50:18
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-24 01:57:12
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1492984170,
+      1 => 1492995428,
       2 => 'file',
     ),
   ),
@@ -204,31 +204,84 @@ $_smarty_tpl->tpl_vars['address']->_loop = true;
 							<li class="col-sm-6 col-md-6">
 								<div class="adressCard" id=<?php echo $_smarty_tpl->tpl_vars['address']->value['address_id'];?>
 >
-									<p><?php echo $_smarty_tpl->tpl_vars['address']->value['street'];?>
+									<div class="addressInfo">
+										<p><?php echo $_smarty_tpl->tpl_vars['address']->value['street'];?>
 , <?php echo $_smarty_tpl->tpl_vars['address']->value['door_number'];?>
 <br>
-									<?php echo $_smarty_tpl->tpl_vars['address']->value['postal_zip'];?>
+										<?php echo $_smarty_tpl->tpl_vars['address']->value['postal_zip'];?>
  <?php echo $_smarty_tpl->tpl_vars['address']->value['city'];?>
 <br>
-									<?php echo $_smarty_tpl->tpl_vars['address']->value['region'];?>
+										<?php echo $_smarty_tpl->tpl_vars['address']->value['region'];?>
 <br>
-									<?php echo $_smarty_tpl->tpl_vars['address']->value['country_name'];?>
+										<?php echo $_smarty_tpl->tpl_vars['address']->value['country_name'];?>
 <br>
-									Tel: <?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
+										Tel: <?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
 </p>
-									<!--
-									<button type="button" class="btn btn-primary btn-block profileButton">Default</a></button>
-									-->
-									<button type="button" class="btn btn-primary btn-block profileButton"><i class="fa fa-pencil"></i></button>
+									</div>
+									<div class="addressEdit hide">
+										<input type="text" class="address-edit-street" placeholder="Street" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['street'];?>
+></input>
+										<input type="text" class="address-edit-door-number" placeholder="Door number" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['door_number'];?>
+></input>
+										<input type="text" class="address-edit-postal-zip" placeholder="Zip code" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['postal_zip'];?>
+></input>
+										<input type="text" class="address-edit-city" placeholder="City" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['city'];?>
+></input>
+										<input type="text" class="address-edit-region" placeholder="Region" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['region'];?>
+></input>
+										<select class="country-select address-edit-country">
+											<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countries']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['country']->key => $_smarty_tpl->tpl_vars['country']->value) {
+$_smarty_tpl->tpl_vars['country']->_loop = true;
+?>
+												<option value="<?php echo $_smarty_tpl->tpl_vars['country']->value['id'];?>
+"
+												<?php if ($_smarty_tpl->tpl_vars['country']->value['name']==$_smarty_tpl->tpl_vars['address']->value['country_name']) {?>
+													selected
+												<?php }?>
+												><?php echo $_smarty_tpl->tpl_vars['country']->value['name'];?>
+</option>
+											<?php } ?>
+										</select>
+										<input type="text" class="address-edit-telephone" placeholder="Phone number" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
+></input>
+									</div>
+									<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button>
 									<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>
+									
+									<button type="button" class="btn btn-primary btn-block profileButton save-address hide">Save</button>
+									<button type="button" class="btn btn-primary btn-block profileButton cancel-address hide">Cancel</button>
 								</div>
 							</li>
 						<?php } ?>
-
-						<li class="col-sm-6 col-md-6">
-							<button type="button" class="btn btn-primary btn-block profileButton">Add</button>
-						</li>
 					</ul>
+					
+					<div id="add-address-input" class="hide">
+						<div>
+							<input type="text" id="address-add-street" placeholder="Street"></input>
+							<input type="text" id="address-add-door-number" placeholder="Door number"></input>
+							<input type="text" id="address-add-postal-zip" placeholder="Zip code"></input>
+							<input type="text" id="address-add-city" placeholder="City"></input>
+							<input type="text" id="address-add-region" placeholder="Region"></input>
+							<select class="country-select" id="address-add-country">
+								<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countries']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['country']->key => $_smarty_tpl->tpl_vars['country']->value) {
+$_smarty_tpl->tpl_vars['country']->_loop = true;
+?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['country']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['country']->value['name'];?>
+</option>
+								<?php } ?>
+							</select>
+							<input type="text" id="address-add-telephone" placeholder="Phone number"}></input>
+						</div>
+						<button type="button" id="save-add-address" class="btn btn-primary btn-block profileButton">Save</button>
+						<button type="button" id="cancel-add-address" class="btn btn-primary btn-block profileButton">Cancel</button>
+					</div>
+					
+					<button id="add-address-button" type="button" class="btn btn-primary btn-block profileButton">Add</button>
 				</div>
 
 				<!-- My Orders -->

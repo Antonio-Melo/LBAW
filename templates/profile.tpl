@@ -151,24 +151,59 @@
 						{foreach $addresses as $address}
 							<li class="col-sm-6 col-md-6">
 								<div class="adressCard" id={$address.address_id}>
-									<p>{$address.street}, {$address.door_number}<br>
-									{$address.postal_zip} {$address.city}<br>
-									{$address.region}<br>
-									{$address.country_name}<br>
-									Tel: {$address.telephone_number}</p>
-									<!--
-									<button type="button" class="btn btn-primary btn-block profileButton">Default</a></button>
-									-->
-									<button type="button" class="btn btn-primary btn-block profileButton"><i class="fa fa-pencil"></i></button>
+									<div class="addressInfo">
+										<p>{$address.street}, {$address.door_number}<br>
+										{$address.postal_zip} {$address.city}<br>
+										{$address.region}<br>
+										{$address.country_name}<br>
+										Tel: {$address.telephone_number}</p>
+									</div>
+									<div class="addressEdit hide">
+										<input type="text" class="address-edit-street" placeholder="Street" value={$address.street}></input>
+										<input type="text" class="address-edit-door-number" placeholder="Door number" value={$address.door_number}></input>
+										<input type="text" class="address-edit-postal-zip" placeholder="Zip code" value={$address.postal_zip}></input>
+										<input type="text" class="address-edit-city" placeholder="City" value={$address.city}></input>
+										<input type="text" class="address-edit-region" placeholder="Region" value={$address.region}></input>
+										<select class="country-select address-edit-country">
+											{foreach from=$countries item=country}
+												<option value="{$country.id}"
+												{if $country.name == $address.country_name}
+													selected
+												{/if}
+												>{$country.name}</option>
+											{/foreach}
+										</select>
+										<input type="text" class="address-edit-telephone" placeholder="Phone number" value={$address.telephone_number}></input>
+									</div>
+									<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button>
 									<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>
+									
+									<button type="button" class="btn btn-primary btn-block profileButton save-address hide">Save</button>
+									<button type="button" class="btn btn-primary btn-block profileButton cancel-address hide">Cancel</button>
 								</div>
 							</li>
 						{/foreach}
-
-						<li class="col-sm-6 col-md-6">
-							<button type="button" class="btn btn-primary btn-block profileButton">Add</button>
-						</li>
 					</ul>
+					
+					<div id="add-address-input" class="hide">
+						<div>
+							<input type="text" id="address-add-street" placeholder="Street"></input>
+							<input type="text" id="address-add-door-number" placeholder="Door number"></input>
+							<input type="text" id="address-add-postal-zip" placeholder="Zip code"></input>
+							<input type="text" id="address-add-city" placeholder="City"></input>
+							<input type="text" id="address-add-region" placeholder="Region"></input>
+							<select class="country-select" id="address-add-country">
+								{foreach from=$countries item=country}
+									<option value="{$country.id}">{$country.name}</option>
+								{/foreach}
+							</select>
+							<input type="text" id="address-add-telephone" placeholder="Phone number"}></input>
+						</div>
+						<button type="button" id="save-add-address" class="btn btn-primary btn-block profileButton">Save</button>
+						<button type="button" id="cancel-add-address" class="btn btn-primary btn-block profileButton">Cancel</button>
+					</div>
+					
+					<button id="add-address-button" type="button" class="btn btn-primary btn-block profileButton">Add</button>
 				</div>
 
 				<!-- My Orders -->

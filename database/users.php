@@ -359,17 +359,63 @@ function removeAddress($address) {
 	return $stmt->execute(array($address));
 }
 
+// Transaction3 - Edit address (get user id from username, update remove user id from old address, create new address)
+// todo: check orders and completely remove address if not in any order
+function editAddress($id, $username, $street, $door, $zip, $city, $region, $country, $phone) {
+	global $conn;
+	$conn->exec('BEGIN;');
+	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
+	
+	$stmt = $conn->prepare
+	('
+	SELECT id
+	FROM users
+	WHERE username = ?;
+	');
+	$stmt->execute(array($username));
+	$user_id = $stmt->fetchAll();
+	
+	$stmt = $conn->prepare
+	('
+	UPDATE address
+	SET "user"=null
+	WHERE id=?;
+	');
+	$stmt->execute(array($id));
+	
+	$stmt = $conn->prepare
+	('
+	INSERT INTO address ("user", street, city, postal_zip, region, telephone_number, country, door_number)
+	VALUES (?,?,?,?,?,?,?,?);
+	');
+	$stmt->execute(array($user_id[0]['id'], $street, $city, $zip, $region, $phone, $country, $door));
+	
+	$conn->exec('COMMIT;');
+}
 
-
-
-
-
-
-
-
-
-
-
+function addAddress($username, $street, $door, $zip, $city, $region, $country, $phone) {
+	global $conn;
+	$conn->exec('BEGIN;');
+	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
+	
+	$stmt = $conn->prepare
+	('
+	SELECT id
+	FROM users
+	WHERE username = ?;
+	');
+	$stmt->execute(array($username));
+	$user_id = $stmt->fetchAll();
+	
+	$stmt = $conn->prepare
+	('
+	INSERT INTO address ("user", street, city, postal_zip, region, telephone_number, country, door_number)
+	VALUES (?,?,?,?,?,?,?,?);
+	');
+	$stmt->execute(array($user_id[0]['id'], $street, $city, $zip, $region, $phone, $country, $door));
+	
+	$conn->exec('COMMIT;');
+}
 
 
 

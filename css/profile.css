@@ -200,6 +200,27 @@ h2 {
 	/*background: #e53935 !important;*/
 }
 
+#myAddresses .adressCard .save-address, #myAddresses .adressCard .cancel-address  {
+	width: 70px;
+}
+
+#myAddresses input {
+	padding-left: 12px;
+    padding-right: 12px;
+}
+
+#myAddresses .address-edit-country, #myAddresses input, #address-add-country {
+	height: 40px;
+	width: 100%;
+	margin-bottom: 2px;
+	max-width: 350px;
+	display: block;
+}
+
+#myAddresses .address-edit-country, #address-add-country {
+	padding-left: 8px;
+	margin-left: 0px;
+}
 
 /* ====================================================================*/
 /* Orders */
