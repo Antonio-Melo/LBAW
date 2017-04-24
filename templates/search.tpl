@@ -43,7 +43,7 @@
 			<div id="filter-price" class="panel-collapse collapse in">
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
-				<div id="filter-price-slider" min=0 max={$max_price|ceil}></div>
+				<div id="filter-price-slider"></div>
 			</div>
 		</div>
 		

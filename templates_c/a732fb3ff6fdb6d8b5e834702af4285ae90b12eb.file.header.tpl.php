@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-24 22:04:58
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 00:33:00
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1493067894,
+      1 => 1493076776,
       2 => 'file',
     ),
   ),
@@ -118,10 +118,10 @@ javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 		<nav class="navbar navbar-default hidden-md hidden-lg" id="search-nav">
 			<div class="container-fluid search">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
+					<input id="sec-search-bar" type="text" class="form-control" placeholder="Search">
 					<div class="input-group-btn">
 						<a href="search.php">
-							<button class="btn btn-default" id="search-bttn" type="submit">
+							<button class="btn btn-default" id="sec-search-bttn" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</a>

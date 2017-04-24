@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-24 23:19:05
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 00:22:03
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1493072341,
+      1 => 1493076116,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'products_keywords' => 0,
     'keyword' => 0,
-    'max_price' => 0,
     'products_brands' => 0,
     'brand' => 0,
     'products' => 0,
@@ -83,8 +82,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 			<div id="filter-price" class="panel-collapse collapse in">
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
-				<div id="filter-price-slider" min=0 max=<?php echo ceil($_smarty_tpl->tpl_vars['max_price']->value);?>
-></div>
+				<div id="filter-price-slider"></div>
 			</div>
 		</div>
 		

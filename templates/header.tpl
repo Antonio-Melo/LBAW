@@ -73,10 +73,10 @@
 		<nav class="navbar navbar-default hidden-md hidden-lg" id="search-nav">
 			<div class="container-fluid search">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
+					<input id="sec-search-bar" type="text" class="form-control" placeholder="Search">
 					<div class="input-group-btn">
 						<a href="search.php">
-							<button class="btn btn-default" id="search-bttn" type="submit">
+							<button class="btn btn-default" id="sec-search-bttn" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</a>

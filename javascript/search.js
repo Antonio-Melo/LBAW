@@ -65,23 +65,66 @@ $(document).ready(function() {
 		}
 	});
 
+	$("#filter-search-bttn").click(function(e) {
+		var vars = getURLVars();
+		
+		var keywords = [];
+		var keywords_check = $('#filter-categories input[type="checkbox"]:checked');
+		for (var i = 0; i < keywords_check.length; i++) {
+			keywords[i] = $(keywords_check[i]).attr('id');
+		}
+		if (keywords.length != 0) {
+			vars["keywords"] = keywords;
+		}
+		
+		var prices = $("#filter-price-slider").slider("option", "values");
+		vars["prices"] = prices;
+		
+		var brands = [];
+		var brands_check = $('#filter-brands input[type="checkbox"]:checked');
+		for (var i = 0; i < brands_check.length; i++) {
+			brands[i] = $(brands_check[i]).attr('id');
+		}
+		if (brands.length != 0) {
+			vars["brands"] = brands;
+		}
+		
+		var onsale = $('#scb:checked').val();
+		if (onsale != undefined) {
+			vars["onsale"] = true;
+		}
+	
+		var rating = $('input[name=rating-input]:checked').val();
+		if (rating != undefined) {
+			vars["rating"] = rating;
+		}
+		
+		var string = createSerialize(vars);
+		window.location = base_url + "pages/search.php" + "?" + string;
+		
+		e.preventDefault();
+	});
+	
 	
 	/* ============================================================================================= */
 	/* Search display */
-	$("#search-display-bttn").click(function() {
+	$("#search-display-bttn").click(function(e) {
 		$(this).children("span").toggleClass("glyphicon-th-large");
 		$(this).children("span").toggleClass("glyphicon-th-list");
 		
 		$("#search-results > div").toggleClass("product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6");
 		$("#search-results > div").toggleClass("product-list");
+		
+		e.preventDefault();
 	});
 	
-	$("#search-order a").click(function() {
+	$("#search-order a").click(function(e) {
 		var vars = getURLVars();
 		vars["order"] = $(this).text();
 		var string = createSerialize(vars);
 		window.location = base_url + "pages/search.php" + "?" + string;
-		//$("#search-order-bttn").html($(this).text() + " &nbsp;&nbsp;<span class='caret'></span>");
+		
+		e.preventDefault();
 	});
 	
 	/* ============================================================================================= */
