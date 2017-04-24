@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-23 02:01:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-24 22:04:58
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1492909296,
+      1 => 1493067894,
       2 => 'file',
     ),
   ),
@@ -78,7 +78,7 @@ javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 				<!--Search bar-->
 				<div class="search nav-content col-md-6 col-lg-6 hidden-xs hidden-sm">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search">
+						<input id="search-bar" type="text" class="form-control" placeholder="Search">
 						<div class="input-group-btn">
 							<a href="search.php">
 								<button class="btn btn-default" id="search-bttn" type="submit">

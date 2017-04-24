@@ -33,7 +33,7 @@
 				<!--Search bar-->
 				<div class="search nav-content col-md-6 col-lg-6 hidden-xs hidden-sm">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search">
+						<input id="search-bar" type="text" class="form-control" placeholder="Search">
 						<div class="input-group-btn">
 							<a href="search.php">
 								<button class="btn btn-default" id="search-bttn" type="submit">

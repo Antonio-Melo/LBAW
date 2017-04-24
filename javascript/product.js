@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	$('#add-to-cart').click(function(e) {
 		var url = base_url + "api/addcart.php";
 		var element = this;
@@ -31,5 +30,4 @@ $(document).ready(function(){
 		
 		e.preventDefault();
 	});
-	
 });

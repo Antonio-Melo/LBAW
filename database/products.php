@@ -136,5 +136,39 @@ function getRepliesByReviewId($id) {
 	return $stmt->fetchAll();
 }
 
+function getSearchProducts($page) {
+	$results_per_pages = 20;
+	
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
+	FROM product
+	LEFT JOIN onsale ON product.id=onsale.id
+	LEFT JOIN image ON product.id=image.product
+	JOIN keyword ON product.keyword=keyword.id
+	JOIN brand ON product.brand=brand.id
+	LIMIT ?
+	OFFSET ?;
+	');
+	
+	$stmt->execute(array($results_per_pages, ($page-1)*$results_per_pages));
+	
+	return $stmt->fetchAll();	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

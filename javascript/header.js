@@ -3,6 +3,16 @@ var base_url = "/~lbaw1663/LBAW/";
 var valid_register_username = false, valid_register_name = false, valid_register_email = false, valid_register_password = false;
 
 $(document).ready(function(){
+	// Search
+	$('#search-bttn').click(function(e) {
+		var vars = [];
+		vars["search"] = $('#search-bar').val();
+		var string = createSerialize(vars);
+		window.location = base_url + "pages/search.php" + "?" + string;
+		e.preventDefault();
+	});
+	
+	
 	// Login
 	$("#login").submit(function(e) {
 		var url = base_url + "api/login.php";
@@ -237,6 +247,37 @@ function passwordRestrictions(password, c_password) {
 	return (password==c_password && password.length>=6 && password.length<=128);
 }
 
+function getURLVars() {
+	var gets = [];
+    var url = decodeURIComponent(window.location.search.substring(1));
+    var vars = url.split('&');
+	
+    for (i = 0; i < vars.length; i++) {
+		var param = vars[i].split('=');
+		if (param[1] !== undefined) {
+			gets[param[0]] = param[1];
+		}
+	}
+	
+	return gets;
+}
+
+function createSerialize(array) {
+	console.log(array);
+	var string = "";
+	
+	var i = 1;
+	for (var key in array) {
+		if (i != 1) {
+			string += "&";
+		}
+		
+		string += key + "=" + array[key];
+		i++;
+	}
+	
+	return string;
+}
 
 
 
