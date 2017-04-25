@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 02:30:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 02:38:51
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1493083836,
+      1 => 1493084138,
       2 => 'file',
     ),
   ),
@@ -228,7 +228,7 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 		<div id="write_review">
 			<label for="comment">Comment:</label>
   			<textarea class="form-control" rows="5" id="comment"></textarea>
-			<button type="button" class="btn btn-success product-buttons button">Submit</button>
+			<button id="submit" type="button" class="btn btn-success product-buttons button">Submit</button>
 		</div>
 
 

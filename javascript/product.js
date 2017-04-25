@@ -30,4 +30,8 @@ $(document).ready(function(){
 		
 		e.preventDefault();
 	});
+
+	$('#submit').click( function(e){
+		
+	});
 });
