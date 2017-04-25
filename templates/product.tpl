@@ -156,6 +156,13 @@
 						</div>
 						<hr>
 					{/foreach}
+		<div id="write_review">
+			<label for="comment">Comment:</label>
+  			<textarea class="form-control" rows="5" id="comment"></textarea>
+			<button id="submit" type="button" class="btn btn-success product-buttons button">Submit</button>
+		</div>
+
+
                 </div>
                 <div id="sp" class="tab-pane fade">
                     <div class="table-responsive">

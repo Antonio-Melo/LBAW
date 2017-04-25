@@ -20,15 +20,17 @@
 
 	include_once('../database/products.php');
 	
-	$page;
-	if(!$_GET['page']) {
-		$page = 1;
-	}
-	else {
-		$page = $_GET['page'];
-	}
+	$filters;
+	$filters['page'] = $_GET['page'];
+	$filters['search'] = $_GET['search'];
+	$filters['order'] = $_GET['order'];
+	$filters['keywords'] = array_filter(explode(",", $_GET['keywords']));
+	$filters['prices'] = array_filter(explode(",", $_GET['prices']), 'callback');
+	$filters['brands'] = array_filter(explode(",", $_GET['brands']));
+	$filters['onsale'] = $_GET['onsale'];
+	$filters['rating'] = $_GET['rating'];
 	
-	$products = getSearchProducts($page);
+	$products = getSearchProducts($filters);
 	$products_keywords = [];
 	$products_brands = [];
 	$max_price = 0;
@@ -47,7 +49,12 @@
 	$smarty->assign('products', $products);
 	$smarty->assign('products_keywords', array_unique($products_keywords));
 	$smarty->assign('products_brands', array_unique($products_brands));
+	$smarty->assign('filters', $filters);
 	$smarty->assign('max_price', $max_price);
 	
 	$smarty->display('search.tpl');
+	
+	function callback($val) {
+		return ($val !== "");
+	}
 ?>

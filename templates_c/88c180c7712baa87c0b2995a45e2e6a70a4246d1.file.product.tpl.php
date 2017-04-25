@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-22 15:10:49
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 02:30:38
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1492870247,
+      1 => 1493083836,
       2 => 'file',
     ),
   ),
@@ -225,6 +225,13 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 						</div>
 						<hr>
 					<?php } ?>
+		<div id="write_review">
+			<label for="comment">Comment:</label>
+  			<textarea class="form-control" rows="5" id="comment"></textarea>
+			<button type="button" class="btn btn-success product-buttons button">Submit</button>
+		</div>
+
+
                 </div>
                 <div id="sp" class="tab-pane fade">
                     <div class="table-responsive">
@@ -310,4 +317,5 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 </div>
 
 <?php echo $_smarty_tpl->getSubTemplate ('footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 <?php }} ?>

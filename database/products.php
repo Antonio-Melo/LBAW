@@ -136,28 +136,128 @@ function getRepliesByReviewId($id) {
 	return $stmt->fetchAll();
 }
 
-function getSearchProducts($page) {
+function getSearchProducts($filters) {
+	$vars = array();	
+	$query = 'SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
+				FROM product
+				LEFT JOIN onsale ON product.id=onsale.id
+				LEFT JOIN image ON product.id=image.product
+				JOIN keyword ON product.keyword=keyword.id
+				JOIN brand ON product.brand=brand.id';
+	
+	$n = 0;
+	// Search
+	
+	// Keywords
+	if (count($filters['keywords']) > 0) {
+		if ($n == 0) {
+			$query .= ' WHERE (';
+		}
+		else {
+			$query .= ' AND (';
+		}
+		
+		for ($i = 0; $i < count($filters['keywords']); $i++) {
+			if ($i != 0) {
+				$query .= ' OR';
+			}
+			$keyword = $filters['keywords'][$i];
+			$query .= ' keyword.name=?';
+			array_push($vars, $keyword);
+		}
+		
+		$query .= ')';
+		$n = 1;
+	}
+	
+	// Prices
+	if (count($filters['prices']) > 0) {
+		if ($n == 0) {
+			$query .= ' WHERE ((';
+		}
+		else {
+			$query .= ' AND ((';
+		}
+		
+		$min = $filters['prices'][0];
+		$max = $filters['prices'][1];
+		$query .= 'onsale.sale_price>? AND onsale.sale_price<?';
+		array_push($vars, $min, $max);
+		
+		$query .= ') OR (';
+		$query .= 'onsale.sale_price IS NULL AND product.price>? AND product.price<?';
+		array_push($vars, $min, $max);
+		
+		$query .= '))';
+		$n = 1;
+	}
+	
+	// Brands
+	if (count($filters['brands']) > 0) {
+		if ($n == 0) {
+			$query .= ' WHERE (';
+		}
+		else {
+			$query .= ' AND (';
+		}
+		
+		for ($i = 0; $i < count($filters['brands']); $i++) {
+			if ($i != 0) {
+				$query .= ' OR';
+			}
+			$brand = $filters['brands'][$i];
+			$query .= ' brand.name=?';
+			array_push($vars, $brand);
+		}
+		
+		$query .= ')';
+		$n = 1;
+	}
+	
+	// Onsale
+	if ($filters['onsale'] == "true") {
+		if ($n == 0) {
+			$query .= ' WHERE (';
+		}
+		else {
+			$query .= ' AND (';
+		}
+		
+		$query .= 'onsale.sale_price IS NOT NULL)';
+		$n = 1;
+	}
+	
+	// Rating	
+	if ($filters['rating']) {
+		if ($n == 0) {
+			$query .= ' WHERE (';
+		}
+		else {
+			$query .= ' AND (';
+		}
+		
+		$query .= 'product.nr_ratings>0 AND product.rating/product.nr_ratings>=?)';
+		array_push($vars, $filters['rating']);
+		$n = 1;
+	}
+	
+	// Order
+	
+	// Page
 	$results_per_pages = 20;
+	if (!$filters['page']) {
+		$filters['page'] = 1;
+	}
+	
+	$query .= ' LIMIT ? OFFSET ?';
+	array_push($vars, $results_per_pages, ($filters['page']-1)*$results_per_pages);
 	
 	global $conn;
-	$stmt = $conn->prepare
-	('
-	SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
-	FROM product
-	LEFT JOIN onsale ON product.id=onsale.id
-	LEFT JOIN image ON product.id=image.product
-	JOIN keyword ON product.keyword=keyword.id
-	JOIN brand ON product.brand=brand.id
-	LIMIT ?
-	OFFSET ?;
-	');
-	
-	$stmt->execute(array($results_per_pages, ($page-1)*$results_per_pages));
+	$stmt = $conn->prepare($query);
+	$stmt->execute($vars);
 	
 	return $stmt->fetchAll();	
 }
-
-
 
 
 

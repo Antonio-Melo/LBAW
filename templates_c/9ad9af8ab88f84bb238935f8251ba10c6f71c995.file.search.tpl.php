@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 00:22:03
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 00:54:43
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1493076116,
+      1 => 1493078081,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_58fe183448a527_87486429',
   'variables' => 
   array (
+    'filters' => 0,
     'products_keywords' => 0,
     'keyword' => 0,
     'products_brands' => 0,
@@ -29,6 +30,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58fe183448a527_87486429')) {function content_58fe183448a527_87486429($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+
+<?php echo var_dump($_smarty_tpl->tpl_vars['filters']->value);?>
 
 
 <div class="container-fluid" id="search-body">
