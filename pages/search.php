@@ -21,6 +21,14 @@
 	include_once('../database/products.php');
 	
 	$results_per_page = 20;
+	$current_page;
+	if ($_GET['page']) {
+		$current_page = $_GET['page'];
+	}
+	else {
+		$current_page = 1;
+	}
+	
 	$filters;
 	$filters['page'] = $_GET['page'];
 	$filters['search'] = $_GET['search'];
@@ -32,11 +40,12 @@
 	$filters['rating'] = $_GET['rating'];
 	
 	$search = getAllSearchProducts($filters['search']);
-	$products = getSearchProducts($filters, $results_per_page);
+	$products = getSearchProductsFiltered($filters);
 	$products_keywords = [];
 	$products_brands = [];
 	$max_price = 0;
 	
+	// Use $search to know available filters
 	foreach ($search as $product) {
 		array_push($products_keywords, $product['keyword_name']);
 		array_push($products_brands, $product['brand_name']);
@@ -47,13 +56,39 @@
 			$max_price = $product['price'];
 		}
 	}
-		
-	$smarty->assign('products', $products);
+
+	// Use $products to know number of pages
+	$nr_pages = ceil(count($products)/$results_per_page);
+	$start_page = $current_page;
+	$end_page = $current_page;
+	for ($i = 0; $i < 4; $i++) {
+		if ($start_page > $current_page - 2 && $start_page > 1) {
+			$start_page--;
+		}
+		else if ($end_page < $current_page + 2 && $end_page < $nr_pages) {
+			$end_page++;
+		}
+		else if ($start_page > 1) {
+			$start_page--;
+		}
+		else if ($end_page < $nr_pages) {
+			$end_page++;
+		}
+	}
+	
+	// Limit $products to number of products per page
+	$page_products = array_slice($products, ($current_page-1)*$results_per_page, $results_per_page);
+	
+	
+	$smarty->assign('products', $page_products);
 	$smarty->assign('products_keywords', array_unique($products_keywords));
 	$smarty->assign('products_brands', array_unique($products_brands));
 	$smarty->assign('filters', $filters);
 	$smarty->assign('max_price', $max_price);
-	$smarty->assign('nr_pages', ceil(count($search)/$results_per_page));
+	$smarty->assign('nr_pages', $nr_pages);
+	$smarty->assign('current_page', $current_page);
+	$smarty->assign('start_page', $start_page);
+	$smarty->assign('end_page', $end_page);
 	
 	$smarty->display('search.tpl');
 	

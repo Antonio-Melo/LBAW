@@ -1,4 +1,6 @@
 <?php
+//Inserts a Review from a certain product
+
 
 // Returns 6 most viewed products that are on sale (for home page)
 function getProductsOnSale() {
@@ -169,7 +171,7 @@ function getAllSearchProducts($search) {
 	return $stmt->fetchAll();
 }
 
-function getSearchProducts($filters, $results_per_page) {
+function getSearchProductsFiltered($filters) {
 	$vars = array();
 	$query = ' FROM product
 				LEFT JOIN onsale ON product.id=onsale.id
@@ -323,9 +325,6 @@ function getSearchProducts($filters, $results_per_page) {
 	if (!$filters['page']) {
 		$filters['page'] = 1;
 	}
-	
-	$query .= ' LIMIT ? OFFSET ?';
-	array_push($vars, $results_per_page, ($filters['page']-1)*$results_per_page);
 	
 	global $conn;
 	$stmt = $conn->prepare($query);

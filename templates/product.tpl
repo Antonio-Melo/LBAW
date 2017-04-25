@@ -156,12 +156,27 @@
 						</div>
 						<hr>
 					{/foreach}
-		<div id="write_review">
-			<label for="comment">Comment:</label>
-  			<textarea class="form-control" rows="5" id="comment"></textarea>
-			<button id="submit" type="button" class="btn btn-success product-buttons button">Submit</button>
-		</div>
-
+		{if isset($smarty.session.username)}		
+			<div id="write_review">
+				<form id="review" class="review-input" method="post">
+					<div class="rating">
+						<!-- stars -->
+						{for $i=1 to 5}
+							<input id={"rating-input-"|cat:$i} type="radio" value={$i} name="rating-input"
+							{if isset($filters.rating) && $i == $filters.rating}
+								checked
+							{/if}						
+							/>
+							<label class="rating-star" for={"rating-input-"|cat:$i}></label>
+						{/for}
+						<span>&nbsp & up</span>
+					</div>
+					<label for="comment">Comment:</label>
+		  			<textarea class="form-control" name ="text_review"rows="5" id="comment"></textarea>
+					<button id="submit" type="submit" class="btn btn-success product-buttons button">Submit</button>
+				</form>
+			</div>
+		{/if}
 
                 </div>
                 <div id="sp" class="tab-pane fade">

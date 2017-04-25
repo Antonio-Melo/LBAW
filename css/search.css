@@ -202,6 +202,35 @@
 /*===============================================================================*/
 /* Search results */
 
+#search-results .page-selector {
+	width: 100%;
+	overflow: hidden;
+}
+
+#search-results .pagination a {
+	border-radius: 0;
+	color: #333;
+	width: 34px;
+	height: 34px;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+#search-results .pagination a .glyphicon {
+	color: #777;
+	margin-left: -4px;
+	margin-right: -4px;
+}
+
+#search-results .pagination .active a, #search-results .pagination .active a:hover {
+	color: white;
+	background: #c49f66;
+	border: 1px solid #ddd;
+}
+
+
 .items-display {
 	margin: 0 5px 0 260px;
 }

@@ -13,9 +13,6 @@ $(document).ready(function() {
 		}
     });
 
-	console.log($("#filter-price-slider").attr("min"));
-	console.log($("#filter-price-slider").attr("max"));
-	
 	if ($("#filter-price-slider").attr("min") && $("#filter-price-slider").attr("max")) {
 		$("#filter-price-slider").slider({values: [$("#filter-price-slider").attr("min"), $("#filter-price-slider").attr("max")]});
 	}
@@ -84,9 +81,7 @@ $(document).ready(function() {
 		for (var i = 0; i < keywords_check.length; i++) {
 			keywords[i] = $(keywords_check[i]).attr('id');
 		}
-		if (keywords.length != 0) {
-			vars["keywords"] = keywords;
-		}
+		vars["keywords"] = keywords;
 		
 		var prices = $("#filter-price-slider").slider("option", "values");
 		vars["prices"] = prices;
@@ -96,19 +91,25 @@ $(document).ready(function() {
 		for (var i = 0; i < brands_check.length; i++) {
 			brands[i] = $(brands_check[i]).attr('id');
 		}
-		if (brands.length != 0) {
-			vars["brands"] = brands;
-		}
+		vars["brands"] = brands;
 		
 		var onsale = $('#scb:checked').val();
 		if (onsale != undefined) {
 			vars["onsale"] = true;
+		}
+		else {
+			vars["onsale"] = false;
 		}
 	
 		var rating = $('input[name=rating-input]:checked').val();
 		if (rating != undefined) {
 			vars["rating"] = rating;
 		}
+		else {
+			vars["rating"] = 0;
+		}
+		
+		vars["page"] = 1;
 		
 		var string = createSerialize(vars);
 		window.location = base_url + "pages/search.php" + "?" + string;
@@ -132,6 +133,29 @@ $(document).ready(function() {
 	$("#search-order a").click(function(e) {
 		var vars = getURLVars();
 		vars["order"] = $(this).text();
+		var string = createSerialize(vars);
+		window.location = base_url + "pages/search.php" + "?" + string;
+		
+		e.preventDefault();
+	});
+	
+	
+	/* Change page */
+	$('.page-selector a').click(function(e) {
+		var value = $(this).attr("go");
+		var vars = getURLVars();
+		
+		if ($(this).attr("before") && (value > 1)) {
+			vars["page"] = parseInt(value)-1;
+		}
+		else if ($(this).attr("next") && (value < $(this).attr("max"))) {
+			vars["page"] = parseInt(value)+1;
+		}
+		else {
+			vars["page"] = value;
+		}
+		
+		
 		var string = createSerialize(vars);
 		window.location = base_url + "pages/search.php" + "?" + string;
 		

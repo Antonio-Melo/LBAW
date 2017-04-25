@@ -1,6 +1,13 @@
 /*===============================================================================*/
 /* Item display */
 
+.rating-star {
+	background-image: url("../images/products/common/star.png");
+	width: 22px !important;
+	margin-right: -3px;
+}
+
+
 .items-display {
     margin: 0 5px 0 5px;
 }

@@ -33,7 +33,11 @@
 				<!--Search bar-->
 				<div class="search nav-content col-md-6 col-lg-6 hidden-xs hidden-sm">
 					<div class="input-group">
-						<input id="search-bar" type="text" class="form-control" placeholder="Search">
+						<input id="search-bar" type="text" class="form-control" placeholder="Search"
+						{if isset($filters['search'])}
+							value={$filters['search']}
+						{/if}
+						>
 						<div class="input-group-btn">
 							<a href="search.php">
 								<button class="btn btn-default" id="search-bttn" type="submit">
@@ -73,7 +77,11 @@
 		<nav class="navbar navbar-default hidden-md hidden-lg" id="search-nav">
 			<div class="container-fluid search">
 				<div class="input-group">
-					<input id="sec-search-bar" type="text" class="form-control" placeholder="Search">
+					<input id="sec-search-bar" type="text" class="form-control" placeholder="Search"
+					{if isset($filters['search'])}
+						value={$filters['search']}
+					{/if}
+					>
 					<div class="input-group-btn">
 						<a href="search.php">
 							<button class="btn btn-default" id="sec-search-bttn" type="submit">

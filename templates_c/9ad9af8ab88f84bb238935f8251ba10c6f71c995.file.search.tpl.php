@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 18:11:01
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 21:42:50
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1493140256,
+      1 => 1493152965,
       2 => 'file',
     ),
   ),
@@ -25,6 +25,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'products_brands' => 0,
     'brand' => 0,
     'i' => 0,
+    'nr_pages' => 0,
+    'current_page' => 0,
+    'start_page' => 0,
+    'end_page' => 0,
     'products' => 0,
     'product' => 0,
   ),
@@ -138,7 +142,7 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 			<div id="filter-onsale" class="panel-collapse collapse in">
 				<ul class="list-group">
 					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""
-					<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['onsale'])) {?>
+					<?php if ($_smarty_tpl->tpl_vars['filters']->value['onsale']=="true") {?>
 						checked
 					<?php }?>
 					><label for="scb"></label></div></li>
@@ -210,7 +214,34 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 
 	<!------------------------------------------------------------------------------------------------------------------------->
 	<!-- Center -->
-	<div class="items-display" id="search-results">		
+	<div class="items-display" id="search-results">
+		<?php if ($_smarty_tpl->tpl_vars['nr_pages']->value>1) {?>
+			<div class="page-selector">
+				<ul class="pagination pull-right">
+					<li><a go=1><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a></li>
+					<li><a go=<?php echo $_smarty_tpl->tpl_vars['current_page']->value;?>
+ before=true><span class="glyphicon glyphicon-menu-left"></span></a></li>
+					<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['end_page']->value+1 - ($_smarty_tpl->tpl_vars['start_page']->value) : $_smarty_tpl->tpl_vars['start_page']->value-($_smarty_tpl->tpl_vars['end_page']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = $_smarty_tpl->tpl_vars['start_page']->value, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+						<li 
+						<?php if ($_smarty_tpl->tpl_vars['i']->value==$_smarty_tpl->tpl_vars['current_page']->value) {?>
+							class="active"
+						<?php }?>
+						><a go=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a><li>
+					<?php }} ?>
+					<li><a go=<?php echo $_smarty_tpl->tpl_vars['current_page']->value;?>
+ max=<?php echo $_smarty_tpl->tpl_vars['nr_pages']->value;?>
+ next=true><span class="glyphicon glyphicon-menu-right"></span></a></li>
+					<li><a go=<?php echo $_smarty_tpl->tpl_vars['nr_pages']->value;?>
+><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a></li>
+				</ul>
+			</div>
+		<?php }?>
+	
 		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['products']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
@@ -279,6 +310,20 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 				</div>
 			</div>
 		<?php } ?>
+		
+		<?php if ($_smarty_tpl->tpl_vars['nr_pages']->value>1) {?>
+			<div class="page-selector">
+				<ul class="pagination pull-right">
+					<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+				</ul>
+			</div>
+		<?php }?>
 	</div>
 </div>
 

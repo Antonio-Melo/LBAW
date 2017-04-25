@@ -30,22 +30,4 @@ $(document).ready(function(){
 		
 		e.preventDefault();
 	});
-
-	$('submit').submit(function(e){
-		var url = base_url + "api/review.php";
-
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: $("#submit").serialize(),
-			success: function(response) {
-		        var json = $.parseJSON(response);
-		        	if (json.status == "true") {
-					document.getElementById("submit").reset();
-		        	}
-			}
-		});
-		
-		e.preventDefault();
-	});
 });

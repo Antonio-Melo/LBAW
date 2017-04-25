@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 02:38:51
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 20:28:13
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1493084138,
+      1 => 1493148472,
       2 => 'file',
     ),
   ),
@@ -25,6 +25,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'reviews' => 0,
     'review' => 0,
     'reply' => 0,
+    'i' => 0,
+    'filters' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -225,12 +227,33 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 						</div>
 						<hr>
 					<?php } ?>
-		<div id="write_review">
-			<label for="comment">Comment:</label>
-  			<textarea class="form-control" rows="5" id="comment"></textarea>
-			<button id="submit" type="button" class="btn btn-success product-buttons button">Submit</button>
-		</div>
-
+		<?php if (isset($_SESSION['username'])) {?>		
+			<div id="write_review">
+				<form id="review" class="review-input" method="post">
+					<div class="rating">
+						<!-- stars -->
+						<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 5+1 - (1) : 1-(5)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+							<input id=<?php echo ("rating-input-").($_smarty_tpl->tpl_vars['i']->value);?>
+ type="radio" value=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+ name="rating-input"
+							<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['rating'])&&$_smarty_tpl->tpl_vars['i']->value==$_smarty_tpl->tpl_vars['filters']->value['rating']) {?>
+								checked
+							<?php }?>						
+							/>
+							<label class="rating-star" for=<?php echo ("rating-input-").($_smarty_tpl->tpl_vars['i']->value);?>
+></label>
+						<?php }} ?>
+						<span>&nbsp & up</span>
+					</div>
+					<label for="comment">Comment:</label>
+		  			<textarea class="form-control" name ="text_review"rows="5" id="comment"></textarea>
+					<button id="submit" type="submit" class="btn btn-success product-buttons button">Submit</button>
+				</form>
+			</div>
+		<?php }?>
 
                 </div>
                 <div id="sp" class="tab-pane fade">
