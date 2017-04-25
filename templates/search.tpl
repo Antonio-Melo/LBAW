@@ -26,7 +26,11 @@
 						<li class='list-group-item'>
 							<label for={$keyword}>{$keyword}</label>
 							<div class='custom-checkbox'>
-								<input id={$keyword} type='checkbox' value=''>
+								<input id={$keyword} type='checkbox' value=''
+								{if in_array($keyword, $filters.keywords)}
+									checked
+								{/if}
+								>
 								<label for={$keyword}></label>
 							</div>
 						</li>
@@ -43,7 +47,11 @@
 			<div id="filter-price" class="panel-collapse collapse in">
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
-				<div id="filter-price-slider"></div>
+				<div id="filter-price-slider"
+				{if isset($filters.prices[0]) && isset($filters.prices[1])}
+					min={$filters.prices[0]} max={$filters.prices[1]}
+				{/if}
+				></div>
 			</div>
 		</div>
 		
@@ -58,7 +66,11 @@
 						<li class='list-group-item'>
 							<label for={$brand}>{$brand}</label>
 							<div class='custom-checkbox'>
-								<input id={$brand} type='checkbox' value=''>
+								<input id={$brand} type='checkbox' value=''
+								{if in_array($brand, $filters.brands)}
+									checked
+								{/if}
+								>
 								<label for={$brand}></label>
 							</div>
 						</li>
@@ -74,7 +86,11 @@
 			</div>
 			<div id="filter-onsale" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""><label for="scb"></label></div></li>
+					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""
+					{if isset($filters.onsale)}
+						checked
+					{/if}
+					><label for="scb"></label></div></li>
 				</ul>
 			</div>
 		</div>
@@ -87,16 +103,14 @@
 			<div id="filter-rating" class="panel-collapse collapse in">
 				<div class="rating">
 					<!-- stars -->
-					<input id="rating-input-1" type="radio" value="1" name="rating-input"/>
-					<label class="rating-star" for="rating-input-1"></label>
-					<input id="rating-input-2" type="radio" value="2" name="rating-input"/>
-					<label class="rating-star" for="rating-input-2"></label>
-					<input id="rating-input-3" type="radio" value="3" name="rating-input"/>
-					<label class="rating-star" for="rating-input-3"></label>
-					<input id="rating-input-4" type="radio" value="4" name="rating-input"/>
-					<label class="rating-star" for="rating-input-4"></label>
-					<input id="rating-input-5" type="radio" value="5" name="rating-input"/>
-					<label class="rating-star" for="rating-input-5"></label>
+					{for $i=1 to 5}
+						<input id={"rating-input-"|cat:$i} type="radio" value={$i} name="rating-input"
+						{if isset($filters.rating) && $i == $filters.rating}
+							checked
+						{/if}						
+						/>
+						<label class="rating-star" for={"rating-input-"|cat:$i}></label>
+					{/for}
 					<span>&nbsp & up</span>
 				</div>
 			</div>
@@ -129,7 +143,6 @@
 				<li><a>Lower price</a></li>
 				<li><a>Most sold</a></li>
 				<li><a>Best rating</a></li>
-				<li><a>Date released</a></li>
 				<li><a>Name: A -> Z</a></li>
 				<li><a>Name: Z -> A</a></li>
 			</ul>
@@ -163,7 +176,7 @@
 							{/if}
 							<div class="rating">
 								{if $product.nr_ratings != 0}
-									{for $i=1 to $product.rating/$product.nr_ratings}
+									{for $i=1 to round($product.rating/$product.nr_ratings)}
 										<img src="../images/products/common/star.png">
 									{/for}
 								{/if}

@@ -20,6 +20,7 @@
 
 	include_once('../database/products.php');
 	
+	$results_per_page = 20;
 	$filters;
 	$filters['page'] = $_GET['page'];
 	$filters['search'] = $_GET['search'];
@@ -30,12 +31,13 @@
 	$filters['onsale'] = $_GET['onsale'];
 	$filters['rating'] = $_GET['rating'];
 	
-	$products = getSearchProducts($filters);
+	$search = getAllSearchProducts($filters['search']);
+	$products = getSearchProducts($filters, $results_per_page);
 	$products_keywords = [];
 	$products_brands = [];
 	$max_price = 0;
 	
-	foreach ($products as $product) {
+	foreach ($search as $product) {
 		array_push($products_keywords, $product['keyword_name']);
 		array_push($products_brands, $product['brand_name']);
 		if ($product['sale_price'] != null && $product['sale_price'] > $max_price) {
@@ -51,6 +53,7 @@
 	$smarty->assign('products_brands', array_unique($products_brands));
 	$smarty->assign('filters', $filters);
 	$smarty->assign('max_price', $max_price);
+	$smarty->assign('nr_pages', ceil(count($search)/$results_per_page));
 	
 	$smarty->display('search.tpl');
 	

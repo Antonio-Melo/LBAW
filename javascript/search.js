@@ -8,16 +8,27 @@ $(document).ready(function() {
 		range: true,
 		min: 0,
 		max: 2000,
-		values: [0, 2000],
 		slide: function(event, ui) {
 			$("#filter-price-amount").val(ui.values[0] + "\u20AC - " + ui.values[1] + "\u20AC");
 		}
     });
+
+	console.log($("#filter-price-slider").attr("min"));
+	console.log($("#filter-price-slider").attr("max"));
+	
+	if ($("#filter-price-slider").attr("min") && $("#filter-price-slider").attr("max")) {
+		$("#filter-price-slider").slider({values: [$("#filter-price-slider").attr("min"), $("#filter-price-slider").attr("max")]});
+	}
+	else {
+		$("#filter-price-slider").slider({values: [0, 2000]});
+	}
 	
 	$("#filter-price-amount").val($("#filter-price-slider").slider("values", 0) + "\u20AC - " + $("#filter-price-slider").slider("values", 1) + "\u20AC");
 	
 	/* Search filter rating */
 	// Handles the filters of each star according to the situation
+	rating_loop($("#filter-rating input:checked").attr("value"), 0, 1);
+	
 	function rating_loop (val1, filter1, filter2, val2) {
 		var filters = [{"-webkit-filter":"none", "-moz-filter":"none", "filter":"none"},
 						{"-webkit-filter":"brightness(1) grayscale(1) opacity(.7)","-moz-filter":"brightness(1) grayscale(1) opacity(.7)","filter":"brightness(1) grayscale(1) opacity(.7)"}, 

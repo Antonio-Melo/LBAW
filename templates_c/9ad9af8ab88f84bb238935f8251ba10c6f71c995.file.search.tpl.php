@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 02:37:39
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 18:11:01
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1493084221,
+      1 => 1493140256,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'products_keywords' => 0,
     'keyword' => 0,
+    'filters' => 0,
     'products_brands' => 0,
     'brand' => 0,
+    'i' => 0,
     'products' => 0,
     'product' => 0,
   ),
@@ -64,7 +66,11 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 </label>
 							<div class='custom-checkbox'>
 								<input id=<?php echo $_smarty_tpl->tpl_vars['keyword']->value;?>
- type='checkbox' value=''>
+ type='checkbox' value=''
+								<?php if (in_array($_smarty_tpl->tpl_vars['keyword']->value,$_smarty_tpl->tpl_vars['filters']->value['keywords'])) {?>
+									checked
+								<?php }?>
+								>
 								<label for=<?php echo $_smarty_tpl->tpl_vars['keyword']->value;?>
 ></label>
 							</div>
@@ -82,7 +88,13 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 			<div id="filter-price" class="panel-collapse collapse in">
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
-				<div id="filter-price-slider"></div>
+				<div id="filter-price-slider"
+				<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['prices'][0])&&isset($_smarty_tpl->tpl_vars['filters']->value['prices'][1])) {?>
+					min=<?php echo $_smarty_tpl->tpl_vars['filters']->value['prices'][0];?>
+ max=<?php echo $_smarty_tpl->tpl_vars['filters']->value['prices'][1];?>
+
+				<?php }?>
+				></div>
 			</div>
 		</div>
 		
@@ -104,7 +116,11 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 </label>
 							<div class='custom-checkbox'>
 								<input id=<?php echo $_smarty_tpl->tpl_vars['brand']->value;?>
- type='checkbox' value=''>
+ type='checkbox' value=''
+								<?php if (in_array($_smarty_tpl->tpl_vars['brand']->value,$_smarty_tpl->tpl_vars['filters']->value['brands'])) {?>
+									checked
+								<?php }?>
+								>
 								<label for=<?php echo $_smarty_tpl->tpl_vars['brand']->value;?>
 ></label>
 							</div>
@@ -121,7 +137,11 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 			</div>
 			<div id="filter-onsale" class="panel-collapse collapse in">
 				<ul class="list-group">
-					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""><label for="scb"></label></div></li>
+					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""
+					<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['onsale'])) {?>
+						checked
+					<?php }?>
+					><label for="scb"></label></div></li>
 				</ul>
 			</div>
 		</div>
@@ -134,16 +154,20 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 			<div id="filter-rating" class="panel-collapse collapse in">
 				<div class="rating">
 					<!-- stars -->
-					<input id="rating-input-1" type="radio" value="1" name="rating-input"/>
-					<label class="rating-star" for="rating-input-1"></label>
-					<input id="rating-input-2" type="radio" value="2" name="rating-input"/>
-					<label class="rating-star" for="rating-input-2"></label>
-					<input id="rating-input-3" type="radio" value="3" name="rating-input"/>
-					<label class="rating-star" for="rating-input-3"></label>
-					<input id="rating-input-4" type="radio" value="4" name="rating-input"/>
-					<label class="rating-star" for="rating-input-4"></label>
-					<input id="rating-input-5" type="radio" value="5" name="rating-input"/>
-					<label class="rating-star" for="rating-input-5"></label>
+					<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 5+1 - (1) : 1-(5)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+						<input id=<?php echo ("rating-input-").($_smarty_tpl->tpl_vars['i']->value);?>
+ type="radio" value=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+ name="rating-input"
+						<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['rating'])&&$_smarty_tpl->tpl_vars['i']->value==$_smarty_tpl->tpl_vars['filters']->value['rating']) {?>
+							checked
+						<?php }?>						
+						/>
+						<label class="rating-star" for=<?php echo ("rating-input-").($_smarty_tpl->tpl_vars['i']->value);?>
+></label>
+					<?php }} ?>
 					<span>&nbsp & up</span>
 				</div>
 			</div>
@@ -177,7 +201,6 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 				<li><a>Lower price</a></li>
 				<li><a>Most sold</a></li>
 				<li><a>Best rating</a></li>
-				<li><a>Date released</a></li>
 				<li><a>Name: A -> Z</a></li>
 				<li><a>Name: Z -> A</a></li>
 			</ul>
@@ -223,7 +246,7 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 							<?php }?>
 							<div class="rating">
 								<?php if ($_smarty_tpl->tpl_vars['product']->value['nr_ratings']!=0) {?>
-									<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings']+1 - (1) : 1-($_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'])+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+									<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? round($_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'])+1 - (1) : 1-(round($_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings']))+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>

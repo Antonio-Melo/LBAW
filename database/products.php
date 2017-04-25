@@ -136,18 +136,48 @@ function getRepliesByReviewId($id) {
 	return $stmt->fetchAll();
 }
 
-function getSearchProducts($filters) {
-	$vars = array();	
-	$query = 'SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
+function getAllSearchProducts($search) {
+	global $conn;
+	if ($search) {
+		$vars = array();
+		$query = "SELECT *
+					FROM 
+					(SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
+					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') as document
+					FROM product
+					LEFT JOIN onsale ON product.id=onsale.id
+					LEFT JOIN image ON product.id=image.product
+					JOIN keyword ON product.keyword=keyword.id
+					JOIN brand ON product.brand=brand.id) p_search
+					WHERE p_search.document @@ plainto_tsquery(?)
+					ORDER BY ts_rank(p_search.document, plainto_tsquery(?)) DESC;";
+		array_push($vars, $search, $search);
+		$stmt = $conn->prepare($query);
+		$stmt->execute($vars);
+	}
+	else {
+		$query = 'SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
 				FROM product
+				LEFT JOIN onsale ON product.id=onsale.id
+				LEFT JOIN image ON product.id=image.product
+				JOIN keyword ON product.keyword=keyword.id
+				JOIN brand ON product.brand=brand.id';
+		$stmt = $conn->prepare($query);
+		$stmt->execute();
+	}
+	
+	return $stmt->fetchAll();
+}
+
+function getSearchProducts($filters, $results_per_page) {
+	$vars = array();
+	$query = ' FROM product
 				LEFT JOIN onsale ON product.id=onsale.id
 				LEFT JOIN image ON product.id=image.product
 				JOIN keyword ON product.keyword=keyword.id
 				JOIN brand ON product.brand=brand.id';
 	
 	$n = 0;
-	// Search
-	
 	// Keywords
 	if (count($filters['keywords']) > 0) {
 		if ($n == 0) {
@@ -181,11 +211,11 @@ function getSearchProducts($filters) {
 		
 		$min = $filters['prices'][0];
 		$max = $filters['prices'][1];
-		$query .= 'onsale.sale_price>? AND onsale.sale_price<?';
+		$query .= 'onsale.sale_price>=? AND onsale.sale_price<=?';
 		array_push($vars, $min, $max);
 		
 		$query .= ') OR (';
-		$query .= 'onsale.sale_price IS NULL AND product.price>? AND product.price<?';
+		$query .= 'onsale.sale_price IS NULL AND product.price>=? AND product.price<=?';
 		array_push($vars, $min, $max);
 		
 		$query .= '))';
@@ -236,21 +266,66 @@ function getSearchProducts($filters) {
 			$query .= ' AND (';
 		}
 		
-		$query .= 'product.nr_ratings>0 AND product.rating/product.nr_ratings>=?)';
+		$query .= 'product.nr_ratings>0 AND ROUND(product.rating/product.nr_ratings)>=?)';
 		array_push($vars, $filters['rating']);
 		$n = 1;
 	}
 	
+	// Search
+	if ($filters['search']) {
+		$query = "SELECT * FROM 
+					(SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
+					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') as document"
+					. $query
+					. ") p_search WHERE p_search.document @@ plainto_tsquery(?)";
+		array_push($vars, $filters['search']);
+	}
+	else {
+		$query = 'SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id'
+					. $query;
+	}
+	
 	// Order
+	if ($filters['order']) {
+		switch($filters['order']) {
+			case 'Relevant':
+				if ($filters['search']) {
+					$query .= " ORDER BY ts_rank(p_search.document, plainto_tsquery(?)) DESC";
+					array_push($vars, $filters['search']);
+				}
+				break;
+			case 'Higher price':
+				$query .= " ORDER BY COALESCE(sale_price, price) DESC";
+				break;
+			case 'Lower price':
+				$query .= " ORDER BY COALESCE(sale_price, price) ASC";
+				break;
+			case 'Most sold':
+				$query .= " ORDER BY nr_sales DESC";
+				break;
+			case 'Best rating':
+				$query .= " ORDER BY rating/ (CASE nr_ratings WHEN 0 THEN NULL ELSE nr_ratings END) DESC NULLS LAST";
+				break;
+			case 'Name: A -> Z':
+				$query .= " ORDER BY product_name ASC";
+				break;
+			case 'Name: Z -> A':
+				$query .= " ORDER BY product_name DESC";
+				break;
+		}		
+	}
+	else if ($filters['search']) {
+		$query .= " ORDER BY ts_rank(p_search.document, plainto_tsquery(?)) DESC";
+		array_push($vars, $filters['search']);
+	}
 	
 	// Page
-	$results_per_pages = 20;
 	if (!$filters['page']) {
 		$filters['page'] = 1;
 	}
 	
 	$query .= ' LIMIT ? OFFSET ?';
-	array_push($vars, $results_per_pages, ($filters['page']-1)*$results_per_pages);
+	array_push($vars, $results_per_page, ($filters['page']-1)*$results_per_page);
 	
 	global $conn;
 	$stmt = $conn->prepare($query);
