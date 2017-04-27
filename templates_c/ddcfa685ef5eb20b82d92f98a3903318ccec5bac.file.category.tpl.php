@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 19:09:40
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 08:38:32
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19573232658fa4ae4796603-51969011%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ddcfa685ef5eb20b82d92f98a3903318ccec5bac' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/category.tpl',
-      1 => 1492792419,
+      1 => 1493278307,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58fa4ae4a323a7_44674902',
   'variables' => 
   array (
     'category' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'mostpopular' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58fa4ae4a323a7_44674902',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58fa4ae4a323a7_44674902')) {function content_58fa4ae4a323a7_44674902($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
@@ -34,7 +34,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </h1>
 	<hr>
 	<div class="items-display">
-		<h2>On Sale <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h2>
+		<h2>On Sale <a href=<?php echo ("search.php?onsale=true&keywords=").($_smarty_tpl->tpl_vars['category']->value['name']);?>
+><span class="view-more">&gt;&gt;</span></a></h2>
 		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['onsale']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
@@ -73,7 +74,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 	</div>
 	
 	<div class="items-display">
-		<h2>Most Popular <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h2>
+		<h2>Most Popular <a href="<?php echo ("search.php?order=Most%20sold&keywords=").($_smarty_tpl->tpl_vars['category']->value['name']);?>
+"><span class="view-more">&gt;&gt;</span></a></h2>
 		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['mostpopular']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
@@ -114,4 +116,5 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 
 
 <?php echo $_smarty_tpl->getSubTemplate ('footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 <?php }} ?>

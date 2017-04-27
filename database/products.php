@@ -277,7 +277,7 @@ function getSearchProductsFiltered($filters) {
 	if ($filters['search']) {
 		$query = "SELECT * FROM 
 					(SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
-					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') as document"
+					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') || setweight(to_tsvector(product.small_description), 'C') || setweight(to_tsvector(product.description), 'D') as document"
 					. $query
 					. ") p_search WHERE p_search.document @@ plainto_tsquery(?)";
 		array_push($vars, $filters['search']);

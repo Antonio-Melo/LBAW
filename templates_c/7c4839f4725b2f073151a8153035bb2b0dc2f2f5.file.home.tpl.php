@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-21 18:39:45
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 08:32:45
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:159654243858fa43e1308758-45070636%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7c4839f4725b2f073151a8153035bb2b0dc2f2f5' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/home.tpl',
-      1 => 1492792419,
+      1 => 1493278075,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58fa43e1574a61_35972047',
   'variables' => 
   array (
     'onsale' => 0,
@@ -22,14 +24,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'mostpopular' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58fa43e1574a61_35972047',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58fa43e1574a61_35972047')) {function content_58fa43e1574a61_35972047($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 
 <div class="panel-body items-display">
-	<h1>On Sale <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h1>
+	<h1>On Sale <a href="search.php?onsale=true"><span class="view-more">&gt;&gt;</span></a></h1>
 	<hr>
 	<div>
 	<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
@@ -68,7 +68,7 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 		</div>
 	<?php } ?>
 	</div>
-	<h1>Most Popular <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h1>
+	<h1>Most Popular <a href="search.php?order=Most%20sold"><span class="view-more">&gt;&gt;</span></a></h1>
 	<hr>
 	<div>
 	<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;

@@ -225,16 +225,20 @@
 		{if $nr_pages > 1}
 			<div class="page-selector">
 				<ul class="pagination pull-right">
-					<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+					<li><a go=1><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a></li>
+					<li><a go={$current_page} before=true><span class="glyphicon glyphicon-menu-left"></span></a></li>
+					{for $i=$start_page to $end_page}
+						<li 
+						{if $i == $current_page}
+							class="active"
+						{/if}
+						><a go={$i}>{$i}</a><li>
+					{/for}
+					<li><a go={$current_page} max={$nr_pages} next=true><span class="glyphicon glyphicon-menu-right"></span></a></li>
+					<li><a go={$nr_pages}><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a></li>
 				</ul>
 			</div>
-		{/if}
+		{/if}		
 	</div>
 </div>
 

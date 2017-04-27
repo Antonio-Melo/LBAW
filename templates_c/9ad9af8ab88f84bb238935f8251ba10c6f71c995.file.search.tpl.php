@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 21:42:50
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 08:27:33
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1493152965,
+      1 => 1493277940,
       2 => 'file',
     ),
   ),
@@ -314,19 +314,33 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 		<?php if ($_smarty_tpl->tpl_vars['nr_pages']->value>1) {?>
 			<div class="page-selector">
 				<ul class="pagination pull-right">
-					<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+					<li><a go=1><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a></li>
+					<li><a go=<?php echo $_smarty_tpl->tpl_vars['current_page']->value;?>
+ before=true><span class="glyphicon glyphicon-menu-left"></span></a></li>
+					<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['end_page']->value+1 - ($_smarty_tpl->tpl_vars['start_page']->value) : $_smarty_tpl->tpl_vars['start_page']->value-($_smarty_tpl->tpl_vars['end_page']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = $_smarty_tpl->tpl_vars['start_page']->value, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+						<li 
+						<?php if ($_smarty_tpl->tpl_vars['i']->value==$_smarty_tpl->tpl_vars['current_page']->value) {?>
+							class="active"
+						<?php }?>
+						><a go=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a><li>
+					<?php }} ?>
+					<li><a go=<?php echo $_smarty_tpl->tpl_vars['current_page']->value;?>
+ max=<?php echo $_smarty_tpl->tpl_vars['nr_pages']->value;?>
+ next=true><span class="glyphicon glyphicon-menu-right"></span></a></li>
+					<li><a go=<?php echo $_smarty_tpl->tpl_vars['nr_pages']->value;?>
+><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a></li>
 				</ul>
 			</div>
-		<?php }?>
+		<?php }?>		
 	</div>
 </div>
 
 
 <?php echo $_smarty_tpl->getSubTemplate ('footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 <?php }} ?>

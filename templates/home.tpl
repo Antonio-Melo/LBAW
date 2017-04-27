@@ -1,7 +1,7 @@
 {include file='header.tpl'}
 
 <div class="panel-body items-display">
-	<h1>On Sale <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h1>
+	<h1>On Sale <a href="search.php?onsale=true"><span class="view-more">&gt;&gt;</span></a></h1>
 	<hr>
 	<div>
 	{foreach $onsale as $product}
@@ -29,7 +29,7 @@
 		</div>
 	{/foreach}
 	</div>
-	<h1>Most Popular <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h1>
+	<h1>Most Popular <a href="search.php?order=Most%20sold"><span class="view-more">&gt;&gt;</span></a></h1>
 	<hr>
 	<div>
 	{foreach $mostpopular as $product}

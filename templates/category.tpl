@@ -4,7 +4,7 @@
 	<h1>{$category.name}</h1>
 	<hr>
 	<div class="items-display">
-		<h2>On Sale <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h2>
+		<h2>On Sale <a href={"search.php?onsale=true&keywords="|cat:$category.name}><span class="view-more">&gt;&gt;</span></a></h2>
 		{foreach $onsale as $product}
 			<div class="col-md-4 col-sm-6">
 				<div class="product-image-container">
@@ -32,7 +32,7 @@
 	</div>
 	
 	<div class="items-display">
-		<h2>Most Popular <a href="search.php"><span class="view-more">&gt;&gt;</span></a></h2>
+		<h2>Most Popular <a href="{"search.php?order=Most%20sold&keywords="|cat:$category.name}"><span class="view-more">&gt;&gt;</span></a></h2>
 		{foreach $mostpopular as $product}
 			<div class="col-md-4 col-sm-6">
 				<div class="product-image-container">
