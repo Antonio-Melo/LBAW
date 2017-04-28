@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-28 20:23:19
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-28 22:00:29
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1493407397,
+      1 => 1493413226,
       2 => 'file',
     ),
   ),
@@ -195,13 +195,42 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 							<div id="register-tab" class="tab-pane">
 								<form id="register" class="authentication-input">
 									<label for="register-username">Username</label>
-									<input type="text" name="username" id="register-username" required>
+									<div class="register-input">
+										<input type="text" name="username" id="register-username" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Can't already be in use.<br>
+											Must be a combination of letters and numbers.<br>
+											Must have between 4 and 24 characters.
+										</div>
+									</div>
 									<label for="register-name">Name</label>
-									<input type="text" name="name" id="register-name" required>
+									<div class="register-input">
+										<input type="text" name="name" id="register-name" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Must have between 1 and 50 characters.
+										</div>
+									</div>
 									<label for="register-email">Email</label>
-									<input type="text" name="email" id="register-email" required>
+									<div class="register-input">
+										<input type="text" name="email" id="register-email" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Can't already be in use.<br>
+											Must be a valid email address.<br>
+											Can't have more than 128 characters.
+										</div>
+									</div>
 									<label for="register-password">Password</label>
-									<input type="password" name="password" id="register-password" required>
+									<div class="register-input">
+										<input type="password" name="password" id="register-password" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Passwords must match.<br>
+											Must have between 6 and 128 characters.
+										</div>
+									</div>
 									<label for="register-confirm-password">Confirm password</label>
 									<input type="password" name="confirm-password" id="register-confirm-password" required>
 									<label for="register-country">Country</label>

@@ -333,7 +333,7 @@ a, a:hover, a:active, a:visited {
 }
 
 #authentication-modal input, #authentication-modal label {
-	margin: 0px auto 0 auto;
+	margin: 0 auto 0 auto;
 	width: 60%;
 }
 
@@ -390,7 +390,42 @@ a, a:hover, a:active, a:visited {
 	border: 2px solid #e53935 !important;
 }
 
+#authentication-modal .register-input {
+	position: relative;
+	margin: 0 auto 0 auto;
+	width: 60%;
+}
 
+#authentication-modal .register-input input {
+	display: inline-block;
+	width: 100%;
+}
+
+.error-sign {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background: #e53935;
+	border-radius: 50%;
+	padding-left: 2px;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	cursor: pointer;
+}
+
+.error-message {
+	position: absolute;
+	top: 40px;
+	right: 12px;
+	background: #e53935;
+	font-size: 10px;
+	color: white;
+	padding: 5px;
+}
 
 
 

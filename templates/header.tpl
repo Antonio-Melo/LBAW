@@ -136,13 +136,42 @@
 							<div id="register-tab" class="tab-pane">
 								<form id="register" class="authentication-input">
 									<label for="register-username">Username</label>
-									<input type="text" name="username" id="register-username" required>
+									<div class="register-input">
+										<input type="text" name="username" id="register-username" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Can't already be in use.<br>
+											Must be a combination of letters and numbers.<br>
+											Must have between 4 and 24 characters.
+										</div>
+									</div>
 									<label for="register-name">Name</label>
-									<input type="text" name="name" id="register-name" required>
+									<div class="register-input">
+										<input type="text" name="name" id="register-name" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Must have between 1 and 50 characters.
+										</div>
+									</div>
 									<label for="register-email">Email</label>
-									<input type="text" name="email" id="register-email" required>
+									<div class="register-input">
+										<input type="text" name="email" id="register-email" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Can't already be in use.<br>
+											Must be a valid email address.<br>
+											Can't have more than 128 characters.
+										</div>
+									</div>
 									<label for="register-password">Password</label>
-									<input type="password" name="password" id="register-password" required>
+									<div class="register-input">
+										<input type="password" name="password" id="register-password" required>
+										<div class="error-sign hide">!</div>
+										<div class="error-message hide">
+											Passwords must match.<br>
+											Must have between 6 and 128 characters.
+										</div>
+									</div>
 									<label for="register-confirm-password">Confirm password</label>
 									<input type="password" name="confirm-password" id="register-confirm-password" required>
 									<label for="register-country">Country</label>

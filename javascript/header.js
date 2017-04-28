@@ -32,6 +32,11 @@ $(document).ready(function(){
 	$("#register").submit(function(e) {
 		var url = base_url + "api/register.php";
 		
+		checkValidUsername('#register-username', 'register');
+		checkValidEmail('#register-email', 'register');
+		checkValidName('#register-name', 'register');
+		checkValidPassword('#register-password', '#register-confirm-password', 'register');
+		
 		if (!valid_register_username || !valid_register_name || !valid_register_email || !valid_register_password) {
 			$('#register-error').text('Invalid credentials');
 		}
@@ -78,7 +83,16 @@ $(document).ready(function(){
 	$("#register-password, #register-confirm-password").blur(function(e) {
 		checkValidPassword('#register-password', '#register-confirm-password', 'register');
 		e.preventDefault();
-	});	
+	});
+	
+	// Display errors
+	$('.error-sign').hover(
+	function() {
+		$(this).siblings('.error-message').removeClass('hide');
+    },
+	function() {
+		$(this).siblings('.error-message').addClass('hide');
+    });
 });
 
 // Changes global validity variables
@@ -128,11 +142,13 @@ function checkValidUsername(element, where) {
 				var json = $.parseJSON(response);
 				if (json.status == "true") {
 					$(element).removeClass("authentication-input-error");
+					$(element).siblings('.error-sign').addClass('hide');
 					setValid(true, where, 'username');
 				}
 				else {
 					// if already in db heighlight
 					$(element).addClass("authentication-input-error");
+					$(element).siblings('.error-sign').removeClass('hide');
 					setValid(false, where, 'username');
 				}
 			}
@@ -140,6 +156,7 @@ function checkValidUsername(element, where) {
 	}
 	else if (username != "") {
 		$(element).addClass("authentication-input-error");
+		$(element).siblings('.error-sign').removeClass('hide');
 		setValid(false, where, 'username');
 	}
 	else {
@@ -152,10 +169,12 @@ function checkValidName(element, where) {
 	
 	if (nameRestrictions(name)) {		
 		$(element).removeClass("authentication-input-error");
+		$(element).siblings('.error-sign').addClass('hide');
 		setValid(true, where, 'name');
 	}
 	else if (name != ""){
 		$(element).addClass("authentication-input-error");
+		$(element).siblings('.error-sign').removeClass('hide');
 		setValid(false, where, 'name');
 	}
 	else {
@@ -178,11 +197,13 @@ function checkValidEmail(element, where) {
 				var json = $.parseJSON(response);
 				if (json.status == "true") {
 					$(element).removeClass("authentication-input-error");
+					$(element).siblings('.error-sign').addClass('hide');
 					setValid(true, where, 'email');
 				}
 				else {
 					// if already in db heighlight
 					$(element).addClass("authentication-input-error");
+					$(element).siblings('.error-sign').removeClass('hide');
 					setValid(false, where, 'email');
 				}
 			}
@@ -190,6 +211,7 @@ function checkValidEmail(element, where) {
 	}
 	else if (email != "") {
 		$(element).addClass("authentication-input-error");
+		$(element).siblings('.error-sign').removeClass('hide');
 		setValid(false, where, 'email');
 	}
 	else {
@@ -203,11 +225,13 @@ function checkValidPassword(selector1, selector2, where) {
 	
 	if (passwordRestrictions(password, c_password)) {		
 		$(selector1).removeClass("authentication-input-error");
+		$(selector1).siblings('.error-sign').addClass('hide');
 		$(selector2).removeClass("authentication-input-error");
 		setValid(true, where, 'password');
 	}
 	else if (password != "" && c_password != "") {
 		$(selector1).addClass("authentication-input-error");
+		$(selector1).siblings('.error-sign').removeClass('hide');
 		$(selector2).addClass("authentication-input-error");
 		setValid(false, where, 'password');
 	}
@@ -224,7 +248,7 @@ function usernameRestrictions(username) {
 function emailRestrictions(email) {
 	// from http://emailregex.com/
 	var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	return (regex.test(email) && email.length<=50);
+	return (regex.test(email) && email.length<=128);
 }
 
 function nameRestrictions(name) {
