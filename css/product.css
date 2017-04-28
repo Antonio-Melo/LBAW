@@ -1,10 +1,31 @@
 /*===============================================================================*/
 /* Item display */
+.rating input {
+	margin: 0;
+	padding: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
 
 .rating-star {
 	background-image: url("../images/products/common/star.png");
-	width: 22px !important;
-	margin-right: -3px;
+}
+
+
+.rating-star {
+	cursor: pointer;
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 22px;
+	width: 22px;
+	-webkit-transition: all 100ms ease-in;
+	-moz-transition: all 100ms ease-in;
+	transition: all 100ms ease-in;
+	-webkit-filter: brightness(1) grayscale(1) opacity(.7);
+	-moz-filter: brightness(1) grayscale(1) opacity(.7);
+	filter: brightness(1) grayscale(1) opacity(.7);
 }
 
 

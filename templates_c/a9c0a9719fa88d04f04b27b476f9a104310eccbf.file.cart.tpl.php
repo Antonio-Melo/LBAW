@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-22 00:49:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 10:56:04
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:155513661158fa972543f4b7-82856310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9c0a9719fa88d04f04b27b476f9a104310eccbf' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl',
-      1 => 1492818542,
+      1 => 1493286961,
       2 => 'file',
     ),
   ),
@@ -31,10 +31,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<h1>Shopping cart</h1>
 	<hr>
 	
-	<div class="checkout-cart">
-		<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-		<button type="button" class="btn checkout-button ">Order</button>
-	</div>
+	<?php if (count($_smarty_tpl->tpl_vars['products']->value)>0) {?>
+		<div class="checkout-cart">
+			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
+			<button type="button" class="btn checkout-button ">Checkout</button>
+		</div>
+	<?php } else { ?>
+		<span class="glyphicon glyphicon-shopping-cart"></span>
+		<p>Your shopping cart is empty right now, but it doesn't have to be!</p>
+		<div class="checkout-cart">
+			<button type="button" class="button">Go Shopping</button>
+		</div>
+	<?php }?>
 	
 	<div class="items-display" id="cart-results">		
 		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
@@ -61,7 +69,7 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 				</div>
 				
 				<div class="product-info-container">
-					<div class="row">						
+					<div class="row">
 						<div class="list-left-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
 							<div class="name"><a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
 ><?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
@@ -114,7 +122,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 	<?php if (count($_smarty_tpl->tpl_vars['products']->value)>=3) {?>
 		<div class="checkout-cart">
 			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<button type="button" class="btn checkout-button ">Order</button>
+			<button type="button" class="btn checkout-button ">Checkout</button>
 		</div>
 	<?php }?>
 </div>

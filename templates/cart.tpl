@@ -4,10 +4,18 @@
 	<h1>Shopping cart</h1>
 	<hr>
 	
-	<div class="checkout-cart">
-		<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-		<button type="button" class="btn checkout-button ">Order</button>
-	</div>
+	{if count($products)>0}
+		<div class="checkout-cart">
+			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
+			<button type="button" class="btn checkout-button ">Checkout</button>
+		</div>
+	{else}
+		<span class="glyphicon glyphicon-shopping-cart"></span>
+		<p>Your shopping cart is empty right now, but it doesn't have to be!</p>
+		<div class="checkout-cart">
+			<button type="button" class="button">Go Shopping</button>
+		</div>
+	{/if}
 	
 	<div class="items-display" id="cart-results">		
 		{foreach $products as $product}
@@ -27,7 +35,7 @@
 				</div>
 				
 				<div class="product-info-container">
-					<div class="row">						
+					<div class="row">
 						<div class="list-left-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
 							<div class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.product_name}</a></div>
 							<div class="type-brand"><a>{$product.keyword_name}</a> - <a>{$product.brand_name}</a></div>
@@ -70,7 +78,7 @@
 	{if count($products)>=3}
 		<div class="checkout-cart">
 			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<button type="button" class="btn checkout-button ">Order</button>
+			<button type="button" class="btn checkout-button ">Checkout</button>
 		</div>
 	{/if}
 </div>

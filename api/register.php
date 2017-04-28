@@ -5,7 +5,7 @@ include_once('../database/users.php');
 $response = array();
 
 if (!$_POST['username'] || !$_POST['name'] || !$_POST['email'] || !$_POST['password'] || !$_POST['country']) {
-	$response["status"] = "false";	
+	$response["status"] = false;	
 	echo json_encode($response);
 	exit;
 }
@@ -18,12 +18,10 @@ $country = strip_tags($_POST['country']);
 
 try {
 	createUser($username, $name, $email, $password, $country);
-	$response["status"] = "true";
+	$response["status"] = true;
 	echo json_encode($response);
 	exit;
 } catch (PDOException $e) {
-	$response["status"] = $e->getMessage();
-	echo json_encode($response);
-	exit;
+	die(header("HTTP/1.0 500 Internal Server Error"));
 }
 ?>

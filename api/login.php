@@ -13,17 +13,17 @@ if (!$_POST['username'] || !$_POST['password']) {
 $username = strip_tags($_POST['username']);
 $password = strip_tags($_POST['password']);
 
-if (loginCorrect($username, $password)) {
-	$_SESSION['username'] = $username;
-		if (isAdmin($username)) {
-		$_SESSION['admin'] = true;
+try {
+	$response["status"] = loginCorrect($username, $password);
+	if ($response["status"]) {
+		$_SESSION['id'] = $response["status"];
+		if (isAdmin($response["status"])) {
+			$_SESSION['admin'] = true;
+		}
 	}
-	$response["status"] = "true";
+	echo json_encode($response);
+} catch (PDOException $e) {
+	die(header("HTTP/1.0 500 Internal Server Error"));
 }
-else {
-	$response["status"] = "false";
-}
-
-echo json_encode($response);
 ?>
 

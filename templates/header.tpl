@@ -17,48 +17,33 @@
 	<script src="{$BASE_URL}javascript/header.js"></script>
 	<script src="{$BASE_URL}javascript/{$js_file}"></script>
 </head>
-<body>
+<body id="page">
 	<header>
 		<!--Main nav-->
 		<nav class="navbar navbar-default" id="main-nav">
 			<div class="container-fluid">
 				<!--Logo-->
-				<div class="nav-content col-xs-3 col-sm-3 col-md-3 col-lg-3 navbar-header" id="logo">
+				<div class="nav-content navbar-header" id="logo">
 					<a class="navbar-brand" href="home.php">
 						<img src="../images/logo/logo.png" class="hidden-xs">
 						<img src="../images/logo/logo-mobile.png" class="hidden-sm hidden-md hidden-lg">
 					</a>
 				</div>
 				
-				<!--Search bar-->
-				<div class="search nav-content col-md-6 col-lg-6 hidden-xs hidden-sm">
-					<div class="input-group">
-						<input id="search-bar" type="text" class="form-control" placeholder="Search"
-						{if isset($filters['search'])}
-							value={$filters['search']}
-						{/if}
-						>
-						<div class="input-group-btn">
-							<a href="search.php">
-								<button class="btn btn-default" id="search-bttn" type="submit">
-									<span class="glyphicon glyphicon-search"></span>
-								</button>
-							</a>
-						</div>
-					</div>
-				</div>
-
 				<!--Menu-->
-				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
+				<div class="nav-content" id="menu">
 					<ul class="nav navbar-nav navbar-right">
-						{if isset($smarty.session.username) && isset($smarty.session.admin)}
+						{if isset($smarty.session.id) && isset($smarty.session.admin)}
 							<!-- Admin -->
+							<li><a href="admin-menu.php"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+							<!--
 							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
 							<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
 							<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
+							-->
 							<li><a href="../actions/logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
-						{elseif isset($smarty.session.username)}
+						{elseif isset($smarty.session.id)}
 							<!-- Logged in user -->
 							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
@@ -71,25 +56,23 @@
 					</ul>
 				</div>
 			</div>
-		</nav>
-		
-		<!-- Search nav for small screens -->
-		<nav class="navbar navbar-default hidden-md hidden-lg" id="search-nav">
-			<div class="container-fluid search">
-				<div class="input-group">
-					<input id="sec-search-bar" type="text" class="form-control" placeholder="Search"
+			
+			<!--Search bar-->
+			<div class="search nav-content col-xs-12 col-sm-12 col-md-6 col-lg-6" id="search">
+				<form action="search.php" method="get" class="input-group">
+					<input id="search-bar" name="search" type="text" class="form-control" placeholder="Search"
 					{if isset($filters['search'])}
 						value={$filters['search']}
 					{/if}
 					>
 					<div class="input-group-btn">
 						<a href="search.php">
-							<button class="btn btn-default" id="sec-search-bttn" type="submit">
+							<button class="btn btn-default" id="search-bttn" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</a>
 					</div>
-				</div>
+				</form>
 			</div>
 		</nav>
 		
@@ -139,7 +122,7 @@
 					<div class="modal-body">
 						<div class="tab-content">
 							<div id="login-tab" class="tab-pane active">
-								<form id="login" class="authentication-input" action="{$BASE_URL}actions/users/login.php" method="post">
+								<form id="login" class="authentication-input">
 									<label for="login-username">Username/Email</label>
 									<input type="text" name="username" id="login-username" required>
 									<label for="login-password">Password</label>

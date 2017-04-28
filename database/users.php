@@ -15,7 +15,7 @@ function loginCorrect($username, $password) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT password
+	SELECT id, password
 	FROM users
 	WHERE (username=? OR email=?)
 	');
@@ -23,22 +23,22 @@ function loginCorrect($username, $password) {
 	$results = $stmt->fetchAll();
 	if (is_array($results) && count($results)>=1) {
 		if (password_verify($password, $results[0]["password"])) {
-			return true;
+			return $results[0]["id"];
 		}
 	}
 	
 	return false;
 }
 
-function isAdmin($username) {
+function isAdmin($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
 	SELECT *
 	FROM users
-	WHERE (username=? OR email=?) AND is_admin=TRUE
+	WHERE id=? AND is_admin=TRUE
 	');
-	$stmt->execute(array($username, $username));
+	$stmt->execute(array($id));
 
 	return $stmt->fetch();
 }

@@ -2,32 +2,7 @@ var base_url = "/~lbaw1663/LBAW/";
 
 var valid_register_username = false, valid_register_name = false, valid_register_email = false, valid_register_password = false;
 
-$(document).ready(function(){
-	$('#search-bar, #sec-search-bar').blur(function(e) {
-		var search = $(this).val();
-		$('#search-bar').val(search);
-		$('#sec-search-bar').val(search);
-	});
-	
-	
-	// Search
-	$('#search-bttn').click(function(e) {
-		var vars = [];
-		vars["search"] = $('#search-bar').val();
-		var string = createSerialize(vars);
-		window.location = base_url + "pages/search.php" + "?" + string;
-		e.preventDefault();
-	});
-	
-	$('#sec-search-bttn').click(function(e) {
-		var vars = [];
-		vars["search"] = $('#sec-search-bar').val();
-		var string = createSerialize(vars);
-		window.location = base_url + "pages/search.php" + "?" + string;
-		e.preventDefault();
-	});
-	
-	
+$(document).ready(function(){	
 	// Login
 	$("#login").submit(function(e) {
 		var url = base_url + "api/login.php";
@@ -38,9 +13,7 @@ $(document).ready(function(){
 			data: $("#login").serialize(),
 			success: function(response) {
 		        var json = $.parseJSON(response);
-		        if (json.status == "true") {
-					document.getElementById("login").reset();
-					$("#authentication-modal").modal("hide");
+		        if (json.status) {
 					location.reload();
 		        }
 		        else {
@@ -69,16 +42,16 @@ $(document).ready(function(){
 				data: $("#register").serialize(),
 				success: function(response) {
 					var json = $.parseJSON(response);
-					if (json.status == "true") {
+					if (json.status) {
 						document.getElementById("register").reset();
-						$('a[href="#login-tab"]').tab("show");				
+						$('a[href="#login-tab"]').tab("show");
 					}
-					else if (json.status == "false"){
-						$('#register-error').text('Credentials already in use');
+					else {
+						$('#register-error').text('Fill in everything');
 					}
 				},
 				error: function(response) {
-					$('#register-error').text('Internal Error');
+					$('#register-error').text('Credentials already in use');
 				}
 			});
 		}

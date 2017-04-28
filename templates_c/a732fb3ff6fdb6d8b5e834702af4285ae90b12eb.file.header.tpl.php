@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-25 22:50:58
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-28 20:23:19
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1493157052,
+      1 => 1493407397,
       2 => 'file',
     ),
   ),
@@ -63,49 +63,33 @@ javascript/header.js"></script>
 javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 "></script>
 </head>
-<body>
+<body id="page">
 	<header>
 		<!--Main nav-->
 		<nav class="navbar navbar-default" id="main-nav">
 			<div class="container-fluid">
 				<!--Logo-->
-				<div class="nav-content col-xs-3 col-sm-3 col-md-3 col-lg-3 navbar-header" id="logo">
+				<div class="nav-content navbar-header" id="logo">
 					<a class="navbar-brand" href="home.php">
 						<img src="../images/logo/logo.png" class="hidden-xs">
 						<img src="../images/logo/logo-mobile.png" class="hidden-sm hidden-md hidden-lg">
 					</a>
 				</div>
 				
-				<!--Search bar-->
-				<div class="search nav-content col-md-6 col-lg-6 hidden-xs hidden-sm">
-					<div class="input-group">
-						<input id="search-bar" type="text" class="form-control" placeholder="Search"
-						<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['search'])) {?>
-							value=<?php echo $_smarty_tpl->tpl_vars['filters']->value['search'];?>
-
-						<?php }?>
-						>
-						<div class="input-group-btn">
-							<a href="search.php">
-								<button class="btn btn-default" id="search-bttn" type="submit">
-									<span class="glyphicon glyphicon-search"></span>
-								</button>
-							</a>
-						</div>
-					</div>
-				</div>
-
 				<!--Menu-->
-				<div class="nav-content col-xs-9 col-sm-9 col-md-3 col-lg-3" id="menu" align="right">
+				<div class="nav-content" id="menu">
 					<ul class="nav navbar-nav navbar-right">
-						<?php if (isset($_SESSION['username'])&&isset($_SESSION['admin'])) {?>
+						<?php if (isset($_SESSION['id'])&&isset($_SESSION['admin'])) {?>
 							<!-- Admin -->
+							<li><a href="admin-menu.php"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+							<!--
 							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="addproduct.php"><span class="glyphicon glyphicon-plus"></span></a></li>
 							<li><a href="admin-stats.php"><span class="glyphicon glyphicon-stats"></span></a></li>
 							<li><a href="ban-users.php"><span class="glyphicon glyphicon-ban-circle"></span></a></li>
+							-->
 							<li><a href="../actions/logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
-						<?php } elseif (isset($_SESSION['username'])) {?>
+						<?php } elseif (isset($_SESSION['id'])) {?>
 							<!-- Logged in user -->
 							<li><a href="profile.php"><span class="glyphicon glyphicon-user"></span></a></li>
 							<li><a href="favorites.php"><span class="glyphicon glyphicon-heart"></span></a></li>
@@ -118,13 +102,11 @@ javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 					</ul>
 				</div>
 			</div>
-		</nav>
-		
-		<!-- Search nav for small screens -->
-		<nav class="navbar navbar-default hidden-md hidden-lg" id="search-nav">
-			<div class="container-fluid search">
-				<div class="input-group">
-					<input id="sec-search-bar" type="text" class="form-control" placeholder="Search"
+			
+			<!--Search bar-->
+			<div class="search nav-content col-xs-12 col-sm-12 col-md-6 col-lg-6" id="search">
+				<form action="search.php" method="get" class="input-group">
+					<input id="search-bar" name="search" type="text" class="form-control" placeholder="Search"
 					<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['search'])) {?>
 						value=<?php echo $_smarty_tpl->tpl_vars['filters']->value['search'];?>
 
@@ -132,12 +114,12 @@ javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 					>
 					<div class="input-group-btn">
 						<a href="search.php">
-							<button class="btn btn-default" id="sec-search-bttn" type="submit">
+							<button class="btn btn-default" id="search-bttn" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</a>
 					</div>
-				</div>
+				</form>
 			</div>
 		</nav>
 		
@@ -199,8 +181,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 					<div class="modal-body">
 						<div class="tab-content">
 							<div id="login-tab" class="tab-pane active">
-								<form id="login" class="authentication-input" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/login.php" method="post">
+								<form id="login" class="authentication-input">
 									<label for="login-username">Username/Email</label>
 									<input type="text" name="username" id="login-username" required>
 									<label for="login-password">Password</label>
