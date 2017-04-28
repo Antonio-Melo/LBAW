@@ -128,7 +128,7 @@ function setValid(bool, where, what) {
 }
 
 function checkValidUsername(element, where) {
-	var url = base_url + "api/check_register.php";
+	var url = base_url + "api/checkregister.php";
 	var username = $(element).val();
 
 	if (usernameRestrictions(username)) {			
@@ -140,7 +140,7 @@ function checkValidUsername(element, where) {
 			},
 			success: function(response) {
 				var json = $.parseJSON(response);
-				if (json.status == "true") {
+				if (json.status) {
 					$(element).removeClass("authentication-input-error");
 					$(element).siblings('.error-sign').addClass('hide');
 					setValid(true, where, 'username');
@@ -151,6 +151,9 @@ function checkValidUsername(element, where) {
 					$(element).siblings('.error-sign').removeClass('hide');
 					setValid(false, where, 'username');
 				}
+			}
+			error: function(response) {
+				$('#login-error').text('Internal Error');
 			}
 		});
 	}
@@ -183,7 +186,7 @@ function checkValidName(element, where) {
 }
 
 function checkValidEmail(element, where) {
-	var url = base_url + "api/check_register.php";
+	var url = base_url + "api/checkregister.php";
 	var email = $(element).val();
 	
 	if (emailRestrictions(email)) {		
@@ -195,7 +198,7 @@ function checkValidEmail(element, where) {
 			},
 			success: function(response) {
 				var json = $.parseJSON(response);
-				if (json.status == "true") {
+				if (json.status) {
 					$(element).removeClass("authentication-input-error");
 					$(element).siblings('.error-sign').addClass('hide');
 					setValid(true, where, 'email');
@@ -206,6 +209,9 @@ function checkValidEmail(element, where) {
 					$(element).siblings('.error-sign').removeClass('hide');
 					setValid(false, where, 'email');
 				}
+			}
+			error: function(response) {
+				$('#login-error').text('Internal Error');
 			}
 		});
 	}
