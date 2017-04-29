@@ -4,7 +4,7 @@ include_once('../database/users.php');
 
 $response = array();
 
-if (!$_SESSION['username'] || !$_POST['address'] || $_SESSION['admin']) {
+if (!$_SESSION['id'] || !$_POST['address'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
@@ -12,7 +12,7 @@ $address = $_POST['address'];
 
 try {
 	if (removeAddress($address)) {
-		$response["status"] = "true";
+		$response["status"] = true;
 		echo json_encode($response);
 		exit;
 	}

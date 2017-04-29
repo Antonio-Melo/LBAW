@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 08:27:33
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-29 02:51:38
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1493277940,
+      1 => 1493430696,
       2 => 'file',
     ),
   ),
@@ -54,9 +54,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 		<!-- Category -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-categories">Categories</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-categories">
+				<div class="panel-heading">
+					<h4 class="panel-title">Categories<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-categories" class="panel-collapse collapse in">
 				<ul class="list-group">
 					<?php  $_smarty_tpl->tpl_vars['keyword'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['keyword']->_loop = false;
@@ -86,9 +88,11 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 		
 		<!-- Price -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-price">Price</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-price">
+				<div class="panel-heading">
+					<h4 class="panel-title">Price<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-price" class="panel-collapse collapse in">
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
@@ -104,9 +108,11 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 		
 		<!-- Brand -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-brands">Brand</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-brands">
+				<div class="panel-heading">
+					<h4 class="panel-title">Brand<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-brands" class="panel-collapse collapse in">
 				<ul class="list-group">
 					<?php  $_smarty_tpl->tpl_vars['brand'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['brand']->_loop = false;
@@ -136,9 +142,11 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 		
 		<!-- On sale -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-onsale">On sale</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-onsale">
+				<div class="panel-heading">
+					<h4 class="panel-title">On sale<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-onsale" class="panel-collapse collapse in">
 				<ul class="list-group">
 					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""
@@ -152,9 +160,11 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 		
 		<!-- Rating -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-rating">Rating</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-rating">
+				<div class="panel-heading">
+					<h4 class="panel-title">Rating<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-rating" class="panel-collapse collapse in">
 				<div class="rating">
 					<!-- stars -->

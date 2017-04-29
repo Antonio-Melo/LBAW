@@ -17,9 +17,11 @@
 	
 		<!-- Category -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-categories">Categories</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-categories">
+				<div class="panel-heading">
+					<h4 class="panel-title">Categories<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-categories" class="panel-collapse collapse in">
 				<ul class="list-group">
 					{foreach $products_keywords as $keyword}
@@ -41,9 +43,11 @@
 		
 		<!-- Price -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-price">Price</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-price">
+				<div class="panel-heading">
+					<h4 class="panel-title">Price<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-price" class="panel-collapse collapse in">
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
@@ -57,9 +61,11 @@
 		
 		<!-- Brand -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-brands">Brand</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-brands">
+				<div class="panel-heading">
+					<h4 class="panel-title">Brand<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-brands" class="panel-collapse collapse in">
 				<ul class="list-group">
 					{foreach $products_brands as $brand}
@@ -81,9 +87,11 @@
 		
 		<!-- On sale -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-onsale">On sale</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-onsale">
+				<div class="panel-heading">
+					<h4 class="panel-title">On sale<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-onsale" class="panel-collapse collapse in">
 				<ul class="list-group">
 					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""
@@ -97,9 +105,11 @@
 		
 		<!-- Rating -->
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#filter-rating">Rating</a></h4>
-			</div>
+			<a data-toggle="collapse" href="#filter-rating">
+				<div class="panel-heading">
+					<h4 class="panel-title">Rating<i class="fa fa-caret-down"></i></h4>
+				</div>
+			</a>
 			<div id="filter-rating" class="panel-collapse collapse in">
 				<div class="rating">
 					<!-- stars -->

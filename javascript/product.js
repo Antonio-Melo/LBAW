@@ -9,6 +9,12 @@ $(document).ready(function(){
 			url: url,
 			data: {product: product},
 			success: function(response) {
+				var json = $.parseJSON(response);
+		        if (!json.status) {
+					$('#authentication-modal').modal();
+				}
+			},
+			error: function() {
 			}
 		});
 		
@@ -25,6 +31,12 @@ $(document).ready(function(){
 			url: url,
 			data: {product: product},
 			success: function(response) {
+				var json = $.parseJSON(response);
+		        if (!json.status) {
+					$('#authentication-modal').modal();
+				}
+			},
+			error: function() {
 			}
 		});
 		

@@ -4,16 +4,22 @@ include_once('../database/users.php');
 
 $response = array();
 
-if (!$_SESSION['username'] || !$_POST['product'] || $_SESSION['admin']) {
+if (!$_SESSION['id']) {
+	$response["status"] = false;
+	echo json_encode($response);
+	exit;
+}
+
+if (!$_POST['product'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$username = $_SESSION['username'];
+$id = $_SESSION['id'];
 $product = $_POST['product'];
 
 try {
-	addCart($username, $product);
-	$response["status"] = "true";
+	addCart($id, $product);
+	$response["status"] = true;
 	echo json_encode($response);
 	exit;
 } catch (PDOException $e) {

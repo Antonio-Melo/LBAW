@@ -30,7 +30,6 @@ $(document).ready(function(){
 		form_data.append('email', email);
 		form_data.append('country', country);
 		
-		
 		if (!valid_edit_username || !valid_edit_name || !valid_edit_email) {
 			$('#edit-error').text('Invalid credentials');
 		}
@@ -44,7 +43,7 @@ $(document).ready(function(){
 				contentType: false,
 				success: function(response) {
 					var json = $.parseJSON(response);
-					if (json.status == "true") {
+					if (json.status) {
 						location.reload();
 					}
 					else {
@@ -61,6 +60,9 @@ $(document).ready(function(){
 	});
 	
 	$('#cancel-info').click(function(e) {
+		$('.error-sign').addClass('hide');
+		$('.error-message').addClass('hide');
+		$('#edit-username, #edit-name, #edit-email').removeClass("authentication-input-error");
 		setInitialValues(initial_username, initial_name, initial_name, initial_country);
 		toggleAccountInfo();
 		e.preventDefault();
@@ -112,7 +114,8 @@ $(document).ready(function(){
 					console.log(response);
 					
 					var json = $.parseJSON(response);
-					if (json.status == "true") {
+					if (json.status) {
+						$('#oldpwd, #pwd, #newpwd').val("");
 						$('#edit-password-error').css('color', '#43a047');
 						$('#edit-password-error').text('Password changed');	
 					}
@@ -149,7 +152,7 @@ $(document).ready(function(){
 			data: {address: id},
 			success: function(response) {
 				var json = $.parseJSON(response);
-				if (json.status == "true") {
+				if (json.status) {
 					$(element).parents('li').remove();
 				}
 			}
@@ -160,6 +163,7 @@ $(document).ready(function(){
 	
 	var street, door, zip, city, region, country, phone;
 	$('.edit-address').click(function(e) {
+		setAddressVars(this);
 		toggleAddress(this);		
 	});
 	
@@ -175,7 +179,7 @@ $(document).ready(function(){
 				data: {id: id, street: street, door: door, zip: zip, city: city, region: region, country: country, phone: phone},
 				success: function(response) {
 					var json = $.parseJSON(response);
-					if (json.status == "true") {
+					if (json.status) {
 						location.reload();
 					}
 				}
@@ -199,13 +203,13 @@ $(document).ready(function(){
 	});
 	
 	$('#save-add-address').click(function(e) {
-		var street = $('#address-add-street').val();
-		var door = $('#address-add-door-number').val();
-		var zip = $('#address-add-postal-zip').val();
-		var city = $('#address-add-city').val();
-		var region = $('#address-add-region').val();
-		var country = $('#address-add-country').val();
-		var phone = $('#address-add-telephone').val();
+		street = $('#address-add-street').val();
+		door = $('#address-add-door-number').val();
+		zip = $('#address-add-postal-zip').val();
+		city = $('#address-add-city').val();
+		region = $('#address-add-region').val();
+		country = $('#address-add-country').val();
+		phone = $('#address-add-telephone').val();
 		
 		var url = base_url + "api/addaddress.php";		
 		if (street!="" && door!="" && zip !="" && city!="" && region!="" && country!="" && phone!="") {
@@ -215,7 +219,7 @@ $(document).ready(function(){
 				data: {street: street, door: door, zip: zip, city: city, region: region, country: country, phone: phone},
 				success: function(response) {
 					var json = $.parseJSON(response);
-					if (json.status == "true") {
+					if (json.status) {
 						location.reload();
 					}
 				}

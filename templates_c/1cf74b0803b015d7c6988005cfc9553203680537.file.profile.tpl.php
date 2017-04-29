@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-24 01:57:12
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-29 20:31:38
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1492995428,
+      1 => 1493494247,
       2 => 'file',
     ),
   ),
@@ -85,6 +85,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<label id="edit-avatar-label" for="edit-avatar" class="btn hide">Upload</label>
 						<input type="file" id="edit-avatar" class="hide" name="edit-avatar" accept="image/*">
 					</div>
+					<div style="clear: both"></div>
                 </div>
 				<div class="param">
                     <div class="param-name">
@@ -93,9 +94,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="param-content">
                         <p id="info-username"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 </p>
-						<input type="text" id="edit-username" class="hide" name="edit-username" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+						<div class="edit-input">
+							<input type="text" id="edit-username" class="hide" name="edit-username" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
  required></input>
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Can't already be in use.<br>
+								Must be a combination of letters and numbers.<br>
+								Must have between 4 and 24 characters.
+							</div>
+						</div>
                     </div>
+					<div style="clear: both"></div>
                 </div>
                 <div class="param">
                     <div class="param-name">
@@ -104,9 +114,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="param-content">
                         <p id="info-name"><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
 </p>
-						<input type="text" id="edit-name" class="hide" name="edit-name" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
+						<div class="edit-input">
+							<input type="text" id="edit-name" class="hide" name="edit-name" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
  required></input>
-                    </div>
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Must have between 1 and 50 characters.
+							</div>
+						</div>
+					</div>
+					<div style="clear: both"></div>
                 </div>
 				<div class="param">
                     <div class="param-name">
@@ -115,9 +132,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="param-content">
 						<p id="info-email"><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
 </p>
-						<input type="text" id="edit-email" class="hide" name="edit-email" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+						<div class="edit-input">
+							<input type="text" id="edit-email" class="hide" name="edit-email" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
  required></input>
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Can't already be in use.<br>
+								Must be a valid email address.<br>
+								Can't have more than 128 characters.
+							</div>
+						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
                     <div class="param-name">
@@ -142,6 +168,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 							<?php } ?>
 						</select>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				
 				<div class="param">
@@ -152,6 +179,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 						<button id="save-info" type="button" class="btn btn-primary btn-block profileButton hide">Save</button>
 						<button id="cancel-info" type="button" class="btn btn-primary btn-block profileButton hide">Cancel</button>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 			</div>
 
@@ -166,14 +194,21 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 							<input type="password" class="form-control" id="oldpwd" placeholder="Old Password">
 						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
 					<div class="param-name"></div>
 					<div class="param-content">
-						<div class="form-group">
+						<div class="form-group edit-input">
 							<input type="password" class="form-control" id="pwd" placeholder="New Password">
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Passwords must match.<br>
+								Must have between 6 and 128 characters.
+							</div>
 						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
 					<div class="param-name"></div>
@@ -182,6 +217,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 							<input type="password" class="form-control" id="newpwd" placeholder="Confirm New Password">
 						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
 					<div class="param-name"></div>
@@ -189,6 +225,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 						<span class="authentication-error" id="edit-password-error"></span>
 						<button id="edit-password" type="button" class="btn btn-primary btn-block profileButton">Save</button>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 			</div>
 			

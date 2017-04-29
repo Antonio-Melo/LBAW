@@ -50,6 +50,7 @@
 						<label id="edit-avatar-label" for="edit-avatar" class="btn hide">Upload</label>
 						<input type="file" id="edit-avatar" class="hide" name="edit-avatar" accept="image/*">
 					</div>
+					<div style="clear: both"></div>
                 </div>
 				<div class="param">
                     <div class="param-name">
@@ -57,8 +58,17 @@
                     </div>
                     <div class="param-content">
                         <p id="info-username">{$user.username}</p>
-						<input type="text" id="edit-username" class="hide" name="edit-username" value={$user.username} required></input>
+						<div class="edit-input">
+							<input type="text" id="edit-username" class="hide" name="edit-username" value={$user.username} required></input>
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Can't already be in use.<br>
+								Must be a combination of letters and numbers.<br>
+								Must have between 4 and 24 characters.
+							</div>
+						</div>
                     </div>
+					<div style="clear: both"></div>
                 </div>
                 <div class="param">
                     <div class="param-name">
@@ -66,8 +76,15 @@
                     </div>
                     <div class="param-content">
                         <p id="info-name">{$user.users_name}</p>
-						<input type="text" id="edit-name" class="hide" name="edit-name" value={$user.users_name} required></input>
-                    </div>
+						<div class="edit-input">
+							<input type="text" id="edit-name" class="hide" name="edit-name" value={$user.users_name} required></input>
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Must have between 1 and 50 characters.
+							</div>
+						</div>
+					</div>
+					<div style="clear: both"></div>
                 </div>
 				<div class="param">
                     <div class="param-name">
@@ -75,8 +92,17 @@
 					</div>
 					<div class="param-content">
 						<p id="info-email">{$user.email}</p>
-						<input type="text" id="edit-email" class="hide" name="edit-email" value={$user.email} required></input>
+						<div class="edit-input">
+							<input type="text" id="edit-email" class="hide" name="edit-email" value={$user.email} required></input>
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Can't already be in use.<br>
+								Must be a valid email address.<br>
+								Can't have more than 128 characters.
+							</div>
+						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
                     <div class="param-name">
@@ -94,6 +120,7 @@
 							{/foreach}
 						</select>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				
 				<div class="param">
@@ -104,6 +131,7 @@
 						<button id="save-info" type="button" class="btn btn-primary btn-block profileButton hide">Save</button>
 						<button id="cancel-info" type="button" class="btn btn-primary btn-block profileButton hide">Cancel</button>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 			</div>
 
@@ -118,14 +146,21 @@
 							<input type="password" class="form-control" id="oldpwd" placeholder="Old Password">
 						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
 					<div class="param-name"></div>
 					<div class="param-content">
-						<div class="form-group">
+						<div class="form-group edit-input">
 							<input type="password" class="form-control" id="pwd" placeholder="New Password">
+							<div class="error-sign hide">!</div>
+							<div class="error-message hide">
+								Passwords must match.<br>
+								Must have between 6 and 128 characters.
+							</div>
 						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
 					<div class="param-name"></div>
@@ -134,6 +169,7 @@
 							<input type="password" class="form-control" id="newpwd" placeholder="Confirm New Password">
 						</div>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 				<div class="param">
 					<div class="param-name"></div>
@@ -141,6 +177,7 @@
 						<span class="authentication-error" id="edit-password-error"></span>
 						<button id="edit-password" type="button" class="btn btn-primary btn-block profileButton">Save</button>
 					</div>
+					<div style="clear: both"></div>
 				</div>
 			</div>
 			

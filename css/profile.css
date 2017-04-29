@@ -78,6 +78,23 @@ h2 {
 	}
 }
 
+#profile-body .edit-input {
+	position: relative;
+}
+
+#profile-body .error-sign {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 1px;
+	top: 10px;
+	right: 10px;
+}
+
+#profile-body .error-message {
+	z-index: 2;
+}
+
 /* ====================================================================*/
 /* Account info */
 
@@ -116,7 +133,7 @@ h2 {
 }
 
 .param {
-	overflow: hidden;
+	/*overflow: hidden;*/
 	margin-bottom: 10px;
 }
 

@@ -245,6 +245,7 @@ function checkValidPassword(selector1, selector2, where) {
 		$(selector1).addClass("authentication-input-error");
 		$(selector1).siblings('.error-sign').removeClass('hide');
 		$(selector2).addClass("authentication-input-error");
+		console.log("hello");
 		setValid(false, where, 'password');
 	}
 	else {

@@ -89,9 +89,9 @@ function checkEmail($email) {
 	return count($results);
 }
 
-
-
-function getUserFavorites($username) {
+/*==========================================================================================*/
+/* Cart/Favorites */
+function getUserFavorites($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
@@ -103,25 +103,25 @@ function getUserFavorites($username) {
 	LEFT JOIN image ON product.id=image.product
 	JOIN keyword ON product.keyword=keyword.id
 	JOIN brand ON product.brand=brand.id
-	WHERE users.username=?
+	WHERE users.id=?
 	');
-	$stmt->execute(array($username));
+	$stmt->execute(array($id));
 	
 	return $stmt->fetchAll();
 }
 
-function removeFavorite($username, $product) {
+function removeFavorite($client, $product) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
 	DELETE FROM favoritesproducts
-	WHERE client=(SELECT id FROM users WHERE username=?) AND product=?
+	WHERE client=? AND product=?
 	');
 
-	return $stmt->execute(array($username, $product));
+	return $stmt->execute(array($client, $product));
 }
 
-function getUserCart($username) {
+function getUserCart($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
@@ -133,68 +133,70 @@ function getUserCart($username) {
 	LEFT JOIN image ON product.id=image.product
 	JOIN keyword ON product.keyword=keyword.id
 	JOIN brand ON product.brand=brand.id
-	WHERE users.username=?
+	WHERE users.id=?
 	');
-	$stmt->execute(array($username));
+	$stmt->execute(array($id));
 	
 	return $stmt->fetchAll();
 }
 
-function removeCartProduct($username, $product) {
+function removeCartProduct($client, $product) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
 	DELETE FROM cartproducts
-	WHERE client=(SELECT id FROM users WHERE username=?) AND product=?
+	WHERE client=? AND product=?
 	');
 
-	return $stmt->execute(array($username, $product));
+	return $stmt->execute(array($client, $product));
 }
 
 // Transaction1 - add favorite product to cart (delete from favorites; insert into cart)
-function addFavoriteCart($username, $product) {
+function addFavoriteCart($client, $product) {
 	global $conn;
 	$conn->exec('BEGIN;');
 	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
 	$stmt = $conn->prepare
 	('
 	DELETE FROM favoritesproducts
-	WHERE client=(SELECT id FROM users WHERE username=?) AND product=?;
+	WHERE client=? AND product=?;
 	');
-	$stmt->execute(array($username, $product));
+	$stmt->execute(array($client, $product));
 	
 	$stmt = $conn->prepare
 	('
 	INSERT INTO cartproducts (client, product)
-	VALUES ((SELECT id FROM users WHERE username=?), ?);
+	VALUES (?, ?);
 	');
-	$stmt->execute(array($username, $product));
+	$stmt->execute(array($client, $product));
 	$conn->exec('COMMIT;');
 }
 
-function addCart($username, $product) {
+function addCart($client, $product) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
 	INSERT INTO cartproducts (client, product)
-	VALUES((SELECT id FROM users WHERE username=?), ?);
+	VALUES(?, ?);
 	');
 
-	return $stmt->execute(array($username, $product));
+	return $stmt->execute(array($client, $product));
 }
 
-function addFavorite($username, $product) {
+function addFavorite($client, $product) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
 	INSERT INTO favoritesproducts (client, product)
-	VALUES((SELECT id FROM users WHERE username=?), ?);
+	VALUES(?, ?);
 	');
 
-	return $stmt->execute(array($username, $product));
+	return $stmt->execute(array($client, $product));
 }
 
-function getUserByUsername($username) {
+/*==========================================================================================*/
+/* Profile */
+function getUserById($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
@@ -202,9 +204,9 @@ function getUserByUsername($username) {
 	FROM users
 	JOIN country ON users.country=country.id
 	LEFT JOIN image ON users.image=image.id
-	WHERE username=?;
+	WHERE users.id=?;
 	');
-	$stmt->execute(array($username));
+	$stmt->execute(array($id));
 	
 	return $stmt->fetchAll();
 }
@@ -261,16 +263,16 @@ function getProductsByOrderId($id) {
 	return $stmt->fetchAll();
 }
 
-function editUser($original_username, $username, $name, $email, $country) {
+function editUser($id, $username, $name, $email, $country) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
 	UPDATE users
 	SET username=?, email=?, name=?, country=?
-	WHERE username=?
+	WHERE users.id=?
 	');
 
-	$stmt->execute(array($username, $email, $name, $country, $original_username));
+	$stmt->execute(array($username, $email, $name, $country, $id));
 }
 
 // Transaction2 - replace user avatar (insert new image; update user; delete current image;)
@@ -335,15 +337,15 @@ function addUserImage($username, $url) {
 	return $delete_image;
 }
 
-function changePassword($username, $old_password, $new_password) {
+function changePassword($id, $old_password, $new_password) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
 	SELECT password
 	FROM users
-	WHERE username=?;
+	WHERE users.id=?;
 	');
-	$stmt->execute(array($username));
+	$stmt->execute(array($id));
 	$user = $stmt->fetchAll();
 	
 	if(empty($user)) {
@@ -355,9 +357,9 @@ function changePassword($username, $old_password, $new_password) {
 		('
 		UPDATE users
 		SET password=?
-		WHERE username=?;
+		WHERE users.id=?;
 		');
-		$stmt->execute(array(password_hash($new_password, PASSWORD_DEFAULT), $username));
+		$stmt->execute(array(password_hash($new_password, PASSWORD_DEFAULT), $id));
 		return true;
 	}
 	else {
@@ -379,19 +381,10 @@ function removeAddress($address) {
 
 // Transaction3 - Edit address (get user id from username, update remove user id from old address, create new address)
 // todo: check orders and completely remove address if not in any order
-function editAddress($id, $username, $street, $door, $zip, $city, $region, $country, $phone) {
+function editAddress($id, $user_id, $street, $door, $zip, $city, $region, $country, $phone) {
 	global $conn;
 	$conn->exec('BEGIN;');
 	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
-	
-	$stmt = $conn->prepare
-	('
-	SELECT id
-	FROM users
-	WHERE username = ?;
-	');
-	$stmt->execute(array($username));
-	$user_id = $stmt->fetchAll();
 	
 	$stmt = $conn->prepare
 	('
@@ -406,33 +399,19 @@ function editAddress($id, $username, $street, $door, $zip, $city, $region, $coun
 	INSERT INTO address ("user", street, city, postal_zip, region, telephone_number, country, door_number)
 	VALUES (?,?,?,?,?,?,?,?);
 	');
-	$stmt->execute(array($user_id[0]['id'], $street, $city, $zip, $region, $phone, $country, $door));
+	$stmt->execute(array($user_id, $street, $city, $zip, $region, $phone, $country, $door));
 	
 	$conn->exec('COMMIT;');
 }
 
-function addAddress($username, $street, $door, $zip, $city, $region, $country, $phone) {
-	global $conn;
-	$conn->exec('BEGIN;');
-	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
-	
-	$stmt = $conn->prepare
-	('
-	SELECT id
-	FROM users
-	WHERE username = ?;
-	');
-	$stmt->execute(array($username));
-	$user_id = $stmt->fetchAll();
-	
+function addAddress($user_id, $street, $door, $zip, $city, $region, $country, $phone) {
+	global $conn;	
 	$stmt = $conn->prepare
 	('
 	INSERT INTO address ("user", street, city, postal_zip, region, telephone_number, country, door_number)
 	VALUES (?,?,?,?,?,?,?,?);
 	');
-	$stmt->execute(array($user_id[0]['id'], $street, $city, $zip, $region, $phone, $country, $door));
-	
-	$conn->exec('COMMIT;');
+	$stmt->execute(array($user_id, $street, $city, $zip, $region, $phone, $country, $door));
 }
 
 

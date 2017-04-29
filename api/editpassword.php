@@ -4,7 +4,7 @@ include_once('../database/users.php');
 
 $response = array();
 
-if (!$_SESSION['username'] || !$_POST['old_password'] || !$_POST['new_password']) {
+if (!$_SESSION['id'] || !$_POST['old_password'] || !$_POST['new_password']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
@@ -12,8 +12,8 @@ $old_password = $_POST['old_password'];
 $new_password = $_POST['new_password'];
 
 try {
-	if (changePassword($_SESSION['username'], $old_password, $new_password)) {
-		$response["status"] = "true";
+	if (changePassword($_SESSION['id'], $old_password, $new_password)) {
+		$response["status"] = true;
 		echo json_encode($response);
 		exit;
 	}

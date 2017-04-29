@@ -4,7 +4,7 @@
 	include_once('../config/init.php');
 	
 	/* Redirect to previous page if not logged in or is admin */
-	if (!$_SESSION['username']) {
+	if (!$_SESSION['id']) {
 		header("location:javascript://history.go(-1)");
 		exit;
 	}
@@ -27,11 +27,9 @@
 
 	include_once('../database/users.php');
 	
-	$username = $_SESSION['username'];
-	
-	$user = getUserByUsername($username);
-	$addresses = getAddressesByUserId($user[0]['users_id']);
-	$orders = getOrdersByUserId($user[0]['users_id']);
+	$user = getUserById($_SESSION['id']);
+	$addresses = getAddressesByUserId($_SESSION['id']);
+	$orders = getOrdersByUserId($_SESSION['id']);
 	
 	foreach ($orders as $key => $order) {
 		$orders[$key]['products'] = getProductsByOrderId($order['order_id']);	
