@@ -33,7 +33,7 @@ try {
 		exit;
 	}
 }
-catch {
+catch (PDOException $e) {
 	die(header("HTTP/1.0 500 Internal Server Error"));
 }
 

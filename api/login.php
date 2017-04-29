@@ -16,7 +16,14 @@ $password = strip_tags($_POST['password']);
 try {
 	$response["status"] = loginCorrect($username, $password);
 	if ($response["status"]) {
-		$_SESSION['id'] = $response["status"];
+		$isbanned = isBanned($response["status"]);
+		if ($isbanned) {
+			$response["banned"] = true;
+			$response["date_unban"] = $isbanned["date_unban"];
+		}
+		else {
+			$_SESSION['id'] = $response["status"];
+		}		
 		if (isAdmin($response["status"])) {
 			$_SESSION['admin'] = true;
 		}

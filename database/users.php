@@ -1,5 +1,7 @@
 <?php
 
+/*==========================================================================================*/
+/* Authentication */
 function createUser($username, $name, $email, $password, $country) {
 	global $conn;
 	$stmt = $conn->prepare
@@ -28,6 +30,20 @@ function loginCorrect($username, $password) {
 	}
 	
 	return false;
+}
+
+function isBanned($id) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *
+	FROM banned
+	WHERE id=?
+	');
+	$stmt->execute(array($id));
+	$results = $stmt->fetchAll();
+	
+	return $results[0];
 }
 
 function isAdmin($id) {
@@ -72,6 +88,8 @@ function checkEmail($email) {
 	
 	return count($results);
 }
+
+
 
 function getUserFavorites($username) {
 	global $conn;

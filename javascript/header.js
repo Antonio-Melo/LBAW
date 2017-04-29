@@ -13,9 +13,15 @@ $(document).ready(function(){
 			data: $("#login").serialize(),
 			success: function(response) {
 		        var json = $.parseJSON(response);
-		        if (json.status) {
+		        if (json.status && !json.banned) {
 					location.reload();
 		        }
+				else if (json.banned && json.date_unban) {
+					$('#login-error').text('Account banned until '+json.date_unban);
+				}
+				else if (json.banned) {
+					$('#login-error').text('Account banned indefinitely');
+				}
 		        else {
 					$('#login-error').text('Wrong credentials');
 		        }
@@ -151,7 +157,7 @@ function checkValidUsername(element, where) {
 					$(element).siblings('.error-sign').removeClass('hide');
 					setValid(false, where, 'username');
 				}
-			}
+			},
 			error: function(response) {
 				$('#login-error').text('Internal Error');
 			}
@@ -209,7 +215,7 @@ function checkValidEmail(element, where) {
 					$(element).siblings('.error-sign').removeClass('hide');
 					setValid(false, where, 'email');
 				}
-			}
+			},
 			error: function(response) {
 				$('#login-error').text('Internal Error');
 			}
