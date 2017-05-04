@@ -27,9 +27,9 @@
 				<div class="product-image-container">
 					<a href={"product.php?id="|cat:$product.product_id}>
 						{if $product.url != null}
-							<img src={"../images/products/"|cat:$product.url}>
+							<img src={"../images/products/"|cat:$product.url} alt={$product.product_name}>
 						{else}
-							<img src="../images/products/common/default.png">
+							<img src="../images/products/common/default.png" alt={$product.product_name}>
 						{/if}
 					</a>
 				</div>
@@ -47,7 +47,7 @@
 							<div class="rating">
 								{if $product.nr_ratings != 0}
 									{for $i=1 to $product.rating/$product.nr_ratings}
-										<img src="../images/products/common/star.png">
+										<img src="../images/products/common/star.png" alt={$product.rating/$product.nr_ratings}>
 									{/for}
 								{/if}
 							</div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-29 02:51:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:50:23
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1493430696,
+      1 => 1493883626,
       2 => 'file',
     ),
   ),
@@ -263,10 +263,12 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 					<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
 						<a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
 ><img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 ></a>
 					<?php } else { ?>
 						<a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
-><img src="../images/products/common/default.png"></a>
+><img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+></a>
 					<?php }?>
 				</div>
 				<div class="product-info-container">
@@ -291,7 +293,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-										<img src="../images/products/common/star.png">
+										<img src="../images/products/common/star.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'];?>
+>
 									<?php }} ?>
 								<?php }?>
 							</div>					

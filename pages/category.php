@@ -35,6 +35,7 @@
 	$smarty->assign('onsale', $onsale);
 	$smarty->assign('mostpopular', $mostpopular);
 	$smarty->assign('category', $category[0]);
+	$smarty->assign('page_title', $category[0]['name']);
 
 	$smarty->display('category.tpl');
 ?>

@@ -4,9 +4,9 @@
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
             {if $product.url != null}
-				<img src={"../images/products/"|cat:$product.url}>
+				<img src={"../images/products/"|cat:$product.url} alt={$product.product_name}>
 			{else}
-				<img src="../images/products/common/default.png">
+				<img src="../images/products/common/default.png" alt={$product.product_name}>
 			{/if}
         </div>
         <div class="product-info-container">
@@ -15,7 +15,7 @@
 				<span>
 					{if $product.nr_ratings != 0}
 						{for $i=1 to $product.rating/$product.nr_ratings}
-							<img src="../images/products/common/star.png">
+							<img src="../images/products/common/star.png" alt={$product.rating/$product.nr_ratings}>
 						{/for}
 					{/if}
 				</span>
@@ -120,16 +120,16 @@
 						<div class="media">
 							<div class="media-left">
 								{if $review.url != null}
-									<img class="media-object" src={"../images/users/"|cat:$review.url}>
+									<img class="media-object" src={"../images/users/"|cat:$review.url} alt={$review.name}>
 								{else}
-									<img class="media-object" src="../images/users/common/default_client.png">
+									<img class="media-object" src="../images/users/common/default_client.png" alt={$review.name}>
 								{/if}
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading">{$review.name}</h4>
 								<span>
 									{for $i=1 to $review.rating}
-										<img class="star" src="../images/products/common/star.png">
+										<img class="star" src="../images/products/common/star.png" alt={$review.rating}>
 									{/for}
 								</span>
 								{if $review.comment != null}
@@ -141,9 +141,9 @@
 									<div class="media">
 										<div class="media-left">
 											{if $reply.url != null}
-												<img class="media-object answer-pic" src={"../images/users/"|cat:$reply.url}>
+												<img class="media-object answer-pic" src={"../images/users/"|cat:$reply.url} alt={$reply.name}>
 											{else}
-												<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
+												<img class="media-object answer-pic" src="../images/users/common/default_admin.png" alt={$reply.name}>
 											{/if}
 										</div>
 										<div class="media-body">

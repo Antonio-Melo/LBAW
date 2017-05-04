@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>.bat</title>
+	{if isset($page_title)}
+		<title>.bat - {$page_title}</title>
+	{else}
+    	<title>.bat</title>
+	{/if}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 	<link rel="stylesheet" href="{$BASE_URL}lib/bootstrap/css/bootstrap.css">
@@ -25,8 +29,8 @@
 				<!--Logo-->
 				<div class="nav-content navbar-header" id="logo">
 					<a class="navbar-brand" href="home.php">
-						<img src="../images/logo/logo.png" class="hidden-xs">
-						<img src="../images/logo/logo-mobile.png" class="hidden-sm hidden-md hidden-lg">
+						<img src="../images/logo/logo.png" class="hidden-xs" alt="logo">
+						<img src="../images/logo/logo-mobile.png" class="hidden-sm hidden-md hidden-lg" alt="logo">
 					</a>
 				</div>
 				

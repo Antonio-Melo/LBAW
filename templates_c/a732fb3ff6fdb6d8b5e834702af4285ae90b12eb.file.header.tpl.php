@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-28 22:00:29
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:57:04
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1493413226,
+      1 => 1493884616,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_58fa43e164cbf7_16831549',
   'variables' => 
   array (
+    'page_title' => 0,
     'BASE_URL' => 0,
     'css_file' => 0,
     'js_file' => 0,
@@ -33,7 +34,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_58fa43e164cbf7_16831549')) {function content_58fa43e164cbf7_16831549($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
-    <title>.bat</title>
+	<?php if (isset($_smarty_tpl->tpl_vars['page_title']->value)) {?>
+		<title>.bat - <?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
+</title>
+	<?php } else { ?>
+    	<title>.bat</title>
+	<?php }?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -71,8 +77,8 @@ javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 				<!--Logo-->
 				<div class="nav-content navbar-header" id="logo">
 					<a class="navbar-brand" href="home.php">
-						<img src="../images/logo/logo.png" class="hidden-xs">
-						<img src="../images/logo/logo-mobile.png" class="hidden-sm hidden-md hidden-lg">
+						<img src="../images/logo/logo.png" class="hidden-xs" alt="logo">
+						<img src="../images/logo/logo-mobile.png" class="hidden-sm hidden-md hidden-lg" alt="logo">
 					</a>
 				</div>
 				

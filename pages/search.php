@@ -15,6 +15,7 @@
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'search.css');  
 	$smarty->assign('js_file', 'search.js');
+	$smarty->assign('page_title', 'Search');
 	
 	/*==================================================*/
 

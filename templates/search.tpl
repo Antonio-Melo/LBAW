@@ -185,9 +185,9 @@
 			<div id={$product.product_id} class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
 				<div class="product-image-container">
 					{if $product.url != null}
-						<a href={"product.php?id="|cat:$product.product_id}><img src={"../images/products/"|cat:$product.url}></a>
+						<a href={"product.php?id="|cat:$product.product_id}><img src={"../images/products/"|cat:$product.url} alt={$product.product_name}></a>
 					{else}
-						<a href={"product.php?id="|cat:$product.product_id}><img src="../images/products/common/default.png"></a>
+						<a href={"product.php?id="|cat:$product.product_id}><img src="../images/products/common/default.png" alt={$product.product_name}></a>
 					{/if}
 				</div>
 				<div class="product-info-container">
@@ -205,7 +205,7 @@
 							<div class="rating">
 								{if $product.nr_ratings != 0}
 									{for $i=1 to round($product.rating/$product.nr_ratings)}
-										<img src="../images/products/common/star.png">
+										<img src="../images/products/common/star.png" alt={$product.rating/$product.nr_ratings}>
 									{/for}
 								{/if}
 							</div>					

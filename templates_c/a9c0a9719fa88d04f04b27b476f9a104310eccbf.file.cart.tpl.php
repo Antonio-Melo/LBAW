@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 10:56:04
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:42:42
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:155513661158fa972543f4b7-82856310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9c0a9719fa88d04f04b27b476f9a104310eccbf' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl',
-      1 => 1493286961,
+      1 => 1493883531,
       2 => 'file',
     ),
   ),
@@ -61,9 +61,11 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 >
 						<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
 							<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 >
 						<?php } else { ?>
-							<img src="../images/products/common/default.png">
+							<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+>
 						<?php }?>
 					</a>
 				</div>
@@ -88,7 +90,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-										<img src="../images/products/common/star.png">
+										<img src="../images/products/common/star.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'];?>
+>
 									<?php }} ?>
 								<?php }?>
 							</div>
@@ -128,4 +131,5 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 </div>
 
 <?php echo $_smarty_tpl->getSubTemplate ('footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 <?php }} ?>

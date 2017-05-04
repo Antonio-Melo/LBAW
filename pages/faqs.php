@@ -15,6 +15,7 @@
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'faqs.css');  
 	$smarty->assign('js_file', 'common.js');
+	$smarty->assign('page_title', 'FAQs');
 	
 	/*==================================================*/
 

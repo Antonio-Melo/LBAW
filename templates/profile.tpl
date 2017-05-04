@@ -40,11 +40,11 @@
                     </div>
 					<div class="avatar-image-container">
 						{if $user.url != null}
-							<img class="media-object" src={"../images/users/"|cat:$user.url}>
+							<img class="media-object" src={"../images/users/"|cat:$user.url} alt={$user.username}>
 						{elseif !isset($smarty.session.admin)}
-							<img class="media-object" src="../images/users/common/default_client.png">
+							<img class="media-object" src="../images/users/common/default_client.png" alt={$user.username}>
 						{else}
-							<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
+							<img class="media-object answer-pic" src="../images/users/common/default_admin.png" alt={$user.username}>
 						{/if}
 						
 						<label id="edit-avatar-label" for="edit-avatar" class="btn hide">Upload</label>
@@ -317,9 +317,9 @@
 										<div class="product-list">
 											<div class="product-image-container">
 												{if $product.url != null}
-													<img src={"../images/products/"|cat:$product.url}>
+													<img src={"../images/products/"|cat:$product.url} alt={$product.product_name}>
 												{else}
-													<img src="../images/products/common/default.png">
+													<img src="../images/products/common/default.png" alt={$product.product_name}>
 												{/if}
 											</div>
 											<div class="product-info-container">

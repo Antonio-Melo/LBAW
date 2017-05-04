@@ -22,7 +22,8 @@
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'cart.css');  
 	$smarty->assign('js_file', 'cart.js');
-	
+	$smarty->assign('page_title', 'My Cart');	
+
 	/*==================================================*/
 
 	include_once('../database/users.php');

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-29 03:22:28
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:50:43
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1493432545,
+      1 => 1493884038,
       2 => 'file',
     ),
   ),
@@ -39,9 +39,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="product-image-container">
             <?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
 				<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 >
 			<?php } else { ?>
-				<img src="../images/products/common/default.png">
+				<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+>
 			<?php }?>
         </div>
         <div class="product-info-container">
@@ -54,7 +56,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-							<img src="../images/products/common/star.png">
+							<img src="../images/products/common/star.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'];?>
+>
 						<?php }} ?>
 					<?php }?>
 				</span>
@@ -179,9 +182,11 @@ $_smarty_tpl->tpl_vars['review']->_loop = true;
 							<div class="media-left">
 								<?php if ($_smarty_tpl->tpl_vars['review']->value['url']!=null) {?>
 									<img class="media-object" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['review']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['review']->value['name'];?>
 >
 								<?php } else { ?>
-									<img class="media-object" src="../images/users/common/default_client.png">
+									<img class="media-object" src="../images/users/common/default_client.png" alt=<?php echo $_smarty_tpl->tpl_vars['review']->value['name'];?>
+>
 								<?php }?>
 							</div>
 							<div class="media-body">
@@ -192,7 +197,8 @@ $_smarty_tpl->tpl_vars['review']->_loop = true;
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-										<img class="star" src="../images/products/common/star.png">
+										<img class="star" src="../images/products/common/star.png" alt=<?php echo $_smarty_tpl->tpl_vars['review']->value['rating'];?>
+>
 									<?php }} ?>
 								</span>
 								<?php if ($_smarty_tpl->tpl_vars['review']->value['comment']!=null) {?>
@@ -210,9 +216,11 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 										<div class="media-left">
 											<?php if ($_smarty_tpl->tpl_vars['reply']->value['url']!=null) {?>
 												<img class="media-object answer-pic" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['reply']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['reply']->value['name'];?>
 >
 											<?php } else { ?>
-												<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
+												<img class="media-object answer-pic" src="../images/users/common/default_admin.png" alt=<?php echo $_smarty_tpl->tpl_vars['reply']->value['name'];?>
+>
 											<?php }?>
 										</div>
 										<div class="media-body">

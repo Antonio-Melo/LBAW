@@ -38,6 +38,7 @@
 	$smarty->assign('product', $product[0]);
 	$smarty->assign('faqs', $faqs);
 	$smarty->assign('reviews', $reviews);
+	$smarty->assign('page_title', $product[0]['product_name']);
 
 	$smarty->display('product.tpl');
 ?>

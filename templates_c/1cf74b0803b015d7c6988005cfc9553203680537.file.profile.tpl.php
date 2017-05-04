@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-29 20:31:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:45:56
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1493494247,
+      1 => 1493883848,
       2 => 'file',
     ),
   ),
@@ -75,11 +75,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="avatar-image-container">
 						<?php if ($_smarty_tpl->tpl_vars['user']->value['url']!=null) {?>
 							<img class="media-object" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['user']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 >
 						<?php } elseif (!isset($_SESSION['admin'])) {?>
-							<img class="media-object" src="../images/users/common/default_client.png">
+							<img class="media-object" src="../images/users/common/default_client.png" alt=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+>
 						<?php } else { ?>
-							<img class="media-object answer-pic" src="../images/users/common/default_admin.png">
+							<img class="media-object answer-pic" src="../images/users/common/default_admin.png" alt=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+>
 						<?php }?>
 						
 						<label id="edit-avatar-label" for="edit-avatar" class="btn hide">Upload</label>
@@ -423,9 +426,11 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 											<div class="product-image-container">
 												<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
 													<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 >
 												<?php } else { ?>
-													<img src="../images/products/common/default.png">
+													<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+>
 												<?php }?>
 											</div>
 											<div class="product-info-container">
@@ -480,4 +485,5 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 </div>
 
 <?php echo $_smarty_tpl->getSubTemplate ('footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 <?php }} ?>

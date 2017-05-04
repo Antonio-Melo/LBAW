@@ -22,6 +22,7 @@
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'favorites.css');  
 	$smarty->assign('js_file', 'favorites.js');
+	$smarty->assign('page_title', 'My Favorites');
 	
 	/*==================================================*/
 

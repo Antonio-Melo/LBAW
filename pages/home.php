@@ -15,6 +15,7 @@
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'home.css');  
 	$smarty->assign('js_file', 'home.js');
+	$smarty->assign('page_title', 'Home');
 	
 	/*==================================================*/
 

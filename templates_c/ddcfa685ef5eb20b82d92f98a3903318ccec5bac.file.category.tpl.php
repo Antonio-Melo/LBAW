@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 08:38:32
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:50:33
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19573232658fa4ae4796603-51969011%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ddcfa685ef5eb20b82d92f98a3903318ccec5bac' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/category.tpl',
-      1 => 1493278307,
+      1 => 1493883577,
       2 => 'file',
     ),
   ),
@@ -47,9 +47,11 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 >
 						<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
 							<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 >
 						<?php } else { ?>
-							<img src="../images/products/common/default.png">
+							<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+>
 						<?php }?>
 					</a>
 				</div>
@@ -87,9 +89,11 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 >
 						<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
 							<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 >
 						<?php } else { ?>
-							<img src="../images/products/common/default.png">
+							<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+>
 						<?php }?>
 					</a>
 				</div>
