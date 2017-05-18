@@ -167,19 +167,19 @@
 }
 
 .product-buttons #add-to-cart {
-	background: #43a047 !important;
+	background: #43a047;
 }
 
-.product-buttons #add-to-cart:hover {
-	background: #2e7d32 !important;
+.product-buttons #add-to-cart:hover, .product-buttons #add-to-cart:focus {
+	background: #2e7d32;
 }
 
 .product-buttons #add-to-fav {
-	background: #e53935 !important;
+	background: #e53935;
 }
 
-.product-buttons #add-to-fav:hover {
-	background: #c62828 !important;
+.product-buttons #add-to-fav:hover, .product-buttons #add-to-fav:focus {
+	background: #c62828;
 }
 
 .item-verifications {

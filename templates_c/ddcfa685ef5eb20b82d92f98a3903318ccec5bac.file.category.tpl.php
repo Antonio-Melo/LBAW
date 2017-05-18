@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:50:33
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 09:42:26
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19573232658fa4ae4796603-51969011%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ddcfa685ef5eb20b82d92f98a3903318ccec5bac' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/category.tpl',
-      1 => 1493883577,
+      1 => 1495096916,
       2 => 'file',
     ),
   ),
@@ -34,8 +34,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </h1>
 	<hr>
 	<div class="items-display">
-		<h2>On Sale <a href=<?php echo ("search.php?onsale=true&keywords=").($_smarty_tpl->tpl_vars['category']->value['name']);?>
-><span class="view-more">&gt;&gt;</span></a></h2>
+		<h2><a href=<?php echo ("search.php?onsale=true&keywords=").($_smarty_tpl->tpl_vars['category']->value['name']);?>
+>On Sale</a></h2>
 		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['onsale']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
@@ -76,8 +76,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 	</div>
 	
 	<div class="items-display">
-		<h2>Most Popular <a href="<?php echo ("search.php?order=Most%20sold&keywords=").($_smarty_tpl->tpl_vars['category']->value['name']);?>
-"><span class="view-more">&gt;&gt;</span></a></h2>
+		<h2><a href="<?php echo ("search.php?order=Most%20sold&keywords=").($_smarty_tpl->tpl_vars['category']->value['name']);?>
+">Most Popular</a></h2>
 		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['mostpopular']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {

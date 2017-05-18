@@ -7,14 +7,12 @@
 	{if count($products)>0}
 		<div class="checkout-cart">
 			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<button type="button" class="btn checkout-button ">Checkout</button>
+			<a class="btn checkout-button" href="checkout.php">Checkout</a>
 		</div>
 	{else}
 		<span class="glyphicon glyphicon-shopping-cart"></span>
 		<p>Your shopping cart is empty right now, but it doesn't have to be!</p>
-		<div class="checkout-cart">
-			<button type="button" class="button">Go Shopping</button>
-		</div>
+			<a class="btn checkout-button" href="home.php">Go Shopping</a>
 	{/if}
 	
 	<div class="items-display" id="cart-results">		
@@ -78,7 +76,7 @@
 	{if count($products)>=3}
 		<div class="checkout-cart">
 			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<button type="button" class="btn checkout-button ">Checkout</button>
+			<a class="btn checkout-button" href="checkout.php">Checkout</a>
 		</div>
 	{/if}
 </div>

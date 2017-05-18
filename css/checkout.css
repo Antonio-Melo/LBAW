@@ -1,4 +1,4 @@
-#cart-body {
+#checkout-body {
 	padding: 15px;
 }
 
@@ -36,30 +36,15 @@
 	color: #e53935;
 }
 
-#page .checkout-button {
+.checkout-button {
 	width: 120px;
 	height: 50px;
-	background: #43a047;
+	background: #43a047 !important;
 	margin-left: 15px;
-	padding: 0px;
-	color: white;
-	border-radius: 0;
-	line-height: 50px;
 }
 
-#page .checkout-button:hover, #page .checkout-button:focus {
-	background: #2e7d32;
-	color: white;
-	outline: 0;
-}
-
-#page .remove-cart-item {
-	background: #e53935;
-	float: right;
-}
-
-#page .remove-cart-item:hover, #page .remove-cart-item:focus {
-	background: #c62828;
+.checkout-button:hover {
+	background: #2e7d32 !important;
 }
 
 .checkout-cart {
@@ -70,14 +55,110 @@
 
 .checkout-subtotal {
 	font-size: 16px;
-	height: 50px;
-	line-height: 50px;
 }
 
 .checkout-subtotal-value {
 	font-weight: bold;
 }
 
+
+#shippingAddress .profile-content a {
+	color: #333;
+	border-radius: 0;
+	height: 50px;
+	padding-top: 16px;
+}
+
+#shippingAddress .profile-content li.active > a, #shippingAddress .profile-content li.active > a:hover, #shippingAddress .profile-content li.active > a:focus {
+	background: #c49f66;
+	color: white;
+}
+
+#shippingAddress .tab-content {
+	padding: 15px;
+	text-align: left;
+}
+
+#shippingAddress .tab-content button {
+	margin-top: 10px;
+	width: 70px;
+	height: 40px;
+}
+
+#shippingAddress input {
+	border: 1px solid #ddd;
+	border-radius: 0;
+	height: 40px;
+	box-shadow: none;
+}
+
+#shippingAddress input:focus {
+	border: 2px solid #c49f66 !important;
+}
+
+/* ============================================================================================================================================================================*/
+/* Form */
+
+#checkout-body .faqs-content a {
+	color: #333;
+	border-radius: 0;
+	height: 50px;
+	padding-top: 16px;
+}
+
+#checkout-body .faqs-content li.active > a, #checkout-body .faqs-content li.active > a:hover, #checkout-body .faqs-content li.active > a:focus {
+	background: #c49f66;
+	color: white;
+}
+
+#checkout-body .list-group-item {
+	border: 0;
+	background: #f5f5f5;
+}
+
+#checkout-body .container {
+	padding: 15px;
+}
+
+/* ============================================================================================================================================================================*/
+/* Addresses */
+#myAddresses button {
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+#myAddresses .adressCard button {
+	width: 40px;
+	height: 40px;
+}
+
+#myAddresses .adressCard .delete-address {
+	/*background: #e53935 !important;*/
+}
+
+#myAddresses .adressCard .save-address, #myAddresses .adressCard .cancel-address  {
+	width: 70px;
+}
+
+#myAddresses input {
+	padding-left: 12px;
+    padding-right: 12px;
+}
+
+#myAddresses .address-edit-country, #myAddresses input, #address-add-country {
+	height: 40px;
+	width: 100%;
+	margin-bottom: 2px;
+	max-width: 350px;
+	display: block;
+}
+
+#myAddresses .address-edit-country, #address-add-country {
+	padding-left: 8px;
+	margin-left: 0px;
+}
+
+/* ============================================================================================================================================================================*/
 /* Product List */
 .items-display > .product-list {
 	height: 200px;

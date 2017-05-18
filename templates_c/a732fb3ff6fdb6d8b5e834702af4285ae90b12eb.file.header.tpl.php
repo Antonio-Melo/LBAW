@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:57:04
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 10:46:52
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1493884616,
+      1 => 1495100805,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58fa43e164cbf7_16831549')) {function content_58fa43e164cbf7_16831549($_smarty_tpl) {?><!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<?php if (isset($_smarty_tpl->tpl_vars['page_title']->value)) {?>
 		<title>.bat - <?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
@@ -71,6 +71,8 @@ javascript/<?php echo $_smarty_tpl->tpl_vars['js_file']->value;?>
 </head>
 <body id="page">
 	<header>
+		<a id="skip-header" href="#content">skip header</a>
+
 		<!--Main nav-->
 		<nav class="navbar navbar-default" id="main-nav">
 			<div class="container-fluid">
@@ -266,5 +268,5 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 		
 		
 	</header>
-	<main>
+	<main id="content">
 <?php }} ?>

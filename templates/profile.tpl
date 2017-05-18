@@ -36,7 +36,7 @@
 			<div id="accountInfo" class="tab-pane in active">
                 <div class="param">
                     <div class="param-name">
-                        <b>Avatar:</b>
+                        <b><label for="edit-avatar">Avatar:</label></b>
                     </div>
 					<div class="avatar-image-container">
 						{if $user.url != null}
@@ -54,7 +54,7 @@
                 </div>
 				<div class="param">
                     <div class="param-name">
-                        <b>Username:</b>
+                        <b><label for="edit-username">Username:</label></b>
                     </div>
                     <div class="param-content">
                         <p id="info-username">{$user.username}</p>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="param">
                     <div class="param-name">
-                        <b>Name:</b>
+                        <b><label for="edit-name">Name:</label></b>
                     </div>
                     <div class="param-content">
                         <p id="info-name">{$user.users_name}</p>
@@ -88,7 +88,7 @@
                 </div>
 				<div class="param">
                     <div class="param-name">
-						<b>E-mail address:</b>
+						<b><label for="edit-email">E-mail address:</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-email">{$user.email}</p>
@@ -106,7 +106,7 @@
 				</div>
 				<div class="param">
                     <div class="param-name">
-						<b>Country:</b>
+						<b><label for="edit-country">Country:</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-country">{$user.country_name}</p>
@@ -139,7 +139,7 @@
 			<div id="security" class="tab-pane">
 				<div class="param">
 					<div class="param-name">
-						<b>Password:</b>
+						<b><label for="oldpwd">Password:</label></b>
 					</div>
 					<div class="param-content">
 						<div class="form-group">

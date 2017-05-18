@@ -46,4 +46,12 @@ $(document).ready(function(){
 		
 		e.preventDefault();
 	});
+
+	$('.checkout-button').click(function(e) {
+		e.preventDefault();
+	});
+
+
+
+
 });

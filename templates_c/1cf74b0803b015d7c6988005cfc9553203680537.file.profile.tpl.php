@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:45:56
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 10:36:08
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1493883848,
+      1 => 1495100165,
       2 => 'file',
     ),
   ),
@@ -70,7 +70,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div id="accountInfo" class="tab-pane in active">
                 <div class="param">
                     <div class="param-name">
-                        <b>Avatar:</b>
+                        <b><label for="edit-avatar">Avatar:</label></b>
                     </div>
 					<div class="avatar-image-container">
 						<?php if ($_smarty_tpl->tpl_vars['user']->value['url']!=null) {?>
@@ -92,7 +92,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div>
 				<div class="param">
                     <div class="param-name">
-                        <b>Username:</b>
+                        <b><label for="edit-username">Username:</label></b>
                     </div>
                     <div class="param-content">
                         <p id="info-username"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
@@ -112,7 +112,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div>
                 <div class="param">
                     <div class="param-name">
-                        <b>Name:</b>
+                        <b><label for="edit-name">Name:</label></b>
                     </div>
                     <div class="param-content">
                         <p id="info-name"><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
@@ -130,7 +130,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div>
 				<div class="param">
                     <div class="param-name">
-						<b>E-mail address:</b>
+						<b><label for="edit-email">E-mail address:</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-email"><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
@@ -150,7 +150,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>
 				<div class="param">
                     <div class="param-name">
-						<b>Country:</b>
+						<b><label for="edit-country">Country:</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-country"><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
@@ -190,7 +190,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 			<div id="security" class="tab-pane">
 				<div class="param">
 					<div class="param-name">
-						<b>Password:</b>
+						<b><label for="oldpwd">Password:</label></b>
 					</div>
 					<div class="param-content">
 						<div class="form-group">

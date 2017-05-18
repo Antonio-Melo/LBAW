@@ -34,13 +34,13 @@
 	margin-right: auto;
 }
 
-.remove-favorites-item {
-	background: #e53935 !important;
+#page .remove-favorites-item {
+	background: #e53935;
 	float: right;
 }
 
-.remove-favorites-item:hover {
-	background: #c62828 !important;
+#page .remove-favorites-item:hover, #page .remove-favorites-item:focus {
+	background: #c62828;
 }
 
 /* Product List */

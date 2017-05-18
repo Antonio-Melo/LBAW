@@ -5,6 +5,15 @@ h1 {
 	margin-left: 4px;
 }
 
+h1 a {	
+	color: #333;
+}
+
+h1 a:hover, h1 a:focus {
+	color: #333;
+	outline: 0;
+}
+
 .items-display > div {
 	margin-bottom: 30px;
 	overflow: hidden;
@@ -39,6 +48,10 @@ h1 {
 .product-info-container .name a{
 	color: #333;
 	font-size: 16px;
+}
+
+.product-info-container .name a:focus {
+	outline: 0;
 }
 
 .product-info-container .price {

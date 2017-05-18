@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	{if isset($page_title)}
 		<title>.bat - {$page_title}</title>
@@ -23,6 +23,8 @@
 </head>
 <body id="page">
 	<header>
+		<a id="skip-header" href="#content">skip header</a>
+
 		<!--Main nav-->
 		<nav class="navbar navbar-default" id="main-nav">
 			<div class="container-fluid">
@@ -199,4 +201,4 @@
 		
 		
 	</header>
-	<main>
+	<main id="content">

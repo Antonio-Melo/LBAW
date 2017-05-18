@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:50:07
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 09:08:43
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:159654243858fa43e1308758-45070636%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7c4839f4725b2f073151a8153035bb2b0dc2f2f5' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/home.tpl',
-      1 => 1493884031,
+      1 => 1495094920,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 <div class="panel-body items-display">
-	<h1>On Sale <a href="search.php?onsale=true"><span class="view-more">&gt;&gt;</span></a></h1>
+	<h1><a href="search.php?onsale=true">On Sale</a></h1>
 	<hr>
 	<div>
 	<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
@@ -70,7 +70,7 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 		</div>
 	<?php } ?>
 	</div>
-	<h1>Most Popular <a href="search.php?order=Most%20sold"><span class="view-more">&gt;&gt;</span></a></h1>
+	<h1><a href="search.php?order=Most%20sold">Most Popular</a></h1>
 	<hr>
 	<div>
 	<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;

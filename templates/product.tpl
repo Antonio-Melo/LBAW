@@ -156,6 +156,8 @@
 						</div>
 						<hr>
 					{/foreach}
+
+        <!--WRITE REVIEW-->
 		{if isset($smarty.session.id)}		
 			<div id="write_review">
 				<form id="review" class="review-input" method="post">

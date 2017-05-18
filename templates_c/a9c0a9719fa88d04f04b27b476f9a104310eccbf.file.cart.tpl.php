@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 08:42:42
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 10:12:34
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:155513661158fa972543f4b7-82856310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9c0a9719fa88d04f04b27b476f9a104310eccbf' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl',
-      1 => 1493883531,
+      1 => 1495098752,
       2 => 'file',
     ),
   ),
@@ -34,14 +34,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<?php if (count($_smarty_tpl->tpl_vars['products']->value)>0) {?>
 		<div class="checkout-cart">
 			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<button type="button" class="btn checkout-button ">Checkout</button>
+			<a class="btn checkout-button" href="checkout.php">Checkout</a>
 		</div>
 	<?php } else { ?>
 		<span class="glyphicon glyphicon-shopping-cart"></span>
 		<p>Your shopping cart is empty right now, but it doesn't have to be!</p>
-		<div class="checkout-cart">
-			<button type="button" class="button">Go Shopping</button>
-		</div>
+			<a class="btn checkout-button" href="home.php">Go Shopping</a>
 	<?php }?>
 	
 	<div class="items-display" id="cart-results">		
@@ -125,7 +123,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 	<?php if (count($_smarty_tpl->tpl_vars['products']->value)>=3) {?>
 		<div class="checkout-cart">
 			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<button type="button" class="btn checkout-button ">Checkout</button>
+			<a class="btn checkout-button" href="checkout.php">Checkout</a>
 		</div>
 	<?php }?>
 </div>
