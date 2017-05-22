@@ -1,6 +1,42 @@
 var valid_edit_username = true, valid_edit_name = true, valid_edit_email = true, valid_edit_password = false;
 
 $(document).ready(function(){
+	console.log(
+	'<li class="col-sm-6 col-md-6">'+'\n'+
+		'\t'+'<div class="adressCard" id="'+ '---' +'>'+'\n'+
+			'\t\t'+'<div class="addressInfo">'+'\n'+
+				'\t\t\t'+'<p>'+'---'+', '+'---'+'<br>'+'\n'+
+				'\t\t\t'+'---'+' '+'---'+'<br>'+'\n'+
+				'\t\t\t'+'---'+'<br>'+'\n'+
+				'\t\t\t'+'---'+'<br>'+'\n'+
+				'\t\t\t'+'Tel: '+'---'+'</p>'+'\n'+
+			'\t\t'+'</div>'+'\n'+
+			'\t\t'+'<div class="addressEdit hide">'+'\n'+
+				'\t\t\t'+'<input type="text" class="address-edit-street" placeholder="Street" value="'+'---'+'"></input>'+'\n'+
+				'\t\t\t'+'<input type="text" class="address-edit-door-number" placeholder="Door number" value="'+'---'+'"></input>'+'\n'+
+				'\t\t\t'+'<input type="text" class="address-edit-postal-zip" placeholder="Zip code" value="'+'---'+'"></input>'+'\n'+
+				'\t\t\t'+'<input type="text" class="address-edit-city" placeholder="City" value="'+'---'+'"></input>'+'\n'+
+				'\t\t\t'+'<input type="text" class="address-edit-region" placeholder="Region" value="'+'---'+'"></input>'+'\n'+
+				'\t\t\t'+'<select class="country-select address-edit-country">'+'\n'+
+					'\t\t\t\t'+'---'+'\n'+
+				'\t\t\t'+'</select>'+'\n'+
+				'\t\t\t'+'<input type="text" class="address-edit-telephone" placeholder="Phone number" value="'+'---'+'"></input>'+'\n'+
+			'\t\t'+'</div>'+'\n'+
+			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button>'+'\n'+
+			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>'+'\n'+
+			
+			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton save-address hide">Save</button>'+'\n'+
+			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton cancel-address hide">Cancel</button>'+'\n'+
+		'\t'+'</div>'+'\n'+
+	'</li>'
+	
+	
+	
+	
+	
+	
+	);
+	
 	var initial_username = $('#info-username').text();
 	var initial_name = $('#info-name').text();
 	var initial_email = $('#info-email').text();
@@ -44,7 +80,13 @@ $(document).ready(function(){
 				success: function(response) {
 					var json = $.parseJSON(response);
 					if (json.status) {
-						location.reload();
+						initial_username = json.username;
+						initial_name = json.name;
+						initial_email = json.email;
+						initial_country = json.country;
+						
+						setInitialValues(initial_username, initial_name, initial_email, initial_country);
+						toggleAccountInfo();
 					}
 					else {
 						$('#edit-error').text('Wrong credentials');
@@ -63,7 +105,7 @@ $(document).ready(function(){
 		$('.error-sign').addClass('hide');
 		$('.error-message').addClass('hide');
 		$('#edit-username, #edit-name, #edit-email').removeClass("authentication-input-error");
-		setInitialValues(initial_username, initial_name, initial_name, initial_country);
+		setInitialValues(initial_username, initial_name, initial_email, initial_country);
 		toggleAccountInfo();
 		e.preventDefault();
 	});
@@ -110,9 +152,7 @@ $(document).ready(function(){
 					old_password: old_password,
 					new_password: new_password
 				},
-				success: function(response) {
-					console.log(response);
-					
+				success: function(response) {					
 					var json = $.parseJSON(response);
 					if (json.status) {
 						$('#oldpwd, #pwd, #newpwd').val("");
@@ -141,7 +181,7 @@ $(document).ready(function(){
 	
 	/* ========================================================================*/
 	/* My addresses */
-	$(".delete-address").click(function(e) {
+	$('#myAddresses').on('click', '.delete-address', function(e) {
 		var id = $(this).parents('.adressCard').attr('id');
 		var url = base_url + "api/removeaddress.php";
 		var element = this;
@@ -162,40 +202,52 @@ $(document).ready(function(){
 	});
 	
 	var street, door, zip, city, region, country, phone;
-	$('.edit-address').click(function(e) {
+	$('#myAddresses').on('click', '.edit-address', function(e) {
 		setAddressVars(this);
 		toggleAddress(this);		
 	});
 	
-	$('.save-address').click(function(e) {
+	$('#myAddresses').on('click', '.save-address', function(e) {
+		var element = this;
 		var id = $(this).parents('.adressCard').attr('id');
 		var url = base_url + "api/editaddress.php";
-		setAddressVars(this);
 		
-		if (street!="" && door!="" && zip !="" && city!="" && region!="" && country!="" && phone!="") {
+		var new_street = $(element).siblings('.addressEdit').children('.address-edit-street').val();
+		var new_door = $(element).siblings('.addressEdit').children('.address-edit-door-number').val();
+		var new_zip = $(element).siblings('.addressEdit').children('.address-edit-postal-zip').val();
+		var new_city = $(element).siblings('.addressEdit').children('.address-edit-city').val();
+		var new_region = $(element).siblings('.addressEdit').children('.address-edit-region').val();
+		var new_country = $(element).siblings('.addressEdit').children('.address-edit-country').val();
+		var new_phone = $(element).siblings('.addressEdit').children('.address-edit-telephone').val();
+		
+		if (new_street!="" && new_door!="" && new_zip!="" && new_city!="" && new_region!="" && new_country!="" && new_phone!="") {
 			$.ajax({
 				type: "POST",
 				url: url,
-				data: {id: id, street: street, door: door, zip: zip, city: city, region: region, country: country, phone: phone},
+				data: {id: id, street: new_street, door: new_door, zip: new_zip, city: new_city, region: new_region, country: new_country, phone: new_phone},
 				success: function(response) {
 					var json = $.parseJSON(response);
 					if (json.status) {
-						location.reload();
+						toggleAddress(element);
+						setAddressVars(element);
+						$(element).siblings('.addressInfo').children('p').html(new_street + ', ' + new_door + '<br>' + new_zip + ' ' + new_city + '<br>' + new_region + '<br>' + json.country + '<br>Tel: ' + new_phone);
 					}
+					else {
+						toggleAddress(element);
+						resetAddressInput(element);
+					}
+				},
+				error: function(response) {
+					toggleAddress(element);
+					resetAddressInput(element);
 				}
 			});
 		}
 	});
 	
-	$('.cancel-address').click(function(e) {
+	$('#myAddresses').on('click', '.cancel-address', function(e) {
 		toggleAddress(this);
-		$(this).siblings('.addressEdit').children('.address-edit-street').val(street);
-		$(this).siblings('.addressEdit').children('.address-edit-door-number').val(door);
-		$(this).siblings('.addressEdit').children('.address-edit-postal-zip').val(zip);
-		$(this).siblings('.addressEdit').children('.address-edit-city').val(city);
-		$(this).siblings('.addressEdit').children('.address-edit-region').val(region);
-		$(this).siblings('.addressEdit').children('.address-edit-country').val(country);
-		$(this).siblings('.addressEdit').children('.address-edit-telephone').val(phone);
+		resetAddressInput(this);
 	});
 	
 	$('#add-address-button').click(function(e) {
@@ -203,13 +255,13 @@ $(document).ready(function(){
 	});
 	
 	$('#save-add-address').click(function(e) {
-		street = $('#address-add-street').val();
-		door = $('#address-add-door-number').val();
-		zip = $('#address-add-postal-zip').val();
-		city = $('#address-add-city').val();
-		region = $('#address-add-region').val();
-		country = $('#address-add-country').val();
-		phone = $('#address-add-telephone').val();
+		var street = $('#address-add-street').val();
+		var door = $('#address-add-door-number').val();
+		var zip = $('#address-add-postal-zip').val();
+		var city = $('#address-add-city').val();
+		var region = $('#address-add-region').val();
+		var country = $('#address-add-country').val();
+		var phone = $('#address-add-telephone').val();
 		
 		var url = base_url + "api/addaddress.php";		
 		if (street!="" && door!="" && zip !="" && city!="" && region!="" && country!="" && phone!="") {
@@ -220,7 +272,48 @@ $(document).ready(function(){
 				success: function(response) {
 					var json = $.parseJSON(response);
 					if (json.status) {
-						location.reload();
+						var country_list = "";
+						
+						for (var i = 0; i < json.country_list.length; i++) {
+							country_list += '<option value="'+json.country_list[i]['id']+'" ';
+							if (json.country_list[i]['name'] == json.country_name) {
+								country_list += 'selected';
+							}
+							
+							country_list += '>'+json.country_list[i]['name']+'</option> ';
+						}
+						
+						$('#myAddresses .list-unstyled').append(
+						'<li class="col-sm-6 col-md-6">'+
+							'<div class="adressCard" id="'+ json.address_id +'">'+
+								'<div class="addressInfo">'+
+									'<p>'+street+', '+door+'<br>'+
+									zip+' '+city+'<br>'+
+									region+'<br>'+
+									json.country_name+'<br>'+
+									'Tel: '+phone+'</p>'+
+								'</div>'+
+								'<div class="addressEdit hide">'+
+									'<input type="text" class="address-edit-street" placeholder="Street" value="'+street+'"></input>'+
+									'<input type="text" class="address-edit-door-number" placeholder="Door number" value="'+door+'"></input>'+
+									'<input type="text" class="address-edit-postal-zip" placeholder="Zip code" value="'+zip+'"></input>'+
+									'<input type="text" class="address-edit-city" placeholder="City" value="'+city+'"></input>'+
+									'<input type="text" class="address-edit-region" placeholder="Region" value="'+region+'"></input>'+
+									'<select class="country-select address-edit-country">'+
+										country_list+
+									'</select>'+
+									'<input type="text" class="address-edit-telephone" placeholder="Phone number" value="'+phone+'"></input>'+
+								'</div>'+
+								'<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button> '+
+								'<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>'+
+								
+								'<button type="button" class="btn btn-primary btn-block profileButton save-address hide">Save</button> '+
+								'<button type="button" class="btn btn-primary btn-block profileButton cancel-address hide">Cancel</button>'+
+							'</div>'+
+						'</li>'
+						);
+						
+						resetAddAddress();
 					}
 				}
 			});
@@ -228,6 +321,10 @@ $(document).ready(function(){
 	});
 	
 	$('#cancel-add-address').click(function(e) {
+		resetAddAddress();
+	});
+	
+	function resetAddAddress() {
 		$('#add-address-input').toggleClass('hide');
 		$('#address-add-street').val("");
 		$('#address-add-door-number').val("");
@@ -235,7 +332,7 @@ $(document).ready(function(){
 		$('#address-add-city').val("");
 		$('#address-add-region').val("");
 		$('#address-add-telephone').val("");
-	});
+	}
 	
 	function setAddressVars(element) {
 		street = $(element).siblings('.addressEdit').children('.address-edit-street').val();
@@ -245,6 +342,16 @@ $(document).ready(function(){
 		region = $(element).siblings('.addressEdit').children('.address-edit-region').val();
 		country = $(element).siblings('.addressEdit').children('.address-edit-country').val();
 		phone = $(element).siblings('.addressEdit').children('.address-edit-telephone').val();
+	}
+	
+	function resetAddressInput(element) {
+		$(element).siblings('.addressEdit').children('.address-edit-street').val(street);
+		$(element).siblings('.addressEdit').children('.address-edit-door-number').val(door);
+		$(element).siblings('.addressEdit').children('.address-edit-postal-zip').val(zip);
+		$(element).siblings('.addressEdit').children('.address-edit-city').val(city);
+		$(element).siblings('.addressEdit').children('.address-edit-region').val(region);
+		$(element).siblings('.addressEdit').children('.address-edit-country').val(country);
+		$(element).siblings('.addressEdit').children('.address-edit-telephone').val(phone);
 	}
 });
 
@@ -268,6 +375,11 @@ function setInitialValues(initial_username, initial_name, initial_email, initial
 	$('#edit-email').val(initial_email);
 	var id = $("#edit-country option:contains('"+initial_country+"')").attr('value');
 	$('#edit-country').val(id);
+	
+	$('#info-username').text(initial_username);
+	$('#info-name').text(initial_name);
+	$('#info-email').text(initial_email);
+	$('#info-country').text(initial_country);
 }
 
 function toggleAddress(element) {

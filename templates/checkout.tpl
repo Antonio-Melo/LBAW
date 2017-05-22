@@ -67,7 +67,7 @@
 				<button type="button" id="cancel-add-address" class="btn btn-primary btn-block profileButton">Cancel</button>
 			</div>
 
-			<button id="add-address-button" type="button" class="btn btn-primary btn-block ">Add</button>
+			<button id="add-address-button" type="button" class="btn btn-primary btn-block add-address">Add</button>
 		</div>
 	</div>
 

@@ -1,6 +1,7 @@
 <?php
 include_once('../config/init.php');
 include_once('../database/users.php');  
+include_once('../database/countries.php');  
 
 $response = array();
 
@@ -18,7 +19,12 @@ $country = $_POST['country'];
 $phone = $_POST['phone'];
 
 try {
-	addAddress($user_id, $street, $door, $zip, $city, $region, $country, $phone);
+	$new_address = addAddress($user_id, $street, $door, $zip, $city, $region, $country, $phone);
+	$country_name = getCountryById($country);
+	
+	$response["country_name"] = $country_name[0]['name'];
+	$response["country_list"] = getAllCountries();
+	$response["address_id"] = $new_address[0]['id'];
 	$response["status"] = true;
 	echo json_encode($response);
 	exit;

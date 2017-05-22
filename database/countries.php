@@ -8,4 +8,13 @@ function getAllCountries() {
 	return $stmt->fetchAll();
 }
 
+function getCountryById($id) {
+	global $conn;
+	
+	$stmt = $conn->prepare('SELECT * FROM country WHERE id=?');
+	$stmt->execute(array($id));
+	
+	return $stmt->fetchAll();
+}
+
 ?>

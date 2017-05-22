@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 17:18:08
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 17:25:38
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:155513661158fa972543f4b7-82856310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9c0a9719fa88d04f04b27b476f9a104310eccbf' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl',
-      1 => 1495469855,
+      1 => 1495469964,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<h1>Shopping cart</h1>
 	<hr>
 	
-	<form action="checkout.php" method="get">
+	<form action="checkout.php" method="post">
 		<?php if (count($_smarty_tpl->tpl_vars['products']->value)>0) {?>
 			<div class="checkout-cart">
 				<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>

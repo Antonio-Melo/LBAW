@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 10:36:08
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 19:55:34
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1495100165,
+      1 => 1495478815,
       2 => 'file',
     ),
   ),
@@ -68,10 +68,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class="tab-content">
 			<!-- Account Info -->
 			<div id="accountInfo" class="tab-pane in active">
-                <div class="param">
-                    <div class="param-name">
-                        <b><label for="edit-avatar">Avatar:</label></b>
-                    </div>
+				<div class="param">
+					<div class="param-name">
+						<b><label for="edit-avatar">Avatar:</label></b>
+					</div>
 					<div class="avatar-image-container">
 						<?php if ($_smarty_tpl->tpl_vars['user']->value['url']!=null) {?>
 							<img class="media-object" src=<?php echo ("../images/users/").($_smarty_tpl->tpl_vars['user']->value['url']);?>
@@ -89,13 +89,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<input type="file" id="edit-avatar" class="hide" name="edit-avatar" accept="image/*">
 					</div>
 					<div style="clear: both"></div>
-                </div>
+				</div>
 				<div class="param">
-                    <div class="param-name">
-                        <b><label for="edit-username">Username:</label></b>
-                    </div>
-                    <div class="param-content">
-                        <p id="info-username"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+					<div class="param-name">
+						<b><label for="edit-username">Username:</label></b>
+					</div>
+					<div class="param-content">
+						<p id="info-username"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 </p>
 						<div class="edit-input">
 							<input type="text" id="edit-username" class="hide" name="edit-username" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
@@ -107,15 +107,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								Must have between 4 and 24 characters.
 							</div>
 						</div>
-                    </div>
+					</div>
 					<div style="clear: both"></div>
-                </div>
-                <div class="param">
-                    <div class="param-name">
-                        <b><label for="edit-name">Name:</label></b>
-                    </div>
-                    <div class="param-content">
-                        <p id="info-name"><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
+				</div>
+				<div class="param">
+					<div class="param-name">
+						<b><label for="edit-name">Name:</label></b>
+					</div>
+					<div class="param-content">
+						<p id="info-name"><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
 </p>
 						<div class="edit-input">
 							<input type="text" id="edit-name" class="hide" name="edit-name" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
@@ -127,9 +127,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 					</div>
 					<div style="clear: both"></div>
-                </div>
+				</div>
 				<div class="param">
-                    <div class="param-name">
+					<div class="param-name">
 						<b><label for="edit-email">E-mail address:</label></b>
 					</div>
 					<div class="param-content">
@@ -149,7 +149,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div style="clear: both"></div>
 				</div>
 				<div class="param">
-                    <div class="param-name">
+					<div class="param-name">
 						<b><label for="edit-country">Country:</label></b>
 					</div>
 					<div class="param-content">
@@ -175,7 +175,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 				</div>
 				
 				<div class="param">
-                    <div class="param-name"></div>
+					<div class="param-name"></div>
 					<div class="param-content">
 						<span class="authentication-error hide" id="edit-error"></span>
 						<button id="edit-info" type="button" class="btn btn-primary btn-block profileButton">Edit</button>
@@ -188,48 +188,50 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 
 			<!-- Security -->
 			<div id="security" class="tab-pane">
-				<div class="param">
-					<div class="param-name">
-						<b><label for="oldpwd">Password:</label></b>
-					</div>
-					<div class="param-content">
-						<div class="form-group">
-							<input type="password" class="form-control" id="oldpwd" placeholder="Old Password">
+				<form method="post" action="../actions/editpassword.php">
+					<div class="param">
+						<div class="param-name">
+							<b><label for="oldpwd">Password:</label></b>
 						</div>
-					</div>
-					<div style="clear: both"></div>
-				</div>
-				<div class="param">
-					<div class="param-name"></div>
-					<div class="param-content">
-						<div class="form-group edit-input">
-							<input type="password" class="form-control" id="pwd" placeholder="New Password">
-							<div class="error-sign hide">!</div>
-							<div class="error-message hide">
-								Passwords must match.<br>
-								Must have between 6 and 128 characters.
+						<div class="param-content">
+							<div class="form-group">
+								<input type="password" class="form-control" name="oldpwd" id="oldpwd" placeholder="Old Password">
 							</div>
 						</div>
+						<div style="clear: both"></div>
 					</div>
-					<div style="clear: both"></div>
-				</div>
-				<div class="param">
-					<div class="param-name"></div>
-					<div class="param-content">
-						<div class="form-group">
-							<input type="password" class="form-control" id="newpwd" placeholder="Confirm New Password">
+					<div class="param">
+						<div class="param-name"></div>
+						<div class="param-content">
+							<div class="form-group edit-input">
+								<input type="password" class="form-control" name="pwd" id="pwd" placeholder="New Password">
+								<div class="error-sign hide">!</div>
+								<div class="error-message hide">
+									Passwords must match.<br>
+									Must have between 6 and 128 characters.
+								</div>
+							</div>
 						</div>
+						<div style="clear: both"></div>
 					</div>
-					<div style="clear: both"></div>
-				</div>
-				<div class="param">
-					<div class="param-name"></div>
-					<div class="param-content">
-						<span class="authentication-error" id="edit-password-error"></span>
-						<button id="edit-password" type="button" class="btn btn-primary btn-block profileButton">Save</button>
+					<div class="param">
+						<div class="param-name"></div>
+						<div class="param-content">
+							<div class="form-group">
+								<input type="password" class="form-control" name="newpwd" id="newpwd" placeholder="Confirm New Password">
+							</div>
+						</div>
+						<div style="clear: both"></div>
 					</div>
-					<div style="clear: both"></div>
-				</div>
+					<div class="param">
+						<div class="param-name"></div>
+						<div class="param-content">
+							<span class="authentication-error" id="edit-password-error"></span>
+							<button id="edit-password" type="submit" class="btn btn-primary btn-block profileButton">Save</button>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+				</form>
 			</div>
 			
 			<?php if (!isset($_SESSION['admin'])) {?>

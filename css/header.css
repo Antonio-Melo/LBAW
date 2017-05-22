@@ -302,6 +302,10 @@ input:focus, button:focus {
 	width: 21px;
 }
 
+#authentication-modal .modal-header .closebtn:hover, #authentication-modal .modal-header .closebtn:focus {
+	text-decoration: none;
+}
+
 #authentication-modal .modal-backdrop {
 	opacity:0.8 !important;
 }

@@ -21,7 +21,7 @@
 	/*==================================================*/
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'checkout.css');  
-	$smarty->assign('js_file', 'cart.js');
+	$smarty->assign('js_file', 'checkout.js');
 	$smarty->assign('page_title', 'Checkout');
 	
 	/*==================================================*/

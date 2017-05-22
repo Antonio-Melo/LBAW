@@ -34,10 +34,10 @@
 		<div class="tab-content">
 			<!-- Account Info -->
 			<div id="accountInfo" class="tab-pane in active">
-                <div class="param">
-                    <div class="param-name">
-                        <b><label for="edit-avatar">Avatar:</label></b>
-                    </div>
+				<div class="param">
+					<div class="param-name">
+						<b><label for="edit-avatar">Avatar:</label></b>
+					</div>
 					<div class="avatar-image-container">
 						{if $user.url != null}
 							<img class="media-object" src={"../images/users/"|cat:$user.url} alt={$user.username}>
@@ -51,13 +51,13 @@
 						<input type="file" id="edit-avatar" class="hide" name="edit-avatar" accept="image/*">
 					</div>
 					<div style="clear: both"></div>
-                </div>
+				</div>
 				<div class="param">
-                    <div class="param-name">
-                        <b><label for="edit-username">Username:</label></b>
-                    </div>
-                    <div class="param-content">
-                        <p id="info-username">{$user.username}</p>
+					<div class="param-name">
+						<b><label for="edit-username">Username:</label></b>
+					</div>
+					<div class="param-content">
+						<p id="info-username">{$user.username}</p>
 						<div class="edit-input">
 							<input type="text" id="edit-username" class="hide" name="edit-username" value={$user.username} required></input>
 							<div class="error-sign hide">!</div>
@@ -67,15 +67,15 @@
 								Must have between 4 and 24 characters.
 							</div>
 						</div>
-                    </div>
+					</div>
 					<div style="clear: both"></div>
-                </div>
-                <div class="param">
-                    <div class="param-name">
-                        <b><label for="edit-name">Name:</label></b>
-                    </div>
-                    <div class="param-content">
-                        <p id="info-name">{$user.users_name}</p>
+				</div>
+				<div class="param">
+					<div class="param-name">
+						<b><label for="edit-name">Name:</label></b>
+					</div>
+					<div class="param-content">
+						<p id="info-name">{$user.users_name}</p>
 						<div class="edit-input">
 							<input type="text" id="edit-name" class="hide" name="edit-name" value={$user.users_name} required></input>
 							<div class="error-sign hide">!</div>
@@ -85,9 +85,9 @@
 						</div>
 					</div>
 					<div style="clear: both"></div>
-                </div>
+				</div>
 				<div class="param">
-                    <div class="param-name">
+					<div class="param-name">
 						<b><label for="edit-email">E-mail address:</label></b>
 					</div>
 					<div class="param-content">
@@ -105,7 +105,7 @@
 					<div style="clear: both"></div>
 				</div>
 				<div class="param">
-                    <div class="param-name">
+					<div class="param-name">
 						<b><label for="edit-country">Country:</label></b>
 					</div>
 					<div class="param-content">
@@ -124,7 +124,7 @@
 				</div>
 				
 				<div class="param">
-                    <div class="param-name"></div>
+					<div class="param-name"></div>
 					<div class="param-content">
 						<span class="authentication-error hide" id="edit-error"></span>
 						<button id="edit-info" type="button" class="btn btn-primary btn-block profileButton">Edit</button>
@@ -137,48 +137,50 @@
 
 			<!-- Security -->
 			<div id="security" class="tab-pane">
-				<div class="param">
-					<div class="param-name">
-						<b><label for="oldpwd">Password:</label></b>
-					</div>
-					<div class="param-content">
-						<div class="form-group">
-							<input type="password" class="form-control" id="oldpwd" placeholder="Old Password">
+				<form method="post" action="../actions/editpassword.php">
+					<div class="param">
+						<div class="param-name">
+							<b><label for="oldpwd">Password:</label></b>
 						</div>
-					</div>
-					<div style="clear: both"></div>
-				</div>
-				<div class="param">
-					<div class="param-name"></div>
-					<div class="param-content">
-						<div class="form-group edit-input">
-							<input type="password" class="form-control" id="pwd" placeholder="New Password">
-							<div class="error-sign hide">!</div>
-							<div class="error-message hide">
-								Passwords must match.<br>
-								Must have between 6 and 128 characters.
+						<div class="param-content">
+							<div class="form-group">
+								<input type="password" class="form-control" name="oldpwd" id="oldpwd" placeholder="Old Password">
 							</div>
 						</div>
+						<div style="clear: both"></div>
 					</div>
-					<div style="clear: both"></div>
-				</div>
-				<div class="param">
-					<div class="param-name"></div>
-					<div class="param-content">
-						<div class="form-group">
-							<input type="password" class="form-control" id="newpwd" placeholder="Confirm New Password">
+					<div class="param">
+						<div class="param-name"></div>
+						<div class="param-content">
+							<div class="form-group edit-input">
+								<input type="password" class="form-control" name="pwd" id="pwd" placeholder="New Password">
+								<div class="error-sign hide">!</div>
+								<div class="error-message hide">
+									Passwords must match.<br>
+									Must have between 6 and 128 characters.
+								</div>
+							</div>
 						</div>
+						<div style="clear: both"></div>
 					</div>
-					<div style="clear: both"></div>
-				</div>
-				<div class="param">
-					<div class="param-name"></div>
-					<div class="param-content">
-						<span class="authentication-error" id="edit-password-error"></span>
-						<button id="edit-password" type="button" class="btn btn-primary btn-block profileButton">Save</button>
+					<div class="param">
+						<div class="param-name"></div>
+						<div class="param-content">
+							<div class="form-group">
+								<input type="password" class="form-control" name="newpwd" id="newpwd" placeholder="Confirm New Password">
+							</div>
+						</div>
+						<div style="clear: both"></div>
 					</div>
-					<div style="clear: both"></div>
-				</div>
+					<div class="param">
+						<div class="param-name"></div>
+						<div class="param-content">
+							<span class="authentication-error" id="edit-password-error"></span>
+							<button id="edit-password" type="submit" class="btn btn-primary btn-block profileButton">Save</button>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+				</form>
 			</div>
 			
 			{if !isset($smarty.session.admin)}

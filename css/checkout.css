@@ -129,7 +129,7 @@
 	margin-left: 0px;
 }
 
-#myAddresses #add-address-button button {
+#checkout-body button.add-address {
 	width: 70px;
 	height: 40px;
 }

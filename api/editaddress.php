@@ -1,6 +1,7 @@
 <?php
 include_once('../config/init.php');
-include_once('../database/users.php');  
+include_once('../database/users.php'); 
+include_once('../database/countries.php');
 
 $response = array();
 
@@ -20,6 +21,10 @@ $phone = $_POST['phone'];
 
 try {
 	editAddress($id, $user_id, $street, $door, $zip, $city, $region, $country, $phone);
+	
+	$country_name = getCountryById($country);
+	
+	$response["country"] = $country_name[0]['name'];
 	$response["status"] = true;
 	echo json_encode($response);
 	exit;

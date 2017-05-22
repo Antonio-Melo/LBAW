@@ -412,6 +412,17 @@ function addAddress($user_id, $street, $door, $zip, $city, $region, $country, $p
 	VALUES (?,?,?,?,?,?,?,?);
 	');
 	$stmt->execute(array($user_id, $street, $city, $zip, $region, $phone, $country, $door));
+	
+	$stmt = $conn->prepare
+	('
+	SELECT * FROM address
+	WHERE address.user = ?
+	ORDER BY id DESC
+	LIMIT 1;
+	');
+	$stmt->execute(array($user_id));
+	
+	return $stmt->fetchAll();
 }
 
 

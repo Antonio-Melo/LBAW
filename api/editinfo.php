@@ -1,6 +1,7 @@
 <?php
 include_once('../config/init.php');
 include_once('../database/users.php');
+include_once('../database/countries.php');
 include_once('common.php');
 
 $response = array();
@@ -31,6 +32,13 @@ try {
 			}
 		}
 	}
+	
+	$country_name = getCountryById($country);
+	
+	$response["username"] = $username;
+	$response["name"] = $name;
+	$response["email"] = $email;
+	$response["country"] = $country_name[0]['name'];
 	$response["status"] = true;
 	echo json_encode($response);
 	exit;
