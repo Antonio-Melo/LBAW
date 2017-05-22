@@ -1,7 +1,7 @@
 {include file='header.tpl'}
 
 <div class="container-fluid" id="checkout-body">
-	<h1>Checkout</h1>
+	<h1>Chekout</h1>
 	
 	<a href="#shippingAddress" class="list-group-item" data-toggle="collapse">
 		<h4>Shipping Address</h4>
@@ -38,6 +38,7 @@
 								</select>
 								<input type="text" class="address-edit-telephone" placeholder="Phone number" value={$address.telephone_number}></input>
 							</div>
+							<button type="button" class="btn btn-primary btn-block profileButton edit-address"> Select </button>
 							<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>
 

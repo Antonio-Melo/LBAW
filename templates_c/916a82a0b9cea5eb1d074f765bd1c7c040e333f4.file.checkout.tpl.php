@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-15 15:15:17
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 15:01:20
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19289588985919a408880ba6-26412463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '916a82a0b9cea5eb1d074f765bd1c7c040e333f4' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl',
-      1 => 1494857714,
+      1 => 1495461677,
       2 => 'file',
     ),
   ),
@@ -93,6 +93,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 								<input type="text" class="address-edit-telephone" placeholder="Phone number" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
 ></input>
 							</div>
+							<button type="button" class="btn btn-primary btn-block profileButton edit-address"> Select </button>
 							<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>
 

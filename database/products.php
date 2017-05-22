@@ -1,6 +1,14 @@
 <?php
 //Inserts a Review from a certain product
+function writeReview($client,$product, $text_review,$rating_input){
+	global $conn;
+	$stmt = $conn->prepare('
+	INSERT INTO review (rating, comment, client, product)
+	VALUES (?,?,?,?)
+	');
 
+    $stmt->execute(array($rating_input,$text_review,$client, $product));
+}
 
 // Returns 6 most viewed products that are on sale (for home page)
 function getProductsOnSale() {

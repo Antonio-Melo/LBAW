@@ -20,7 +20,7 @@ $(document).ready(function(){
 		
 		e.preventDefault();
 	});
-    
+
 	$('#add-to-fav').click(function(e) {
 		var url = base_url + "api/addfavorite.php";
 		var element = this;
@@ -43,23 +43,45 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
-	$('#submit').submit(function(e){
+	$("#review").submit(function(e){
 		var url = base_url + "api/review.php";
-
-		$.ajax({
+		//var id = $_GET['id'];
+		//console.debug(id);
+		var stuff = qs();
+		var id = stuff['id'];
+        console.log(id);
+        $.ajax({
 			type: "POST",
 			url: url,
-			data: $("#submit").serialize(),
+			data: $("#review").serialize() + "&id=" +id,
 			success: function(response) {
+                console.log(response);
 		        var json = $.parseJSON(response);
-		        	if (json.status == "true") {
-					document.getElementById("submit").reset();
-		        	}
+		        console.log(json.status);
+
+				if (json.status == "true") {
+                    document.getElementById("review").reset();
+		        }
 			}
 		});
 		
 		e.preventDefault();
 	});
+    function qs() {"use strict";
+        var query, parms, i, pos, key, val, qsp;
+        qsp = {};
+        query = location.search.substring(1);
+        parms = query.split('&');
+        for (i=parms.length-1; i>=0; i--) {
+            pos = parms[i].indexOf('=');
+            if (pos > 0) {
+                key = parms[i].substring(0,pos);
+                val = parms[i].substring(pos+1);
+                qsp[key] = val;
+            }
+        }
+        return qsp;
+    }
 
 
 	/* Review filter rating */
