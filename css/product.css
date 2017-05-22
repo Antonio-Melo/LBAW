@@ -1,5 +1,9 @@
 /*===============================================================================*/
 /* Item display */
+.rating span{
+	vertical-align: top;
+}
+
 .rating input {
 	margin: 0;
 	padding: 0;
@@ -11,7 +15,6 @@
 .rating-star {
 	background-image: url("../images/products/common/star.png");
 }
-
 
 .rating-star {
 	cursor: pointer;
@@ -27,7 +30,15 @@
 	-moz-filter: brightness(1) grayscale(1) opacity(.7);
 	filter: brightness(1) grayscale(1) opacity(.7);
 }
+#comment {
+	border: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: none;
+}
 
+#comment:focus{
+	border: 2px solid #c49f66 !important;
+}
 
 .items-display {
     margin: 0 5px 0 5px;

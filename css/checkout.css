@@ -86,13 +86,6 @@
 
 /* ============================================================================================================================================================================*/
 /* Addresses */
-
-#checkout-body .tab-content .selectbutton {
-    margin-top: 10px;
-    width: 80px;
-    height: 40px;
-}
-
 #myAddresses button {
 	display: inline-block;
 	margin-bottom: 15px;

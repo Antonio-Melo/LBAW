@@ -38,12 +38,12 @@
 								</select>
 								<input type="text" class="address-edit-telephone" placeholder="Phone number" value={$address.telephone_number}></input>
 							</div>
-							<button type="button" class="btn btn-primary btn-block profileButton edit-address"> Select </button>
-							<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button>
-							<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>
+							<button type="button" class="btn btn-primary btn-block select-address"> Select </button>
+							<button type="button" class="btn btn-primary btn-block edit-address"><i class="fa fa-pencil"></i></button>
+							<button type="button" class="btn btn-primary btn-block delete-address"><i class="fa fa-trash"></i></button>
 
-							<button type="button" class="btn btn-primary btn-block profileButton save-address hide">Save</button>
-							<button type="button" class="btn btn-primary btn-block profileButton cancel-address hide">Cancel</button>
+							<button type="button" class="btn btn-primary btn-block save-address hide">Save</button>
+							<button type="button" class="btn btn-primary btn-block cancel-address hide">Cancel</button>
 						</div>
 					</li>
 				{/foreach}
@@ -67,7 +67,7 @@
 				<button type="button" id="cancel-add-address" class="btn btn-primary btn-block profileButton">Cancel</button>
 			</div>
 
-			<button id="add-address-button" type="button" class="btn btn-primary btn-block profileButton">Add</button>
+			<button id="add-address-button" type="button" class="btn btn-primary btn-block ">Add</button>
 		</div>
 	</div>
 

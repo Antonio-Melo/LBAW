@@ -161,17 +161,15 @@
 					{if isset($smarty.session.id)}		
 						<div id="write_review">
 							<form id="review" class="review-input" method="post">
-								<div class="rating">
-									<!-- stars -->
-									{for $i=1 to 5}
-										<input name="rating-input" id={"rating-input-"|cat:$i} type="radio" value={$i}
-										{if isset($filters.rating) && $i == $filters.rating}
-											checked
-										{/if}						
-										/>
-										<label class="rating-star" for={"rating-input-"|cat:$i}></label>
-									{/for}
-									<span>&nbsp & up</span>
+								<div id="filter-rating">
+									<div class="rating">
+										<!-- stars -->
+										{for $i=1 to 5}
+											<input id={"rating-input-"|cat:$i} type="radio" value={$i} name="rating-input"/>
+											<label class="rating-star" for={"rating-input-"|cat:$i}></label>
+										{/for}
+										<span>&nbsp & up</span>
+									</div>
 								</div>
 								<label for="comment">Comment:</label>
 								<textarea class="form-control" name="text_review" rows="5" id="comment"></textarea>
