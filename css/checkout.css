@@ -86,21 +86,28 @@
 
 /* ============================================================================================================================================================================*/
 /* Addresses */
+
 #myAddresses button {
+    margin-top: 5px;
 	display: inline-block;
 	margin-bottom: 15px;
 }
 
-#myAddresses .adressCard button {
+#myAddresses .addressCard button {
 	width: 40px;
 	height: 40px;
 }
 
-#myAddresses .adressCard .delete-address {
+#myAddresses .addressCard button.select-address {
+	width: 80px;
+	height: 40px;
+}
+
+#myAddresses .addressCard .delete-address {
 	/*background: #e53935 !important;*/
 }
 
-#myAddresses .adressCard .save-address, #myAddresses .adressCard .cancel-address  {
+#myAddresses .addressCard .save-address, #myAddresses .addressCard .cancel-address {
 	width: 70px;
 }
 
@@ -120,6 +127,11 @@
 #myAddresses .address-edit-country, #address-add-country {
 	padding-left: 8px;
 	margin-left: 0px;
+}
+
+#myAddresses #add-address-button button {
+	width: 70px;
+	height: 40px;
 }
 
 /* ============================================================================================================================================================================*/

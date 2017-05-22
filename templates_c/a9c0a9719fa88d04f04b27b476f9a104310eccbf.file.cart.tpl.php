@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 10:12:34
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 17:18:08
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:155513661158fa972543f4b7-82856310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9c0a9719fa88d04f04b27b476f9a104310eccbf' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl',
-      1 => 1495098752,
+      1 => 1495469855,
       2 => 'file',
     ),
   ),
@@ -31,101 +31,104 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<h1>Shopping cart</h1>
 	<hr>
 	
-	<?php if (count($_smarty_tpl->tpl_vars['products']->value)>0) {?>
-		<div class="checkout-cart">
-			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<a class="btn checkout-button" href="checkout.php">Checkout</a>
-		</div>
-	<?php } else { ?>
-		<span class="glyphicon glyphicon-shopping-cart"></span>
-		<p>Your shopping cart is empty right now, but it doesn't have to be!</p>
-			<a class="btn checkout-button" href="home.php">Go Shopping</a>
-	<?php }?>
-	
-	<div class="items-display" id="cart-results">		
-		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
+	<form action="checkout.php" method="get">
+		<?php if (count($_smarty_tpl->tpl_vars['products']->value)>0) {?>
+			<div class="checkout-cart">
+				<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
+				<button class="btn checkout-button" type="submit">Checkout</a>
+			</div>
+		<?php } else { ?>
+			<span class="glyphicon glyphicon-shopping-cart"></span>
+			<p>Your shopping cart is empty right now, but it doesn't have to be!</p>
+				<a class="btn checkout-button" href="home.php">Go Shopping</a>
+		<?php }?>
+		
+		<div class="items-display" id="cart-results">
+			<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['products']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
 $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?>
-			<div class="product-list">
-				<button type="button" class="btn remove-cart-item" id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
+				<div class="product-list">
+					<button type="button" class="btn remove-cart-item" id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
 >
-					<span class="glyphicon glyphicon-remove"></span>
-				</button>
-			
-				<div class="product-image-container">
-					<a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				
+					<div class="product-image-container">
+						<a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
 >
-						<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
-							<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+							<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
+								<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
  alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 >
-						<?php } else { ?>
-							<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+							<?php } else { ?>
+								<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 >
-						<?php }?>
-					</a>
-				</div>
-				
-				<div class="product-info-container">
-					<div class="row">
-						<div class="list-left-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<div class="name"><a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
+							<?php }?>
+						</a>
+					</div>
+					
+					<div class="product-info-container">
+						<div class="row">
+							<div class="list-left-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
+								<div class="name"><a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
 ><?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 </a></div>
-							<div class="type-brand"><a><?php echo $_smarty_tpl->tpl_vars['product']->value['keyword_name'];?>
+								<div class="type-brand"><a><?php echo $_smarty_tpl->tpl_vars['product']->value['keyword_name'];?>
 </a> - <a><?php echo $_smarty_tpl->tpl_vars['product']->value['brand_name'];?>
 </a></div>
-							<?php if ($_smarty_tpl->tpl_vars['product']->value['stock']>0) {?>
-								<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>
-							<?php } else { ?>
-								<div class="unavailable"><span class="glyphicon glyphicon-remove"></span>&nbsp; Unavailable</div>
-							<?php }?>
-							<div class="rating">
-								<?php if ($_smarty_tpl->tpl_vars['product']->value['nr_ratings']!=0) {?>
-									<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings']+1 - (1) : 1-($_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'])+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+								<?php if ($_smarty_tpl->tpl_vars['product']->value['stock']>0) {?>
+									<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>
+								<?php } else { ?>
+									<div class="unavailable"><span class="glyphicon glyphicon-remove"></span>&nbsp; Unavailable</div>
+								<?php }?>
+								<div class="rating">
+									<?php if ($_smarty_tpl->tpl_vars['product']->value['nr_ratings']!=0) {?>
+										<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings']+1 - (1) : 1-($_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'])+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-										<img src="../images/products/common/star.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'];?>
+											<img src="../images/products/common/star.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'];?>
 >
-									<?php }} ?>
+										<?php }} ?>
+									<?php }?>
+								</div>
+							</div>
+							<div class="list-middle-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
+								<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
+									<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['sale_price'],2);?>
+&euro;</span>
+									<span class="old-price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
+&euro;</span>
+								<?php } else { ?>
+									<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
+&euro;</span>
 								<?php }?>
 							</div>
-						</div>
-						<div class="list-middle-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
-								<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['sale_price'],2);?>
-&euro;</span>
-								<span class="old-price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
-&euro;</span>
-							<?php } else { ?>
-								<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
-&euro;</span>
-							<?php }?>
-						</div>
-						<div class="list-right-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-								<span class="glyphicon glyphicon-minus"></span>
-							</button>
-							<input type="text" name="quantity" class="form-control input-number" value="1" min="1" max="60" readonly>
-							<button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-								<span class="glyphicon glyphicon-plus"></span>
-							</button>
+							<div class="list-right-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
+								<button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+									<span class="glyphicon glyphicon-minus"></span>
+								</button>
+								<input type="text" name=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
+ class="form-control input-number" value="1" min="1" max="60" readonly>
+								<button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		<?php } ?>
-	</div>
-	
-	<?php if (count($_smarty_tpl->tpl_vars['products']->value)>=3) {?>
-		<div class="checkout-cart">
-			<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
-			<a class="btn checkout-button" href="checkout.php">Checkout</a>
+			<?php } ?>
 		</div>
-	<?php }?>
+		
+		<?php if (count($_smarty_tpl->tpl_vars['products']->value)>=3) {?>
+			<div class="checkout-cart">
+				<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
+				<button class="btn checkout-button" type="submit">Checkout</a>
+			</div>
+		<?php }?>
+	</form>
 </div>
 
 <?php echo $_smarty_tpl->getSubTemplate ('footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>

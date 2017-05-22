@@ -13,7 +13,7 @@
 			<ul class="row list-unstyled">
 				{foreach $addresses as $address}
 					<li class="col-sm-6 col-md-6">
-						<div class="adressCard" id={$address.address_id}>
+						<div class="addressCard" id={$address.address_id}>
 							<div class="addressInfo">
 								<p>{$address.street}, {$address.door_number}<br>
 								{$address.postal_zip} {$address.city}<br>
@@ -38,7 +38,7 @@
 								</select>
 								<input type="text" class="address-edit-telephone" placeholder="Phone number" value={$address.telephone_number}></input>
 							</div>
-							<button type="button" class="btn btn-primary btn-block select-address"> Select </button>
+							<button type="button" class="btn btn-primary btn-block select-address">Select</button>
 							<button type="button" class="btn btn-primary btn-block edit-address"><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-primary btn-block delete-address"><i class="fa fa-trash"></i></button>
 

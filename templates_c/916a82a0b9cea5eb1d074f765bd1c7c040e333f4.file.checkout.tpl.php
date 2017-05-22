@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 16:15:24
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 16:36:39
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19289588985919a408880ba6-26412463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '916a82a0b9cea5eb1d074f765bd1c7c040e333f4' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl',
-      1 => 1495466117,
+      1 => 1495467397,
       2 => 'file',
     ),
   ),
@@ -48,7 +48,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['address']->key => $_smarty_tpl->tpl_v
 $_smarty_tpl->tpl_vars['address']->_loop = true;
 ?>
 					<li class="col-sm-6 col-md-6">
-						<div class="adressCard" id=<?php echo $_smarty_tpl->tpl_vars['address']->value['address_id'];?>
+						<div class="addressCard" id=<?php echo $_smarty_tpl->tpl_vars['address']->value['address_id'];?>
 >
 							<div class="addressInfo">
 								<p><?php echo $_smarty_tpl->tpl_vars['address']->value['street'];?>
@@ -93,7 +93,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 								<input type="text" class="address-edit-telephone" placeholder="Phone number" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
 ></input>
 							</div>
-							<button type="button" class="btn btn-primary btn-block select-address"> Select </button>
+							<button type="button" class="btn btn-primary btn-block select-address">Select</button>
 							<button type="button" class="btn btn-primary btn-block edit-address"><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-primary btn-block delete-address"><i class="fa fa-trash"></i></button>
 
