@@ -41,6 +41,15 @@ $(document).ready(function(){
 			success: function(response) {
 		        $(element).parent().remove();
 				calculateSubtotal();
+				
+				var n_products = $('.product-list').length;
+				if (n_products < 3) {
+					$('.checkout-cart:last-child').hide();
+				}
+				if (n_products == 0) {
+					$('.checkout-cart').hide();
+					$('#empty-cart').attr('hidden', false);
+				}
 			}
 		});
 		

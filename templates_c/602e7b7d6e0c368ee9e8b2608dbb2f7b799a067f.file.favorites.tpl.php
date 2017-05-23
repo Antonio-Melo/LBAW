@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 00:48:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 02:58:28
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/favorites.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:134423211058fa79efda5532-85933901%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '602e7b7d6e0c368ee9e8b2608dbb2f7b799a067f' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/favorites.tpl',
-      1 => 1495496748,
+      1 => 1495504699,
       2 => 'file',
     ),
   ),
@@ -30,6 +30,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="container-fluid" id="favorites-body">
 	<h1>Favorites</h1>
 	<hr>
+	
+	<div id="empty-favorites" <?php if (count($_smarty_tpl->tpl_vars['products']->value)!=0) {?> hidden <?php }?>>
+		<span class="glyphicon glyphicon-heart"></span>
+		<p>Your favorites is empty right now, but it doesn't have to be!</p>
+		<a class="btn" href="home.php">Go Shopping</a>
+	</div>
 	
 	<div class="items-display" id="cart-results">
 		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;

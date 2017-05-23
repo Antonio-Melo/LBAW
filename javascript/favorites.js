@@ -10,6 +10,11 @@ $(document).ready(function(){
 			data: {product: product},
 			success: function(response) {
 		        $(element).parent().remove();
+				
+				var n_products = $('.product-list').length;
+				if (n_products == 0) {
+					$('#empty-favorites').attr('hidden', false);
+				}
 			}
 		});
 		
@@ -27,6 +32,11 @@ $(document).ready(function(){
 			data: {product: product},
 			success: function(response) {
 		        $(element).parents('.product-list').remove();
+				
+				var n_products = $('.product-list').length;
+				if (n_products == 0) {
+					$('#empty-favorites').attr('hidden', false);
+				}
 			}
 		});
 		

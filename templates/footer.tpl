@@ -6,11 +6,11 @@
 					<h4>Connect</h4>
 					<div class="input-group">
 						<div class="input-group-btn">
-							<button class="btn btn-default" id="search-bttn" type="submit">
+							<button class="btn btn-default" id="newsletter-bttn" type="submit">
 								<span class="glyphicon glyphicon-envelope"></span>
 							</button>
 						</div>
-						<input type="text" class="form-control" placeholder="Sign up for newsletter">
+						<input type="text" class="form-control" id="newsletter-input" placeholder="Sign up for our newsletter">
 					</div>
 				</div>
 				

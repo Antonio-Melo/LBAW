@@ -34,3 +34,7 @@ h2 {
 #faqs-body .answer {
 	padding: 15px;
 }
+
+#faqs-body .list-group-item:focus, #faqs-body .list-group-item:hover {
+	text-decoration: underline;
+}

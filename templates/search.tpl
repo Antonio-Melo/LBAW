@@ -183,6 +183,11 @@
 	</nav>
 	
 	<div class="items-display" id="search-results">
+		<div id="empty-search" {if count($products)!=0} hidden {/if}>
+			<span class="glyphicon glyphicon-remove"></span>
+			<p>No items were found for your search!</p>
+		</div>
+	
 		{foreach $products as $product}
 			<div id={$product.product_id} class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
 				<div class="product-image-container">

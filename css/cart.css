@@ -178,3 +178,38 @@
 .product-info-container .name {
 	cursor: pointer;
 }
+
+
+/* Empty cart */
+
+#page #empty-cart .checkout-button {
+	margin-left: 0;
+	margin-top: 20px;
+	background: #c49f66;
+}
+
+#page #empty-cart .checkout-button:focus, #page #empty-cart .checkout-button:hover {
+	background: #b98d49;
+}
+
+#empty-cart span {
+	font-size: 18px;
+}
+
+#empty-cart {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

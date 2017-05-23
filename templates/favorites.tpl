@@ -4,6 +4,12 @@
 	<h1>Favorites</h1>
 	<hr>
 	
+	<div id="empty-favorites" {if count($products)!=0} hidden {/if}>
+		<span class="glyphicon glyphicon-heart"></span>
+		<p>Your favorites is empty right now, but it doesn't have to be!</p>
+		<a class="btn" href="home.php">Go Shopping</a>
+	</div>
+	
 	<div class="items-display" id="cart-results">
 		{foreach $products as $product}
 			<div class="product-list" id={$product.product_id}>

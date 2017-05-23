@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 15:40:56
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 01:19:20
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1495464054,
+      1 => 1495498716,
       2 => 'file',
     ),
   ),
@@ -63,6 +63,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
             </div>
         </div>
     </div>
+	
     <div id="product-info" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		<?php if (isset($_SESSION['id'])&&isset($_SESSION['admin'])) {?>
 			<button id="editproduct" type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
@@ -161,7 +162,7 @@ $_smarty_tpl->tpl_vars['faq']->_loop = true;
 ?>
 							<a href=<?php echo ("#").($_smarty_tpl->tpl_vars['faq']->value['faq_id']);?>
  class="list-group-item" data-toggle="collapse"><?php echo $_smarty_tpl->tpl_vars['faq']->value['question'];?>
-</a>
+ <i class="fa fa-caret-down"></i></a>
 							<div class="collapse answer" id=<?php echo $_smarty_tpl->tpl_vars['faq']->value['faq_id'];?>
 >
 								<br><p><?php echo $_smarty_tpl->tpl_vars['faq']->value['answer'];?>

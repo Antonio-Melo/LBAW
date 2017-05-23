@@ -100,6 +100,15 @@ $(document).ready(function(){
 	function() {
 		$(this).siblings('.error-message').addClass('hide');
     });
+	
+	// Footer newsletter
+	$('#newsletter-bttn').click(function (e) {
+		if ($('#newsletter-input').val() != "") {
+			$('#newsletter-input').val("Thanks for subscribing!");
+			$('#newsletter-input').attr('readonly', true);
+			$('#newsletter-input').css({'background-color': '#fff'});
+		}
+	});
 });
 
 // Changes global validity variables

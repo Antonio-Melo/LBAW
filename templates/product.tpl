@@ -108,7 +108,7 @@
                 <div id="faq" class="tab-pane fade"><br>
                     <div class="list-group panel">
 						{foreach $faqs as $faq}
-							<a href={"#"|cat:$faq.faq_id} class="list-group-item" data-toggle="collapse">{$faq.question}</a>
+							<a href={"#"|cat:$faq.faq_id} class="list-group-item" data-toggle="collapse">{$faq.question} <i class="fa fa-caret-down"></i></a>
 							<div class="collapse answer" id={$faq.faq_id}>
 								<br><p>{$faq.answer}</p>
 							</div>

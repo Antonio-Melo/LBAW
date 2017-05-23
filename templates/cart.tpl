@@ -10,11 +10,14 @@
 				<span class="checkout-subtotal">Subtotal: <span class="checkout-subtotal-value"></span></span>
 				<button class="btn checkout-button" type="submit">Checkout</a>
 			</div>
-		{else}
+		{/if}
+		
+		<div id="empty-cart" {if count($products)!=0} hidden {/if}>
 			<span class="glyphicon glyphicon-shopping-cart"></span>
 			<p>Your shopping cart is empty right now, but it doesn't have to be!</p>
-				<a class="btn checkout-button" href="home.php">Go Shopping</a>
-		{/if}
+			<a class="btn checkout-button" href="home.php">Go Shopping</a>
+		</div>
+			
 		
 		<div class="items-display" id="cart-results">
 			{foreach $products as $product}
