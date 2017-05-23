@@ -328,7 +328,7 @@
 												<div class="row">
 													<div class="list-left-container col-lg-6 col-md-6 col-sm-6 col-xs-12">
 														<div class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.product_name}</a></div>
-														<div class="type-brand"><a>{$product.keyword_name}</a> - <a>{$product.brand_name}</a></div>
+														<div class="type-brand"><a href={"search.php?keywords="|cat:$product.keyword_name}>{$product.keyword_name}</a> - <a href={"search.php?brands="|cat:$product.brand_name}>{$product.brand_name}</a></div>
 													</div>
 													<div class="list-middle-container col-lg-2 col-md-2 col-sm-2 col-xs-12">
 														<div class="price"><span class="price-value">{$product.price_paid|number_format:2}</span>&euro;</div>
@@ -345,6 +345,7 @@
 									{/foreach}
 								</div>
 								<hr>
+								
 								<!--SHIPPING PRICE-->
 								<div class="shippingPrice">
 									{assign var="total_price" value=0}

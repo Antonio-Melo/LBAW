@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 17:25:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 00:45:52
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:155513661158fa972543f4b7-82856310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9c0a9719fa88d04f04b27b476f9a104310eccbf' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/cart.tpl',
-      1 => 1495469964,
+      1 => 1495496747,
       2 => 'file',
     ),
   ),
@@ -75,8 +75,10 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 								<div class="name"><a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
 ><?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 </a></div>
-								<div class="type-brand"><a><?php echo $_smarty_tpl->tpl_vars['product']->value['keyword_name'];?>
-</a> - <a><?php echo $_smarty_tpl->tpl_vars['product']->value['brand_name'];?>
+								<div class="type-brand"><a href=<?php echo ("search.php?keywords=").($_smarty_tpl->tpl_vars['product']->value['keyword_name']);?>
+><?php echo $_smarty_tpl->tpl_vars['product']->value['keyword_name'];?>
+</a> - <a href=<?php echo ("search.php?brands=").($_smarty_tpl->tpl_vars['product']->value['brand_name']);?>
+><?php echo $_smarty_tpl->tpl_vars['product']->value['brand_name'];?>
 </a></div>
 								<?php if ($_smarty_tpl->tpl_vars['product']->value['stock']>0) {?>
 									<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>

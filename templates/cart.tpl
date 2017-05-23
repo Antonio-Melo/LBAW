@@ -37,7 +37,7 @@
 						<div class="row">
 							<div class="list-left-container col-lg-4 col-md-4 col-sm-4 col-xs-12">
 								<div class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.product_name}</a></div>
-								<div class="type-brand"><a>{$product.keyword_name}</a> - <a>{$product.brand_name}</a></div>
+								<div class="type-brand"><a href={"search.php?keywords="|cat:$product.keyword_name}>{$product.keyword_name}</a> - <a href={"search.php?brands="|cat:$product.brand_name}>{$product.brand_name}</a></div>
 								{if $product.stock>0}
 									<div class="available"><span class="glyphicon glyphicon-ok"></span>&nbsp; Available</div>
 								{else}

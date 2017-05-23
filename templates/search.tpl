@@ -2,15 +2,68 @@
 
 <div class="container-fluid" id="search-body">
 
-	<!-------------------------------------------------------------------------------------------------------------------------->
-	<!-- Side -->
-	<!-- Mobile extras -->
-	<button onclick="openNav()" class="btn btn-default hidden-sm hidden-md hidden-lg" id="side-nav-bttn" type="submit">
-		<span class="glyphicon glyphicon-menu-hamburger"></span>
-	</button>
-	
 	<div id="search-mobile-background-filter" class="hidden-xs hidden-sm hidden-md hidden-lg mobile-background-filter" onclick="closeNav()"></div>
+
+	<!-------------------------------------------------------------------------------------------------------------------------->
+	<!-- Top -->
+	<nav id="search-display">
+		<div id="row1">
+			{if $nr_pages > 1}
+				<div class="page-selector">
+					<ul class="pagination pull-right">
+						<li><a go=1><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a></li>
+						<li><a go={$current_page} before=true><span class="glyphicon glyphicon-menu-left"></span></a></li>
+						{for $i=$start_page to $end_page}
+							<li 
+							{if $i == $current_page}
+								class="active"
+							{/if}
+							><a go={$i}>{$i}</a><li>
+						{/for}
+						<li><a go={$current_page} max={$nr_pages} next=true><span class="glyphicon glyphicon-menu-right"></span></a></li>
+						<li><a go={$nr_pages}><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a></li>
+					</ul>
+				</div>
+			{/if}
+		</div>
 	
+		<div id="row2">
+			<!-- Square/List -->
+			<button class="btn btn-default" id="search-display-bttn">
+				<span class="glyphicon glyphicon-th-large"></span>
+			</button>
+			
+			<!-- Order by -->
+			<div class="dropdown" id="search-order">
+				<button class="btn btn-default dropdown-toggle" id="search-order-bttn" data-toggle="dropdown">
+					{if isset($smarty.get.order)}
+						{$smarty.get.order}
+					{else}
+						Sort by:
+					{/if}
+					 &nbsp;&nbsp;<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a>Relevant</a></li>
+					<li><a>Higher price</a></li>
+					<li><a>Lower price</a></li>
+					<li><a>Most sold</a></li>
+					<li><a>Best rating</a></li>
+					<li><a>Name: A -> Z</a></li>
+					<li><a>Name: Z -> A</a></li>
+				</ul>
+			</div>
+			
+			<!-- Mobile extras -->
+			<button onclick="openNav()" class="btn btn-default hidden-sm hidden-md hidden-lg" id="side-nav-bttn" type="submit">
+				<span class="glyphicon glyphicon-menu-hamburger"></span>
+			</button>
+		</div>
+	</nav>
+	<hr>
+
+	<!------------------------------------------------------------------------------------------------------------------------->
+	<!-- Center -->
 	<!-- Filters nav -->
 	<nav class="panel-group sidenav hidden-xs visible-sm-block visible-md-block visible-lg-block" id="search-filters">
 		<a href="javascript:void(0)" class="closebtn hidden-sm hidden-md hidden-lg" onclick="closeNav()">&times;</a>
@@ -22,7 +75,7 @@
 					<h4 class="panel-title">Categories<i class="fa fa-caret-down"></i></h4>
 				</div>
 			</a>
-			<div id="filter-categories" class="panel-collapse collapse in">
+			<div id="filter-categories" class="panel-collapse collapse">
 				<ul class="list-group">
 					{foreach $products_keywords as $keyword}
 						<li class='list-group-item'>
@@ -48,7 +101,7 @@
 					<h4 class="panel-title">Price<i class="fa fa-caret-down"></i></h4>
 				</div>
 			</a>
-			<div id="filter-price" class="panel-collapse collapse in">
+			<div id="filter-price" class="panel-collapse collapse">
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
 				<div id="filter-price-slider"
@@ -66,7 +119,7 @@
 					<h4 class="panel-title">Brand<i class="fa fa-caret-down"></i></h4>
 				</div>
 			</a>
-			<div id="filter-brands" class="panel-collapse collapse in">
+			<div id="filter-brands" class="panel-collapse collapse">
 				<ul class="list-group">
 					{foreach $products_brands as $brand}
 						<li class='list-group-item'>
@@ -92,7 +145,7 @@
 					<h4 class="panel-title">On sale<i class="fa fa-caret-down"></i></h4>
 				</div>
 			</a>
-			<div id="filter-onsale" class="panel-collapse collapse in">
+			<div id="filter-onsale" class="panel-collapse collapse">
 				<ul class="list-group">
 					<li class="list-group-item"><label for="scb">On sale</label><div class="custom-checkbox"><input id="scb" type="checkbox" value=""
 					{if $filters.onsale=="true"}
@@ -110,7 +163,7 @@
 					<h4 class="panel-title">Rating<i class="fa fa-caret-down"></i></h4>
 				</div>
 			</a>
-			<div id="filter-rating" class="panel-collapse collapse in">
+			<div id="filter-rating" class="panel-collapse collapse">
 				<div class="rating">
 					<!-- stars -->
 					{for $i=1 to 5}
@@ -128,59 +181,8 @@
 		
 		<button class="btn btn-default" id="filter-search-bttn">Filter</button>
 	</nav>
-
-	<!-------------------------------------------------------------------------------------------------------------------------->
-	<!-- Top -->
-	<nav id="search-display">
-		<!-- Square/List -->
-		<button class="btn btn-default" id="search-display-bttn">
-			<span class="glyphicon glyphicon-th-large"></span>
-		</button>
-		
-		<!-- Order by -->
-		<div class="dropdown" id="search-order">
-			<button class="btn btn-default dropdown-toggle" id="search-order-bttn" data-toggle="dropdown">
-				{if isset($smarty.get.order)}
-					{$smarty.get.order}
-				{else}
-					Sort by:
-				{/if}
-				 &nbsp;&nbsp;<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				<li><a>Relevant</a></li>
-				<li><a>Higher price</a></li>
-				<li><a>Lower price</a></li>
-				<li><a>Most sold</a></li>
-				<li><a>Best rating</a></li>
-				<li><a>Name: A -> Z</a></li>
-				<li><a>Name: Z -> A</a></li>
-			</ul>
-		</div>
-	</nav>
-	<hr>
-
-	<!------------------------------------------------------------------------------------------------------------------------->
-	<!-- Center -->
-	<div class="items-display" id="search-results">
-		{if $nr_pages > 1}
-			<div class="page-selector">
-				<ul class="pagination pull-right">
-					<li><a go=1><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a></li>
-					<li><a go={$current_page} before=true><span class="glyphicon glyphicon-menu-left"></span></a></li>
-					{for $i=$start_page to $end_page}
-						<li 
-						{if $i == $current_page}
-							class="active"
-						{/if}
-						><a go={$i}>{$i}</a><li>
-					{/for}
-					<li><a go={$current_page} max={$nr_pages} next=true><span class="glyphicon glyphicon-menu-right"></span></a></li>
-					<li><a go={$nr_pages}><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a></li>
-				</ul>
-			</div>
-		{/if}
 	
+	<div class="items-display" id="search-results">
 		{foreach $products as $product}
 			<div id={$product.product_id} class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
 				<div class="product-image-container">
@@ -194,7 +196,7 @@
 					<div class="center-block">
 						<div class="list-left-container">
 							<div class="name"><a href={"product.php?id="|cat:$product.product_id}>{$product.product_name}</a></div>
-							<div class="type-brand"><a>{$product.keyword_name}</a> - <a>{$product.brand_name}</a></div>					
+							<div class="type-brand"><a href={"search.php?keywords="|cat:$product.keyword_name}>{$product.keyword_name}</a> - <a href={"search.php?brands="|cat:$product.brand_name}>{$product.brand_name}</a></div>					
 						</div>
 						<div class="list-middle-container">
 							{if $product.stock>0}

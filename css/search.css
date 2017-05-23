@@ -9,13 +9,15 @@
 	height: 50px;
 	width: 50px;
 	float: left;
-	margin: 5px;
+	margin: 0px 5px 0px 5px;
 }
 
 #search-filters {
 	width: 250px;
+	margin-left: 5px;
 	background: #fff;
 	float: left;
+	display: inline-block;
 }
 
 #search-filters .panel-heading {
@@ -131,6 +133,10 @@
 }
 
 @media (max-width: 767px) {
+	#search-filters {
+		margin-left: 0px;
+	}
+	
 	.mobile-background-filter {
 		height: 100%;
 		width: 100%;
@@ -165,8 +171,17 @@
 /*===============================================================================*/
 /* Display settings */
 
-#search-display {
+#row1 {
+	overflow: hidden;
+	margin-bottom: 20px !important;
+}
+
+#row2 {
 	height: 50px;
+}
+
+#search-display {
+	height: 130px;
 	margin: 5px !important;
 }
 
@@ -180,6 +195,7 @@
 	height: 50px;
 	width: 50px;
 	float: right;
+	clear: right;
 }
 
 #search-display-bttn span {
@@ -218,12 +234,19 @@
 /* Search results */
 
 /* Pagination */
+#search-display .page-selector {
+	float: right;
+}
+
 #search-results .page-selector {
 	width: 100%;
+}
+
+#search-body .page-selector {
 	overflow: hidden;
 }
 
-#search-results .pagination a {
+#search-body .pagination a {
 	border-radius: 0;
 	color: #333;
 	width: 34px;
@@ -234,13 +257,13 @@
 	cursor: pointer;
 }
 
-#search-results .pagination a .glyphicon {
+#search-body .pagination a .glyphicon {
 	color: #777;
 	margin-left: -4px;
 	margin-right: -4px;
 }
 
-#search-results .pagination .active a, #search-results .pagination .active a:hover {
+#search-body .pagination .active a, #search-body .pagination .active a:hover {
 	color: white;
 	background: #c49f66;
 	border: 1px solid #ddd;
@@ -250,7 +273,9 @@
 
 /* Items display */
 .items-display {
-	margin: 0 5px 0 260px;
+	width: calc(100% - 265px);
+	display: inline-block;
+	margin: 0 5px 0 5px;
 }
 
 .product-info-container .name a{
@@ -278,7 +303,7 @@
 
 @media (max-width: 767px) {
 	.items-display {
-		margin: 0 5px 0 5px;
+		width: 100%;
 	}
 }
 

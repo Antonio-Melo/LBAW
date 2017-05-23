@@ -22,6 +22,7 @@
             </div>
         </div>
     </div>
+	
     <div id="product-info" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		{if isset($smarty.session.id) && isset($smarty.session.admin)}
 			<button id="editproduct" type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
