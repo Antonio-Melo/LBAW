@@ -20,6 +20,20 @@
 	/*==================================================*/
 
 	include_once('../database/products.php');
+	include_once('../database/users.php');
+	
+	$user_cart = array();
+	$user_favorites = array();
+	if ($_SESSION['id']) {
+		foreach (getFavoritesIds($_SESSION['id']) as $value) {
+			array_push($user_favorites, $value['product']);
+		}
+
+		$user_cart = getCartIds($_SESSION['id']);
+		foreach (getCartIds($_SESSION['id']) as $value) {
+			array_push($user_cart, $value['product']);
+		}
+	}
 	
 	$results_per_page = 20;
 	$current_page;
@@ -80,7 +94,6 @@
 	// Limit $products to number of products per page
 	$page_products = array_slice($products, ($current_page-1)*$results_per_page, $results_per_page);
 	
-	
 	$smarty->assign('products', $page_products);
 	$smarty->assign('products_keywords', array_unique($products_keywords));
 	$smarty->assign('products_brands', array_unique($products_brands));
@@ -90,6 +103,8 @@
 	$smarty->assign('current_page', $current_page);
 	$smarty->assign('start_page', $start_page);
 	$smarty->assign('end_page', $end_page);
+	$smarty->assign('user_favorites', $user_favorites);
+	$smarty->assign('user_cart', $user_cart);
 	
 	$smarty->display('search.tpl');
 	

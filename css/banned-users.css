@@ -1,0 +1,17 @@
+.row{
+	text-align: center;
+}
+
+.btn-group-vertical{
+	width: 100%;
+    text-align: center;
+}
+
+h3 {
+	overflow-wrap: break-word;
+}
+
+#unban{
+	margin: auto;
+	text-align: center;
+}

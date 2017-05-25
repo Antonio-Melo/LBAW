@@ -4,21 +4,23 @@ include_once('../database/users.php');
 
 $response = array();
 
-if (!$_SESSION['id'] || !$_POST['product'] || $_SESSION['admin']) {
+if (!$_SESSION['id']) {
+	$response["status"] = false;
+	echo json_encode($response);
+	exit;
+}
+
+if (!$_POST['product'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
 $product = $_POST['product'];
 
 try {
-	if (removeFavorite($_SESSION['id'], $product)) {
-		$response["status"] = true;
-		echo json_encode($response);
-		exit;
-	}
-	else {
-		die(header("HTTP/1.0 400 Bad Request"));
-	}
+	removeFavorite($_SESSION['id'], $product);
+	$response["status"] = true;
+	echo json_encode($response);
+	exit;
 } catch (PDOException $e) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }

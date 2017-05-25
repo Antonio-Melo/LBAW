@@ -29,8 +29,19 @@
 	include_once('../database/users.php');
 	
 	$products = getUserFavorites($_SESSION['id']);
+
+	$user_cart = array();
+	if ($_SESSION['id']) {
+		$user_cart = getCartIds($_SESSION['id']);
+		foreach (getCartIds($_SESSION['id']) as $value) {
+			array_push($user_cart, $value['product']);
+		}
+	}
+
 	
 	$smarty->assign('products', $products);
+	$smarty->assign('cart_products', $user_cart);
+
 	
 	$smarty->display('favorites.tpl');
 ?>

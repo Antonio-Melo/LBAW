@@ -87,7 +87,12 @@
 /* ============================================================================================================================================================================*/
 /* Addresses */
 
-#myAddresses button {
+.selectedAddress button, .shippingCard button, .selectedShipping button, .selectedPayment button, .selectedBillingAddress button {
+	width: 80px;
+	height: 40px;
+}
+
+#myAddresses button, #shippingMethodsList button {
     margin-top: 5px;
 	display: inline-block;
 	margin-bottom: 15px;
@@ -98,7 +103,12 @@
 	height: 40px;
 }
 
-#myAddresses .addressCard button.select-address {
+#add-address-input button {
+	width: 70px;
+	height: 40px;
+}
+
+#myAddresses .addressCard button.select-address, #myAddresses .addressCard button.select-billing-address {
 	width: 80px;
 	height: 40px;
 }
@@ -132,6 +142,13 @@
 #checkout-body button.add-address {
 	width: 70px;
 	height: 40px;
+}
+
+#checkout-body div.selectedAddress, #checkout-body div.selectedShipping,  #checkout-body div.selectedPayment,  #checkout-body div.selectedBillingAddress {
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 /* ============================================================================================================================================================================*/

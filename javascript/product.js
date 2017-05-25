@@ -43,6 +43,49 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
+	$('#reply-link').click(function(e) {
+		console.log(this);
+		var value = $(this).attr('name');
+		if(value == "off") {
+            console.log("Fui carregado.");
+            $('<div id="write_reply">' +
+                '<form id="reply" class="review-input" method="post">' +
+                '<label for="comment">Comment:</label>' +
+                '<textarea class="form-control" name="text_reply" rows="5" id="comment"></textarea>' +
+                '<button type="submit" class="btn btn-success product-buttons button">Reply</button>' +
+                '</form>' +
+                '</div>').insertAfter('#reply-link');
+            console.log("Fiz injection de code");
+            $(this).attr('name', "on");
+        }else{
+            console.log("Vou eliminar");
+            $(this).attr('name',"off");
+			$('#write_reply').remove();
+            console.log("Eliminei");
+		}
+
+	});
+
+	$("#reply").submit(function (e) {
+		var url = base_url +"api/reply.php";
+        var stuff = qs();
+        var id = stuff['id'];
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#reply").serialize() + "&id=" +id,
+            success: function(response) {
+                var json = $.parseJSON(response);
+
+                if (json.status == "true") {
+                    document.getElementById("review").reset();
+                }
+            }
+            e.preventDefault();
+		});
+
+    });
+
 	$("#review").submit(function(e){
 		var url = base_url + "api/review.php";
 		var stuff = qs();

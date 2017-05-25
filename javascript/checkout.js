@@ -1,5 +1,3 @@
-var valid_edit_username = true, valid_edit_name = true, valid_edit_email = true, valid_edit_password = false;
-
 $(document).ready(function(){
 	
 	/* ========================================================================*/
@@ -65,6 +63,29 @@ $(document).ready(function(){
 		$('#add-address-input').toggleClass('hide');
 	});
 	
+	$('.select-address').click(function(e) {
+		var addressID = $(this).attr('id');
+		var innerhtml = $('#' + addressID).children(":first").html();
+		$('#selectedAddressInfo')[0].innerHTML = innerhtml;
+		$('.selectedAddress').removeClass('hide');
+		$('.selectedAddress').addClass('show');
+	});
+	
+	$('.change-address').click(function(e) {
+		$('.selectedShipping').removeClass('show');
+		$('.selectedShipping').addClass('hide');
+		$('.selectedPayment').removeClass('show');
+		$('.selectedPayment').addClass('hide');
+		$('.selectedBillingAddress').removeClass('show');
+		$('.selectedBillingAddress').addClass('hide');
+		$('.collapse#shippingAddress').collapse("show");
+		$('.collapse#shippingMethod').collapse("hide");
+		$('.collapse#paymentMethod').collapse("hide");
+		$('.collapse#billingAddress').collapse("hide");
+		$('.selectedAddress').removeClass('show');
+		$('.selectedAddress').addClass('hide');
+	});
+	
 	$('#save-add-address').click(function(e) {
 		street = $('#address-add-street').val();
 		door = $('#address-add-door-number').val();
@@ -98,6 +119,57 @@ $(document).ready(function(){
 		$('#address-add-city').val("");
 		$('#address-add-region').val("");
 		$('#address-add-telephone').val("");
+	});
+	
+	$('.select-shipping-method').click(function(e) {
+		var shippingID = $(this).attr('id');
+		var innerhtml = $('#' + shippingID).children(":first").html();
+		$('#selectedShippingInfo')[0].innerHTML = innerhtml;
+		$('.selectedShipping').removeClass('hide');
+		$('.selectedShipping').addClass('show');
+	});
+	
+	$('.change-shipping').click(function(e) {
+		$('.selectedPayment').removeClass('show');
+		$('.selectedPayment').addClass('hide');
+		$('.selectedBillingAddress').removeClass('show');
+		$('.selectedBillingAddress').addClass('hide');
+		$('.collapse#shippingMethod').collapse("show");
+		$('.collapse#paymentMethod').collapse("hide");
+		$('.collapse#billingAddress').collapse("hide");
+		$('.selectedShipping').removeClass('show');
+		$('.selectedShipping').addClass('hide');
+	});
+	
+	$('.select-payment-method').click(function(e) {
+		var paymentID = $(this).attr('id');
+		var innerhtml = $('#' + paymentID).children(":first").html();
+		$('#selectedPaymentInfo')[0].innerHTML = innerhtml;
+		$('.selectedPayment').removeClass('hide');
+		$('.selectedPayment').addClass('show');
+	});
+	
+	$('.change-payment-method').click(function(e) {
+		$('.selectedBillingAddress').removeClass('show');
+		$('.selectedBillingAddress').addClass('hide');
+		$('.collapse#paymentMethod').collapse("show");
+		$('.collapse#billingAddress').collapse("hide");
+		$('.selectedPayment').removeClass('show');
+		$('.selectedPayment').addClass('hide');
+	});
+	
+	$('.select-billing-address').click(function(e) {
+		var addressID = $(this).attr('id');
+		var innerhtml = $('#' + addressID).children(":first").html();
+		$('#selectedBillingAddressInfo')[0].innerHTML = innerhtml;
+		$('.selectedBillingAddress').removeClass('hide');
+		$('.selectedBillingAddress').addClass('show');
+	});
+	
+	$('.change-billing-address').click(function(e) {
+		$('.collapse#billingAddress').collapse("show");
+		$('.selectedBillingAddress').removeClass('show');
+		$('.selectedBillingAddress').addClass('hide');
 	});
 	
 	function setAddressVars(element) {

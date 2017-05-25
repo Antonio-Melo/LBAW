@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 03:24:17
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 10:02:19
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1495506254,
+      1 => 1495702917,
       2 => 'file',
     ),
   ),
@@ -31,6 +31,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'brand' => 0,
     'products' => 0,
     'product' => 0,
+    'user_favorites' => 0,
+    'user_cart' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -321,10 +323,18 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 									<span class="old-price"></span>
 								<?php }?>
 							</div>
-							<button class="btn btn-default" id="product-fav-bttn">
+							<button class="btn btn-default product-fav-bttn
+							<?php if (isset($_SESSION['id'])&&in_array($_smarty_tpl->tpl_vars['product']->value['product_id'],$_smarty_tpl->tpl_vars['user_favorites']->value)) {?>
+								isFavorite
+							<?php }?>
+							">
 								<span class="glyphicon glyphicon-heart"></span>
 							</button>
-							<button class="btn btn-default" id="product-cart-bttn">
+							<button class="btn btn-default product-cart-bttn
+							<?php if (isset($_SESSION['id'])&&in_array($_smarty_tpl->tpl_vars['product']->value['product_id'],$_smarty_tpl->tpl_vars['user_cart']->value)) {?>
+								isCart
+							<?php }?>
+							">
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 						</div>

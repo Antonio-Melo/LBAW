@@ -12,6 +12,7 @@
         <div class="product-info-container">
             <div class="center-block">
                 <span class="name"><h1>{$product.product_name}</h1></span>
+				<span class="type-brand"><a href={"search.php?keywords="|cat:$product.keyword_name}>{$product.keyword_name}</a> - <a href={"search.php?brands="|cat:$product.brand_name}>{$product.brand_name}</a></span>
 				<span>
 					{if $product.nr_ratings != 0}
 						{for $i=1 to $product.rating/$product.nr_ratings}
@@ -153,6 +154,9 @@
 										</div>
 									</div>
 								{/foreach}
+                                {if isset($smarty.session.id)}
+                                    <a id="reply-link" name="off">Reply</a>
+                                {/if}
 							</div>
 						</div>
 						<hr>

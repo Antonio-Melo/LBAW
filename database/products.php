@@ -9,6 +9,9 @@ function writeReview($client,$product, $text_review,$rating_input){
 
     $stmt->execute(array($rating_input,$text_review,$client, $product));
 }
+function writeReply($client,$review_id,$text_reply){
+
+}
 
 // Returns 6 most viewed products that are on sale (for home page)
 function getProductsOnSale() {
@@ -86,9 +89,10 @@ function getProductById($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT *, product.name AS product_name, product.id AS product_id
+	SELECT *, product.name AS product_name, product.id AS product_id, keyword.name AS keyword_name, brand.name AS brand_name
 	FROM product
 	JOIN keyword ON product.keyword=keyword.id
+	JOIN brand ON product.brand=brand.id
 	LEFT JOIN onsale ON product.id=onsale.id
 	LEFT JOIN image ON product.id=image.product
 	WHERE product.id=?

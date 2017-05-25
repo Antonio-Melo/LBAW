@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 01:19:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 09:40:27
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1495498716,
+      1 => 1495701622,
       2 => 'file',
     ),
   ),
@@ -49,6 +49,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="center-block">
                 <span class="name"><h1><?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
 </h1></span>
+				<span class="type-brand"><a href=<?php echo ("search.php?keywords=").($_smarty_tpl->tpl_vars['product']->value['keyword_name']);?>
+><?php echo $_smarty_tpl->tpl_vars['product']->value['keyword_name'];?>
+</a> - <a href=<?php echo ("search.php?brands=").($_smarty_tpl->tpl_vars['product']->value['brand_name']);?>
+><?php echo $_smarty_tpl->tpl_vars['product']->value['brand_name'];?>
+</a></span>
 				<span>
 					<?php if ($_smarty_tpl->tpl_vars['product']->value['nr_ratings']!=0) {?>
 						<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings']+1 - (1) : 1-($_smarty_tpl->tpl_vars['product']->value['rating']/$_smarty_tpl->tpl_vars['product']->value['nr_ratings'])+1)/abs($_smarty_tpl->tpl_vars['i']->step));
@@ -231,6 +236,9 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 										</div>
 									</div>
 								<?php } ?>
+                                <?php if (isset($_SESSION['id'])) {?>
+                                    <a id="reply-link" name="off">Reply</a>
+                                <?php }?>
 							</div>
 						</div>
 						<hr>

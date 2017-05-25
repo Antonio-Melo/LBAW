@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-22 17:31:11
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 10:49:13
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19289588985919a408880ba6-26412463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '916a82a0b9cea5eb1d074f765bd1c7c040e333f4' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl',
-      1 => 1495470665,
+      1 => 1495705747,
       2 => 'file',
     ),
   ),
@@ -23,8 +23,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'address' => 0,
     'countries' => 0,
     'country' => 0,
+    'shippingmethods' => 0,
+    'shippingmethod' => 0,
+    'paymentmethods' => 0,
+    'paymentmethod' => 0,
     'products' => 0,
     'product' => 0,
+    'index' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -34,11 +39,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="container-fluid" id="checkout-body">
 	<h1>Chekout</h1>
 	
-	<a href="#shippingAddress" class="list-group-item" data-toggle="collapse">
+	<a class="list-group-item">
 		<h4>Shipping Address</h4>
 	</a>
 	<div class="collapse container in" id="shippingAddress">
-
+		<?php if (!isset($_SESSION['admin'])) {?>
 		<!-- My Addresses -->
 		<div id="myAddresses">
 			<ul class="row list-unstyled">
@@ -93,7 +98,8 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 								<input type="text" class="address-edit-telephone" placeholder="Phone number" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
 ></input>
 							</div>
-							<button type="button" class="btn btn-primary btn-block select-address">Select</button>
+							<button type="button" class="btn btn-primary btn-block select-address" id=<?php echo $_smarty_tpl->tpl_vars['address']->value['address_id'];?>
+ data-toggle="collapse" data-target="#shippingAddress,#shippingMethod" data-parent="#checkout-body">Select</button>
 							<button type="button" class="btn btn-primary btn-block edit-address"><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-primary btn-block delete-address"><i class="fa fa-trash"></i></button>
 
@@ -124,28 +130,209 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 					</select>
 					<input type="text" id="address-add-telephone" placeholder="Phone number"}></input>
 				</div>
-				<button type="button" id="save-add-address" class="btn btn-primary btn-block profileButton">Save</button>
-				<button type="button" id="cancel-add-address" class="btn btn-primary btn-block profileButton">Cancel</button>
+				<button type="button" id="save-add-address" class="btn btn-primary btn-block addressButton">Save</button>
+				<button type="button" id="cancel-add-address" class="btn btn-primary btn-block addressButton">Cancel</button>
 			</div>
 
 			<button id="add-address-button" type="button" class="btn btn-primary btn-block add-address">Add</button>
 		</div>
+		<?php }?>
 	</div>
 
-	<a href="#shippingMethod" class="list-group-item" data-toggle="collapse">
+	<div class="selectedAddress hide">
+		<div id="selectedAddressInfo">
+		</div>
+		<button type="button" class="btn btn-primary btn-block change-address">Change</button>
+	</div>
+
+	<a class="list-group-item" data-toggle="collapse">
 		<h4>Shipping Method</h4>
 	</a>
 	<div class="collapse container" id="shippingMethod">
-		<p>Escolher modo de envio</p>
+		<?php if (!isset($_SESSION['admin'])) {?>
+		<!-- Shipping Methods -->
+		<div id="shippingMethodsList">
+			<ul class="row list-unstyled">
+				<?php  $_smarty_tpl->tpl_vars['shippingmethod'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['shippingmethod']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['shippingmethods']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['shippingmethod']->key => $_smarty_tpl->tpl_vars['shippingmethod']->value) {
+$_smarty_tpl->tpl_vars['shippingmethod']->_loop = true;
+?>
+					<li class="col-sm-6 col-md-6">
+						<div class="shippingCard" id=<?php echo $_smarty_tpl->tpl_vars['shippingmethod']->value['name'];?>
+>
+							<div class="shippingInfo">
+								<h4><?php echo $_smarty_tpl->tpl_vars['shippingmethod']->value['name'];?>
+</h4>
+								<p><?php echo $_smarty_tpl->tpl_vars['shippingmethod']->value['price'];?>
+&euro;</p>
+							</div>
+							<button type="button" class="btn btn-primary btn-block select-shipping-method" id=<?php echo $_smarty_tpl->tpl_vars['shippingmethod']->value['name'];?>
+ data-toggle="collapse" data-target="#shippingMethod,#paymentMethod" data-parent="#checkout-body">Select</button>
+						</div>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+		<?php }?>
 	</div>
 
-	<a href="#paymentMethod" class="list-group-item" data-toggle="collapse">
+	<div class="selectedShipping hide">
+		<div id="selectedShippingInfo">
+		</div>
+		<button type="button" class="btn btn-primary btn-block change-shipping"	>Change</button>
+	</div>
+
+	<a class="list-group-item">
 		<h4>Payment Method</h4>
 	</a>
 	<div class="collapse container" id="paymentMethod">
-		<p>Escolher metodo de pagamento</p>
+		<?php if (!isset($_SESSION['admin'])) {?>
+		<!-- Shipping Methods -->
+		<div id="shippingMethodsList">
+			<ul class="row list-unstyled">
+				<?php  $_smarty_tpl->tpl_vars['paymentmethod'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['paymentmethod']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['paymentmethods']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['paymentmethod']->key => $_smarty_tpl->tpl_vars['paymentmethod']->value) {
+$_smarty_tpl->tpl_vars['paymentmethod']->_loop = true;
+?>
+					<li class="col-sm-6 col-md-6">
+						<div class="shippingCard" id=<?php echo $_smarty_tpl->tpl_vars['paymentmethod']->value['name'];?>
+>
+							<div class="shippingInfo">
+								<?php if ($_smarty_tpl->tpl_vars['paymentmethod']->value['id']==1) {?>
+								<span class="fa fa-cc-visa" style="font-size:48px;color:#494e6b"></span>
+								<span class="fa fa-cc-mastercard" style="font-size:48px;color:#494e6b"></span>
+								<?php } elseif ($_smarty_tpl->tpl_vars['paymentmethod']->value['id']==2) {?>
+								<span class="fa fa-paypal" style="font-size:48px;color:#494e6b" ></span>
+								<?php }?>
+								<h4><?php echo $_smarty_tpl->tpl_vars['paymentmethod']->value['name'];?>
+</h4>
+							</div>
+							<button type="button" class="btn btn-primary btn-block select-payment-method" id=<?php echo $_smarty_tpl->tpl_vars['paymentmethod']->value['name'];?>
+ data-toggle="collapse" data-target="#paymentMethod, #billingAddress" data-parent="#checkout-body">Select</button>
+						</div>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+		<?php }?>
 	</div>
 	
+	<div class="selectedPayment hide">
+		<div id="selectedPaymentInfo">
+		</div>
+		<button type="button" class="btn btn-primary btn-block change-payment-method">Change</button>
+	</div>
+
+	<a class="list-group-item">
+		<h4>Billing Address</h4>
+	</a>
+	<div class="collapse container" id="billingAddress">
+		<?php if (!isset($_SESSION['admin'])) {?>
+		<!-- My Addresses -->
+		<div id="myAddresses">
+			<ul class="row list-unstyled">
+				<?php  $_smarty_tpl->tpl_vars['address'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['address']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['addresses']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['address']->key => $_smarty_tpl->tpl_vars['address']->value) {
+$_smarty_tpl->tpl_vars['address']->_loop = true;
+?>
+					<li class="col-sm-6 col-md-6">
+						<div class="addressCard" id=<?php echo $_smarty_tpl->tpl_vars['address']->value['address_id'];?>
+>
+							<div class="addressInfo">
+								<p><?php echo $_smarty_tpl->tpl_vars['address']->value['street'];?>
+, <?php echo $_smarty_tpl->tpl_vars['address']->value['door_number'];?>
+<br>
+								<?php echo $_smarty_tpl->tpl_vars['address']->value['postal_zip'];?>
+ <?php echo $_smarty_tpl->tpl_vars['address']->value['city'];?>
+<br>
+								<?php echo $_smarty_tpl->tpl_vars['address']->value['region'];?>
+<br>
+								<?php echo $_smarty_tpl->tpl_vars['address']->value['country_name'];?>
+<br>
+								Tel: <?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
+</p>
+							</div>
+							<div class="addressEdit hide">
+								<input type="text" class="address-edit-street" placeholder="Street" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['street'];?>
+></input>
+								<input type="text" class="address-edit-door-number" placeholder="Door number" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['door_number'];?>
+></input>
+								<input type="text" class="address-edit-postal-zip" placeholder="Zip code" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['postal_zip'];?>
+></input>
+								<input type="text" class="address-edit-city" placeholder="City" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['city'];?>
+></input>
+								<input type="text" class="address-edit-region" placeholder="Region" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['region'];?>
+></input>
+								<select class="country-select address-edit-country">
+									<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countries']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['country']->key => $_smarty_tpl->tpl_vars['country']->value) {
+$_smarty_tpl->tpl_vars['country']->_loop = true;
+?>
+										<option value="<?php echo $_smarty_tpl->tpl_vars['country']->value['id'];?>
+"
+										<?php if ($_smarty_tpl->tpl_vars['country']->value['name']==$_smarty_tpl->tpl_vars['address']->value['country_name']) {?>
+											selected
+										<?php }?>
+										><?php echo $_smarty_tpl->tpl_vars['country']->value['name'];?>
+</option>
+									<?php } ?>
+								</select>
+								<input type="text" class="address-edit-telephone" placeholder="Phone number" value=<?php echo $_smarty_tpl->tpl_vars['address']->value['telephone_number'];?>
+></input>
+							</div>
+							<button type="button" class="btn btn-primary btn-block select-billing-address" id=<?php echo $_smarty_tpl->tpl_vars['address']->value['address_id'];?>
+ data-toggle="collapse" data-target="#billingAddress" data-parent="#checkout-body">Select</button>
+							<button type="button" class="btn btn-primary btn-block edit-address"><i class="fa fa-pencil"></i></button>
+							<button type="button" class="btn btn-primary btn-block delete-address"><i class="fa fa-trash"></i></button>
+
+							<button type="button" class="btn btn-primary btn-block save-address hide">Save</button>
+							<button type="button" class="btn btn-primary btn-block cancel-address hide">Cancel</button>
+						</div>
+					</li>
+				<?php } ?>
+			</ul>
+
+			<div id="add-address-input" class="hide">
+				<div>
+					<input type="text" id="address-add-street" placeholder="Street"></input>
+					<input type="text" id="address-add-door-number" placeholder="Door number"></input>
+					<input type="text" id="address-add-postal-zip" placeholder="Zip code"></input>
+					<input type="text" id="address-add-city" placeholder="City"></input>
+					<input type="text" id="address-add-region" placeholder="Region"></input>
+					<select class="country-select" id="address-add-country">
+						<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countries']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['country']->key => $_smarty_tpl->tpl_vars['country']->value) {
+$_smarty_tpl->tpl_vars['country']->_loop = true;
+?>
+							<option value="<?php echo $_smarty_tpl->tpl_vars['country']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['country']->value['name'];?>
+</option>
+						<?php } ?>
+					</select>
+					<input type="text" id="address-add-telephone" placeholder="Phone number"}></input>
+				</div>
+				<button type="button" id="save-add-address" class="btn btn-primary btn-block addressButton">Save</button>
+				<button type="button" id="cancel-add-address" class="btn btn-primary btn-block addressButton">Cancel</button>
+			</div>
+
+			<button id="add-address-button" type="button" class="btn btn-primary btn-block add-address">Add</button>
+		</div>
+		<?php }?>
+	</div>
+
+	<div class="selectedBillingAddress hide">
+		<div id="selectedBillingAddressInfo">
+		</div>
+		<button type="button" class="btn btn-primary btn-block change-billing-address">Change</button>
+	</div>
+
+	<button type="button" class="btn btn-primary btn-block submit-order" disabled>Submit Order</button>
+
 	<h4>Order Summary</h4>
 	
 	<div class="checkout-cart">
@@ -212,7 +399,9 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 							<?php }?>
 						</div>
 						<div class="list-right-container col-lg-2 col-md-2 col-sm-2 col-xs-12">
-								<span class="quantity"> 1 </span>
+								<?php $_smarty_tpl->tpl_vars['index'] = new Smarty_variable($_smarty_tpl->tpl_vars['product']->value['product_id'], null, 0);?>
+								<span class="quantity"> <?php echo $_POST[$_smarty_tpl->tpl_vars['index']->value];?>
+ </span>
 						</div>
 					</div>
 				</div>

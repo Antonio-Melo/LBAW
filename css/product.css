@@ -99,6 +99,10 @@
     vertical-align: middle;
 }
 
+.product-info-container a {
+	color: #333;
+}
+
 #product-info {
     text-align: left;
 	display: flex;

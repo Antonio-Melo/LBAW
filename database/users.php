@@ -194,6 +194,35 @@ function addFavorite($client, $product) {
 	return $stmt->execute(array($client, $product));
 }
 
+function getFavoritesIds($client) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT product
+	FROM favoritesproducts
+	WHERE client=?;
+	');
+
+	$stmt->execute(array($client));
+
+	return $stmt->fetchAll();
+}
+
+function getCartIds($client) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT product
+	FROM cartproducts
+	WHERE client=?;
+	');
+
+	$stmt->execute(array($client));
+
+	return $stmt->fetchAll();
+}
+
+
 /*==========================================================================================*/
 /* Profile */
 function getUserById($id) {
@@ -423,10 +452,22 @@ function addAddress($user_id, $street, $door, $zip, $city, $region, $country, $p
 	$stmt->execute(array($user_id));
 	
 	return $stmt->fetchAll();
+} 
+
+
+function getBannedUsers() {
+	global $conn;
+
+	$stmt = $conn->prepare
+	('
+	SELECT *
+	FROM users, banned
+	Where users.id = banned.id;
+	');
+	$stmt->execute();
+	
+	return $stmt->fetchAll();
 }
-
-
-
 
 
 

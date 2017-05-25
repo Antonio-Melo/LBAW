@@ -419,6 +419,22 @@
 	margin: 3px;
 }
 
+.isFavorite {
+	background: #e53935 !important;
+}
+
+.isFavorite:hover, .isFavorite:focus {
+	background: #c62828 !important;
+}
+
+.isCart {
+	background: #43a047 !important;
+}
+
+.isCart:hover, .isCart:focus {
+	background: #2e7d32 !important;
+}
+
 .available {
 	color: #43a047;
 }
@@ -461,26 +477,3 @@
 .product-info-container .name {
 	cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

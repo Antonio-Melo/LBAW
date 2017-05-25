@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 02:58:28
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 10:53:43
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/favorites.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:134423211058fa79efda5532-85933901%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '602e7b7d6e0c368ee9e8b2608dbb2f7b799a067f' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/favorites.tpl',
-      1 => 1495504699,
+      1 => 1495705966,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'products' => 0,
     'product' => 0,
+    'user_cart' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -103,7 +104,11 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 								<span class="price"><?php echo number_format($_smarty_tpl->tpl_vars['product']->value['price'],2);?>
 &euro;</span>
 							<?php }?>
-							<button class="btn btn-default product-cart-bttn">
+							<button class="btn btn-default product-cart-bttn
+								<?php if (isset($_SESSION['id'])&&in_array($_smarty_tpl->tpl_vars['product']->value['product_id'],$_smarty_tpl->tpl_vars['user_cart']->value)) {?>
+									isCart
+								<?php }?>
+							">
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 						</div>

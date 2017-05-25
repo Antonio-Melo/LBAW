@@ -27,14 +27,19 @@
 	/*==================================================*/
 
 	include_once('../database/users.php');
+	include_once('../database/checkout.php');
 	
 	$user = getUserById($_SESSION['id']);
 	$products = getUserCart($_SESSION['id']);
 	$addresses = getAddressesByUserId($_SESSION['id']);
+	$shippingmethods = getAllShippingMethods();
+	$paymentmethods = getAllPaymentMethods();
 	
 	$smarty->assign('user', $user[0]);
 	$smarty->assign('addresses', $addresses);
 	$smarty->assign('products', $products);
+	$smarty->assign('shippingmethods', $shippingmethods);
+	$smarty->assign('paymentmethods', $paymentmethods);
 	
 	$smarty->display('checkout.tpl');
 ?>

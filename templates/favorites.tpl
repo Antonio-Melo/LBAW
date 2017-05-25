@@ -54,7 +54,11 @@
 							{else}
 								<span class="price">{$product.price|number_format:2}&euro;</span>
 							{/if}
-							<button class="btn btn-default product-cart-bttn">
+							<button class="btn btn-default product-cart-bttn
+								{if isset($smarty.session.id) && in_array($product.product_id, $user_cart)}
+									isCart
+								{/if}
+							">
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 						</div>
