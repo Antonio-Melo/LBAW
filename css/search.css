@@ -183,15 +183,14 @@
 
 #row1 {
 	overflow: hidden;
-	margin-bottom: 20px !important;
 }
 
 #row2 {
 	height: 50px;
+	margin-top: 20px !important;
 }
 
 #search-display {
-	height: 130px;
 	margin: 5px !important;
 }
 
@@ -259,12 +258,13 @@
 #search-body .pagination a {
 	border-radius: 0;
 	color: #333;
-	width: 34px;
-	height: 34px;
+	width: 30px;
+	height: 30px;
 	padding-left: 0;
 	padding-right: 0;
 	text-align: center;
 	cursor: pointer;
+	padding-top: 5px;
 }
 
 #search-body .pagination a .glyphicon {

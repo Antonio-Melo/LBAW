@@ -6,9 +6,15 @@
 
 	<!-------------------------------------------------------------------------------------------------------------------------->
 	<!-- Top -->
-	<nav id="search-display">
-		<div id="row1">
-			{if $nr_pages > 1}
+	<nav id="search-display"
+		{if $nr_pages > 1}
+			style="height:120px;"
+		{else}
+			style="height:55px;"
+		{/if}
+	>
+		{if $nr_pages > 1}
+			<div id="row1">
 				<div class="page-selector">
 					<ul class="pagination pull-right">
 						<li><a go=1><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a></li>
@@ -24,8 +30,8 @@
 						<li><a go={$nr_pages}><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a></li>
 					</ul>
 				</div>
-			{/if}
-		</div>
+			</div>
+		{/if}
 	
 		<div id="row2">
 			<!-- Square/List -->

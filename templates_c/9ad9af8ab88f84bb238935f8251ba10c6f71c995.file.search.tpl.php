@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 10:02:19
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 17:52:32
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1495702917,
+      1 => 1495817550,
       2 => 'file',
     ),
   ),
@@ -45,9 +45,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<!-------------------------------------------------------------------------------------------------------------------------->
 	<!-- Top -->
-	<nav id="search-display">
-		<div id="row1">
-			<?php if ($_smarty_tpl->tpl_vars['nr_pages']->value>1) {?>
+	<nav id="search-display"
+		<?php if ($_smarty_tpl->tpl_vars['nr_pages']->value>1) {?>
+			style="height:120px;"
+		<?php } else { ?>
+			style="height:55px;"
+		<?php }?>
+	>
+		<?php if ($_smarty_tpl->tpl_vars['nr_pages']->value>1) {?>
+			<div id="row1">
 				<div class="page-selector">
 					<ul class="pagination pull-right">
 						<li><a go=1><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></a></li>
@@ -72,8 +78,8 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 ><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></a></li>
 					</ul>
 				</div>
-			<?php }?>
-		</div>
+			</div>
+		<?php }?>
 	
 		<div id="row2">
 			<!-- Square/List -->
