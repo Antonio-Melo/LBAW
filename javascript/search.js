@@ -124,8 +124,8 @@ $(document).ready(function() {
 		$(this).children("span").toggleClass("glyphicon-th-large");
 		$(this).children("span").toggleClass("glyphicon-th-list");
 		
-		$("#search-results > div").not(".page-selector").toggleClass("product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6");
-		$("#search-results > div").not(".page-selector").toggleClass("product-list");
+		$("#search-results > div + div").not(".page-selector").toggleClass("product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6");
+		$("#search-results > div + div").not(".page-selector").toggleClass("product-list");
 		
 		e.preventDefault();
 	});
