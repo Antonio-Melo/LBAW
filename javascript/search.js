@@ -172,7 +172,8 @@ $(document).ready(function() {
 		else {
 			url = base_url + "api/addfavorite.php";
 		}
-		var product = $(this).parents('.product-list').attr('id');
+		
+		var product = $(this).parents('.product').attr('id');
 
 		var element = this;
 		$.ajax({
@@ -204,7 +205,7 @@ $(document).ready(function() {
 			url = base_url + "api/addcart.php";
 		}
 
-		var product = $(this).parents('.product-list').attr('id');
+		var product = $(this).parents('.product').attr('id');
 		
 		var element = this;
 		$.ajax({

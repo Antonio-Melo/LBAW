@@ -195,7 +195,7 @@
 		</div>
 	
 		{foreach $products as $product}
-			<div id={$product.product_id} class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
+			<div id={$product.product_id} class="product product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
 				<div class="product-image-container">
 					{if $product.url != null}
 						<a href={"product.php?id="|cat:$product.product_id}><img src={"../images/products/"|cat:$product.url} alt={$product.product_name}></a>

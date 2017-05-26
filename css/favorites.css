@@ -109,6 +109,14 @@
 	margin-top: 6px;
 }
 
+.isCart {
+	background: #43a047 !important;
+}
+
+.isCart:hover, .isCart:focus {
+	background: #2e7d32 !important;
+}
+
 @media (max-width: 767px) {
 	.product-list, .product-list .product-info-container {
 		text-align: center;

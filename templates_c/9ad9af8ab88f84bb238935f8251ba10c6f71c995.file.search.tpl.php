@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 17:52:32
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 18:00:47
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1495817550,
+      1 => 1495818037,
       2 => 'file',
     ),
   ),
@@ -273,7 +273,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_v
 $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?>
 			<div id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
- class="product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
+ class="product product-mosaic col-lg-3 col-md-4 col-sm-6 col-xs-6">
 				<div class="product-image-container">
 					<?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
 						<a href=<?php echo ("product.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
