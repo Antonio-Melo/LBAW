@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 19:40:46
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 22:29:18
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1495824041,
+      1 => 1495834156,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'product' => 0,
+    'images' => 0,
+    'first' => 0,
+    'i' => 0,
     'in_cart' => 0,
     'in_favorites' => 0,
     'faqs' => 0,
@@ -27,7 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'reviews' => 0,
     'review' => 0,
     'reply' => 0,
-    'i' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -38,14 +40,44 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
-            <?php if ($_smarty_tpl->tpl_vars['product']->value['url']!=null) {?>
-				<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['product']->value['url']);?>
+		
+			<div id="slideshow" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<?php if (empty($_smarty_tpl->tpl_vars['images']->value)) {?>
+							<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+ style="width:100%;">
+						<?php } else { ?>
+							<?php $_smarty_tpl->tpl_vars['first'] = new Smarty_variable(0, null, 0);?>
+							<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['images']->value[$_smarty_tpl->tpl_vars['first']->value]);?>
  alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
->
-			<?php } else { ?>
-				<img src="../images/products/common/default.png" alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
->
-			<?php }?>
+ style="width:100%;">
+						<?php }?>
+					</div>
+					
+					<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? count($_smarty_tpl->tpl_vars['images']->value)-1+1 - (1) : 1-(count($_smarty_tpl->tpl_vars['images']->value)-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+						<div class="item">
+							<img src=<?php echo ("../images/products/").($_smarty_tpl->tpl_vars['images']->value[$_smarty_tpl->tpl_vars['i']->value]);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_name'];?>
+ style="width:100%;">
+						</div>
+					<?php }} ?>
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#slideshow" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#slideshow" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
         </div>
         <div class="product-info-container">
             <div class="center-block">

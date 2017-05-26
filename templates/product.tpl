@@ -3,11 +3,36 @@
 <div class="panel-body items-display" id={$product.product_id}>
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
-            {if $product.url != null}
-				<img src={"../images/products/"|cat:$product.url} alt={$product.product_name}>
-			{else}
-				<img src="../images/products/common/default.png" alt={$product.product_name}>
-			{/if}
+		
+			<div id="slideshow" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+						{if empty($images)}
+							<img src="../images/products/common/default.png" alt={$product.product_name} style="width:100%;">
+						{else}
+							{assign var=first value=0}
+							<img src={"../images/products/"|cat:$images.$first} alt={$product.product_name} style="width:100%;">
+						{/if}
+					</div>
+					
+					{for $i=1 to count($images)-1}
+						<div class="item">
+							<img src={"../images/products/"|cat:$images.$i} alt={$product.product_name} style="width:100%;">
+						</div>
+					{/for}
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#slideshow" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#slideshow" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
         </div>
         <div class="product-info-container">
             <div class="center-block">

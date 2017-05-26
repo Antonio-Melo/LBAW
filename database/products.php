@@ -102,6 +102,19 @@ function getProductById($id) {
 	return $stmt->fetchAll();
 }
 
+function getAllProductImages($id) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT url
+	FROM image
+	WHERE image.product=?
+	');
+	$stmt->execute(array($id));
+	
+	return $stmt->fetchAll();
+}
+
 function getFaqsByProductId($id) {
 	global $conn;
 	$stmt = $conn->prepare

@@ -64,6 +64,26 @@
 	min-height: 600px;
 }
 
+#product-image .carousel-indicators {
+	bottom: -25px;
+}
+
+#product-image .carousel-control.left, #product-image .carousel-control.right {
+    background-image: none;
+}
+
+#product-image .carousel-indicators li {
+	background: #c49f66;
+}
+
+#product-image .carousel-control span{
+	color: #c49f66;
+	width: 25px;
+	height: 25px;
+	font-size: 25px;
+	text-shadow: none;
+}
+
 .product-image-container {
     height: 385px;
 	display: flex;
