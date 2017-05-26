@@ -60,6 +60,17 @@
 .checkout-subtotal-value {
 	font-weight: bold;
 }
+
+button#submit-order {
+    display: block;
+	margin-left: auto;
+	margin-right: 0;
+	text-align: center;
+	width: 120px;
+	height: 40px;
+	margin-top: 15px;
+	background-color: #494e6b;
+}
 /* ============================================================================================================================================================================*/
 /* Form */
 

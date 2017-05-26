@@ -43,18 +43,20 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
-	$('#reply-link').click(function(e) {
+	$('.reply-link').click(function(e) {
 		console.log(this);
+		var id_review = $(this).attr("id");
+		console.log(id_review);
 		var value = $(this).attr('name');
 		if(value == "off") {
             console.log("Fui carregado.");
             $('<div id="write_reply">' +
-                '<form id="reply" class="review-input" method="post">' +
+                '<form id="'+ id_review+'"'+'class="reply-input" method="post">' +
                 '<label for="comment">Comment:</label>' +
                 '<textarea class="form-control" name="text_reply" rows="5" id="comment"></textarea>' +
                 '<button type="submit" class="btn btn-success product-buttons button">Reply</button>' +
                 '</form>' +
-                '</div>').insertAfter('#reply-link');
+                '</div>').insertAfter(this);
             console.log("Fiz injection de code");
             $(this).attr('name', "on");
         }else{
@@ -66,24 +68,26 @@ $(document).ready(function(){
 
 	});
 
-	$("#reply").submit(function (e) {
+	$(".reply-input").submit(function (e) {
+		console.log("Vou fazer submit da review");
 		var url = base_url +"api/reply.php";
         var stuff = qs();
         var id = stuff['id'];
+        var id_review = $(this).attr("id");
+        console.log(id_review);
         $.ajax({
             type: "POST",
             url: url,
-            data: $("#reply").serialize() + "&id=" +id,
+            data: $(this).serialize() + "&id=" +id + "&id_review="+ id_review,
             success: function(response) {
                 var json = $.parseJSON(response);
-
+				console.log(json.status);
                 if (json.status == "true") {
-                    document.getElementById("review").reset();
+                    //document.getElementById("review").reset();
                 }
             }
-            e.preventDefault();
 		});
-
+        e.preventDefault();
     });
 
 	$("#review").submit(function(e){

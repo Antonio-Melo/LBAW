@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 10:49:13
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 16:27:22
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19289588985919a408880ba6-26412463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '916a82a0b9cea5eb1d074f765bd1c7c040e333f4' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/checkout.tpl',
-      1 => 1495705747,
+      1 => 1495812417,
       2 => 'file',
     ),
   ),
@@ -168,6 +168,7 @@ $_smarty_tpl->tpl_vars['shippingmethod']->_loop = true;
 &euro;</p>
 							</div>
 							<button type="button" class="btn btn-primary btn-block select-shipping-method" id=<?php echo $_smarty_tpl->tpl_vars['shippingmethod']->value['name'];?>
+ name=<?php echo $_smarty_tpl->tpl_vars['shippingmethod']->value['id'];?>
  data-toggle="collapse" data-target="#shippingMethod,#paymentMethod" data-parent="#checkout-body">Select</button>
 						</div>
 					</li>
@@ -210,6 +211,7 @@ $_smarty_tpl->tpl_vars['paymentmethod']->_loop = true;
 </h4>
 							</div>
 							<button type="button" class="btn btn-primary btn-block select-payment-method" id=<?php echo $_smarty_tpl->tpl_vars['paymentmethod']->value['name'];?>
+ name=<?php echo $_smarty_tpl->tpl_vars['paymentmethod']->value['id'];?>
  data-toggle="collapse" data-target="#paymentMethod, #billingAddress" data-parent="#checkout-body">Select</button>
 						</div>
 					</li>
@@ -331,7 +333,7 @@ $_smarty_tpl->tpl_vars['country']->_loop = true;
 		<button type="button" class="btn btn-primary btn-block change-billing-address">Change</button>
 	</div>
 
-	<button type="button" class="btn btn-primary btn-block submit-order" disabled>Submit Order</button>
+	<button type="button" class="btn btn-primary btn-block" id="submit-order" disabled>Submit Order</button>
 
 	<h4>Order Summary</h4>
 	
@@ -400,7 +402,8 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 						</div>
 						<div class="list-right-container col-lg-2 col-md-2 col-sm-2 col-xs-12">
 								<?php $_smarty_tpl->tpl_vars['index'] = new Smarty_variable($_smarty_tpl->tpl_vars['product']->value['product_id'], null, 0);?>
-								<span class="quantity"> <?php echo $_POST[$_smarty_tpl->tpl_vars['index']->value];?>
+								<span value = <?php echo $_POST[$_smarty_tpl->tpl_vars['index']->value];?>
+ id="quantity"> <?php echo $_POST[$_smarty_tpl->tpl_vars['index']->value];?>
  </span>
 						</div>
 					</div>

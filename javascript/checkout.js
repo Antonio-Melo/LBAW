@@ -1,4 +1,18 @@
 $(document).ready(function(){
+	var subtotal = 0;
+	calculateSubtotal();
+	
+	function calculateSubtotal() {
+		subtotal = 0;
+		
+		$('.price').each(function() {
+			value = parseFloat($(this).text().replace(/,/g,''));
+			quantity = parseInt($(this).closest(".product-info-container").find('#quantity')[0].textContent);
+			subtotal += value * quantity;
+		});
+		
+		$('.checkout-subtotal-value').text(parseFloat(subtotal).toFixed(2) + "\u20AC");
+	}
 	
 	/* ========================================================================*/
 	/* Addresses */
@@ -67,11 +81,13 @@ $(document).ready(function(){
 		var addressID = $(this).attr('id');
 		var innerhtml = $('#' + addressID).children(":first").html();
 		$('#selectedAddressInfo')[0].innerHTML = innerhtml;
+		$('.selectedAddress')[0].setAttribute("id", addressID);
 		$('.selectedAddress').removeClass('hide');
 		$('.selectedAddress').addClass('show');
 	});
 	
 	$('.change-address').click(function(e) {
+		$('#submit-order').prop('disabled', true);
 		$('.selectedShipping').removeClass('show');
 		$('.selectedShipping').addClass('hide');
 		$('.selectedPayment').removeClass('show');
@@ -122,14 +138,29 @@ $(document).ready(function(){
 	});
 	
 	$('.select-shipping-method').click(function(e) {
-		var shippingID = $(this).attr('id');
-		var innerhtml = $('#' + shippingID).children(":first").html();
+		var shippingID = $(this).attr('name');
+		var shipping = $(this).attr('id');
+		var innerhtml = $('#' + shipping).children(":first").html();
 		$('#selectedShippingInfo')[0].innerHTML = innerhtml;
+		$('.selectedShipping')[0].setAttribute("id", shippingID);
 		$('.selectedShipping').removeClass('hide');
 		$('.selectedShipping').addClass('show');
+		
+		var value = 0;
+		if (shipping == "Priority") {
+			value = 10;
+		} else if (shipping == "Standard") {
+			value = 20;
+		} else if (shipping == "Expedited") {
+			value = 25;
+		}
+		subtotal += value;
+		$('.checkout-subtotal-value').text(parseFloat(subtotal).toFixed(2) + "\u20AC");
 	});
 	
 	$('.change-shipping').click(function(e) {
+		var selected = $(this).parent().children().find("h4")[0].textContent;
+		$('#submit-order').prop('disabled', true);
 		$('.selectedPayment').removeClass('show');
 		$('.selectedPayment').addClass('hide');
 		$('.selectedBillingAddress').removeClass('show');
@@ -139,17 +170,31 @@ $(document).ready(function(){
 		$('.collapse#billingAddress').collapse("hide");
 		$('.selectedShipping').removeClass('show');
 		$('.selectedShipping').addClass('hide');
+		
+		var value = 0;
+		if (selected == "Priority Direct Mail") {
+			value = 10;
+		} else if (selected == "Standard Shipping") {
+			value = 20;
+		} else if (selected == "Expedited Shipping") {
+			value = 25;
+		}
+		subtotal -= value;
+		$('.checkout-subtotal-value').text(parseFloat(subtotal).toFixed(2) + "\u20AC");
 	});
 	
 	$('.select-payment-method').click(function(e) {
+		var payment = $(this).attr('name');
 		var paymentID = $(this).attr('id');
 		var innerhtml = $('#' + paymentID).children(":first").html();
 		$('#selectedPaymentInfo')[0].innerHTML = innerhtml;
+		$('.selectedPayment')[0].setAttribute("id", payment);
 		$('.selectedPayment').removeClass('hide');
 		$('.selectedPayment').addClass('show');
 	});
 	
 	$('.change-payment-method').click(function(e) {
+		$('#submit-order').prop('disabled', true);
 		$('.selectedBillingAddress').removeClass('show');
 		$('.selectedBillingAddress').addClass('hide');
 		$('.collapse#paymentMethod').collapse("show");
@@ -162,11 +207,14 @@ $(document).ready(function(){
 		var addressID = $(this).attr('id');
 		var innerhtml = $('#' + addressID).children(":first").html();
 		$('#selectedBillingAddressInfo')[0].innerHTML = innerhtml;
+		$('.selectedBillingAddress')[0].setAttribute("id", addressID);
 		$('.selectedBillingAddress').removeClass('hide');
 		$('.selectedBillingAddress').addClass('show');
+		$('#submit-order').prop('disabled', false);
 	});
 	
 	$('.change-billing-address').click(function(e) {
+		$('#submit-order').prop('disabled', true);
 		$('.collapse#billingAddress').collapse("show");
 		$('.selectedBillingAddress').removeClass('show');
 		$('.selectedBillingAddress').addClass('hide');
@@ -181,6 +229,46 @@ $(document).ready(function(){
 		country = $(element).siblings('.addressEdit').children('.address-edit-country').val();
 		phone = $(element).siblings('.addressEdit').children('.address-edit-telephone').val();
 	}
+	
+	$('#submit-order').click(function(e) {
+		var url = base_url + "api/addorder.php";
+		var element = this;
+		var products = $(this).parents('.items-display').attr('id');
+		var shipping_address = $('.selectedAddress')[0].attr('id');
+		var billing_address = $('.selectedBillingAddress')[0].attr('id');
+		var shipping_method = $('.selectedShipping')[0].attr('id');
+		var payment_method =  $('.selectedPayment')[0].attr('id');
+		/* reference */
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+		var yyyy = today.getFullYear();
+		if (dd < 10) {
+			dd = '0' + dd
+		}
+		if (mm < 10) {
+			mm = '0' + mm
+		}
+		var date_ordered = dd + '/' + mm + '/' + yyyy;
+		document.write(today);
+		var reference = "BAT" + yyyy + mm + dd + 123;
+		/*
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {reference: reference, date_ordered: date_ordered, billing_address: billing_address, shipping_address: shipping_address, shipping_method: shipping_method, payment_method: payment_method },
+			success: function(response) {
+				var json = $.parseJSON(response);
+		        if (!json.status) {
+					$('#authentication-modal').modal();
+				}
+			},
+			error: function() {
+			}
+		});
+		*/
+		e.preventDefault();
+	});
 });
 
 function toggleAddress(element) {

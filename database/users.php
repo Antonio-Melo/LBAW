@@ -222,6 +222,17 @@ function getCartIds($client) {
 	return $stmt->fetchAll();
 }
 
+function addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO orders (reference, date_ordered, billing_address, shipping_address, shipping_method, payment_method)
+	VALUES(?, ?, ?, ?, ?, ?);
+	');
+
+	return $stmt->execute(array($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method));
+}
+
 
 /*==========================================================================================*/
 /* Profile */

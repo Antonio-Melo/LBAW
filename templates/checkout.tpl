@@ -93,7 +93,7 @@
 								<h4>{$shippingmethod.name}</h4>
 								<p>{$shippingmethod.price}&euro;</p>
 							</div>
-							<button type="button" class="btn btn-primary btn-block select-shipping-method" id={$shippingmethod.name} data-toggle="collapse" data-target="#shippingMethod,#paymentMethod" data-parent="#checkout-body">Select</button>
+							<button type="button" class="btn btn-primary btn-block select-shipping-method" id={$shippingmethod.name} name={$shippingmethod.id} data-toggle="collapse" data-target="#shippingMethod,#paymentMethod" data-parent="#checkout-body">Select</button>
 						</div>
 					</li>
 				{/foreach}
@@ -128,7 +128,7 @@
 								{/if}
 								<h4>{$paymentmethod.name}</h4>
 							</div>
-							<button type="button" class="btn btn-primary btn-block select-payment-method" id={$paymentmethod.name} data-toggle="collapse" data-target="#paymentMethod, #billingAddress" data-parent="#checkout-body">Select</button>
+							<button type="button" class="btn btn-primary btn-block select-payment-method" id={$paymentmethod.name} name={$paymentmethod.id} data-toggle="collapse" data-target="#paymentMethod, #billingAddress" data-parent="#checkout-body">Select</button>
 						</div>
 					</li>
 				{/foreach}
@@ -218,7 +218,7 @@
 		<button type="button" class="btn btn-primary btn-block change-billing-address">Change</button>
 	</div>
 
-	<button type="button" class="btn btn-primary btn-block submit-order" disabled>Submit Order</button>
+	<button type="button" class="btn btn-primary btn-block" id="submit-order" disabled>Submit Order</button>
 
 	<h4>Order Summary</h4>
 	
@@ -268,7 +268,7 @@
 						</div>
 						<div class="list-right-container col-lg-2 col-md-2 col-sm-2 col-xs-12">
 								{$index=$product.product_id}
-								<span class="quantity"> {$smarty.post.$index} </span>
+								<span value = {$smarty.post.$index} id="quantity"> {$smarty.post.$index} </span>
 						</div>
 					</div>
 				</div>

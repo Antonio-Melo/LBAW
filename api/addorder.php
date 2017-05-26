@@ -8,16 +8,19 @@ if (!$_SESSION['username'] || !$_POST['product'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$username = $_SESSION['username'];
+$reference = $_POST['product'];
+$date_ordered = $_POST['product'];
+$billing_address = $_POST['product'];
+$shipping_address = $_POST['product'];
+$shipping_method = $_POST['product'];
+$payment_method = $_POST['product'];
 
 try {
-	//createUser($username, $name, $email, $password, $country);
-	$response["status"] = "true";
+	addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method)
+	$response["status"] = true;
 	echo json_encode($response);
 	exit;
 } catch (PDOException $e) {
-	$response["status"] = $e->getMessage();
-	echo json_encode($response);
-	exit;
+	die(header("HTTP/1.0 400 Bad Request"));
 }
 ?>

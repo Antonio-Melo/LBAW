@@ -155,7 +155,9 @@
 									</div>
 								{/foreach}
                                 {if isset($smarty.session.id)}
-                                    <a id="reply-link" name="off">Reply</a>
+                                    <div>
+                                        <a class="reply-link" name="off" id={$review.review_id}>Reply</a>
+                                    </div>
                                 {/if}
 							</div>
 						</div>

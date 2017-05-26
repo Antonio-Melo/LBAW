@@ -16,12 +16,8 @@ $id = strip_tags($_POST['id']);
 
 try {
     $user = getUserById($_SESSION['id']);
-    /*writeReview($_SESSION['id'],$id,$text_review,$rating_input);
+    //writeReview($_SESSION['id'],$id,$text_review,$rating_input);
     $response["status"] = "true";
-    $response["rating"] = $rating_input;
-    $response["comment"] = $text_review;
-    $response["user_image"] = $user[0]["url"];
-    $response["user_name"] = $user[0]["users_name"];*/
 
     echo json_encode($response);
     exit;

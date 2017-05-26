@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 09:40:27
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 02:27:28
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1495701622,
+      1 => 1495762031,
       2 => 'file',
     ),
   ),
@@ -237,7 +237,10 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 									</div>
 								<?php } ?>
                                 <?php if (isset($_SESSION['id'])) {?>
-                                    <a id="reply-link" name="off">Reply</a>
+                                    <div>
+                                        <a class="reply-link" name="off" id=<?php echo $_smarty_tpl->tpl_vars['review']->value['review_id'];?>
+>Reply</a>
+                                    </div>
                                 <?php }?>
 							</div>
 						</div>
