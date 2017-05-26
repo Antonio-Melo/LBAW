@@ -4,7 +4,7 @@ include_once('../database/users.php');
 
 $response = array();
 
-if (!$_SESSION['id'] || !$_POST['oldpwd'] || !$_POST['pwd'] || || !$_POST['newpwd']) {
+if (!$_SESSION['id'] || !$_POST['oldpwd'] || !$_POST['pwd'] || !$_POST['newpwd']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 

@@ -17,6 +17,21 @@
 			<h2>FAQs</h2>
 			<p>Find the answer to your need in our <a class="contact" href="faqs.php">FAQs</a> section.</p>
 		</div>
+		
+		{if isset($smarty.session.id) && !isset($smarty.session.admin)}
+			<div>
+				<h2>Submit a ticket</h2>
+				<form id="ticket" method="post" action="../actions/submitticket.php">
+					<label for="subject">Subject:</label>
+					<input type="text" name="subject" id="subject" required>
+				
+					<label for="description">Description:</label>
+					<textarea name="description" rows="5" id="description"></textarea>
+					
+					<button class="btn btn-default" id="submit" type="submit">Submit</button>
+				</form>
+			</div>
+		{/if}
 	</div>
 </div>
 

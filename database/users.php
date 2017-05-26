@@ -512,7 +512,16 @@ function getBannedUsers() {
 	return $stmt->fetchAll();
 }
 
+function addTicket($user, $subject, $description) {
+	global $conn;
 
+	$stmt = $conn->prepare
+	('
+	INSERT INTO ticket (client, message)
+	VALUES (?, ?);
+	');
+	$stmt->execute(array($user, $subject . "\n" . $description));
+}
 
 
 

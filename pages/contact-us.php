@@ -14,7 +14,7 @@
 	/*==================================================*/
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'contact-us.css');  
-	$smarty->assign('js_file', 'common.js');
+	$smarty->assign('js_file', 'contact-us.js');
 	$smarty->assign('page_title', 'Contact Us');
 	
 	/*==================================================*/
