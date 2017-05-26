@@ -4,22 +4,19 @@ $(document).ready(function() {
 	/* Search filters */
 	
 	/* Search filter slider */
+	var minPrice = Math.floor($("#filter-price-slider").attr("min"));
+	var maxPrice = Math.ceil($("#filter-price-slider").attr("max"));
+	
     $("#filter-price-slider").slider({
 		range: true,
-		min: 0,
-		max: 2000,
+		min: minPrice,
+		max: maxPrice,
+		values: [minPrice, maxPrice],
 		slide: function(event, ui) {
 			$("#filter-price-amount").val(ui.values[0] + "\u20AC - " + ui.values[1] + "\u20AC");
 		}
     });
 
-	if ($("#filter-price-slider").attr("min") && $("#filter-price-slider").attr("max")) {
-		$("#filter-price-slider").slider({values: [$("#filter-price-slider").attr("min"), $("#filter-price-slider").attr("max")]});
-	}
-	else {
-		$("#filter-price-slider").slider({values: [0, 2000]});
-	}
-	
 	$("#filter-price-amount").val($("#filter-price-slider").slider("values", 0) + "\u20AC - " + $("#filter-price-slider").slider("values", 1) + "\u20AC");
 	
 	/* Search filter rating */

@@ -59,16 +59,27 @@
 	$products_keywords = [];
 	$products_brands = [];
 	$max_price = 0;
+	$min_price = PHP_INT_MAX;
 	
 	// Use $search to know available filters
 	foreach ($search as $product) {
 		array_push($products_keywords, $product['keyword_name']);
 		array_push($products_brands, $product['brand_name']);
-		if ($product['sale_price'] != null && $product['sale_price'] > $max_price) {
-			$max_price = $product['sale_price'];
+		if ($product['sale_price'] != null) {
+			if ($product['sale_price'] > $max_price) {
+				$max_price = $product['sale_price'];
+			}
+			else if ($product['sale_price'] < $min_price) {
+				$min_price = $product['sale_price'];
+			}	
 		}
-		else if ($product['sale_price'] == null && $product['price'] > $max_price) {
-			$max_price = $product['price'];
+		else {
+			if ($product['price'] > $max_price) {
+				$max_price = $product['price'];
+			}
+			else if ($product['price'] < $min_price) {
+				$min_price = $product['price'];
+			}	
 		}
 	}
 
@@ -99,6 +110,7 @@
 	$smarty->assign('products_brands', array_unique($products_brands));
 	$smarty->assign('filters', $filters);
 	$smarty->assign('max_price', $max_price);
+	$smarty->assign('min_price', $min_price);
 	$smarty->assign('nr_pages', $nr_pages);
 	$smarty->assign('current_page', $current_page);
 	$smarty->assign('start_page', $start_page);

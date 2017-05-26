@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 18:00:47
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 18:51:44
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1495818037,
+      1 => 1495821101,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'products_keywords' => 0,
     'keyword' => 0,
     'filters' => 0,
+    'min_price' => 0,
+    'max_price' => 0,
     'products_brands' => 0,
     'brand' => 0,
     'products' => 0,
@@ -168,11 +170,20 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
 				<div id="filter-price-slider"
-				<?php if (isset($_smarty_tpl->tpl_vars['filters']->value['prices'][0])&&isset($_smarty_tpl->tpl_vars['filters']->value['prices'][1])) {?>
-					min=<?php echo $_smarty_tpl->tpl_vars['filters']->value['prices'][0];?>
- max=<?php echo $_smarty_tpl->tpl_vars['filters']->value['prices'][1];?>
+				<?php if (isset($_smarty_tpl->tpl_vars['min_price']->value)) {?>
+					min=<?php echo $_smarty_tpl->tpl_vars['min_price']->value;?>
 
+				<?php } else { ?>
+					min=0
 				<?php }?>
+				<?php if (isset($_smarty_tpl->tpl_vars['max_price']->value)) {?>
+					max=<?php echo $_smarty_tpl->tpl_vars['max_price']->value;?>
+
+				<?php } else { ?>
+					max=2000
+				<?php }?>
+				
+				
 				></div>
 			</div>
 		</div>

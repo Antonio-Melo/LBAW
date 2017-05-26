@@ -111,9 +111,18 @@
 				<label for="filter-price-amount">Range:</label>
 				<input type="text" id="filter-price-amount" readonly>
 				<div id="filter-price-slider"
-				{if isset($filters.prices[0]) && isset($filters.prices[1])}
-					min={$filters.prices[0]} max={$filters.prices[1]}
+				{if isset($min_price)}
+					min={$min_price}
+				{else}
+					min=0
 				{/if}
+				{if isset($max_price)}
+					max={$max_price}
+				{else}
+					max=2000
+				{/if}
+				
+				
 				></div>
 			</div>
 		</div>
