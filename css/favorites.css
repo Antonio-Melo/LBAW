@@ -69,6 +69,9 @@
 
 .product-list .product-image-container {
 	width: 155px;
+	min-width: 155px;
+	max-width: 155px;
+	text-align: center;
 }
 
 .product-list .product-image-container img {

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 02:27:28
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 19:40:46
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1495762031,
+      1 => 1495824041,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'product' => 0,
+    'in_cart' => 0,
+    'in_favorites' => 0,
     'faqs' => 0,
     'faq' => 0,
     'reviews' => 0,
@@ -125,11 +127,19 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 					<div class="product-buttons-buttons">
 						<button type="button" class="btn btn-primary" id="add-to-cart">
 							<span class="glyphicon glyphicon-shopping-cart"></span>
-							Add to Cart
+							<?php if ($_smarty_tpl->tpl_vars['in_cart']->value) {?>
+								Remove from Cart
+							<?php } else { ?>
+								Add to Cart
+							<?php }?>
 						</button>
 						<button type="button" class="btn btn-primary" id="add-to-fav">
 							<span class="glyphicon glyphicon-heart"></span>
-							Add to Favorites
+							<?php if ($_smarty_tpl->tpl_vars['in_favorites']->value) {?>
+								Remove from Favorites
+							<?php } else { ?>
+								Add to Favorites
+							<?php }?>
 						</button>
 					</div>
 				</div>

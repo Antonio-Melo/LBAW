@@ -95,7 +95,7 @@ function getUserFavorites($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
+	SELECT DISTINCT ON (product.id) *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
 	FROM favoritesproducts
 	JOIN users ON favoritesproducts.client=users.id
 	JOIN product ON favoritesproducts.product=product.id
@@ -125,7 +125,7 @@ function getUserCart($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
+	SELECT DISTINCT ON (product.id) *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
 	FROM cartproducts
 	JOIN users ON cartproducts.client=users.id
 	JOIN product ON cartproducts.product=product.id
@@ -222,6 +222,38 @@ function getCartIds($client) {
 	return $stmt->fetchAll();
 }
 
+function getProductInCart($client, $product) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *
+	FROM cartproducts
+	WHERE client=? AND product=?;	
+	');
+	
+	$stmt->execute(array($client, $product));
+	
+	return $stmt->fetchAll();
+}
+
+function getProductInFavorites($client, $product) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *
+	FROM favoritesproducts
+	WHERE client=? AND product=?;	
+	');
+	
+	$stmt->execute(array($client, $product));
+	
+	return $stmt->fetchAll();
+}
+
+
+
+
+
 function addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method) {
 	global $conn;
 	$stmt = $conn->prepare
@@ -232,7 +264,6 @@ function addOrder($reference, $date_ordered, $billing_address, $shipping_address
 
 	return $stmt->execute(array($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method));
 }
-
 
 /*==========================================================================================*/
 /* Profile */

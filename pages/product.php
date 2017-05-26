@@ -25,11 +25,19 @@
 	}
 	
 	include_once('../database/products.php');
+	include_once('../database/users.php');
 	
 	$id = $_GET["id"];
 	$product = getProductById($id);
 	$faqs = getFaqsByProductId($id);
 	$reviews = getReviewsByProductId($id);
+	
+	$inCart = false;
+	$inFavorites = true;
+	if ($_SESSION['id']) {
+		$inCart = !empty(getProductInCart($_SESSION['id'], $id));
+		$inFavorites = !empty(getProductInFavorites($_SESSION['id'], $id));
+	}
 	
 	foreach ($reviews as $key => $review) {
 		$reviews[$key]['replies'] = getRepliesByReviewId($review['review_id']);	
@@ -39,6 +47,8 @@
 	$smarty->assign('faqs', $faqs);
 	$smarty->assign('reviews', $reviews);
 	$smarty->assign('page_title', $product[0]['product_name']);
+	$smarty->assign('in_cart', $inCart);
+	$smarty->assign('in_favorites', $inFavorites);
 
 	$smarty->display('product.tpl');
 ?>

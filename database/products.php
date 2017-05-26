@@ -89,7 +89,7 @@ function getProductById($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT *, product.name AS product_name, product.id AS product_id, keyword.name AS keyword_name, brand.name AS brand_name
+	SELECT DISTINCT ON (product.id) *, product.name AS product_name, product.id AS product_id, keyword.name AS keyword_name, brand.name AS brand_name
 	FROM product
 	JOIN keyword ON product.keyword=keyword.id
 	JOIN brand ON product.brand=brand.id
@@ -156,7 +156,7 @@ function getAllSearchProducts($search) {
 		$vars = array();
 		$query = "SELECT *
 					FROM 
-					(SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
+					(SELECT DISTINCT ON (product.id) *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
 					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') as document
 					FROM product
 					LEFT JOIN onsale ON product.id=onsale.id
@@ -170,7 +170,7 @@ function getAllSearchProducts($search) {
 		$stmt->execute($vars);
 	}
 	else {
-		$query = 'SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
+		$query = 'SELECT DISTINCT ON (product.id) *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id
 				FROM product
 				LEFT JOIN onsale ON product.id=onsale.id
 				LEFT JOIN image ON product.id=image.product
@@ -288,14 +288,16 @@ function getSearchProductsFiltered($filters) {
 	// Search
 	if ($filters['search']) {
 		$query = "SELECT * FROM 
-					(SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
+					(SELECT DISTINCT ON (product.id)
+					*, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
 					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') || setweight(to_tsvector(product.small_description), 'C') || setweight(to_tsvector(product.description), 'D') as document"
 					. $query
 					. ") p_search WHERE p_search.document @@ plainto_tsquery(?)";
 		array_push($vars, $filters['search']);
 	}
 	else {
-		$query = 'SELECT *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id'
+		$query = 'SELECT DISTINCT ON (product.id)
+					*, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id'
 					. $query;
 	}
 	
@@ -344,17 +346,5 @@ function getSearchProductsFiltered($filters) {
 	
 	return $stmt->fetchAll();	
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>

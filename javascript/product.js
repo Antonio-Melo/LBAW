@@ -1,8 +1,18 @@
 $(document).ready(function(){
 	$('#add-to-cart').click(function(e) {
-		var url = base_url + "api/addcart.php";
+		var url;
 		var element = this;
 		var product = $(this).parents('.items-display').attr('id');
+		
+		var adding;
+		if ($(this).text().trim() == "Remove from Cart") {
+			adding = false;
+			url = base_url + "api/removecart.php";
+		}
+		else {
+			adding = true;
+			url = base_url + "api/addcart.php";
+		}
 		
 		$.ajax({
 			type: "POST",
@@ -13,6 +23,14 @@ $(document).ready(function(){
 		        if (!json.status) {
 					$('#authentication-modal').modal();
 				}
+				else {
+					if (adding) {
+						$(element).html("<span class='glyphicon glyphicon-shopping-cart'></span> Remove from Cart");
+					}
+					else {
+						$(element).html("<span class='glyphicon glyphicon-shopping-cart'></span> Add to Cart");
+					}
+				}
 			},
 			error: function() {
 			}
@@ -22,9 +40,19 @@ $(document).ready(function(){
 	});
 
 	$('#add-to-fav').click(function(e) {
-		var url = base_url + "api/addfavorite.php";
+		var url;
 		var element = this;
 		var product = $(this).parents('.items-display').attr('id');
+		
+		var adding;
+		if ($(this).text().trim() == "Remove from Favorites") {
+			adding = false;
+			url = base_url + "api/removefavorite.php";
+		}
+		else {
+			adding = true;
+			url = base_url + "api/addfavorite.php"
+		}
 
 		$.ajax({
 			type: "POST",
@@ -34,6 +62,14 @@ $(document).ready(function(){
 				var json = $.parseJSON(response);
 		        if (!json.status) {
 					$('#authentication-modal').modal();
+				}
+				else {
+					if (adding) {
+						$(element).html("<span class='glyphicon glyphicon-heart'></span> Remove from Favorites");
+					}
+					else {
+						$(element).html("<span class='glyphicon glyphicon-heart'></span> Add to Favorites");
+					}
 				}
 			},
 			error: function() {

@@ -74,11 +74,19 @@
 					<div class="product-buttons-buttons">
 						<button type="button" class="btn btn-primary" id="add-to-cart">
 							<span class="glyphicon glyphicon-shopping-cart"></span>
-							Add to Cart
+							{if $in_cart}
+								Remove from Cart
+							{else}
+								Add to Cart
+							{/if}
 						</button>
 						<button type="button" class="btn btn-primary" id="add-to-fav">
 							<span class="glyphicon glyphicon-heart"></span>
-							Add to Favorites
+							{if $in_favorites}
+								Remove from Favorites
+							{else}
+								Add to Favorites
+							{/if}
 						</button>
 					</div>
 				</div>
