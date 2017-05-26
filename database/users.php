@@ -322,11 +322,12 @@ function getProductsByOrderId($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT *, product.id AS product_id, product.name AS product_name, keyword.name AS keyword_name, brand.name AS brand_name
+	SELECT DISTINCT ON (product.id) *, product.id AS product_id, product.name AS product_name, keyword.name AS keyword_name, brand.name AS brand_name
 	FROM orderproduct
 	JOIN product ON orderproduct.product=product.id
 	JOIN keyword ON product.keyword=keyword.id
 	JOIN brand ON product.brand=brand.id
+	LEFT JOIN image ON product.id=image.product
 	WHERE orderproduct.order=?;
 	');
 	$stmt->execute(array($id));
