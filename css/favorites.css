@@ -129,6 +129,8 @@
 	.product-list .product-image-container, .product-list .product-info-container {
 		width: 100%;
 		display: block;
+		min-width: 0;
+		max-width: 100%;
 	}
 	
 	.product-list .product-image-container img {

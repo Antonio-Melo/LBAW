@@ -472,6 +472,11 @@
 
 /* For really small devices */
 @media (max-width: 450px) {
+	.product-list .product-image-container {
+		min-width: 0;
+		max-width: 100%;
+	}
+	
 	.product-list .product-image-container, .product-list .product-info-container, .product-list .list-left-container, .product-list .list-right-container {
 		width: 100%;
 		display: block;
