@@ -79,46 +79,107 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
-	$('.reply-link').click(function(e) {
-		console.log(this);
-		var id_review = $(this).attr("id");
-		console.log(id_review);
+	$('.report-link').click(function(e) {
+		var id_review = $(this).attr("review");
+		var element = $(this).closest('.media-body').children().last();
 		var value = $(this).attr('name');
 		if(value == "off") {
-            console.log("Fui carregado.");
+            $('<div class="write_report">' +
+                '<form name="report-form" review='+id_review+' method="post">' +
+                	'<label for="comment_report">Report:</label>' +
+                	'<textarea class="form-control" name="text_report" rows="5"></textarea>' +
+                	'<button type="submit" class="btn btn-success product-buttons button">Report</button>' +
+                '</form>' +
+			'</div>').insertAfter(element);
+            $(this).attr('name', "on");
+			$(this).closest('.media-body').children('p').remove();
+        }else{
+            $(this).attr('name',"off");
+			$(this).closest('.media-body').children('.write_report').remove();
+		}
+		
+		
+	});
+	
+	$('.media-body').on('submit', 'form[name="report-form"]', function (e) {
+		var url = base_url +"api/report.php";
+        var id_review = $(this).attr("review");
+		var text = $(this).children('textarea').val();
+		
+		var form_data = new FormData();
+		form_data.append('id_review', id_review);
+		form_data.append('text_report', text);
+		
+		var parent = $(this).closest('.write_report');
+		var report_link = $(this).closest('.media-body').find('.report-link');
+		
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form_data,
+			processData: false,
+			contentType: false,
+            success: function(response) {
+				var json = $.parseJSON(response);
+                if (json.status) {
+					$('<p>Report sent successfully. Thanks!</p>').insertAfter(parent);
+					$(parent).remove();
+					$(report_link).attr('name',"off");
+                }
+				else {
+					$('<p>Report sent successfully. Thanks!</p>').insertAfter(parent);
+					$(parent).remove();
+					$(report_link).attr('name',"off");
+				}
+            },
+			error: function(response) {
+				$('<p>Could not send report. Please try again later.</p>').insertAfter(parent);
+				$(parent).remove();
+				$(report_link).attr('name',"off");
+			}
+		});
+        e.preventDefault();
+    });
+	
+	$('.reply-link').click(function(e) {
+		var id_review = $(this).attr("id");
+		var element = $(this).closest('.media-body').children().last();
+		var value = $(this).attr('name');
+		if(value == "off") {
             $('<div class="write_reply">' +
-                '<form id="'+ id_review+'"'+'class="reply_input" method="post">' +
+                '<form id="reply" name="reply-form" review='+id_review+' method="post">' +
                 	'<label for="comment_reply">Comment:</label>' +
                 	'<textarea class="form-control" name="text_reply" rows="5" id="comment_reply"></textarea>' +
                 	'<button type="submit" class="btn btn-success product-buttons button">Reply</button>' +
                 '</form>' +
-			'</div>').insertAfter(this);
-            console.log("Fiz injection de code");
+			'</div>').insertAfter(element);
             $(this).attr('name', "on");
         }else{
-            console.log("Vou eliminar");
-            console.log(this);
             $(this).attr('name',"off");
-			$(this).siblings('.write_reply').remove();
-            console.log("Eliminei");
+			$(this).closest('.media-body').children('.write_reply').remove();
 		}
-
 	});
 
-	$('.reply_input').submit(function (e) {
-		console.log("Vou fazer submit do reply");
+	$('.media-body').on('submit', 'form[name="reply-form"]', function (e) {
 		var url = base_url +"api/reply.php";
-        var id_review = $(this).attr("id");
-        console.log(id_review);
+        var id_review = $(this).attr("review");
+		var text = $(this).children('textarea').val();
+		
+		var form_data = new FormData();
+		form_data.append('id_review', id_review);
+		form_data.append('text_reply', text);
+		
         $.ajax({
             type: "POST",
             url: url,
-            data: $(this).serialize() + "&id_review="+ id_review,
+            data: form_data,
+			processData: false,
+			contentType: false,
             success: function(response) {
                 var json = $.parseJSON(response);
-				console.log(json.status);
-                if (json.status == "true") {
-                    //document.getElementById("review").reset();
+                if (json.status) {
+					// delete form
+					// insert review
                 }
             }
 		});
@@ -129,16 +190,14 @@ $(document).ready(function(){
 		var url = base_url + "api/review.php";
 		var stuff = qs();
 		var id = stuff['id'];
-		console.log("oi");
         $.ajax({
 			type: "POST",
 			url: url,
 			data: $("#review").serialize() + "&id=" +id,
 			success: function(response) {
-				console.log(response);
 		        var json = $.parseJSON(response);
 
-				if (json.status == "true") {
+				if (json.status) {
                     document.getElementById("review").reset();
 					
 					var rating = "";

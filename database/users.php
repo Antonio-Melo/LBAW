@@ -613,4 +613,35 @@ function resetPassword($id, $password) {
 	$conn->exec('COMMIT;');
 }
 
+/*==========================================================================================*/
+/* Report */
+
+function addReport($user, $id_review, $text_report) {
+	global $conn;
+	$conn->exec('BEGIN;');
+	$stmt = $conn->prepare
+	('
+	SELECT *
+	FROM review
+	WHERE id=?
+	');
+	$stmt->execute(array($id_review));
+	$reported = $stmt->fetchAll();
+	
+	$message = "Product ID: " . $reported[0]['product'] . "\r\n";
+	$message .= "Rating: " . $reported[0]['rating'] . "\r\n";
+	$message .= "Comment: " . $reported[0]['comment'] . "\r\n";
+	$message .= "Report: " . $text_report;
+	
+	
+	$stmt = $conn->prepare
+	('
+	INSERT INTO report ("user", reported, message)
+	VALUES (?,?,?);
+	');
+	$stmt->execute(array($user, $reported[0]['client'], $message));
+	$conn->exec('COMMIT;');
+}
+
+
 ?>

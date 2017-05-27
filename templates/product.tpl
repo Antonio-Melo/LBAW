@@ -163,7 +163,20 @@
 								{/if}
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">{$review.name}</h4>
+								<h4 class="media-heading">{$review.name}
+								{if isset($smarty.session.id)}
+									<span class="user-comment-action">
+										<a class="reply-link" name="off" id={$review.review_id}>Reply</a>
+									</span>
+									
+									{if $smarty.session.id !== $review.client}
+										<span class="user-comment-action">
+											<a class="report-link" name="off" review={$review.review_id}>Report</a>
+										</span>
+									{/if}
+								{/if}
+								
+								</h4>
 								<span>
 									{for $i=1 to $review.rating}
 										<img class="star" src="../images/products/common/star.png" alt={$review.rating}>
@@ -189,11 +202,6 @@
 										</div>
 									</div>
 								{/foreach}
-                                {if isset($smarty.session.id)}
-                                    <div>
-                                        <a class="reply-link" name="off" id={$review.review_id}>Reply</a>
-                                    </div>
-                                {/if}
 							</div>
 						</div>
 						<hr>

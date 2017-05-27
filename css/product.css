@@ -323,3 +323,37 @@ td{
 	width: 150px;
 	height: 50px;
 }
+
+.user-comment-action {
+	font-size: 14px;
+	margin-left: 15px;
+}
+
+.user-comment-action a{
+	color: #333;
+}
+
+.user-comment-action a:hover{
+	cursor: pointer;
+}
+
+.media-body label {
+	font-weight: normal;
+	margin-top: 15px;
+}
+
+.media-body textarea {
+	border: 1px solid #ddd;
+	border-radius: 0;
+	box-shadow: none !important;
+}
+
+.media-body textarea:focus {
+	border: 2px solid #c49f66;
+}
+
+
+
+
+
+

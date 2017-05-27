@@ -13,8 +13,8 @@ function writeReview($client,$product, $text_review,$rating_input){
 function writeReply($client,$review_id,$text_reply){
 	global $conn;
 	$stmt = $conn->prepare('
-	INSERT INTO reply (user,review,message)
-	VALUES (?,?,?)
+	INSERT INTO reply ("user",review,message)
+	VALUES (?,?,?);
 	');
 	$stmt->execute(array($client,$review_id,$text_reply));
 }

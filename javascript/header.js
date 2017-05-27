@@ -12,7 +12,6 @@ $(document).ready(function(){
 			url: url,
 			data: $("#login").serialize(),
 			success: function(response) {
-				console.log(response);
 		        var json = $.parseJSON(response);
 		        if (json.status && !json.banned) {
 					location.reload();
