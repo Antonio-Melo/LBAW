@@ -87,12 +87,12 @@ $(document).ready(function(){
 		if(value == "off") {
             console.log("Fui carregado.");
             $('<div class="write_reply">' +
-                '<form id="'+ id_review+'"'+'class="reply-input" method="post">' +
-                '<label for="comment">Comment:</label>' +
-                '<textarea class="form-control" name="text_reply" rows="5" id="comment"></textarea>' +
-                '<button type="submit" class="btn btn-success product-buttons button">Reply</button>' +
+                '<form id="'+ id_review+'"'+'class="reply_input" method="post">' +
+                	'<label for="comment_reply">Comment:</label>' +
+                	'<textarea class="form-control" name="text_reply" rows="5" id="comment_reply"></textarea>' +
+                	'<button type="submit" class="btn btn-success product-buttons button">Reply</button>' +
                 '</form>' +
-                '</div>').insertAfter(this);
+			'</div>').insertAfter(this);
             console.log("Fiz injection de code");
             $(this).attr('name', "on");
         }else{
@@ -105,17 +105,15 @@ $(document).ready(function(){
 
 	});
 
-	$(".reply-input").submit(function (e) {
-		console.log("Vou fazer submit da review");
+	$('.reply_input').submit(function (e) {
+		console.log("Vou fazer submit do reply");
 		var url = base_url +"api/reply.php";
-        var stuff = qs();
-        var id = stuff['id'];
         var id_review = $(this).attr("id");
         console.log(id_review);
         $.ajax({
             type: "POST",
             url: url,
-            data: $(this).serialize() + "&id=" +id + "&id_review="+ id_review,
+            data: $(this).serialize() + "&id_review="+ id_review,
             success: function(response) {
                 var json = $.parseJSON(response);
 				console.log(json.status);
@@ -131,6 +129,7 @@ $(document).ready(function(){
 		var url = base_url + "api/review.php";
 		var stuff = qs();
 		var id = stuff['id'];
+		console.log("oi");
         $.ajax({
 			type: "POST",
 			url: url,

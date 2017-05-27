@@ -9,8 +9,14 @@ function writeReview($client,$product, $text_review,$rating_input){
 
     $stmt->execute(array($rating_input,$text_review,$client, $product));
 }
+//Inserts a Reply in a certain review
 function writeReply($client,$review_id,$text_reply){
-
+	global $conn;
+	$stmt = $conn->prepare('
+	INSERT INTO reply (user,review,message)
+	VALUES (?,?,?)
+	');
+	$stmt->execute(array($client,$review_id,$text_reply));
 }
 
 // Returns 6 most viewed products that are on sale (for home page)

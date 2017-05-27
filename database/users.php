@@ -89,6 +89,20 @@ function checkEmail($email) {
 	return count($results);
 }
 
+function getUserByUsernameEmail($username) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	SELECT *
+	FROM users
+	WHERE email=? OR username=?;
+	');
+	$stmt->execute(array($username, $username));
+	$result = $stmt->fetchAll();
+	
+	return $result[0];
+}
+
 /*==========================================================================================*/
 /* Cart/Favorites */
 function getUserFavorites($id) {
@@ -523,6 +537,51 @@ function addTicket($user, $subject, $description) {
 	$stmt->execute(array($user, $subject . "\n" . $description));
 }
 
+/*==========================================================================================*/
+/* Password reset */
 
+function createToken($id, $user) {
+	global $conn;
+	
+	$stmt = $conn->prepare
+	('
+	INSERT INTO resettokens
+	VALUES (?, ?);
+	');
+	$stmt->execute(array($id, $user));
+}
+
+function confirmReset($id) {
+	global $conn;
+	
+	$stmt = $conn->prepare
+	('
+	SELECT resettokens.user
+	FROM resettokens
+	WHERE id = ?;
+	');
+	$stmt->execute(array($id));
+	
+	$result = $stmt->fetchAll();
+	if (count($result) > 0) {
+		return $result[0];
+	}
+	else {
+		return false;
+	}
+}
+
+function resetPassword($id, $password) {
+	$user = getUserByUsernameEmail($id);
+	
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	UPDATE users
+	SET password=?
+	WHERE users.id=?;
+	');
+	$stmt->execute(array(password_hash($password, PASSWORD_DEFAULT), $user['id']));
+}
 
 ?>

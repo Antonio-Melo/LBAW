@@ -5,18 +5,18 @@ include_once('../database/users.php');
 
 $response = array();
 
-if (!$_POST['text_reply']) {
+if (!$_POST['text_reply'] || !$_POST['id_review']) {
     $response["status"] = "false";
     echo json_encode($response);
     exit;
 }
 
-$text_reply = strip_tags($_POST['text_review']);
-$id = strip_tags($_POST['id']);
+$text_reply = strip_tags($_POST['text_reply']);
+$id_review = strip_tags($_POST['id_review']);
 
 try {
     $user = getUserById($_SESSION['id']);
-    //writeReview($_SESSION['id'],$id,$text_review,$rating_input);
+    writeReply($_SESSION['id'],$id_review,$text_reply);
     $response["status"] = "true";
 
     echo json_encode($response);

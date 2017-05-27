@@ -112,7 +112,7 @@ $(document).ready(function(){
 });
 
 // Changes global validity variables
-function setValid(bool, where, what) {
+function setValid(bool, where, what) {	
 	if (where == 'register') {
 		if (what == 'username') {
 			valid_register_username = bool;
@@ -127,7 +127,7 @@ function setValid(bool, where, what) {
 			valid_register_password = bool;
 		}
 	}
-	else if (where = 'edit') {
+	else if (where == 'edit') {
 		if (what == 'username') {
 			valid_edit_username = bool;
 		}
@@ -139,6 +139,11 @@ function setValid(bool, where, what) {
 		}
 		else if (what == 'password') {
 			valid_edit_password = bool;
+		}
+	}
+	else if (where == 'reset') {
+		if (what == 'password') {
+			valid_reset_password = bool;
 		}
 	}
 }
@@ -255,7 +260,6 @@ function checkValidPassword(selector1, selector2, where) {
 		$(selector1).addClass("authentication-input-error");
 		$(selector1).siblings('.error-sign').removeClass('hide');
 		$(selector2).addClass("authentication-input-error");
-		console.log("hello");
 		setValid(false, where, 'password');
 	}
 	else {
@@ -278,7 +282,7 @@ function nameRestrictions(name) {
 	return (name.length>=1 && name.length<=50);
 }
 
-function passwordRestrictions(password, c_password) {
+function passwordRestrictions(password, c_password) {	
 	return (password==c_password && password.length>=6 && password.length<=128);
 }
 
