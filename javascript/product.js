@@ -86,7 +86,7 @@ $(document).ready(function(){
 		var value = $(this).attr('name');
 		if(value == "off") {
             console.log("Fui carregado.");
-            $('<div id="write_reply">' +
+            $('<div class="write_reply">' +
                 '<form id="'+ id_review+'"'+'class="reply-input" method="post">' +
                 '<label for="comment">Comment:</label>' +
                 '<textarea class="form-control" name="text_reply" rows="5" id="comment"></textarea>' +
@@ -97,8 +97,9 @@ $(document).ready(function(){
             $(this).attr('name', "on");
         }else{
             console.log("Vou eliminar");
+            console.log(this);
             $(this).attr('name',"off");
-			$('#write_reply').remove();
+			$(this).siblings('.write_reply').remove();
             console.log("Eliminei");
 		}
 

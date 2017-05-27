@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 10:46:52
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 00:25:03
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1495100805,
+      1 => 1495841093,
       2 => 'file',
     ),
   ),
@@ -197,6 +197,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 									
 									<p class="authentication-error" id="login-error"></p>
 									
+									<a id="recover" href="recoverpassword.php">Forgot your password?</a>
 									<button type="submit">Log in</button>
 								</form>				
 							</div>

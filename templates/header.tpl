@@ -136,6 +136,7 @@
 									
 									<p class="authentication-error" id="login-error"></p>
 									
+									<a id="recover" href="recoverpassword.php">Forgot your password?</a>
 									<button type="submit">Log in</button>
 								</form>				
 							</div>
