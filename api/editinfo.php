@@ -30,6 +30,7 @@ try {
 			if ($old_url != "") {
 				removeImage('avatar', $old_url);
 			}
+			$response["file"] = $url;
 		}
 	}
 	

@@ -1,42 +1,6 @@
 var valid_edit_username = true, valid_edit_name = true, valid_edit_email = true, valid_edit_password = false;
 
-$(document).ready(function(){
-	console.log(
-	'<li class="col-sm-6 col-md-6">'+'\n'+
-		'\t'+'<div class="adressCard" id="'+ '---' +'>'+'\n'+
-			'\t\t'+'<div class="addressInfo">'+'\n'+
-				'\t\t\t'+'<p>'+'---'+', '+'---'+'<br>'+'\n'+
-				'\t\t\t'+'---'+' '+'---'+'<br>'+'\n'+
-				'\t\t\t'+'---'+'<br>'+'\n'+
-				'\t\t\t'+'---'+'<br>'+'\n'+
-				'\t\t\t'+'Tel: '+'---'+'</p>'+'\n'+
-			'\t\t'+'</div>'+'\n'+
-			'\t\t'+'<div class="addressEdit hide">'+'\n'+
-				'\t\t\t'+'<input type="text" class="address-edit-street" placeholder="Street" value="'+'---'+'"></input>'+'\n'+
-				'\t\t\t'+'<input type="text" class="address-edit-door-number" placeholder="Door number" value="'+'---'+'"></input>'+'\n'+
-				'\t\t\t'+'<input type="text" class="address-edit-postal-zip" placeholder="Zip code" value="'+'---'+'"></input>'+'\n'+
-				'\t\t\t'+'<input type="text" class="address-edit-city" placeholder="City" value="'+'---'+'"></input>'+'\n'+
-				'\t\t\t'+'<input type="text" class="address-edit-region" placeholder="Region" value="'+'---'+'"></input>'+'\n'+
-				'\t\t\t'+'<select class="country-select address-edit-country">'+'\n'+
-					'\t\t\t\t'+'---'+'\n'+
-				'\t\t\t'+'</select>'+'\n'+
-				'\t\t\t'+'<input type="text" class="address-edit-telephone" placeholder="Phone number" value="'+'---'+'"></input>'+'\n'+
-			'\t\t'+'</div>'+'\n'+
-			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton edit-address"><i class="fa fa-pencil"></i></button>'+'\n'+
-			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton delete-address"><i class="fa fa-trash"></i></button>'+'\n'+
-			
-			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton save-address hide">Save</button>'+'\n'+
-			'\t\t'+'<button type="button" class="btn btn-primary btn-block profileButton cancel-address hide">Cancel</button>'+'\n'+
-		'\t'+'</div>'+'\n'+
-	'</li>'
-	
-	
-	
-	
-	
-	
-	);
-	
+$(document).ready(function(){	
 	var initial_username = $('#info-username').text();
 	var initial_name = $('#info-name').text();
 	var initial_email = $('#info-email').text();
@@ -85,7 +49,14 @@ $(document).ready(function(){
 						initial_email = json.email;
 						initial_country = json.country;
 						
-						setInitialValues(initial_username, initial_name, initial_email, initial_country);
+						if (json.file) {
+							initial_file = json.file;
+							setInitialValuesWFile(initial_file, initial_username, initial_name, initial_email, initial_country);
+						}
+						else {
+							setInitialValues(initial_username, initial_name, initial_email, initial_country);
+						}
+						
 						toggleAccountInfo();
 					}
 					else {
@@ -380,6 +351,12 @@ function setInitialValues(initial_username, initial_name, initial_email, initial
 	$('#info-name').text(initial_name);
 	$('#info-email').text(initial_email);
 	$('#info-country').text(initial_country);
+}
+
+function setInitialValuesWFile(initial_file, initial_username, initial_name, initial_email, initial_country) {
+	$('#edit-avatar').val("");
+	$('.avatar-image-container img').attr("src", "../images/users/"+initial_file);
+	setInitialValues(initial_username, initial_name, initial_email, initial_country);
 }
 
 function toggleAddress(element) {
