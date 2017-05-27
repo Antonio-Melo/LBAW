@@ -176,7 +176,7 @@ function getAllSearchProducts($search) {
 		$query = "SELECT *
 					FROM 
 					(SELECT DISTINCT ON (product.id) *, keyword.name AS keyword_name, brand.name AS brand_name, product.name AS product_name, product.id AS product_id,
-					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') as document
+					setweight(to_tsvector(product.name), 'A') || setweight(to_tsvector(product.full_name), 'B') || setweight(to_tsvector(product.small_description), 'C') || setweight(to_tsvector(product.description), 'D') as document
 					FROM product
 					LEFT JOIN onsale ON product.id=onsale.id
 					LEFT JOIN image ON product.id=image.product

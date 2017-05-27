@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 11:46:27
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 13:46:58
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1495881934,
+      1 => 1495889211,
       2 => 'file',
     ),
   ),
@@ -241,18 +241,16 @@ $_smarty_tpl->tpl_vars['review']->_loop = true;
 							<div class="media-body">
 								<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['review']->value['name'];?>
 
-								<?php if (isset($_SESSION['id'])) {?>
+								<?php if (isset($_SESSION['id'])&&$_SESSION['id']!==$_smarty_tpl->tpl_vars['review']->value['client']) {?>
 									<span class="user-comment-action">
 										<a class="reply-link" name="off" id=<?php echo $_smarty_tpl->tpl_vars['review']->value['review_id'];?>
 >Reply</a>
 									</span>
 									
-									<?php if ($_SESSION['id']!==$_smarty_tpl->tpl_vars['review']->value['client']) {?>
-										<span class="user-comment-action">
-											<a class="report-link" name="off" review=<?php echo $_smarty_tpl->tpl_vars['review']->value['review_id'];?>
+									<span class="user-comment-action">
+										<a class="report-link" name="off" review=<?php echo $_smarty_tpl->tpl_vars['review']->value['review_id'];?>
 >Report</a>
-										</span>
-									<?php }?>
+									</span>
 								<?php }?>
 								
 								</h4>

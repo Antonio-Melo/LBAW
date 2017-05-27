@@ -168,7 +168,9 @@ input:focus, button:focus {
 }
 
 #menu a {
-	padding: 15px 0px 10px 30px;
+	padding: 15px 0px 10px 0px;
+	text-align: center;
+	width: 45px;
 }
 
 #menu .glyphicon {

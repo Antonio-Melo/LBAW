@@ -164,16 +164,14 @@
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading">{$review.name}
-								{if isset($smarty.session.id)}
+								{if isset($smarty.session.id) && $smarty.session.id !== $review.client}
 									<span class="user-comment-action">
 										<a class="reply-link" name="off" id={$review.review_id}>Reply</a>
 									</span>
 									
-									{if $smarty.session.id !== $review.client}
-										<span class="user-comment-action">
-											<a class="report-link" name="off" review={$review.review_id}>Report</a>
-										</span>
-									{/if}
+									<span class="user-comment-action">
+										<a class="report-link" name="off" review={$review.review_id}>Report</a>
+									</span>
 								{/if}
 								
 								</h4>
