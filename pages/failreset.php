@@ -13,11 +13,11 @@
 	
 	/*==================================================*/
 	/* Change to files of each pages */
-	$smarty->assign('css_file', 'about-us.css');  
+	$smarty->assign('css_file', 'resetresult.css');  
 	$smarty->assign('js_file', 'common.js');
-	$smarty->assign('page_title', 'About Us');
+	$smarty->assign('page_title', 'Failed reset');
 	
 	/*==================================================*/
 
-	$smarty->display('about-us.tpl');
+	$smarty->display('failreset.tpl');
 ?>

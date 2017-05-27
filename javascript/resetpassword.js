@@ -6,7 +6,9 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
-	$('#reset').submit(function(e) {		
+	$('#reset').submit(function(e) {
+		checkValidPassword('#confirm', '#password', 'reset');
+		
 		if (!valid_reset_password) {
 			$('#edit-password-error').css('color', '#e53935');
 			$('#edit-password-error').text("Invalid passwords");

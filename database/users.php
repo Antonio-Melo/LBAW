@@ -169,7 +169,6 @@ function removeCartProduct($client, $product) {
 function addFavoriteCart($client, $product) {
 	global $conn;
 	$conn->exec('BEGIN;');
-	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
 	$stmt = $conn->prepare
 	('
 	DELETE FROM favoritesproducts
@@ -365,7 +364,6 @@ function editUser($id, $username, $name, $email, $country) {
 function addUserImage($username, $url) {	
 	global $conn;
 	$conn->exec('BEGIN;');
-	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
 	$stmt = $conn->prepare
 	('
 	INSERT INTO image(url)
@@ -470,7 +468,6 @@ function removeAddress($address) {
 function editAddress($id, $user_id, $street, $door, $zip, $city, $region, $country, $phone) {
 	global $conn;
 	$conn->exec('BEGIN;');
-	$conn->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;');
 	
 	$stmt = $conn->prepare
 	('
@@ -542,13 +539,36 @@ function addTicket($user, $subject, $description) {
 
 function createToken($id, $user) {
 	global $conn;
+	$conn->exec('BEGIN;');
 	
 	$stmt = $conn->prepare
 	('
-	INSERT INTO resettokens
-	VALUES (?, ?);
+	SELECT *
+	FROM resettokens
+	WHERE resettokens.user=?;
 	');
-	$stmt->execute(array($id, $user));
+	$stmt->execute(array($user));
+	$results = $stmt->fetchAll();
+	
+	if (count($results) == 0) {
+		$stmt = $conn->prepare
+		('
+		INSERT INTO resettokens
+		VALUES (?, ?);
+		');
+		$stmt->execute(array($id, $user));
+	}
+	else {
+		$stmt = $conn->prepare
+		('
+		UPDATE resettokens
+		SET id=?
+		WHERE resettokens.user=?;
+		');
+		$stmt->execute(array($id, $user));
+	}
+	
+	$conn->exec('COMMIT;');
 }
 
 function confirmReset($id) {
@@ -575,6 +595,7 @@ function resetPassword($id, $password) {
 	$user = getUserByUsernameEmail($id);
 	
 	global $conn;
+	$conn->exec('BEGIN;');
 	$stmt = $conn->prepare
 	('
 	UPDATE users
@@ -582,6 +603,14 @@ function resetPassword($id, $password) {
 	WHERE users.id=?;
 	');
 	$stmt->execute(array(password_hash($password, PASSWORD_DEFAULT), $user['id']));
+	
+	$stmt = $conn->prepare
+	('
+	DELETE FROM resettokens
+	WHERE resettokens.user=?;
+	');
+	$stmt->execute(array($user['id']));
+	$conn->exec('COMMIT;');
 }
 
 ?>

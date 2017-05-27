@@ -14,7 +14,6 @@
 		
 		createToken($id, $user_info['id']);
 		
-		
 		$link = 'http://gnomo.fe.up.pt/~lbaw1663/LBAW/pages/resetpassword.php?id=' . $id;
 		
 		$to = $user_info['email'];
@@ -39,5 +38,5 @@
 		mail($to, $subject, $message, $headers);
 	} catch (PDOException $e) {}
 	
-	//header('Location: ' . $BASE_URL . 'pages/home.php');
+	header('Location: ' . $BASE_URL . 'pages/home.php');
 ?>
