@@ -1,4 +1,21 @@
 <?php
+function banUser($id){
+    global $conn;
+    $stmt = $conn->prepare('
+    INSERT INTO banned (id)
+    VALUES (?)
+    ');
+    $stmt->execute(array($id));
+}
+
+function removeReport($id){
+    global $conn;
+    $stmt = $conn->prepare('
+    DELETE FROM report
+    WHERE report.id = ?;
+    ');
+    $stmt->execute(array($id));
+}
 function getReports(){
     global $conn;
     $stmt = $conn->prepare('

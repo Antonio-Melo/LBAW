@@ -20,6 +20,17 @@ function insertProduct($name,$full_name,$sm_description,$price,$qty,$lg_descript
 	');
 	$stmt->execute(array($name,$full_name,$sm_description,$lg_description,$price,$brand,$qty,$category));
 }
+
+function updateProduct($name,$full_name,$sm_description,$price,$qty,$lg_description,$category,$brand,$product_id){
+	global $conn;
+	$stmt = $conn->prepare('
+	UPDATE product
+	SET name=?, full_name=?, small_description=?, description=?,price=?, brand=?, stock=?, keyword=?
+	WHERE id=?;
+	');
+	$stmt->execute(array($name,$full_name,$sm_description,$lg_description,$price,$brand,$qty,$category, $product_id));
+}
+
 //Inserts a Review from a certain product
 function writeReview($client,$product, $text_review,$rating_input){
 	global $conn;

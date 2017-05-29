@@ -256,7 +256,7 @@ $(document).ready(function(){
 		for (i=0; i<11; i++) {
         	reference += numbers.charAt(Math.floor(Math.random() * numbers.length));
 		}
-		/*
+		
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -271,14 +271,13 @@ $(document).ready(function(){
 			}
 		});
 		e.preventDefault();
-		*/
 		
-		url = base_url + "api/addproductsorder.php";
+		//url = base_url + "api/addproductsorder.php";
 		for (i=0; i<products.length; i++) {
-			product = products[i].getAttribute("name");
-			price_paid = products[i].getAttribute("class");
-			nr_units = products[i].getAttribute("value");
-			/*
+			var product = products[i].getAttribute("name");
+			var price_paid = products[i].getAttribute("class");
+			var nr_units = products[i].getAttribute("value");
+			
 			$.ajax({
 				type: "POST",
 				url: url,
@@ -294,7 +293,6 @@ $(document).ready(function(){
 				}
 			});
 			e.preventDefault();
-			*/
 		}
 	});
 });

@@ -21,7 +21,7 @@
 	/*==================================================*/
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'editproduct.css');  
-	$smarty->assign('js_file', 'common.js');
+	$smarty->assign('js_file', 'editproduct.js');
 	
 	/*==================================================*/
 
@@ -34,11 +34,14 @@
 	include_once('../database/products.php');
 	include_once('../database/users.php');
 	
+	$brands = getAllBrandNames();
+	
 	$id = strip_tags($_GET["id"]);
 	$product = getProductById($id);
 	
 	$smarty->assign('product', $product[0]);
 	$smarty->assign('page_title', $product[0]['product_name']);
+	$smarty->assign('brands', $brands);
 
 	$smarty->display('editproduct.tpl');
 ?>

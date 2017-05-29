@@ -5,20 +5,18 @@ include_once('../database/admin.php');
 
 $response = array();
 
-if (!$_PSOT['id']) {
+if (!$_POST['id'] || !$_POST['report_id']) {
     header('Location: ' . $BASE_URL . 'pages/home.php');
 }
+$id = strip_tags(!$_POST['id']);
+$report_id = strip_tags(!$_POST['report_id']);
 
 try {
-    if ($_POST['category'] && strlen($_POST['category']) > 0) {
-        addNewKeyword($_POST['category']);
-    }
-    else if ($_POST['brand'] && strlen($_POST['brand']) > 0) {
-        addNewBrand($_POST['brand']);
-    }
+    banUser($id);
+    removeReport($report_id);
 } catch (PDOException $e) {
-    header('Location: ' . $BASE_URL . 'pages/add-keywords.php');
+    header('Location: ' . $BASE_URL . 'pages/check-reports.php');
 }
 
-header('Location: ' . $BASE_URL . 'pages/add-keywords.php');
+header('Location: ' . $BASE_URL . 'pages/check-reports.php');
 ?>

@@ -5,14 +5,12 @@ include_once('../database/users.php');
 $response = array();
 
 $reference = $_POST['reference'];
-$date_ordered = $_POST['date_ordered'];
-$billing_address = $_POST['billing_address'];
-$shipping_address = $_POST['shipping_address'];
-$shipping_method = $_POST['shipping_method'];
-$payment_method = $_POST['payment_method'];
+$product = $_POST['product'];
+$price_paid = $_POST['price_paid'];
+$nr_units = $_POST['nr_units'];
 
 try {
-	addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method);
+	addProductsOrder($reference, $product, $price_paid, $nr_units);
 	$response["status"] = true;
 	echo json_encode($response);
 	exit;

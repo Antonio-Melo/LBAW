@@ -277,17 +277,6 @@ function getProductInFavorites($client, $product) {
 
 
 
-function addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method) {
-	global $conn;
-	$stmt = $conn->prepare
-	('
-	INSERT INTO orders (reference, date_ordered, billing_address, shipping_address, shipping_method, payment_method)
-	VALUES(?, ?, ?, ?, ?, ?);
-	');
-
-	return $stmt->execute(array($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method));
-}
-
 /*==========================================================================================*/
 /* Profile */
 function getUserById($id) {
@@ -653,5 +642,29 @@ function addReport($user, $id_review, $text_report) {
 	$conn->exec('COMMIT;');
 }
 
+/*==========================================================================================*/
+/* Orders */
+
+function addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO orders (reference, date_ordered, billing_address, shipping_address, shipping_method, payment_method)
+	VALUES(?, ?, ?, ?, ?, ?);
+	');
+
+	return $stmt->execute(array($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method));
+}
+
+function addProductOrder($reference, $product, $price_paid, $nr_units) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO orderproduct (reference, product, price_paid, nr_units)
+	VALUES(?, ?, ?, ?);
+	');
+
+	return $stmt->execute(array($reference, $product, $price_paid, $nr_units));
+}
 
 ?>

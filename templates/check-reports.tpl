@@ -31,6 +31,7 @@
                         <form method="post" action="../actions/ban-user.php">
                             <input type="hidden" value={$report.reported} name="id">
                             <input type="hidden" value={$current_page} name="page">
+                            <input type="hidden" value={$report.report_id} name="report_id">
 
                             <button type="submit" class="btn button">Ban</button>
                         </form>
