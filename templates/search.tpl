@@ -242,20 +242,22 @@
 									<span class="old-price"></span>
 								{/if}
 							</div>
-							<button class="btn btn-default product-fav-bttn
-							{if isset($smarty.session.id) && in_array($product.product_id, $user_favorites)}
-								isFavorite
+							{if !isset($smarty.session.admin)}
+								<button class="btn btn-default product-fav-bttn
+								{if isset($smarty.session.id) && in_array($product.product_id, $user_favorites)}
+									isFavorite
+								{/if}
+								">
+									<span class="glyphicon glyphicon-heart"></span>
+								</button>
+								<button class="btn btn-default product-cart-bttn
+								{if isset($smarty.session.id) && in_array($product.product_id, $user_cart)}
+									isCart
+								{/if}
+								">
+									<span class="glyphicon glyphicon-shopping-cart"></span>
+								</button>
 							{/if}
-							">
-								<span class="glyphicon glyphicon-heart"></span>
-							</button>
-							<button class="btn btn-default product-cart-bttn
-							{if isset($smarty.session.id) && in_array($product.product_id, $user_cart)}
-								isCart
-							{/if}
-							">
-								<span class="glyphicon glyphicon-shopping-cart"></span>
-							</button>
 						</div>
 					</div>
 				</div>
