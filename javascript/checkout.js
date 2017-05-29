@@ -250,7 +250,13 @@ $(document).ready(function(){
 			mm = '0' + mm
 		}
 		var date_ordered = yyyy + '-' + mm + '-' + dd;
-		var rng = Math.random() * 9000000000 + 1000000000;
+		
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+		
+		000872240-4
+		var rng = Math.random() * 100000000 + 1000000000;
 		var reference = "BAT" + yyyy + mm + dd + Math.round(rng);
 		var asdf = 0;
 		

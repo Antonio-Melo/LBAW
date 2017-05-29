@@ -30,6 +30,55 @@ function writeReview($client,$product, $text_review,$rating_input){
 
     $stmt->execute(array($rating_input,$text_review,$client, $product));
 }
+
+function removeReview($review){
+	global $conn;
+	$stmt = $conn->prepare('
+	DELETE FROM review
+	WHERE id=?;
+	');
+    $stmt->execute(array($review));
+}
+
+function getReviewById($id) {
+	global $conn;
+	$stmt = $conn->prepare('
+	SELECT *
+	FROM review
+	WHERE id=?;
+	');
+
+    $stmt->execute(array($id));
+	$result = $stmt->fetchAll();
+	
+	return $result[0];
+}
+
+function removeReply($id){
+	global $conn;
+	$stmt = $conn->prepare('
+	DELETE FROM reply
+	WHERE id=?;
+	');
+    $stmt->execute(array($id));
+}
+
+function getReplyById($id) {
+	global $conn;
+	$stmt = $conn->prepare('
+	SELECT *
+	FROM reply
+	WHERE id=?;
+	');
+
+    $stmt->execute(array($id));
+	$result = $stmt->fetchAll();
+	
+	return $result[0];
+}
+
+
+
 //Inserts a Reply in a certain review
 function writeReply($client,$review_id,$text_reply){
 	global $conn;
@@ -186,7 +235,7 @@ function getRepliesByReviewId($id) {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT *
+	SELECT *, reply.id AS reply_id
 	FROM reply
 	JOIN users ON reply.user=users.id
 	JOIN review ON reply.review=review.id

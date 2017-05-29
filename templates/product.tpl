@@ -185,6 +185,12 @@
 									</span>
 								{/if}
 								
+								{if isset($smarty.session.id) && (isset($smarty.session.admin) || $smarty.session.id === $review.client)}
+								<span class="user-comment-action">
+									<a class="remove-link" review={$review.review_id}>Remove</a>
+								</span>
+								{/if}
+								
 								</h4>
 								<span>
 									{for $i=1 to $review.rating}
@@ -206,7 +212,14 @@
 											{/if}
 										</div>
 										<div class="media-body">
-											<h4 class="media-heading">{$reply.name}</h4>
+											<h4 class="media-heading">{$reply.name}
+											{if isset($smarty.session.id) && (isset($smarty.session.admin) || $smarty.session.id === $review.client)}
+											<span class="user-comment-action">
+												<a class="remove-reply" reply={$reply.reply_id}>Remove</a>
+											</span>
+											{/if}
+											
+											</h4>
 											<p>{$reply.message}</p>
 										</div>
 									</div>

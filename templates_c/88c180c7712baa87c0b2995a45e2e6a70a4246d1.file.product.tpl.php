@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 12:28:40
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 14:45:55
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1496057044,
+      1 => 1496063663,
       2 => 'file',
     ),
   ),
@@ -265,6 +265,13 @@ $_smarty_tpl->tpl_vars['review']->_loop = true;
 									</span>
 								<?php }?>
 								
+								<?php if (isset($_SESSION['id'])&&(isset($_SESSION['admin'])||$_SESSION['id']===$_smarty_tpl->tpl_vars['review']->value['client'])) {?>
+								<span class="user-comment-action">
+									<a class="remove-link" review=<?php echo $_smarty_tpl->tpl_vars['review']->value['review_id'];?>
+>Remove</a>
+								</span>
+								<?php }?>
+								
 								</h4>
 								<span>
 									<?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['review']->value['rating']+1 - (1) : 1-($_smarty_tpl->tpl_vars['review']->value['rating'])+1)/abs($_smarty_tpl->tpl_vars['i']->step));
@@ -299,7 +306,15 @@ $_smarty_tpl->tpl_vars['reply']->_loop = true;
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['reply']->value['name'];?>
-</h4>
+
+											<?php if (isset($_SESSION['id'])&&(isset($_SESSION['admin'])||$_SESSION['id']===$_smarty_tpl->tpl_vars['review']->value['client'])) {?>
+											<span class="user-comment-action">
+												<a class="remove-reply" reply=<?php echo $_smarty_tpl->tpl_vars['reply']->value['reply_id'];?>
+>Remove</a>
+											</span>
+											<?php }?>
+											
+											</h4>
 											<p><?php echo $_smarty_tpl->tpl_vars['reply']->value['message'];?>
 </p>
 										</div>

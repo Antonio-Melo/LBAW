@@ -206,7 +206,7 @@ $(document).ready(function(){
 	$("#review").submit(function(e){
 		var url = base_url + "api/review.php";
 		var stuff = qs();
-		var id = stuff['id'];
+		var id = stuff['id'];		
         $.ajax({
 			type: "POST",
 			url: url,
@@ -237,6 +237,8 @@ $(document).ready(function(){
 						'</div>'+
 					'</div>'+
 					'<hr>').insertAfter('#customer-rv hr:last-of-type');
+					
+					
 		        }
 			}
 		});
@@ -286,7 +288,49 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
+	$('.media-body').on('click', '.remove-link', function (e) {
+		var url = base_url + "api/deletereview.php";
+		var review = $(this).attr('review');
+		var parent = $(this).closest('.media');
+		var line = $(parent).next('hr');
+		
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {review: review},
+			success: function(response) {
+		        var json = $.parseJSON(response);
+
+				if (json.status) {
+                    $(parent).remove();
+					$(line).remove();
+		        }
+			}
+		});
+		
+		e.preventDefault();
+	});
 	
+	$('.media-body').on('click', '.remove-reply', function (e) {
+		var url = base_url + "api/deletereply.php";
+		var reply = $(this).attr('reply');
+		var parent = $(this).closest('.media');
+		
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {reply: reply},
+			success: function(response) {
+		        var json = $.parseJSON(response);
+
+				if (json.status) {
+                    $(parent).remove();
+		        }
+			}
+		});
+		
+		e.preventDefault();
+	});
 	
 	
 	
