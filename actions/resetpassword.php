@@ -9,9 +9,9 @@ if (!$_POST['username'] || !$_POST['password'] || !$_POST['confirm']) {
 	exit;
 }
 
-$user = $_POST['username'];
-$password = $_POST['password']; 
-$confirm = $_POST['confirm'];
+$user = strip_tags($_POST['username']);
+$password = strip_tags($_POST['password']); 
+$confirm = strip_tags($_POST['confirm']);
 
 if ($password !== $confirm || strlen($password) < 6 || strlen($password) > 128) {
 	header('Location: ' . $BASE_URL . 'pages/failreset.php');

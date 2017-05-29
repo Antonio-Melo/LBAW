@@ -7,8 +7,8 @@
 	}
 	
 	$user = $_SESSION['id'];
-	$subject = $_POST['subject'];
-	$description = $_POST['description'];
+	$subject = strip_tags($_POST['subject']);
+	$description = strip_tags($_POST['description']);
 	
 	try {
 		addTicket($user, $subject, $description);

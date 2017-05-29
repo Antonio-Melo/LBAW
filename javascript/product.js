@@ -177,8 +177,14 @@ $(document).ready(function(){
 			contentType: false,
             success: function(response) {
                 var json = $.parseJSON(response);
-                console.log(response);
-                console.log(element.parent('.write_reply').siblings().last());
+                
+				if (json.user_image == null && json.admin) {
+					json.user_image = "common/default_admin.png";
+				}
+				else if (json.user_image == null) {
+					json.user_image = "common/default_client.png";
+				}
+				
                 if (json.status) {
                     $('<div class="media">'+
                         '<div class="media-left">'+
@@ -214,6 +220,10 @@ $(document).ready(function(){
 					var rating = "";
 					for (var i = 0; i < json.rating; i++) {
 						rating += '<img class="star" src="../images/products/common/star.png" alt="'+json.rating+'"> '
+					}
+					
+					if (json.user_image == null) {
+						json.user_image = "common/default_client.png";
 					}
 					
 					$('<div class="media">'+

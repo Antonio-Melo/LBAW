@@ -8,9 +8,9 @@ if (!$_SESSION['id'] || !$_POST['oldpwd'] || !$_POST['pwd'] || !$_POST['newpwd']
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$old_password = $_POST['oldpwd'];
-$new_password = $_POST['pwd']; 
-$confirm = $_POST['newpwd']);
+$old_password = strip_tags($_POST['oldpwd']);
+$new_password = strip_tags($_POST['pwd']); 
+$confirm = strip_tags($_POST['newpwd']);
 
 if ($new_password !== $confirm) {
 	die(header("HTTP/1.0 400 Bad Request"));

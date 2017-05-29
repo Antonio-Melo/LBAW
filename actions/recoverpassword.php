@@ -7,7 +7,7 @@
 		exit;
 	}
 	
-	$user = $_POST['username'];
+	$user = strip_tags($_POST['username']);
 	
 	try {
 		$user_info = getUserByUsernameEmail($user);

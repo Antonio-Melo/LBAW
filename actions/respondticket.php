@@ -12,10 +12,10 @@ if (!$_SESSION['admin'] || !$_POST['email'] || !$_POST['subject'] || strlen($_PO
 	exit;
 }
 
-$email = $_POST['email'];
-$subject = $_POST['subject']; 
-$response = $_POST['response'];
-$id = $_POST['id'];
+$email = strip_tags($_POST['email']);
+$subject = strip_tags($_POST['subject']); 
+$response = strip_tags($_POST['response']);
+$id = strip_tags($_POST['id']);
 
 try {
 	$to = $email;

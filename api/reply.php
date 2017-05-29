@@ -16,6 +16,7 @@ try {
     $user = getUserById($_SESSION['id']);
     writeReply($_SESSION['id'],$id_review,$text_reply);
     $response["status"] = true;
+	$response["admin"] = $user[0]["is_admin"];
     $response["user_image"] = $user[0]["url"];
     $response["user_name"] = $user[0]["users_name"];
     $response["text_reply"] = $text_reply;
