@@ -1,0 +1,25 @@
+.banned-users-body {
+	padding: 0 15px 20px 15px;
+}
+
+.banned-users-body h1, .banned-users-body .row {
+	margin-left: 10px;
+}
+
+.row{
+	text-align: center;
+}
+
+.btn-group-vertical{
+	width: 100%;
+    text-align: center;
+}
+
+h3 {
+	overflow-wrap: break-word;
+}
+
+.unban{
+	margin-bottom: auto;
+	text-align: center;
+}

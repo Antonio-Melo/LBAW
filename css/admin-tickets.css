@@ -1,0 +1,91 @@
+/* Pending tickets */
+
+#tickets-body {
+	padding: 0 15px 0 15px;
+}
+
+h1, .tickets-content {
+	margin-left: 10px;
+}
+
+#tickets-body .tickets-content a {
+	color: #333;
+	border-radius: 0;
+	height: 50px;
+	padding-top: 16px;
+}
+
+#tickets-body .tickets-content li.active > a, #tickets-body .tickets-content li.active > a:hover, #tickets-body .tickets-content li.active > a:focus {
+	background: #c49f66;
+	color: white;
+}
+
+#tickets-body .list-group-item {
+	border: 0;
+	background: #f5f5f5;
+}
+
+#tickets-body .answer {
+	padding: 15px;
+}
+
+#tickets-body .list-group-item:focus, #tickets-body .list-group-item:hover {
+	text-decoration: underline;
+}
+
+#tickets-body textarea {
+	border: 1px solid #ddd;
+	border-radius: 0;
+	box-shadow: none !important;
+	outline-width: 0;
+	display: block;
+	margin-top: 10px;
+}
+
+#tickets-body textarea:focus {
+	border: 2px solid #c49f66;
+}
+
+#tickets-body button {
+	margin-top: 20px;
+}
+
+#tickets-body label {
+	font-weight: normal;
+	margin-top: 40px;
+}
+
+/*===============================================================================*/
+/* Pagination */
+#tickets-body .page-selector {
+	width: 100%;
+}
+
+#tickets-body .page-selector {
+	overflow: hidden;
+}
+
+#tickets-body .pagination a {
+	border-radius: 0;
+	color: #333;
+	width: 30px;
+	height: 30px;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+	cursor: pointer;
+	padding-top: 5px;
+}
+
+#tickets-body .pagination a .glyphicon {
+	color: #777;
+	margin-left: -4px;
+	margin-right: -4px;
+}
+
+#tickets-body .pagination .active a, #tickets-body .pagination .active a:hover {
+	color: white;
+	background: #c49f66;
+	border: 1px solid #ddd;
+	z-index: auto;
+}

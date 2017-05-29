@@ -1,0 +1,91 @@
+/* Pending tickets */
+
+#check-reports-body {
+    padding: 0 15px 0 15px;
+}
+
+h1, .tickets-content {
+    margin-left: 10px;
+}
+
+#check-reports-body .tickets-content a {
+    color: #333;
+    border-radius: 0;
+    height: 50px;
+    padding-top: 16px;
+}
+
+#check-reports-body .tickets-content li.active > a, #check-reports-body .tickets-content li.active > a:hover, #check-reports-body .tickets-content li.active > a:focus {
+    background: #c49f66;
+    color: white;
+}
+
+#check-reports-body .list-group-item {
+    border: 0;
+    background: #f5f5f5;
+}
+
+#check-reports-body .answer {
+    padding: 15px;
+}
+
+#check-reports-body .list-group-item:focus, #check-reports-body .list-group-item:hover {
+    text-decoration: underline;
+}
+
+#check-reports-body textarea {
+    border: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: none !important;
+    outline-width: 0;
+    display: block;
+    margin-top: 10px;
+}
+
+#check-reports-body textarea:focus {
+    border: 2px solid #c49f66;
+}
+
+#check-reports-body button {
+    margin-top: 20px;
+}
+
+#check-reports-body label {
+    font-weight: normal;
+    margin-top: 40px;
+}
+
+/*===============================================================================*/
+/* Pagination */
+#check-reports-body .page-selector {
+    width: 100%;
+}
+
+#check-reports-body .page-selector {
+    overflow: hidden;
+}
+
+#check-reports-body .pagination a {
+    border-radius: 0;
+    color: #333;
+    width: 30px;
+    height: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+#check-reports-body .pagination a .glyphicon {
+    color: #777;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+#check-reports-body .pagination .active a, #check-reports-body .pagination .active a:hover {
+    color: white;
+    background: #c49f66;
+    border: 1px solid #ddd;
+    z-index: auto;
+}

@@ -1,0 +1,32 @@
+#admin-menu-body {
+	padding: 0 15px 15px 15px;
+	height: 100%;
+}
+
+h1, .admin-menu-content {
+	margin-left: 10px;
+}
+
+#access-denied {
+	font-size: 100px;
+	margin: auto;
+	text-align: center;
+
+}
+
+h2 {
+	font-size: 24px;
+}
+
+.admin-menu-content p {
+	margin: 4px 0px 4px 15px;
+}
+
+.admin-menu-content a {
+	font-size: 20px;
+	color: #222;
+}
+
+.admin-menu-content a:hover {
+	text-decoration: underline !important;
+}

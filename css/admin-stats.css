@@ -1,0 +1,36 @@
+#stats-body {
+	margin-bottom: 20px;
+}
+
+#stats-body , #stats-body  .stats-content {
+	margin-left: 10px;
+}
+
+.stats-content {
+	overflow-x: scroll;
+}
+
+#stats-body table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#stats-body tr {
+	height: 28px;
+}
+
+#stats-body th {
+	cursor: pointer;
+}
+
+#stats-body th:focus, #stats-body th:hover {
+	text-decoration: underline;
+}
+
+#stats-body a {
+	color: #333;
+}
+
+#stats-body td:nth-child(n+3), #stats-body th:nth-child(n+3) {
+	text-align: right;
+}

@@ -1,0 +1,264 @@
+#checkout-body {
+	padding: 15px;
+}
+
+.row {
+	margin: 0px;
+}
+
+.product-info-container .name a{
+	font-size: 16px;
+}
+
+.product-info-container a, .product-info-container .price {
+	color: #333;
+}
+
+.price {
+	color: #333;
+	font-size: 20px;
+	display: block;
+}
+
+.old-price {
+	color: #e53935;
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: line-through;
+	display: block;
+}
+
+.available {
+	color: #43a047;
+}
+
+.unavailable {
+	color: #e53935;
+}
+
+.checkout-button {
+	width: 120px;
+	height: 50px;
+	background: #43a047 !important;
+	margin-left: 15px;
+}
+
+.checkout-button:hover {
+	background: #2e7d32 !important;
+}
+
+.checkout-cart {
+	width: 100%;
+	text-align: right;
+	margin: 15px 0 15px 0;
+}
+
+.checkout-subtotal {
+	font-size: 16px;
+}
+
+.checkout-subtotal-value {
+	font-weight: bold;
+}
+
+button#submit-order {
+    display: block;
+	margin-left: auto;
+	margin-right: 0;
+	text-align: center;
+	width: 120px;
+	height: 40px;
+	margin-top: 15px;
+}
+/* ============================================================================================================================================================================*/
+/* Form */
+
+#checkout-body .faqs-content a {
+	color: #333;
+	border-radius: 0;
+	height: 50px;
+	padding-top: 16px;
+}
+
+#checkout-body .faqs-content li.active > a, #checkout-body .faqs-content li.active > a:hover, #checkout-body .faqs-content li.active > a:focus {
+	background: #c49f66;
+	color: white;
+}
+
+#checkout-body .list-group-item {
+	border: 0;
+	background: #f5f5f5;
+}
+
+#checkout-body .container {
+	padding: 15px;
+}
+
+/* ============================================================================================================================================================================*/
+/* Addresses */
+
+.selectedAddress button, .shippingCard button, .selectedShipping button, .selectedPayment button, .selectedBillingAddress button {
+	width: 80px;
+	height: 40px;
+}
+
+#myAddresses button, #shippingMethodsList button {
+    margin-top: 5px;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+#myAddresses .addressCard button {
+	width: 40px;
+	height: 40px;
+}
+
+#add-address-input button {
+	width: 70px;
+	height: 40px;
+}
+
+#myAddresses .addressCard button.select-address, #myAddresses .addressCard button.select-billing-address {
+	width: 80px;
+	height: 40px;
+}
+
+#myAddresses .addressCard .delete-address {
+	/*background: #e53935 !important;*/
+}
+
+#myAddresses .addressCard .save-address, #myAddresses .addressCard .cancel-address {
+	width: 70px;
+}
+
+#myAddresses input {
+	padding-left: 12px;
+    padding-right: 12px;
+}
+
+#myAddresses .address-edit-country, #myAddresses input, #address-add-country {
+	height: 40px;
+	width: 100%;
+	margin-bottom: 2px;
+	max-width: 350px;
+	display: block;
+}
+
+#myAddresses .address-edit-country, #address-add-country {
+	padding-left: 8px;
+	margin-left: 0px;
+}
+
+#checkout-body button.add-address {
+	width: 70px;
+	height: 40px;
+}
+
+#checkout-body div.selectedAddress, #checkout-body div.selectedShipping,  #checkout-body div.selectedPayment,  #checkout-body div.selectedBillingAddress {
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+/* ============================================================================================================================================================================*/
+/* Product List */
+.items-display > .product-list {
+	height: 200px;
+	border: 10px solid white;
+	border-right: 0;
+	border-top: 0;
+	background: #f5f5f5;
+	padding: 15px 20px 0 20px;
+}
+
+.product-list .product-image-container, .product-list .product-info-container {
+	height: 155px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.product-list .row {
+	display: table;
+}
+
+.product-list .product-info-container, .product-list .row {
+	width: 100%;
+}
+
+.product-list .product-image-container {
+	width: 155px;
+}
+
+.product-list .product-image-container img {
+	height: 100%;
+}
+
+.product-list .product-info-container .price{
+	font-size: 23px;
+}
+
+.product-list .product-info-container img{
+	height: 16px;
+}
+
+.product-list .list-left-container, .product-list .list-middle-container, .product-list .list-right-container {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 10px;
+}
+
+.product-list .list-right-container button {
+	margin: 3px;
+}
+
+.available {
+	color: #43a047;
+}
+
+.unavailable {
+	color: #e53935;
+}
+
+.stock {
+	margin-top: 6px;
+}
+
+.input-number, .input-number *{
+	vertical-align: middle;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border-width: 0 0 0 0;
+	border-radius: 0px;
+	background-color: white !important;
+	width: 50px;
+	height: 34px;
+	display: inline-block;
+	box-shadow: none;
+	text-align: center;
+}
+
+@media (max-width: 767px) {
+	.product-list, .product-list .product-info-container {
+		text-align: center;
+		height: auto !important;
+	}
+	
+	.product-list .product-image-container, .product-list .product-info-container {
+		width: 100%;
+		display: block;
+	}
+	
+	.product-list .product-image-container img {
+		margin-left: 38px;
+	}
+}
+
+.product-image-container {
+	cursor: pointer;
+}
+
+.product-info-container .name {
+	cursor: pointer;
+}
