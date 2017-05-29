@@ -645,26 +645,34 @@ function addReport($user, $id_review, $text_report) {
 /*==========================================================================================*/
 /* Orders */
 
-function addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method) {
+function addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method, $products) {
 	global $conn;
+	$conn->exec('BEGIN;');
 	$stmt = $conn->prepare
 	('
 	INSERT INTO orders (reference, date_ordered, billing_address, shipping_address, shipping_method, payment_method)
 	VALUES(?, ?, ?, ?, ?, ?);
 	');
-
-	return $stmt->execute(array($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method));
-}
-
-function addProductOrder($reference, $product, $price_paid, $nr_units) {
-	global $conn;
+	$stmt->execute(array($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method));
+	
 	$stmt = $conn->prepare
 	('
-	INSERT INTO orderproduct (reference, product, price_paid, nr_units)
-	VALUES(?, ?, ?, ?);
+	SELECT id
+	FROM orders
+	WHERE reference=?
 	');
-
-	return $stmt->execute(array($reference, $product, $price_paid, $nr_units));
+	$stmt->execute(array($reference));
+	$results = $stmt->fetchAll();
+	
+	foreach ($products as $product) {
+		$stmt = $conn->prepare
+		('
+		INSERT INTO orderproduct ("order", product, price_paid, nr_units)
+		VALUES(?, ?, ?, ?);
+		');
+		$stmt->execute(array($results[0]['id'], $product[0], str_replace(',', '', $product[1]), $product[2]));
+	}
+	
+	$conn->exec('COMMIT;');
 }
-
 ?>

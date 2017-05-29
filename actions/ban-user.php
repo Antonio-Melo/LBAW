@@ -12,6 +12,8 @@ $id = strip_tags(!$_POST['id']);
 $report_id = strip_tags(!$_POST['report_id']);
 
 try {
+    echo($id);
+    echo($report_id);
     banUser($id);
     removeReport($report_id);
 } catch (PDOException $e) {

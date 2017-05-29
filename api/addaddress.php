@@ -14,7 +14,7 @@ $region = strip_tags($_POST['region']);
 $country = strip_tags($_POST['country']);
 $phone = strip_tags($_POST['phone']);
 
-if (!$_SESSION['id'] || $street || $door || $zip || $city || $region || $country || $phone || $admin) {
+if (!$_SESSION['id'] || !$street || !$door || !$zip || !$city || !$region || !$country || !$phone) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 

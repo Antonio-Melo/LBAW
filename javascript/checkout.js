@@ -238,6 +238,7 @@ $(document).ready(function(){
 		var billing_address = $('.selectedBillingAddress').eq(0).attr('id');
 		var shipping_method = $('.selectedShipping').eq(0).attr('id');
 		var payment_method =  $('.selectedPayment').eq(0).attr('id');
+		
 		/* reference */
 		var today = new Date();
 		var dd = today.getDate();
@@ -257,43 +258,33 @@ $(document).ready(function(){
         	reference += numbers.charAt(Math.floor(Math.random() * numbers.length));
 		}
 		
+		var p = [];
+		for (i=0; i<products.length; i++) {
+			var product = products[i].getAttribute("name");
+			var price_paid = products[i].getAttribute("class");
+			var nr_units = products[i].getAttribute("value");
+			p.push([product, price_paid, nr_units]);
+		}
+		
 		$.ajax({
 			type: "POST",
 			url: url,
-			data: {reference: reference, date_ordered: date_ordered, billing_address: billing_address, shipping_address: shipping_address, shipping_method: shipping_method, payment_method: payment_method },
+			data: {products: p, reference: reference, date_ordered: date_ordered, billing_address: billing_address, shipping_address: shipping_address, shipping_method: shipping_method, payment_method: payment_method },
 			success: function(response) {
+				console.log(response);
 				var json = $.parseJSON(response);
 		        if (!json.status) {
 					$('#authentication-modal').modal();
+				}
+				else {
+					$('#checkout-content').remove();
+					$('<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></p><p>Your order was successfully completed!</p><p>Track it in the Orders tab in your Profile.</p>').insertAfter('hr');
 				}
 			},
 			error: function() {
 			}
 		});
 		e.preventDefault();
-		
-		//url = base_url + "api/addproductsorder.php";
-		for (i=0; i<products.length; i++) {
-			var product = products[i].getAttribute("name");
-			var price_paid = products[i].getAttribute("class");
-			var nr_units = products[i].getAttribute("value");
-			
-			$.ajax({
-				type: "POST",
-				url: url,
-				data: {reference: reference, product: product, price_paid: price_paid, nr_units: nr_units },
-				success: function(response) {
-					console.log(response);
-					var json = $.parseJSON(response);
-					if (!json.status) {
-						$('#authentication-modal').modal();
-					}
-				},
-				error: function() {
-				}
-			});
-			e.preventDefault();
-		}
 	});
 });
 

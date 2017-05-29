@@ -8,9 +8,9 @@ $response = array();
 
 
 
-if (!$_SESSION['id'] || !$_SESSION['admin'] || $_POST['initial_name'] || !$_POST['id'] || !$_POST['name'] ||!$_POST['full-name'] ||!$_POST['sm-description'] ||!$_POST['price'] ||!$_POST['qty'] ||!$_POST['lg-description'] ||!$_POST['keyword']||!$_POST['brand']) {
-    //header('Location: ' . $BASE_URL . 'pages/editproduct.php?id=' . $id);
-	//exit;
+if (!$_SESSION['id'] || !$_SESSION['admin'] || !$_POST['initial_name'] || !$_POST['id'] || !$_POST['name'] ||!$_POST['full-name'] ||!$_POST['sm-description'] ||!$_POST['price'] ||!$_POST['qty'] ||!$_POST['lg-description'] ||!$_POST['keyword']||!$_POST['brand']) {
+    header('Location: ' . $BASE_URL . 'pages/editproduct.php?id=' . $id);
+	exit;
 }
 
 //get id from brand

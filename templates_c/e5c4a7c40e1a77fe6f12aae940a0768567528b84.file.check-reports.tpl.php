@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 18:24:08
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 19:30:49
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/check-reports.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1601105418592c2febf0cb69-70047035%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e5c4a7c40e1a77fe6f12aae940a0768567528b84' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/check-reports.tpl',
-      1 => 1496078616,
+      1 => 1496082646,
       2 => 'file',
     ),
   ),
@@ -82,8 +82,6 @@ $_smarty_tpl->tpl_vars['report']->_loop = true;
                         <form method="post" action="../actions/ban-user.php">
                             <input type="hidden" value=<?php echo $_smarty_tpl->tpl_vars['report']->value['reported'];?>
  name="id">
-                            <input type="hidden" value=<?php echo $_smarty_tpl->tpl_vars['current_page']->value;?>
- name="page">
                             <input type="hidden" value=<?php echo $_smarty_tpl->tpl_vars['report']->value['report_id'];?>
  name="report_id">
 
