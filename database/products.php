@@ -396,4 +396,14 @@ function getSearchProductsFiltered($filters) {
 	return $stmt->fetchAll();	
 }
 
+function updateNViews($id) {
+	global $conn;
+	$stmt = $conn->prepare('
+	UPDATE product
+	SET nr_views=nr_views+1
+	WHERE id=?;
+	');
+	$stmt->execute(array($id));
+}
+
 ?>
