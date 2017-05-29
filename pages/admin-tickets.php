@@ -30,8 +30,8 @@
 	
 	$results_per_page = 20;
 	$current_page;
-	if ($_GET['page']) {
-		$current_page = $_GET['page'];
+	if (strip_tags($_GET['page'])) {
+		$current_page = strip_tags($_GET['page']);
 	}
 	else {
 		$current_page = 1;

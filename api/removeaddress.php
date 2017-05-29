@@ -8,7 +8,7 @@ if (!$_SESSION['id'] || !$_POST['address'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$address = $_POST['address'];
+$address = strip_tags($_POST['address']);
 
 try {
 	if (removeAddress($address)) {

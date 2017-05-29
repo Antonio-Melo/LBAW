@@ -23,29 +23,63 @@ function removeTicket($id) {
 	$stmt->execute(array($id));
 }
 
-function getNotShippedOrders() {
+function getPendingOrders() {
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT reference
+	SELECT reference, username, name, email, date_ordered, date_shipped, date_delivered, orders.id AS id
 	FROM orders
-	WHERE date_shipped IS NULL;
+	JOIN address ON orders.shipping_address=address.id 
+	JOIN users ON address.user=users.id
+	WHERE date_shipped IS NULL OR date_delivered IS NULL;
 	');
 	$stmt->execute();
 	return $stmt->fetchAll();
 }
 
-function getNotDeliverdOrders() {
+function getFilteredPendingOrders($ref) {
+	$param = "%".$ref."%";
+	
 	global $conn;
 	$stmt = $conn->prepare
 	('
-	SELECT reference
+	SELECT reference, username, name, email, date_ordered, date_shipped, date_delivered, orders.id AS id
 	FROM orders
-	WHERE date_delivered IS NULL AND date_shipped IS NOT NULL;
+	JOIN address ON orders.shipping_address=address.id 
+	JOIN users ON address.user=users.id
+	WHERE (date_shipped IS NULL OR date_delivered IS NULL) AND reference LIKE ?;
 	');
-	$stmt->execute();
+	$stmt->execute(array($param));
 	return $stmt->fetchAll();
 }
+
+function updateOrder($order, $type, $date) {
+	global $conn;
+	if ($type === "ship") {
+		$stmt = $conn->prepare
+		('
+		UPDATE orders
+		SET date_shipped=?
+		WHERE id=?;
+		');
+		$stmt->execute(array($date, $order));	
+	}	
+	else if ($type === "deliver") {
+		$stmt = $conn->prepare
+		('
+		UPDATE orders
+		SET date_delivered=?
+		WHERE id=?;
+		');
+		$stmt->execute(array($date, $order));	
+	}
+	else {
+		return false;
+	}
+	
+	return true;
+}
+
 
 function getAllProductsStats() {
 	global $conn;

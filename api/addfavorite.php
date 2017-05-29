@@ -14,7 +14,7 @@ if (!$_POST['product'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$product = $_POST['product'];
+$product = strip_tags($_POST['product']);
 
 try {
 	addFavorite($_SESSION['id'], $product);

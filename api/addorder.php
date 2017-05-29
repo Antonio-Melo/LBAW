@@ -8,12 +8,12 @@ if (!$_SESSION['username'] || !$_POST['product'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$reference = $_POST['product'];
-$date_ordered = $_POST['product'];
-$billing_address = $_POST['product'];
-$shipping_address = $_POST['product'];
-$shipping_method = $_POST['product'];
-$payment_method = $_POST['product'];
+$reference = strip_tags($_POST['product']);
+$date_ordered = strip_tags($_POST['product']);
+$billing_address = strip_tags($_POST['product']);
+$shipping_address = strip_tags($_POST['product']);
+$shipping_method = strip_tags($_POST['product']);
+$payment_method = strip_tags($_POST['product']);
 
 try {
 	addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method)

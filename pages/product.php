@@ -19,7 +19,7 @@
 	/*==================================================*/
 
 	// redirect to home page if category not set
-	if (!$_GET["id"]) {
+	if (!strip_tags($_GET["id"])) {
 		header("Location: $BASE_URL");
 		exit;
 	}
@@ -27,14 +27,14 @@
 	include_once('../database/products.php');
 	include_once('../database/users.php');
 	
-	$id = $_GET["id"];
+	$id = strip_tags($_GET["id"]);
 	$product = getProductById($id);
 	$faqs = getFaqsByProductId($id);
 	$reviews = getReviewsByProductId($id);
 	$images = getAllProductImages($id);
 	
 	if (!$_SESSION['admin']) {
-		updateNViews($_GET['id']);
+		updateNViews($id);
 	}
 	
 	$urls = array();

@@ -15,7 +15,7 @@ if (!$_POST['product'] || $_SESSION['admin']) {
 }
 
 $id = $_SESSION['id'];
-$product = $_POST['product'];
+$product = strip_tags($_POST['product']);
 
 try {
 	removeCartProduct($id, $product);

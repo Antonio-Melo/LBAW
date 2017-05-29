@@ -234,10 +234,10 @@ $(document).ready(function(){
 		var url = base_url + "api/addorder.php";
 		var element = this;
 		var products = $(this).parents('.items-display').attr('id');
-		var shipping_address = $('.selectedAddress')[0].attr('id');
-		var billing_address = $('.selectedBillingAddress')[0].attr('id');
-		var shipping_method = $('.selectedShipping')[0].attr('id');
-		var payment_method =  $('.selectedPayment')[0].attr('id');
+		var shipping_address = $('.selectedAddress').eq(0).attr('id');
+		var billing_address = $('.selectedBillingAddress').eq(0).attr('id');
+		var shipping_method = $('.selectedShipping').eq(0).attr('id');
+		var payment_method =  $('.selectedPayment').eq(0).attr('id');
 		/* reference */
 		var today = new Date();
 		var dd = today.getDate();
@@ -250,8 +250,9 @@ $(document).ready(function(){
 			mm = '0' + mm
 		}
 		var date_ordered = dd + '/' + mm + '/' + yyyy;
-		document.write(today);
-		var reference = "BAT" + yyyy + mm + dd + 123;
+		var rng = Math.random() * 9000000000 + 1000000000;
+		var reference = "BAT" + yyyy + mm + dd + Math.round(rng);
+		var asdf = 0;
 		/*
 		$.ajax({
 			type: "POST",
@@ -266,8 +267,8 @@ $(document).ready(function(){
 			error: function() {
 			}
 		});
-		*/
 		e.preventDefault();
+		*/
 	});
 });
 

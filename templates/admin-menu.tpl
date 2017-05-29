@@ -14,9 +14,11 @@
 		<h2>User Actions</h2>
 		<p><a href="check-reports.php"><span class="glyphicon glyphicon-chevron-right"></span> Check Reports</a></p>
 		<p><a href="banned-users.php"><span class="glyphicon glyphicon-chevron-right"></span> Banned Users</a></p>
-		<h2>Other</h2>
-		<p><a href="admin-stats.php"><span class="glyphicon glyphicon-chevron-right"></span> Admin Stats</a></p>
+		<p><a href="admin-orders.php"><span class="glyphicon glyphicon-chevron-right"></span> Pending Orders</a></p>
 		<p><a href="admin-tickets.php"><span class="glyphicon glyphicon-chevron-right"></span> Pending Tickets</a></p>
+		<h2>Other</h2>
+		<p><a href="profile.php"><span class="glyphicon glyphicon-chevron-right"></span> Profile</a></p>
+		<p><a href="admin-stats.php"><span class="glyphicon glyphicon-chevron-right"></span> Admin Stats</a></p>
 	</div>
 
 </div>

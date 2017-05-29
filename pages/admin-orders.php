@@ -28,11 +28,14 @@
 
 	include_once('../database/admin.php');
 	
-	$not_shipped = getNotShippedOrders();
-	$not_delivered = getNotDeliverdOrders();
+	if ($_GET['search-orders']) {
+		$orders = getFilteredPendingOrders(strip_tags($_GET['search-orders']));
+	}
+	else {
+		$orders = getPendingOrders();
+	}
 	
-	$smarty->assign('not_shipped', $not_shipped);
-	$smarty->assign('not_delivered', $not_delivered);
+	$smarty->assign('orders', $orders);
 	
 	$smarty->display('admin-orders.tpl');
 ?>

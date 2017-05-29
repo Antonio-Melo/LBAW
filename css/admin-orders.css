@@ -1,3 +1,32 @@
 #orders-body {
-	padding-bottom: 20px;
+	padding: 0 15px 20px 15px;
+}
+
+#orders-body h1, #orders-body .orders-content {
+	margin-left: 10px;
+}
+
+#orders-body tbody tr {
+	height: 57px;
+}
+
+#orders-body button {
+    height: 40px;
+}
+
+#orders-body input {
+    border: 1px solid #ddd;
+    border-radius: 0;
+    height: 40px;
+	width: 250px;
+    box-shadow: none;
+	display: inline-block;
+}
+
+#orders-body input:focus {
+    border: 2px solid #c49f66 !important;
+}
+
+#orders-body form {
+	margin-bottom: 30px;
 }

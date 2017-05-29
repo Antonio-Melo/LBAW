@@ -19,7 +19,7 @@
 	/*==================================================*/
 
 	// redirect to home page if category not set
-	if (!$_GET["id"]) {
+	if (!strip_tags($_GET["id"])) {
 		header("Location: $BASE_URL");
 		exit;
 	}
@@ -27,7 +27,7 @@
 	include_once('../database/products.php');
 	include_once('../database/keywords.php');
 	
-	$id = $_GET["id"];
+	$id = strip_tags($_GET["id"]);
 	$onsale = getProductsOnSaleCat($id);
 	$mostpopular = getProductsMostPopularCat($id);
 	$category = getKeywordById($id);

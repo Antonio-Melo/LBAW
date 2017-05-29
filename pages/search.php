@@ -37,22 +37,22 @@
 	
 	$results_per_page = 20;
 	$current_page;
-	if ($_GET['page']) {
-		$current_page = $_GET['page'];
+	if (strip_tags($_GET['page'])) {
+		$current_page = strip_tags($_GET['page']);
 	}
 	else {
 		$current_page = 1;
 	}
 	
 	$filters;
-	$filters['page'] = $_GET['page'];
-	$filters['search'] = $_GET['search'];
-	$filters['order'] = $_GET['order'];
-	$filters['keywords'] = array_filter(explode(",", $_GET['keywords']));
-	$filters['prices'] = array_filter(explode(",", $_GET['prices']), 'callback');
-	$filters['brands'] = array_filter(explode(",", $_GET['brands']));
-	$filters['onsale'] = $_GET['onsale'];
-	$filters['rating'] = $_GET['rating'];
+	$filters['page'] = strip_tags($_GET['page']);
+	$filters['search'] = strip_tags($_GET['search']);
+	$filters['order'] = strip_tags($_GET['order']);
+	$filters['keywords'] = array_filter(explode(",", strip_tags($_GET['keywords'])));
+	$filters['prices'] = array_filter(explode(",", strip_tags($_GET['prices'])), 'callback');
+	$filters['brands'] = array_filter(explode(",", strip_tags($_GET['brands'])));
+	$filters['onsale'] = strip_tags( $_GET['onsale']);
+	$filters['rating'] = strip_tags($_GET['rating']);
 	
 	$search = getAllSearchProducts($filters['search']);
 	$products = getSearchProductsFiltered($filters);

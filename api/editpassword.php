@@ -8,8 +8,8 @@ if (!$_SESSION['id'] || !$_POST['old_password'] || !$_POST['new_password']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$old_password = $_POST['old_password'];
-$new_password = $_POST['new_password'];
+$old_password = strip_tags($_POST['old_password']);
+$new_password = strip_tags($_POST['new_password']);
 
 try {
 	if (changePassword($_SESSION['id'], $old_password, $new_password)) {

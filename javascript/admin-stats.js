@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$('th').click(function(e) {
 		order = (order+1)%2;
 		var id = $(this).attr('id');
-		var array = $('tr:not(:first-child)');
+		var array = $('tbody tr');
 		
 		array.sort(function(a,b) {
 			var n1, n2;
@@ -38,7 +38,7 @@ $(document).ready(function() {
 			}
 		});
 		
-		$('table').append(array);
+		$('tbody').append(array);
 	});
 
 

@@ -5,18 +5,18 @@ include_once('../database/countries.php');
 
 $response = array();
 
-if (!$_SESSION['id'] || !$_POST['street'] || !$_POST['door'] || !$_POST['zip'] || !$_POST['city'] || !$_POST['region'] || !$_POST['country'] || !$_POST['phone'] || $_SESSION['admin']) {
+$user_id = $_SESSION['id'];
+$street = strip_tags($_POST['street']);
+$door = strip_tags($_POST['door']);
+$zip = strip_tags($_POST['zip']);
+$city = strip_tags($_POST['city']);
+$region = strip_tags($_POST['region']);
+$country = strip_tags($_POST['country']);
+$phone = strip_tags($_POST['phone']);
+
+if (!$_SESSION['id'] || $street || $door || $zip || $city || $region || $country || $phone || $admin) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
-
-$user_id = $_SESSION['id'];
-$street = $_POST['street'];
-$door = $_POST['door'];
-$zip = $_POST['zip'];
-$city = $_POST['city'];
-$region = $_POST['region'];
-$country = $_POST['country'];
-$phone = $_POST['phone'];
 
 try {
 	$new_address = addAddress($user_id, $street, $door, $zip, $city, $region, $country, $phone);

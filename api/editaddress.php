@@ -10,14 +10,14 @@ if (!$_SESSION['id'] || !$_POST['id'] || !$_POST['street'] || !$_POST['door'] ||
 }
 
 $user_id = $_SESSION['id'];
-$id = $_POST['id'];
-$street = $_POST['street'];
-$door = $_POST['door'];
-$zip = $_POST['zip'];
-$city = $_POST['city'];
-$region = $_POST['region'];
-$country = $_POST['country'];
-$phone = $_POST['phone'];
+$id = strip_tags($_POST['id']);
+$street = strip_tags($_POST['street']);
+$door = strip_tags($_POST['door']);
+$zip = strip_tags($_POST['zip']);
+$city = strip_tags($_POST['city']);
+$region = strip_tags($_POST['region']);
+$country = strip_tags($_POST['country']);
+$phone = strip_tags($_POST['phone']);
 
 try {
 	editAddress($id, $user_id, $street, $door, $zip, $city, $region, $country, $phone);
