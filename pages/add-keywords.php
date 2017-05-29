@@ -20,11 +20,11 @@
 	
 	/*==================================================*/
 	/* Change to files of each pages */
-	$smarty->assign('css_file', 'admin-menu.css');  
+	$smarty->assign('css_file', 'add-keywords.css');  
 	$smarty->assign('js_file', 'common.js');
-	$smarty->assign('page_title', 'Admin Menu');
+	$smarty->assign('page_title', 'Add keywords');
 	
 	/*==================================================*/
 
-	$smarty->display('admin-menu.tpl');
+	$smarty->display('add-keywords.tpl');
 ?>

@@ -59,5 +59,26 @@ function getAllProductsStats() {
 	return $stmt->fetchAll();
 }
 
+function addNewKeyword($keyword) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO keyword (name)
+	VALUES (?)
+	');
+	$stmt->execute(array($keyword));
+}
+
+function addNewBrand($brand) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO brand (name)
+	VALUES (?)
+	');
+	$stmt->execute(array($brand));
+}
+
+
 
 ?>

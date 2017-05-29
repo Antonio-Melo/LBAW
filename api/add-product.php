@@ -22,8 +22,9 @@ $lg_description = strip_tags($_POST['lg-description']);
 
 try {
     insertProduct($name,$full_name,$sm_description,$price,$qty,$image,$lg_description,$keyword,$brand);
-
+    $productId = getProductIdbyName($name);
     $response["status"] = true;
+    $response["productId"] = $productId;
     echo json_encode($response);
     exit;
 } catch (PDOException $e) {

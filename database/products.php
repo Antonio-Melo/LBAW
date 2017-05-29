@@ -1,4 +1,17 @@
 <?php
+function getProductIdbyName($name){
+	global $conn;
+	$stmt = $conn->prepare('
+	SELECT id
+	FROM product
+	WHERE name=?
+	');
+	$stmt->execute(array($name));
+
+    $results = $stmt->fetchAll();
+
+    return $results[0];
+}
 function insertProduct($name,$full_name,$sm_description,$price,$qty,$image,$lg_description,$category,$brand){
 	global $conn;
 	$stmt = $conn->prepare('

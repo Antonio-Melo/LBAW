@@ -198,13 +198,23 @@ function addCart($client, $product) {
 
 function addFavorite($client, $product) {
 	global $conn;
+	$conn->exec('BEGIN;');
 	$stmt = $conn->prepare
 	('
 	INSERT INTO favoritesproducts (client, product)
 	VALUES(?, ?);
 	');
-
-	return $stmt->execute(array($client, $product));
+	$stmt->execute(array($client, $product));
+	
+	$stmt = $conn->prepare
+	('
+	UPDATE product
+	SET nr_favorites=nr_favorites+1
+	WHERE product.id=?
+	');
+	$stmt->execute(array($product));
+	
+	$conn->exec('COMMIT;');
 }
 
 function getFavoritesIds($client) {

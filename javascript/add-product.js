@@ -13,7 +13,8 @@ $(document).ready(function(){
                 var json = $.parseJSON(response);
                 console.log(json.status);
                 if (json.status) {
-
+                    console.log(json.productId);
+                    window.location.href = base_url+"pages/product.php?id="+json.productId;
                 }
             }
         });

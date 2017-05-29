@@ -33,6 +33,10 @@
 	$reviews = getReviewsByProductId($id);
 	$images = getAllProductImages($id);
 	
+	if (!$_SESSION['admin']) {
+		updateNViews($_GET['id']);
+	}
+	
 	$urls = array();
 	$inCart = false;
 	$inFavorites = true;
