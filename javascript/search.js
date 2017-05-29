@@ -142,14 +142,14 @@ $(document).ready(function() {
 		var value = $(this).attr("go");
 		var vars = getURLVars();
 		
-		if ($(this).attr("before") && (value > 1)) {
+		if ($(this).attr("before") && (parseInt(value) > 1)) {
 			vars["page"] = parseInt(value)-1;
 		}
-		else if ($(this).attr("next") && (value < $(this).attr("max"))) {
+		else if ($(this).attr("next") && (parseInt(value) < $(this).attr("max"))) {
 			vars["page"] = parseInt(value)+1;
 		}
 		else {
-			vars["page"] = value;
+			vars["page"] = parseInt(value);
 		}
 		
 		

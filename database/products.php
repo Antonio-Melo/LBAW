@@ -1,4 +1,12 @@
 <?php
+function insertProduct($name,$full_name,$sm_description,$price,$qty,$image,$lg_description,$category,$brand){
+	global $conn;
+	$stmt = $conn->prepare('
+	INSERT INTO product (name,full_name,small_description,description,price,brand,stock,keyword)
+	VALUES(?,?,?,?,?,?,?,?)
+	');
+	$stmt->execute(array($name,$full_name,$sm_description,$lg_description,$price,$brand,$qty,$category));
+}
 //Inserts a Review from a certain product
 function writeReview($client,$product, $text_review,$rating_input){
 	global $conn;
@@ -18,7 +26,16 @@ function writeReply($client,$review_id,$text_reply){
 	');
 	$stmt->execute(array($client,$review_id,$text_reply));
 }
+function getAllBrandNames(){
+	global $conn;
+	$stmt = $conn->prepare('
+	SELECT *
+	FROM brand
+	');
+	$stmt->execute();
 
+	return $stmt->fetchAll();
+}
 // Returns 6 most viewed products that are on sale (for home page)
 function getProductsOnSale() {
 	global $conn;

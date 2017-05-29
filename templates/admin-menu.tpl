@@ -16,6 +16,7 @@
 			<p><a href="banned-users.php"><span class="glyphicon glyphicon-chevron-right"></span> Banned Users</a></p>
 			<h2>Other</h2>
 			<p><a href="admin-stats.php"><span class="glyphicon glyphicon-chevron-right"></span> Admin Stats</a></p>
+			<p><a href="admin-tickets.php"><span class="glyphicon glyphicon-chevron-right"></span> Pending Tickets</a></p>
 		</div>
 	{else} <!-- No admin privileges --> 
 		<h1 id= "access-denied">ACCESS DENIED</h1>

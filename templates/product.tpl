@@ -206,7 +206,7 @@
 					{/foreach}
 
 					<!--WRITE REVIEW-->
-					{if isset($smarty.session.id)}		
+					{if isset($smarty.session.id) && !isset($smarty.session.admin)}		
 						<div id="write_review">
 							<form id="review" class="review-input" method="post">
 								<div id="filter-rating">

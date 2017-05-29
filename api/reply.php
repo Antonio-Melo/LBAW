@@ -13,8 +13,12 @@ $text_reply = strip_tags($_POST['text_reply']);
 $id_review = strip_tags($_POST['id_review']);
 
 try {
+    $user = getUserById($_SESSION['id']);
     writeReply($_SESSION['id'],$id_review,$text_reply);
     $response["status"] = true;
+    $response["user_image"] = $user[0]["url"];
+    $response["user_name"] = $user[0]["users_name"];
+    $response["text_reply"] = $text_reply;
 
     echo json_encode($response);
     exit;

@@ -164,7 +164,7 @@ $(document).ready(function(){
 		var url = base_url +"api/reply.php";
         var id_review = $(this).attr("review");
 		var text = $(this).children('textarea').val();
-		
+		var element = $(this);
 		var form_data = new FormData();
 		form_data.append('id_review', id_review);
 		form_data.append('text_reply', text);
@@ -177,9 +177,20 @@ $(document).ready(function(){
 			contentType: false,
             success: function(response) {
                 var json = $.parseJSON(response);
+                console.log(response);
+                console.log(element.parent('.write_reply').siblings().last());
                 if (json.status) {
-					// delete form
-					// insert review
+                    $('<div class="media">'+
+                        '<div class="media-left">'+
+                        '<img class="media-object answer-pic" src="../images/users/' + json.user_image + '" alt="' + json.user_name + '">'+
+                        '</div>'+
+                        '<div class="media-body">'+
+                        '<h4 class="media-heading">' + json.user_name + ' </h4>'+
+                        '<p>'+json.text_reply+'</p>'+
+                        '</div>'+
+                        '</div>'+
+                        '<hr>').insertAfter(element.parent('.write_reply').siblings().last());
+					element.parent('.write_reply').remove();
                 }
             }
 		});

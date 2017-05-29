@@ -528,10 +528,10 @@ function addTicket($user, $subject, $description) {
 
 	$stmt = $conn->prepare
 	('
-	INSERT INTO ticket (client, message)
-	VALUES (?, ?);
+	INSERT INTO ticket (client, subject, message)
+	VALUES (?, ?, ?);
 	');
-	$stmt->execute(array($user, $subject . "\n" . $description));
+	$stmt->execute(array($user, $subject, $description));
 }
 
 /*==========================================================================================*/

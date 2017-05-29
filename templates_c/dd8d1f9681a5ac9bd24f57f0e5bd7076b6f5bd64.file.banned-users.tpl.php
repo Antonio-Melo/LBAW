@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 10:51:35
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 01:20:54
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/banned-users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:295146638592698b1c7f9c2-32334599%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dd8d1f9681a5ac9bd24f57f0e5bd7076b6f5bd64' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/banned-users.tpl',
-      1 => 1495705889,
+      1 => 1495930852,
       2 => 'file',
     ),
   ),

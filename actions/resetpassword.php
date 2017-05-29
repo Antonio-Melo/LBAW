@@ -6,6 +6,7 @@ $response = array();
 
 if (!$_POST['username'] || !$_POST['password'] || !$_POST['confirm']) {
 	header('Location: ' . $BASE_URL . 'pages/failedreset.php');
+	exit;
 }
 
 $user = $_POST['username'];
@@ -20,6 +21,7 @@ try {
 	resetPassword($user, $password);
 } catch (PDOException $e) {
 	header('Location: ' . $BASE_URL . 'pages/failreset.php');
+	exit;
 }
 
 header('Location: ' . $BASE_URL . 'pages/successreset.php');

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 09:47:17
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 02:11:14
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/admin-menu.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:741224600592688d0ad1e34-31237050%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f9a570ce11877a9914db8df17b3865cffb78362a' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/admin-menu.tpl',
-      1 => 1495701573,
+      1 => 1496020272,
       2 => 'file',
     ),
   ),
@@ -38,6 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<p><a href="banned-users.php"><span class="glyphicon glyphicon-chevron-right"></span> Banned Users</a></p>
 			<h2>Other</h2>
 			<p><a href="admin-stats.php"><span class="glyphicon glyphicon-chevron-right"></span> Admin Stats</a></p>
+			<p><a href="admin-tickets.php"><span class="glyphicon glyphicon-chevron-right"></span> Pending Tickets</a></p>
 		</div>
 	<?php } else { ?> <!-- No admin privileges --> 
 		<h1 id= "access-denied">ACCESS DENIED</h1>

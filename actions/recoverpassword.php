@@ -4,6 +4,7 @@
 	
 	if ($_SESSION['id'] || !$_POST['username']) {
 		header('Location: ' . $BASE_URL . 'pages/home.php');
+		exit;
 	}
 	
 	$user = $_POST['username'];
