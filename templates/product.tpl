@@ -150,6 +150,17 @@
 							</div>
 						{/foreach}
                     </div>
+					
+					{if isset($smarty.session.admin)}
+						<form method="post" action="../actions/addfaq.php">
+							<input type="hidden" name="product_id" value={$product.product_id}>
+							<label for="faq-question">Question:</label>
+							<input type="text" class="form-control" name="question" id="faq-question" required>
+							<label for="faq-answer">Answer:</label>
+							<textarea class="form-control" name="answer" rows="5" id="faq-answer" required></textarea>
+							<button type="submit" class="button btn">Add</button>
+						</form>
+					{/if}
                 </div>
                 <div id="customer-rv" class="tab-pane fade">
                     <br>

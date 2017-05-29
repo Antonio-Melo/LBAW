@@ -249,17 +249,18 @@ $(document).ready(function(){
 		if (mm < 10) {
 			mm = '0' + mm
 		}
-		var date_ordered = dd + '/' + mm + '/' + yyyy;
+		var date_ordered = yyyy + '-' + mm + '-' + dd;
 		var rng = Math.random() * 9000000000 + 1000000000;
 		var reference = "BAT" + yyyy + mm + dd + Math.round(rng);
 		var asdf = 0;
-		/*
+		
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: {reference: reference, date_ordered: date_ordered, billing_address: billing_address, shipping_address: shipping_address, shipping_method: shipping_method, payment_method: payment_method },
 			success: function(response) {
 				var json = $.parseJSON(response);
+				console.log(response);
 		        if (!json.status) {
 					$('#authentication-modal').modal();
 				}
@@ -268,7 +269,7 @@ $(document).ready(function(){
 			}
 		});
 		e.preventDefault();
-		*/
+		
 	});
 });
 

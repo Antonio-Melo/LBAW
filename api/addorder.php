@@ -1,6 +1,6 @@
 <?php
 include_once('../config/init.php');
-include_once('../database/products.php');
+include_once('../database/users.php');
 
 $response = array();
 
@@ -8,12 +8,12 @@ if (!$_SESSION['username'] || !$_POST['product'] || $_SESSION['admin']) {
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 
-$reference = strip_tags($_POST['product']);
-$date_ordered = strip_tags($_POST['product']);
-$billing_address = strip_tags($_POST['product']);
-$shipping_address = strip_tags($_POST['product']);
-$shipping_method = strip_tags($_POST['product']);
-$payment_method = strip_tags($_POST['product']);
+$reference = $_POST['reference'];
+$date_ordered = $_POST['date_ordered'];
+$billing_address = $_POST['billing_address'];
+$shipping_address = $_POST['shipping_address'];
+$shipping_method = $_POST['shipping_method'];
+$payment_method = $_POST['payment_method'];
 
 try {
 	addOrder($reference, $date_ordered, $billing_address, $shipping_address, $shipping_method, $payment_method)

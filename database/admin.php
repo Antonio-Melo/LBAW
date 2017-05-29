@@ -113,6 +113,16 @@ function addNewBrand($brand) {
 	$stmt->execute(array($brand));
 }
 
+function addFaq($product, $question, $answer) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO faq (product, question, answer)
+	VALUES (?, ?, ?);
+	');
+	$stmt->execute(array($product, $question, $answer));
+}
+
 
 
 ?>

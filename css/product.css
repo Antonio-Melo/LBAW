@@ -315,6 +315,30 @@ td{
 	text-decoration: underline;
 }
 
+#faq form {
+	text-align: left;
+	padding: 15px;
+}
+
+#faq form button{
+	margin-top: 10px;
+}
+
+#faq form label {
+	font-weight: normal;
+	margin-top: 15px;
+}
+
+#faq form textarea, #faq form input {
+	border: 1px solid #ddd;
+	border-radius: 0;
+	box-shadow: none !important;
+}
+
+#faq form textarea:focus, #faq form input:focus {
+	border: 2px solid #c49f66 !important;
+}
+
 #customer-rv{
     text-align: left;
 }

@@ -259,6 +259,37 @@ $(document).ready(function(){
         return qsp;
     }
 
+	$("#faq form").submit(function(e){
+		var url = base_url + "api/addfaq.php";
+        $.ajax({
+			type: "POST",
+			url: url,
+			data: $(this).serialize(),
+			success: function(response) {
+		        var json = $.parseJSON(response);
+
+				if (json.status) {
+                    $("#faq .list-group").empty();
+					
+					for (let faq of json.faqs) {
+						$("#faq .list-group").append(
+							'<a href=#'+faq.id+' class="list-group-item" data-toggle="collapse">'+faq.question+' <i class="fa fa-caret-down"></i></a>'+
+							'<div class="collapse answer" id='+faq.id+'>'+
+								'<br><p>'+faq.answer+'</p>'+
+							'</div>'
+						);						
+					}
+		        }
+			}
+		});
+		
+		e.preventDefault();
+	});
+	
+	
+	
+	
+	
 	/* Search filter rating */
 	// Handles the filters of each star according to the situation
 	rating_loop($("#filter-rating input:checked").attr("value"), 0, 1);
