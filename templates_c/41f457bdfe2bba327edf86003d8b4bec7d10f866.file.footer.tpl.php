@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 01:58:01
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 21:52:44
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:131360000958fa43e1659ac5-21729441%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '41f457bdfe2bba327edf86003d8b4bec7d10f866' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/footer.tpl',
-      1 => 1495501076,
+      1 => 1496091161,
       2 => 'file',
     ),
   ),
@@ -59,7 +59,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<h4>About .bat</h4>
 					<ul>
 						<li><a href="../pages/about-us.php">About us</a></li>
-						<li><a href="../pages/sitemap.php">Sitemap</a></li>
 					</ul>
 				</div>
             </div>

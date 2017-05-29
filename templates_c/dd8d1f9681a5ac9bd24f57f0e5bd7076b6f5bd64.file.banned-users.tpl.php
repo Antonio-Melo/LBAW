@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 01:20:54
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 23:05:30
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/banned-users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:295146638592698b1c7f9c2-32334599%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dd8d1f9681a5ac9bd24f57f0e5bd7076b6f5bd64' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/banned-users.tpl',
-      1 => 1495930852,
+      1 => 1496095528,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'banned' => 0,
+    'order' => 0,
     'user' => 0,
   ),
   'has_nocache_code' => false,
@@ -31,65 +32,50 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<?php if (isset($_SESSION['id'])&&isset($_SESSION['admin'])) {?>
 	<!-- Only admins have access to this page's content -->
-		<h1>Banned-Users</h1>
+		<h1>Banned Users</h1>
 		<hr>
 
-		<div class="row">
-
-			<div class="col-md-3 col-xs-3">
-				<h3> User </h3>
-				<?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['banned']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-?>
-					<p><?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
-</p>
-				<?php } ?>
-			</div>
-
-			<div class="col-md-3 col-xs-3">
-				<h3> ID </h3>
-				<?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['banned']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-?>
-					<p><?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-</p>
-				<?php } ?>
-			</div>
-
-			<div class="col-md-3 col-xs-3">
-				<h3> Date of Unban </h3>
-				<?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['banned']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-?>
-					<p><?php echo $_smarty_tpl->tpl_vars['user']->value['date']-'unban';?>
-</p>
-				<?php } ?>
-			</div>
-
-			<div class="col-md-3 col-xs-3">
-				<h1> Unban</h1>
-				<div class="btn-group-vertical" id="unban-buttons">
+		<div class="table-responsive">
+			<table id="banned" class="table table-hover">
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>ID</th>
+						<th>Date of Unban</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
 					<?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['banned']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
 $_smarty_tpl->tpl_vars['user']->_loop = true;
 ?>
+						<tr id=<?php echo $_smarty_tpl->tpl_vars['order']->value['id'];?>
+>
+							<td><?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+</td>
+							<td><?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+</td>
+							<td>
+							<?php if ($_smarty_tpl->tpl_vars['user']->value['date']-'unban'!=0) {?>
+								<?php echo $_smarty_tpl->tpl_vars['user']->value['date']-'unban';?>
 
-						<button id="unban" type="button" class="btn btn-sm">Unban</button>
-
+							<?php } else { ?>
+								Indefinite
+							<?php }?>
+							</td>
+							<td>
+								<form id=<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+ class="review-input" method="post">
+									<button type="submit" class="unban btn btn-sm">Unban</button>
+								</form>
+							</td>
+						</tr>
 					<?php } ?>
-				</div>	
-			</div>
-
+				</tbody>
+			</table>
 		</div>
-
-
 	<?php } else { ?> <!-- No admin privileges -->
 		<h1 id= "access-denied">ACCESS DENIED</h1>
 	<?php }?>

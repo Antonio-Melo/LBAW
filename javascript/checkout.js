@@ -271,12 +271,8 @@ $(document).ready(function(){
 			url: url,
 			data: {products: p, reference: reference, date_ordered: date_ordered, billing_address: billing_address, shipping_address: shipping_address, shipping_method: shipping_method, payment_method: payment_method },
 			success: function(response) {
-				console.log(response);
 				var json = $.parseJSON(response);
-		        if (!json.status) {
-					$('#authentication-modal').modal();
-				}
-				else {
+		        if (json.status) {
 					$('#checkout-content').remove();
 					$('<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></p><p>Your order was successfully completed!</p><p>Track it in the Orders tab in your Profile.</p>').insertAfter('hr');
 				}

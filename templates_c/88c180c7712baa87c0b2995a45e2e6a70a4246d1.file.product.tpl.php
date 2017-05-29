@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 15:29:44
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:37:27
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1496068119,
+      1 => 1496093711,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_58fa43e303fa87_56323364')) {function content_58fa43e303fa87_56323364($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 
-<div class="panel-body items-display" id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
+<div class="panel-body items-display id-product" id=<?php echo $_smarty_tpl->tpl_vars['product']->value['product_id'];?>
 >
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
@@ -107,8 +107,26 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 	
     <div id="product-info" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		<?php if (isset($_SESSION['id'])&&isset($_SESSION['admin'])) {?>
-			<a href=<?php echo ("editproduct.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
+			<div id="admin">
+				<a href=<?php echo ("editproduct.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
  id="editproduct" class="btn button">Edit product</a>
+				<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
+					<button id="onsale" class="btn button onsale">Stop sale</button>
+				<?php } else { ?>
+					<button id="onsale" class="btn button">Start sale</button>
+				<?php }?>
+				
+				<input id="sale-price" type="number" class="form-control
+				<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
+				hide
+				<?php }?>
+				">
+				<label for="sale-price" 
+				<?php if ($_smarty_tpl->tpl_vars['product']->value['sale_price']!=null) {?>
+				class="hide"
+				<?php }?>
+				>Sale price:</label>
+			</div>
 		<?php }?>
         
 		<div class="full-description">

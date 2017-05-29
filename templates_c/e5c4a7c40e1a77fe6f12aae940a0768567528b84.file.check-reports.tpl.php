@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 19:30:49
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:29:15
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/check-reports.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1601105418592c2febf0cb69-70047035%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e5c4a7c40e1a77fe6f12aae940a0768567528b84' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/check-reports.tpl',
-      1 => 1496082646,
+      1 => 1496086148,
       2 => 'file',
     ),
   ),
@@ -71,10 +71,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['report']->key => $_smarty_tpl->tpl_va
 $_smarty_tpl->tpl_vars['report']->_loop = true;
 ?>
                     <a href=<?php echo ("#").($_smarty_tpl->tpl_vars['report']->value['report_id']);?>
- class="list-group-item" data-toggle="collapse"><?php echo $_smarty_tpl->tpl_vars['report']->value['reported'];?>
- by: <?php echo $_smarty_tpl->tpl_vars['report']->value['user'];?>
- (<?php echo $_smarty_tpl->tpl_vars['report']->value['username'];?>
-) <i class="fa fa-caret-down"></i></a>
+ class="list-group-item" data-toggle="collapse"><?php echo $_smarty_tpl->tpl_vars['report']->value['username2'];?>
+ by: <?php echo $_smarty_tpl->tpl_vars['report']->value['username1'];?>
+ <i class="fa fa-caret-down"></i></a>
                     <div class="collapse answer" id=<?php echo $_smarty_tpl->tpl_vars['report']->value['report_id'];?>
 >
                         <p><?php echo $_smarty_tpl->tpl_vars['report']->value['message'];?>

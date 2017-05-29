@@ -5,10 +5,10 @@
 	<h1>Terms & Conditions</h1>
 	<hr>
 	<div class="terms-conditions-content">
-		<h4>User account</h4>
+		<h2>User account</h2>
 		<p>
 		For safety and security, each customer is allowed to create only one registered account by default. For customers who attempt to create several accounts, we reserve the right to suspend accounts without further notice.</p>
-		<h4>Ordering</h4>
+		<h2>Ordering</h2>
 		<p>
 		Whilst all efforts are made to ensure accuracy of product descriptions, specifications and pricing there may be occasions where errors arise. Should such a situation occur .bat cannot accept your order. In the event of a mistake you will be contacted with a full explanation and a corrected offer. The information displayed is considered as an invitation to treat not as a confirmed offer for sale. The contract is confirmed upon supply of goods.
 		</p>
@@ -20,11 +20,11 @@
 		Both parties agree that, following order dispatch, transportation is the sole responsibility of the third-party logistics company. During this stage, full ownership of the product(s) belongs to the buyer; all associated liability and risks during transportation shall be borne by the buyer.
 		</p>
 		<p>All transactions on .bat.com are processed by Lomeway E-Commerce Limited (The Apex, 2 Sheriffs Orchard Coventry West Midlands CV1 3PP UK). Reach us anytime at support@.bat.com.  For any other type of purchases, these terms are an agreement between you and Lomeway E-Commerce Limited and goods and/or services will be delivered by Lomeway E-Commerce Limited directly.</p>
-		<h4>Order Cancelation</h4>
+		<h2>Order Cancelation</h2>
 		<p>Customers can cancel their order at anytime prior to shipping; please contact our Support Center. However, once the order has been dispatched, the order cannot be canceled, changed, or refunded. Upon receipt of the package, our Warranty and Return policy comes into effect.</p>
 
 
-		<h4>Shipping and Delivery</h4>
+		<h2>Shipping and Delivery</h2>
 
 		<p>Shipping times displayed on .bat refer to the estimated time it takes for packages to leave our hands. Since the actual delivery of your order can be impacted by many events beyond .bat's control once it leaves our facilities, we suggest that if customers have a special occasion or event that they wish to use their item for, such as a birthday, that they order their items well in advance. .bat cannot be held liable for late deliveries. We will, however, work with you to ensure a smooth shopping experience.</p>
 
@@ -55,7 +55,7 @@
 		<p>If a delivery fails for any reason and the address sent to was the correct address as provided by the customer, .bat cannot be held liable if a package is returned to us. </p>
 
 		<p>Whatever the customer orders is what we ship. We can not be held liable for the customer receiving the wrong item if they placed the wrong order. </p>
-		<h4>Exchange and Returns (Money Back Guarantee)</h4>
+		<h2>Exchange and Returns (Money Back Guarantee)</h2>
 		<p> If when you receive your product(s), you are not completely satisfied you may return the items to us, within 45 days for refund. Returns will take approximately 5 working days for the process once the goods have arrived. The precise length depends on the payment provider used (e.g. PayPal, credit card company, etc). Items must be in their original packaging, all the original boxes must be intact and included, along with all packaging materials, manuals, blank warranty cards, plus all accessories and documents provided by the manufacturer.</p>
 		<p>You must first contact us and be in receipt of a return merchandise authorisation (RMA) number before sending any item back. Any product returned without a RMA number will not be refunded.<br>
 		</p>
@@ -65,24 +65,24 @@
 		<p>Any product returned found not to be defective can be refunded within the time stated above. Goods found to be tampered with by the customer will not be replaced but returned at the customer's own expense.</p>
 		<p>By default, the refund amount cannot exceed the original order amount paid to .bat. .bat is not responsible for and has no knowledge about any bank fees or exchange rate charges that may occur. These fees are processed by the issuing bank and will not be refunded by .bat. </p>
 
-		<h4>Non-Returnable </h4>
+		<h2>Non-Returnable </h2>
 		<p>Discounted or end of line products can only be returned for repair. No refunds or replacements will be made.</p>
 
-		<h4>Incorrect/Damaged Goods</h4>
+		<h2>Incorrect/Damaged Goods</h2>
 		<p>We try very hard to ensure that you receive your order in pristine condition. If you do not receive the products ordered, please contact us. In the unlikely event that the product arrives damaged or faulty, please contact us immediately.</p>
 
-		<h4>Product Descriptions</h4>
+		<h2>Product Descriptions</h2>
 		<p>While we try in good faith to be as accurate as possible, we do not warrant that product descriptions or other content is accurate, complete, reliable, or error free. From time to time there may be information on .bat that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing and availability.</p>
 
 		<p>We reserve the right to correct any errors, inaccuracies or omissions and to change or update information at any time without prior notice. <span class="colorOrange">If a key product specification is changed after you place an order or within seven days of delivery, you can cancel and return the order for a full refund.</span></p>
 
-		<h4>Prices</h4>
+		<h2>Prices</h2>
 		<p>Prices and availability of items are subject to change without notice. The prices do not include import tax and duties, should your package become examined and deemed taxable by your local customs. Payment of these is the responsibility of the buyer.</p>
 
-		<h4>Privacy Notice</h4>
+		<h2>Privacy Notice</h2>
 		<p>Note: Newsletter subscription on the registration page checked by default..bat respects customer privacy.</p>
 
-		<h4>Customer Conduct</h4>					
+		<h2>Customer Conduct</h2>					
 		<p>Although .bat will always strive to resolve issues to the satisfaction of the customer in a professional, courteous and friendly fashion, we will not tolerate any unacceptable or unreasonable behavior towards our Customer Service Team members. </p>
 
 		<p>Unacceptable behavior directed towards Customer Service staff or .bat may, for example, include any of the following:</p>
@@ -100,7 +100,7 @@
 		<p>
 		.bat reserves the right to no longer accept orders from the customer in the future without further notice.</p>
 
-		<h4>Complaint Escalation process</h4>
+		<h2>Complaint Escalation process</h2>
 		<p>This process applies strictly to Customer Service issues.</p>
 		<p>If the customer is dissatisfied with the solution offered by our Customer Service, the customer may contact our Ticket Supervisor by submitting a new ticket in "submit a formal complaint" section as follows:</p>
 		<p><u>Here are the steps:</u></p>
@@ -111,7 +111,7 @@
 		<strong>Note: Livechat and telephone are exclusively presales channels. We do not resolve aftersales complaints over Livechat or via phone. </strong></p>
 
 
-		<h4>Conditions Of Use</h4>
+		<h2>Conditions Of Use</h2>
 		<p><strong>Copyrights</strong></p>
 		<p>
 		All content included on the site such as text, graphics, logos, button, icons, images, audio clips, digital downloads and software are all owned by .bat and are protected by international copyright laws.</p>

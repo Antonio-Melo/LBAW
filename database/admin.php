@@ -7,6 +7,14 @@ function banUser($id){
     ');
     $stmt->execute(array($id));
 }
+function unbanUser($id){
+    global $conn;
+    $stmt = $conn->prepare('
+    DELETE FROM banned
+    WHERE banned.id = ?;
+    ');
+    $stmt->execute(array($id));
+}
 
 function removeReport($id){
     global $conn;
@@ -19,9 +27,10 @@ function removeReport($id){
 function getReports(){
     global $conn;
     $stmt = $conn->prepare('
-    SELECT *, report.id as report_id
+    SELECT *, report.id as report_id, user1.username as username1, user2.username as username2 
     FROM report
-    JOIN users ON report.user=users.id
+    JOIN users as user1 ON report.user=user1.id
+    JOIN users as user2 ON report.reported=user2.id
     ORDER BY report_id ASC;
     ');
     $stmt->execute();
@@ -149,6 +158,29 @@ function addFaq($product, $question, $answer) {
 	');
 	$stmt->execute(array($product, $question, $answer));
 }
+
+function deleteSale($product) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	DELETE FROM onsale
+	WHERE id=?;
+	');
+	$stmt->execute(array($product));
+}
+
+function startSale($product, $price) {
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO onsale (id, sale_price)
+	VALUES (?,?);
+	');
+	$stmt->execute(array($product, $price));
+}
+
+
+
 
 
 

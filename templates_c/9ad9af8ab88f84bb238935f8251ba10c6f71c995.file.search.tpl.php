@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 07:04:02
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:12:22
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124811045158fe18342fd7e8-14730495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9ad9af8ab88f84bb238935f8251ba10c6f71c995' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/search.tpl',
-      1 => 1496037837,
+      1 => 1496092340,
       2 => 'file',
     ),
   ),
@@ -129,7 +129,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-categories">
 				<div class="panel-heading">
-					<h4 class="panel-title">Categories<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Categories<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-categories" class="panel-collapse collapse">
@@ -163,7 +163,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-price">
 				<div class="panel-heading">
-					<h4 class="panel-title">Price<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Price<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-price" class="panel-collapse collapse">
@@ -192,7 +192,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-brands">
 				<div class="panel-heading">
-					<h4 class="panel-title">Brand<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Brand<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-brands" class="panel-collapse collapse">
@@ -226,7 +226,7 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-onsale">
 				<div class="panel-heading">
-					<h4 class="panel-title">On sale<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">On sale<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-onsale" class="panel-collapse collapse">
@@ -244,7 +244,7 @@ $_smarty_tpl->tpl_vars['brand']->_loop = true;
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-rating">
 				<div class="panel-heading">
-					<h4 class="panel-title">Rating<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Rating<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-rating" class="panel-collapse collapse">

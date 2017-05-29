@@ -4,46 +4,41 @@
 
 	{if isset($smarty.session.id) && isset($smarty.session.admin)}
 	<!-- Only admins have access to this page's content -->
-		<h1>Banned-Users</h1>
+		<h1>Banned Users</h1>
 		<hr>
 
-		<div class="row">
-
-			<div class="col-md-3 col-xs-3">
-				<h3> User </h3>
-				{foreach $banned as $user}
-					<p>{$user.name}</p>
-				{/foreach}
-			</div>
-
-			<div class="col-md-3 col-xs-3">
-				<h3> ID </h3>
-				{foreach $banned as $user}
-					<p>{$user.id}</p>
-				{/foreach}
-			</div>
-
-			<div class="col-md-3 col-xs-3">
-				<h3> Date of Unban </h3>
-				{foreach $banned as $user}
-					<p>{$user.date-unban}</p>
-				{/foreach}
-			</div>
-
-			<div class="col-md-3 col-xs-3">
-				<h1> Unban</h1>
-				<div class="btn-group-vertical" id="unban-buttons">
+		<div class="table-responsive">
+			<table id="banned" class="table table-hover">
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>ID</th>
+						<th>Date of Unban</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
 					{foreach $banned as $user}
-
-						<button id="unban" type="button" class="btn btn-sm">Unban</button>
-
+						<tr id={$order.id}>
+							<td>{$user.name}</td>
+							<td>{$user.id}</td>
+							<td>
+							{if $user.date-unban != 0}
+								{$user.date-unban}
+							{else}
+								Indefinite
+							{/if}
+							</td>
+							<td>
+								<form id={$user.id} class="review-input" method="post">
+									<button type="submit" class="unban btn btn-sm">Unban</button>
+								</form>
+							</td>
+						</tr>
 					{/foreach}
-				</div>	
-			</div>
-
+				</tbody>
+			</table>
 		</div>
-
-
 	{else} <!-- No admin privileges -->
 		<h1 id= "access-denied">ACCESS DENIED</h1>
 	{/if}

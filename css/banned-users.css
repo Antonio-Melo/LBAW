@@ -1,3 +1,11 @@
+.banned-users-body {
+	padding: 0 15px 20px 15px;
+}
+
+.banned-users-body h1, .banned-users-body .row {
+	margin-left: 10px;
+}
+
 .row{
 	text-align: center;
 }

@@ -332,6 +332,50 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
+	$('#onsale').click(function(e){
+		var url = base_url + "api/onsale.php";
+		var id = $(document).find('.id-product').attr('id');
+		var price = $(this).siblings('input').val();
+		
+		if (!$(this).hasClass('onsale')) {
+			if (price > 0) {
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: {id: id, price: price},
+					success: function(response) {
+						var json = $.parseJSON(response);
+
+						if (json.status) {
+							location.reload();
+						}
+					}
+				});
+			}
+		}
+		else {
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: {id: id},
+				success: function(response) {
+					var json = $.parseJSON(response);
+
+					if (json.status) {
+						location.reload();
+					}
+				}
+			});
+		}
+		
+		
+	});
+		
+		
+		
+		
+	
+	
 	
 	
 	/* Search filter rating */

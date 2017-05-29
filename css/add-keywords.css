@@ -4,6 +4,7 @@
 
 #keywords-body label {
 	display: block;
+	font-weight: normal;
 }
 
 #keywords-body input {

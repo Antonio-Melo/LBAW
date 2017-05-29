@@ -78,7 +78,7 @@
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-categories">
 				<div class="panel-heading">
-					<h4 class="panel-title">Categories<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Categories<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-categories" class="panel-collapse collapse">
@@ -104,7 +104,7 @@
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-price">
 				<div class="panel-heading">
-					<h4 class="panel-title">Price<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Price<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-price" class="panel-collapse collapse">
@@ -131,7 +131,7 @@
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-brands">
 				<div class="panel-heading">
-					<h4 class="panel-title">Brand<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Brand<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-brands" class="panel-collapse collapse">
@@ -157,7 +157,7 @@
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-onsale">
 				<div class="panel-heading">
-					<h4 class="panel-title">On sale<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">On sale<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-onsale" class="panel-collapse collapse">
@@ -175,7 +175,7 @@
 		<div class="panel panel-default">
 			<a data-toggle="collapse" href="#filter-rating">
 				<div class="panel-heading">
-					<h4 class="panel-title">Rating<i class="fa fa-caret-down"></i></h4>
+					<span class="panel-title">Rating<i class="fa fa-caret-down"></i></span>
 				</div>
 			</a>
 			<div id="filter-rating" class="panel-collapse collapse">

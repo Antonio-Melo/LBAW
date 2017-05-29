@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-23 00:44:25
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:51:58
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52854277758fb6c39422f85-64457197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1cf74b0803b015d7c6988005cfc9553203680537' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/profile.tpl',
-      1 => 1495496664,
+      1 => 1496094665,
       2 => 'file',
     ),
   ),
@@ -92,7 +92,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-username">Username:</label></b>
+						<b><label for="edit-username">Username: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-username"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
@@ -112,7 +112,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-name">Name:</label></b>
+						<b><label for="edit-name">Name: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-name"><?php echo $_smarty_tpl->tpl_vars['user']->value['users_name'];?>
@@ -130,7 +130,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-email">E-mail address:</label></b>
+						<b><label for="edit-email">Email address: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-email"><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
@@ -150,7 +150,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-country">Country:</label></b>
+						<b><label for="edit-country">Country: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-country"><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>

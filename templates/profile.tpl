@@ -54,7 +54,7 @@
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-username">Username:</label></b>
+						<b><label for="edit-username">Username: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-username">{$user.username}</p>
@@ -72,7 +72,7 @@
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-name">Name:</label></b>
+						<b><label for="edit-name">Name: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-name">{$user.users_name}</p>
@@ -88,7 +88,7 @@
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-email">E-mail address:</label></b>
+						<b><label for="edit-email">Email address: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-email">{$user.email}</p>
@@ -106,7 +106,7 @@
 				</div>
 				<div class="param">
 					<div class="param-name">
-						<b><label for="edit-country">Country:</label></b>
+						<b><label for="edit-country">Country: *</label></b>
 					</div>
 					<div class="param-content">
 						<p id="info-country">{$user.country_name}</p>

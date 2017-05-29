@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 00:25:03
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:48:14
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:115448483858fa43e157edb5-44808146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a732fb3ff6fdb6d8b5e834702af4285ae90b12eb' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/header.tpl',
-      1 => 1495841093,
+      1 => 1496094488,
       2 => 'file',
     ),
   ),
@@ -203,7 +203,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 							</div>
 							<div id="register-tab" class="tab-pane">
 								<form id="register" class="authentication-input">
-									<label for="register-username">Username</label>
+									<label for="register-username">Username: *</label>
 									<div class="register-input">
 										<input type="text" name="username" id="register-username" required>
 										<div class="error-sign hide">!</div>
@@ -213,7 +213,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 											Must have between 4 and 24 characters.
 										</div>
 									</div>
-									<label for="register-name">Name</label>
+									<label for="register-name">Name: *</label>
 									<div class="register-input">
 										<input type="text" name="name" id="register-name" required>
 										<div class="error-sign hide">!</div>
@@ -221,7 +221,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 											Must have between 1 and 50 characters.
 										</div>
 									</div>
-									<label for="register-email">Email</label>
+									<label for="register-email">Email: *</label>
 									<div class="register-input">
 										<input type="text" name="email" id="register-email" required>
 										<div class="error-sign hide">!</div>
@@ -231,7 +231,7 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 											Can't have more than 128 characters.
 										</div>
 									</div>
-									<label for="register-password">Password</label>
+									<label for="register-password">Password: *</label>
 									<div class="register-input">
 										<input type="password" name="password" id="register-password" required>
 										<div class="error-sign hide">!</div>
@@ -240,9 +240,9 @@ $_smarty_tpl->tpl_vars['keyword']->_loop = true;
 											Must have between 6 and 128 characters.
 										</div>
 									</div>
-									<label for="register-confirm-password">Confirm password</label>
+									<label for="register-confirm-password">Confirm password: *</label>
 									<input type="password" name="confirm-password" id="register-confirm-password" required>
-									<label for="register-country">Country</label>
+									<label for="register-country">Country: *</label>
 									<select name="country" id="register-country" class="country-select" required>
 										<option value="" selected>Select your country</option>
 										<?php  $_smarty_tpl->tpl_vars['country'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['country']->_loop = false;

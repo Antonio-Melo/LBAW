@@ -25,7 +25,7 @@
             {/if}
             <div class="list-group panel">
                 {foreach $reports as $report}
-                    <a href={"#"|cat: $report.report_id} class="list-group-item" data-toggle="collapse">{$report.reported} by: {$report.user} ({$report.username}) <i class="fa fa-caret-down"></i></a>
+                    <a href={"#"|cat: $report.report_id} class="list-group-item" data-toggle="collapse">{$report.username2} by: {$report.username1} <i class="fa fa-caret-down"></i></a>
                     <div class="collapse answer" id={$report.report_id}>
                         <p>{$report.message}</p>
                         <form method="post" action="../actions/ban-user.php">

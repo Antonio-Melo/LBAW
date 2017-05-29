@@ -8,12 +8,10 @@ $response = array();
 if (!$_POST['id'] || !$_POST['report_id']) {
     header('Location: ' . $BASE_URL . 'pages/home.php');
 }
-$id = strip_tags(!$_POST['id']);
-$report_id = strip_tags(!$_POST['report_id']);
+$id = strip_tags($_POST['id']);
+$report_id = strip_tags($_POST['report_id']);
 
 try {
-    echo($id);
-    echo($report_id);
     banUser($id);
     removeReport($report_id);
 } catch (PDOException $e) {

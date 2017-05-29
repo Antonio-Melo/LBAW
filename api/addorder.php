@@ -22,9 +22,6 @@ try {
 	echo json_encode($response);
 	exit;
 } catch (PDOException $e) {
-	$response["status"] = $e->getMessage();
-	echo json_encode($response);
-	exit;
 	die(header("HTTP/1.0 400 Bad Request"));
 }
 ?>

@@ -14,7 +14,7 @@
 	/*==================================================*/
 	/* Change to files of each pages */
 	$smarty->assign('css_file', 'banned-users.css');  
-	$smarty->assign('js_file', 'common.js');
+	$smarty->assign('js_file', 'banned-users.js');
 	$smarty->assign('page_title', 'Banned Users');
 	
 	/*==================================================*/

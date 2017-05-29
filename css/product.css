@@ -164,11 +164,15 @@
 	align-self: stretch;
 }
 
-#product-info #editproduct {
+#product-info #admin {
+	overflow: hidden;
+}
+
+#product-info #editproduct, #product-info #onsale {
 	width: 150px;
 	height: 50px;
-	align-self: flex-end;
-	margin-right: -20px;
+	float: right;
+	margin-right: 15px;
 	background: #c49f66;
 	color: white;
 	outline-style: none;
@@ -176,12 +180,36 @@
 	border-color: transparent;
 	border-radius: 0px;
 	line-height: 36px;
-	
 }
 
-#product-info #editproduct:hover, #product-info #editproduct:focus {
+#product-info #editproduct:hover, #product-info #editproduct:focus, #product-info #onsale:hover, #product-info #onsale:focus {
 	background: #b98d49;
 }
+
+#product-info label {
+	height: 50px;
+	line-height: 50px;
+	float: right;
+	margin-right: 15px;
+	font-weight: normal;
+	margin-bottom: 0px;
+}
+
+#sale-price {
+	width: 150px;
+	height: 50px;
+	float: right;
+	margin-right: 15px;
+	display: inline-block;
+	border: 1px solid #ddd;
+	border-radius: 0;
+	box-shadow: none !important;
+}
+
+#sale-price:focus {
+	border: 2px solid #c49f66 !important;
+}
+
 
 .progress{
     max-width: 575px;

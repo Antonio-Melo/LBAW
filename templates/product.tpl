@@ -1,6 +1,6 @@
 {include file='header.tpl'}
 
-<div class="panel-body items-display" id={$product.product_id}>
+<div class="panel-body items-display id-product" id={$product.product_id}>
     <div id="product-image" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="product-image-container">
 		
@@ -53,7 +53,25 @@
 	
     <div id="product-info" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		{if isset($smarty.session.id) && isset($smarty.session.admin)}
-			<a href={"editproduct.php?id="|cat:$product.product_id} id="editproduct" class="btn button">Edit product</a>
+			<div id="admin">
+				<a href={"editproduct.php?id="|cat:$product.product_id} id="editproduct" class="btn button">Edit product</a>
+				{if $product.sale_price != null}
+					<button id="onsale" class="btn button onsale">Stop sale</button>
+				{else}
+					<button id="onsale" class="btn button">Start sale</button>
+				{/if}
+				
+				<input id="sale-price" type="number" class="form-control
+				{if $product.sale_price != null}
+				hide
+				{/if}
+				">
+				<label for="sale-price" 
+				{if $product.sale_price != null}
+				class="hide"
+				{/if}
+				>Sale price:</label>
+			</div>
 		{/if}
         
 		<div class="full-description">

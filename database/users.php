@@ -671,6 +671,14 @@ function addOrder($reference, $date_ordered, $billing_address, $shipping_address
 		VALUES(?, ?, ?, ?);
 		');
 		$stmt->execute(array($results[0]['id'], $product[0], str_replace(',', '', $product[1]), $product[2]));
+		
+		$stmt = $conn->prepare
+		('
+		UPDATE product
+		SET nr_sales=nr_sales+?, stock=stock-?
+		WHERE id=?;
+		');
+		$stmt->execute(array($product[2], $product[2], $product[0]));
 	}
 	
 	$conn->exec('COMMIT;');
