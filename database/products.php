@@ -12,7 +12,7 @@ function getProductIdbyName($name){
 
     return $results[0];
 }
-function insertProduct($name,$full_name,$sm_description,$price,$qty,$image,$lg_description,$category,$brand){
+function insertProduct($name,$full_name,$sm_description,$price,$qty,$lg_description,$category,$brand){
 	global $conn;
 	$stmt = $conn->prepare('
 	INSERT INTO product (name,full_name,small_description,description,price,brand,stock,keyword)
@@ -453,6 +453,16 @@ function updateNViews($id) {
 	WHERE id=?;
 	');
 	$stmt->execute(array($id));
+}
+
+function addProductImage($product, $url) {	
+	global $conn;
+	$stmt = $conn->prepare
+	('
+	INSERT INTO image(product, url)
+	VALUES (?, ?);
+	');
+	$stmt->execute(array($product, $url));
 }
 
 ?>

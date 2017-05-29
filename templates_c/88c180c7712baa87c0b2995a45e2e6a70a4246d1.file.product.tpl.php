@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 14:45:55
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 15:29:44
          compiled from "/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6288832958fa43e2cfb9a8-89651167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88c180c7712baa87c0b2995a45e2e6a70a4246d1' => 
     array (
       0 => '/opt/lbaw/lbaw1663/public_html/LBAW/templates/product.tpl',
-      1 => 1496063663,
+      1 => 1496068119,
       2 => 'file',
     ),
   ),
@@ -107,7 +107,8 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 	
     <div id="product-info" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		<?php if (isset($_SESSION['id'])&&isset($_SESSION['admin'])) {?>
-			<button id="editproduct" type="button" class="btn btn-primary btn-block profileButton">Edit product</button>
+			<a href=<?php echo ("editproduct.php?id=").($_smarty_tpl->tpl_vars['product']->value['product_id']);?>
+ id="editproduct" class="btn button">Edit product</a>
 		<?php }?>
         
 		<div class="full-description">
@@ -150,9 +151,6 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 					</div>
 				</div>
 			<?php }?>
-			<div class="product-shipping">
-				<br><span>Shipping Cost: FREE SHIPPING Via Unregistered Air Mail</span>
-			</div>
 		</div>
 		
 		<div class="product-add">

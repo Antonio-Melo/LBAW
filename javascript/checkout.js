@@ -232,8 +232,8 @@ $(document).ready(function(){
 	
 	$('#submit-order').click(function(e) {
 		var url = base_url + "api/addorder.php";
-		var element = this;
-		var products = $(this).parents('.items-display').attr('id');
+		var element = $('#cart-results')[0];
+		var products = element.querySelectorAll("#quantity");
 		var shipping_address = $('.selectedAddress').eq(0).attr('id');
 		var billing_address = $('.selectedBillingAddress').eq(0).attr('id');
 		var shipping_method = $('.selectedShipping').eq(0).attr('id');
@@ -251,22 +251,18 @@ $(document).ready(function(){
 		}
 		var date_ordered = yyyy + '-' + mm + '-' + dd;
 		
-		var text = "";
-		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		text += possible.charAt(Math.floor(Math.random() * possible.length));
-		
-		000872240-4
-		var rng = Math.random() * 100000000 + 1000000000;
-		var reference = "BAT" + yyyy + mm + dd + Math.round(rng);
-		var asdf = 0;
-		
+		var reference = "BAT" + yyyy + mm + dd;
+		var numbers = "0123456789";
+		for (i=0; i<11; i++) {
+        	reference += numbers.charAt(Math.floor(Math.random() * numbers.length));
+		}
+		/*
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: {reference: reference, date_ordered: date_ordered, billing_address: billing_address, shipping_address: shipping_address, shipping_method: shipping_method, payment_method: payment_method },
 			success: function(response) {
 				var json = $.parseJSON(response);
-				console.log(response);
 		        if (!json.status) {
 					$('#authentication-modal').modal();
 				}
@@ -275,7 +271,31 @@ $(document).ready(function(){
 			}
 		});
 		e.preventDefault();
+		*/
 		
+		url = base_url + "api/addproductsorder.php";
+		for (i=0; i<products.length; i++) {
+			product = products[i].getAttribute("name");
+			price_paid = products[i].getAttribute("class");
+			nr_units = products[i].getAttribute("value");
+			/*
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: {reference: reference, product: product, price_paid: price_paid, nr_units: nr_units },
+				success: function(response) {
+					console.log(response);
+					var json = $.parseJSON(response);
+					if (!json.status) {
+						$('#authentication-modal').modal();
+					}
+				},
+				error: function() {
+				}
+			});
+			e.preventDefault();
+			*/
+		}
 	});
 });
 

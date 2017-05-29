@@ -169,7 +169,18 @@
 	height: 50px;
 	align-self: flex-end;
 	margin-right: -20px;
+	background: #c49f66;
+	color: white;
+	outline-style: none;
+	box-shadow: none;
+	border-color: transparent;
+	border-radius: 0px;
+	line-height: 36px;
 	
+}
+
+#product-info #editproduct:hover, #product-info #editproduct:focus {
+	background: #b98d49;
 }
 
 .progress{
@@ -376,7 +387,12 @@ td{
 	border: 2px solid #c49f66;
 }
 
-
+#slideshow img{
+	max-width: 400px;
+	max-height: 385px;
+	width: auto;
+    height: auto;
+}
 
 
 

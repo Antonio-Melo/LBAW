@@ -1,5 +1,15 @@
 <?php
-
+function getReports(){
+    global $conn;
+    $stmt = $conn->prepare('
+    SELECT *, report.id as report_id
+    FROM report
+    JOIN users ON report.user=users.id
+    ORDER BY report_id ASC;
+    ');
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
 function getTickets() {
 	global $conn;
 	$stmt = $conn->prepare

@@ -267,8 +267,12 @@
 							{/if}
 						</div>
 						<div class="list-right-container col-lg-2 col-md-2 col-sm-2 col-xs-12">
-								{$index=$product.product_id}
-								<span value = {$smarty.post.$index} id="quantity"> {$smarty.post.$index} </span>
+							{$index=$product.product_id}
+							{if $product.sale_price != null}
+								<span value = {$smarty.post.$index} class={$product.sale_price|number_format:2} name={$product.product_id} id="quantity"> {$smarty.post.$index} </span>
+							{else}
+								<span value = {$smarty.post.$index} class={$product.price|number_format:2} name={$product.product_id} id="quantity"> {$smarty.post.$index} </span>
+							{/if}
 						</div>
 					</div>
 				</div>

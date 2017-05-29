@@ -5,6 +5,12 @@ include_once('../config/init.php');
 include_once('../database/countries.php');
 include_once('../database/keywords.php');
 
+/* Redirect to previous page if not logged in or is admin */
+if (!$_SESSION['id'] || !$_SESSION['admin']) {
+	header("location:javascript://history.go(-1)");
+	exit;
+}
+
 $countries = getAllCountries();
 $keywords = getAllKeywords();
 
