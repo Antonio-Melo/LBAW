@@ -27,29 +27,29 @@
                 <div>
                     <label for="types"><span class="glyphicon glyphicon-list"></span> Type</label>
                     <div class="select dropdown" id="types">
-                        <button class="btn btn-default dropdown-toggle" id="types-search-order-bttn" data-toggle="dropdown">
+                        <button value="1" class="btn btn-default dropdown-toggle" id="types-search-order-bttn" data-toggle="dropdown">
                             Smartphone &nbsp;&nbsp;<span class="caret"></span>
                         </button>
                         <ul id="category" class="dropdown-menu">
-                            <li><a>Smartphone</a></li>
-                            <li><a>Tablet</a></li>
-                            <li><a>Peripheral</a></li>
-                            <li><a>Computer</a></li>
-                            <li><a>Gaming</a></li>
-                            <li><a>Camera</a></li>
-                            <li><a>Accessories</a></li>
+                            <li value="1"><a>Smartphone</a></li>
+                            <li value="2"><a>Tablet</a></li>
+                            <li value="3"><a>Peripheral</a></li>
+                            <li value="4"><a>Computer</a></li>
+                            <li value="5"><a>Gaming</a></li>
+                            <li value="6"><a>Camera</a></li>
+                            <li value="7"><a>Accessories</a></li>
                         </ul>
                     </div>
                 </div>
             <div>
                 <label for="brands"><span class="glyphicon glyphicon-list"></span> Brand</label>
                 <div class="select dropdown" id="brands">
-                    <button class="btn btn-default dropdown-toggle" id="brands-search-order-bttn" data-toggle="dropdown">
+                    <button class="btn btn-default dropdown-toggle" value="" id="brands-search-order-bttn" data-toggle="dropdown">
                          &nbsp;<span class="caret"></span>
                     </button>
                     <ul id="brands-list" class="dropdown-menu">
                         {foreach $brands as $brand}
-                            <li><a>{$brand.name}</a></li>
+                            <li value={$brand.id}><a>{$brand.name}</a></li>
                         {/foreach}
                     </ul>
                 </div>
